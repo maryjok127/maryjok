@@ -38,7 +38,12 @@ jobs:
       - name: Install dependencies
         run: npm ci --legacy-peer-deps
 
+      
       - name: Build and Publish to Oxygen
-        run: npx shopify hydrogen deploy
+        id: deploy
+        uses: shopify/oxygenctl-action@v4
+        with:
+          oxygen_deployment_token: ${{ secrets.OXYGEN_DEPLOYMENT_TOKEN_1000017483 }}
+          build_command: "npm run build"
         env:
           SHOPIFY_HYDROGEN_DEPLOYMENT_TOKEN: ${{ secrets.OXYGEN_DEPLOYMENT_TOKEN_1000017483 }}
