@@ -153,7 +153,7 @@ export function CartSummary({cost, layout, children = null}) {
 
 function CartLineRemoveButton({lineIds}) {
   return (
-    <div className='w-full'>
+    <div className='flex justify-end'>
     <CartForm
       className="w-full"
       route="/cart"
