@@ -178,7 +178,7 @@ function CartLineQuantity({line}) {
     <div className="cart-line-quantiy items-center">
       {/* <span className="font-semibold text-md">Quantity: &nbsp;&nbsp;</span> */}
       <div className="flex w-full items-center">
-        <div className="flex">
+        <div className="flex w-full">
           <div className="quantity">
             <CartLineUpdateButton
               lines={[{id: lineId, quantity: prevQuantity}]}
