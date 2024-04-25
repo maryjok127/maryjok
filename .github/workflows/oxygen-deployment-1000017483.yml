@@ -42,6 +42,7 @@ jobs:
         run: npx shopify hydrogen deploy
         env:
         SHOPIFY_HYDROGEN_DEPLOYMENT_TOKEN: ${{ secrets.OXYGEN_DEPLOYMENT_TOKEN_1000017483 }}
+        build_command: "npm run build"
       # Create GitHub Deployment
       - name: Create GitHub Deployment
         uses: shopify/github-deployment-action@v1
