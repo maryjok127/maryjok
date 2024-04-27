@@ -71,7 +71,7 @@ const ProductCarousel = ({products}) => {
                     </h2>
                     <div className="h-12">
                       <h1 className="text-center font-bold h-full w-full m-auto">
-                      &#x20b9; Math.trunc({product.node.priceRange.minVariantPrice.amount}) Rs
+                      &#x20b9; {Math.trunc(product.node.priceRange.minVariantPrice.amount)} Rs
                       </h1>
                     </div>
                     </div>

@@ -23,19 +23,19 @@
 }
 .slick-prev { left : 0}
 .slick-next { right : 0}
-.footer_txt{ border-top: 0;}
+.footer_txt{ border-top: 0; font-size: 14px;}
 .footer_link_title { font-size: 13px;font-weight: bold;}
-.oke-button { background-color: #d0715f !important; border-radius: .5rem!important; font-family: 'Philosopher' }
+.oke-button { background-color: #f48580 !important; border-radius: .5rem!important; font-family: 'Philosopher' }
 .coll_cor_img { border: 1px solid #dfdfdf;width: 100px;height: 100px;margin: auto;}
-.bg-black { background-color:  #d0715f !important; }
-.bg-blue-700 { background-color:  #d0715f !important; }
-.mst-color {  color: #d0715f;}
-.mst-border { border-color: #d0715f; }
-.border-dotted { border-width: 5px 0; border-color: #d0715f; border-style: dotted; }
-.mst-arrow { border-radius: 50%; background: #d0715f;}
-.mst-card { border:2px solid #d0715f;border-radius: 10px;}
+.bg-black { background-color:  #f48580 !important; }
+.bg-blue-700 { background-color:  #f48580 !important; }
+.mst-color {  color: #f48580;}
+.mst-border { border-color: #f48580; }
+.border-dotted { border-width: 5px 0; border-color: #f48580; border-style: dotted; }
+.mst-arrow { border-radius: 50%; background: #f48580;}
+.mst-card { border:1px solid #f48580;border-radius: 10px;}
 .mst-card-shadow { border-radius: 8px; box-shadow: 0 2px 4px #CB7060;}
-.mst-card-md { border:2px solid #d0715f;border-radius: 5px;}
+.mst-card-md { border:1px solid #f48580;border-radius: 5px;}
 .coupan_code_wrapper { display: inline-flex;justify-content: end; color: #645c5c;align-items: center;}
 .collectionContent{display: flex;justify-content: center;}
 .cursor{cursor: pointer;}
@@ -94,10 +94,9 @@ aside main {
   margin: 1rem;
 }
 .border-active {
-  border: 1px solid green !important;
+  border: 1px solid #000 !important;
   border-radius: 5px !important;
-  background-color: #cdeac7 !important;
-  color: darkgreen;
+  background-color: #ff9f9fb0 !important;
 }
 aside p {
   margin: 0 0 0.25rem;
@@ -603,6 +602,9 @@ footer{
   position: relative;
 }
 .login_wrapper fieldset{margin: 10%;}
+.home-product:hover {
+  background: linear-gradient(#ff9f9f,#DE6C63);
+}
 .search {
   background-image: url('https://cdn.shopify.com/s/files/1/0809/4253/0882/files/search_icon_91210688-67e5-46ef-bdb0-5552bfc77b0b.png?v=1713174297');
   background-position: 10px 10px;
@@ -610,7 +612,7 @@ footer{
   padding: 12px 20px 12px 40px;
 }
 .search::placeholder {
-  color: #d0715f;
+  color: #f48580;
 }
 .container-testimonials {
 	display: flex;
@@ -798,8 +800,8 @@ footer{
 
 @media only screen and (max-width: 450px) {
   .article,.blog-article {margin: 1rem;}
-  .border-b-mobile{ border-bottom: 2px solid #d0715f; }
-  .footer_txt{ margin-top: 10px; border-top: 2px solid #d0715f; padding-top: 5px;}
+  .border-b-mobile{ border-bottom: 2px solid #f48580; }
+  .footer_txt{ margin-top: 10px; border-top: 2px solid #f48580; padding-top: 5px;}
   .footer_shop_brand .cursor-pointer { font-size: 10px; }
   .shadow-p {
     box-shadow: #0003 0 2px 12px !important;

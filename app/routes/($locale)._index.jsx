@@ -252,14 +252,14 @@ export default function Homepage() {
       <RecommendedProducts
         key={ThirdHeroCollection.edges[0].node.id}
         products={ThirdHeroCollection}
-        title="Daily Must-Haves"
+        title="DAILY MUST-HAVES"
       />
-      <GiftingCollection collections={GiftCollections} title={'Gifting'} />
+      <GiftingCollection collections={GiftCollections} title={'GIFTING'} />
 
       <YouTubeVideo></YouTubeVideo>
 
       {isLargeScreen && (
-         <a href="/collections/eyes">
+         <a>
           <div className="my-[15px]">
             <img
               src="https://cdn.shopify.com/s/files/1/0809/4253/0882/files/Lookbook_Banner.jpg?v=1709971241"
@@ -269,7 +269,7 @@ export default function Homepage() {
         </a>
       )}
       {isSmall && (
-        <a href="/collections/eyes">
+        <a>
           <div className="my-[15px]">
             <img
               src="https://cdn.shopify.com/s/files/1/0809/4253/0882/files/mobile_look_book.jpg?v=1712816125"
@@ -282,7 +282,7 @@ export default function Homepage() {
     <LooksComp looks={looks} />
     <div>
       <a href="/pages/about-us">
-        <div className="my-[15px]">
+        <div>
           {!isSmall ?
           <img
             src="https://cdn.shopify.com/s/files/1/0809/4253/0882/files/About_US.jpg?v=1712993514"

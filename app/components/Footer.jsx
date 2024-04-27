@@ -71,7 +71,7 @@ export function Footer({menu}) {
             </div>
           </div>
           
-          <div className="cursor-pointer grid grid-cols-2">
+          <div className="cursor-pointer grid">
             <div>
               <h2 className="font-semibold text-xl">GET IN TOUCH</h2>
               {/* <h3 className="mt-4 mb-2 text-md font-semibold">Call us at</h3>
@@ -82,10 +82,7 @@ export function Footer({menu}) {
               <p className="mt-2 font-semibold text-[#969696]">
                 Monday to Saturday: 10 Am to 7 Pm
               </p>
-            </div>
-            <div className='social-connect text-center'>
-              <h2 className="font-semibold text-xl"> Social Connect </h2>
-              <div className='flex mt-4 justify-center sm:gap-1'>
+              <div className='flex mt-4 sm:gap-1'>
                 <a className='flex-none w-10 sm:w-14' href="https://www.instagram.com/maryjokofficial/?hl=en"><img src="/insta_icon.png" /> </a>
                 <a className='flex-none w-10 sm:w-14' href="https://www.facebook.com/profile.php?id=100064798900233&is_tour_dismissed"><img src="/facebook_icon.png" /> </a>
                 <a className='flex-none w-10 sm:w-14' href="https://www.youtube.com/channel/UCPI8xp_XDecCmYh90hCxH3Q"><img src="/youtube_icon.png" /> </a>

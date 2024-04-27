@@ -51,14 +51,14 @@ const GiftingCollection = ({collections,title}) => {
 
 return (
 <div className="recommended_section w-full max-w-screen-xl mx-auto lg:px-24 sm:px-4 md:px-6">
-<h1 className="text-center lg:text=[28px] text-[20px] mt-[15px]">
-      {title}
+<h1 className="text-center font-semibold my-[15px]">
+  {title}
 </h1> 
 <div className="relative mb-8">
     <Slider {...settings}>  
     {collections.map((coll, index) => {
         return <div key={`gift_${index}`} className="w-full">
-            <div className={`p-1 sm:p-2`}>
+            <div>
               <img
                 onClick={()=> goToCollection(`/collections/${coll.handle}`)}
                 src={coll.image.url} // Make sure to put your images in the 'public/images/' directory

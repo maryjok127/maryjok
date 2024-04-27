@@ -270,11 +270,14 @@ function ProductMain({selectedVariant, product, shareUrl, variants,recommendedPr
           <h2 className="mt-[10px]">Product Description</h2>
           <div className="shadow-p relative p-4 sm:p-0">
             <p className="text-gray-700">
-              {product.description.substr(0, 200)}
+              <div
+                className="expect"
+                dangerouslySetInnerHTML={{__html: product.description}}
+              />
             </p>
             {moreText && (
               <>
-                <div
+              <div
                 className="expect"
                 dangerouslySetInnerHTML={{__html: product.description}}
               />
@@ -423,6 +426,8 @@ function ProductMain({selectedVariant, product, shareUrl, variants,recommendedPr
 //{"type":"root","children":[{"type":"paragraph","children":[{"type":"text","value":"Onion, in combination with coconut, reduces hair fall and promotes growth of lost hair."}]}]}
 
 function ProductPrice({selectedVariant}) {
+  let price = Math.trunc(selectedVariant.price);
+  let compareAtPrice = Math.trunc(selectedVariant.compareAtPrice)
   return (
     <div className="product-price flex gap-[10px] mb-2">
       {selectedVariant?.compareAtPrice ? (
