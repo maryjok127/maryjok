@@ -547,13 +547,15 @@ export default function Collection() {
                               alt={product.title}
                               className="w-full h-auto"
                             />
-                            <h2 className="sm:text-lg text-[17px] font-semibold mt-2 text-center">
-                              {product.title}
-                            </h2>
-                            <div className="h-8">
-                              <h1 className="text-center sm:text-[26px] text-[21px] font-bold m-auto w-full">
-                              {Math.trunc(product.priceRange.maxVariantPrice.amount)} &nbsp; Rs
-                              </h1>
+                            <div className='product_info'>
+                              <h2 className="sm:text-lg text-[17px] font-semibold mt-2 text-center">
+                                {product.title}
+                              </h2>
+                              <div className="h-8">
+                                <h1 className="text-center sm:text-[26px] text-[21px] font-bold m-auto w-full">
+                                {Math.trunc(product.priceRange.maxVariantPrice.amount)} &nbsp; Rs
+                                </h1>
+                              </div>
                             </div>
                             <div className='flex justify-center py-2'>
                             <OkendoStarRating

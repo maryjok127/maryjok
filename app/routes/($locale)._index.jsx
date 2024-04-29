@@ -604,8 +604,8 @@ const PAGE_QUERY = `#graphql
 
 const collectionCult = [
   {
-    title: 'Way 2 Stay',
-    handle:"way-2-stay",
+    title: 'Way 2 Slay',
+    handle:"way-2-slay-mjk",
     url: 'https://cdn.shopify.com/s/files/1/0809/4253/0882/files/Way_2_Slay-01.jpg?v=1713511899',
   },
   {
