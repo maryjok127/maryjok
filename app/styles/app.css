@@ -367,6 +367,8 @@ footer{
   background: #f9f9f9;
   padding: 5px 10px;
   border-bottom: 1px dotted #dfdfdf;
+  position: relative;
+  z-index: 9;
 }
 
 .predictive-search-result h5 {
