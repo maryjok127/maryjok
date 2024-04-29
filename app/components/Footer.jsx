@@ -39,8 +39,8 @@ export function Footer({menu}) {
             </div>
           </div>
           <div className="py-6 footer-contact m-auto">
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-              <div className="grid grid-cols-4 gap-4 border-b-mobile footer_shop_brand">
+            <div className="sm:flex gap-4">
+              <div className="sm:w-[75%] w-[100%] grid grid-cols-4 gap-4 border-b-mobile footer_shop_brand">
                 {
                 menu.items.length && menu.items.map((cat)=>{
                   return(
@@ -71,9 +71,9 @@ export function Footer({menu}) {
             </div>
           </div>
           
-          <div className="cursor-pointer grid">
+          <div className="sm:w-[25%] w-[100%] cursor-pointer grid">
             <div>
-              <h2 className="font-semibold text-xl">GET IN TOUCH</h2>
+              <h2 className="font-semibold text-xl mt-2 sm:mt-0">GET IN TOUCH</h2>
               {/* <h3 className="mt-4 mb-2 text-md font-semibold">Call us at</h3>
                <a className="mt-2 font-bold text-xl text-[#969696]" href="#">
                 +91 9324996122

@@ -68,14 +68,14 @@ export default function Homepage() {
       'https://cdn.shopify.com/s/files/1/0809/4253/0882/files/desktop_banner_1.jpg?v=1713342696',
       'https://cdn.shopify.com/s/files/1/0809/4253/0882/files/desktop_banner_3.jpg?v=1713342905',
       'https://cdn.shopify.com/s/files/1/0809/4253/0882/files/desktop_banner_2.jpg?v=1713342905',
-      'https://cdn.shopify.com/s/files/1/0809/4253/0882/files/desktop_banner_4.jpg?v=1713342905',
+      'https://cdn.shopify.com/s/files/1/0809/4253/0882/files/pro_studio__banner_5_opt_2.jpg?v=1714388254',
     ];
   }else{
     imageSrc = [
       'https://cdn.shopify.com/s/files/1/0809/4253/0882/files/mobile_Hero_Banners_1.jpg?v=1713353171',
       'https://cdn.shopify.com/s/files/1/0809/4253/0882/files/mobile_Hero_Banners_2.jpg?v=1713353171',
       'https://cdn.shopify.com/s/files/1/0809/4253/0882/files/mobile_Hero_Banners_4.jpg?v=1713353171',
-      'https://cdn.shopify.com/s/files/1/0809/4253/0882/files/mobile_Hero_Banners_3.jpg?v=1713353171',
+      'https://cdn.shopify.com/s/files/1/0809/4253/0882/files/pro_studio_mobile_banner_3_700_x_470.jpg?v=1714388254',
     ];
   }
 

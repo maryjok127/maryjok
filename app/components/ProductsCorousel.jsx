@@ -52,13 +52,15 @@ const ProductsCorousel = ({products}) => {
                     alt={product.node.title}
                     className="w-full h-auto"
                   />
-                  <h2 className="text-lg font-semibold mt-2 text-center">
-                    {product.node.title}
-                  </h2>
-                  <div className="h-12">
-                    <h1 className="text-center font-bold h-full w-full m-auto">
-                      {Math.trunc(product.node.priceRange.minVariantPrice.amount)} Rs
-                    </h1>
+                  <div className='product_info'>
+                    <h2 className="text-lg font-semibold mt-2 text-center">
+                      {product.node.title}
+                    </h2>
+                    <div className="h-12">
+                      <h1 className="text-center font-bold h-full w-full m-auto">
+                        {Math.trunc(product.node.priceRange.minVariantPrice.amount)} Rs
+                      </h1>
+                    </div>
                   </div>
                 </div>
                 {/* Add more product information here */}
