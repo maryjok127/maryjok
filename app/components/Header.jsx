@@ -27,7 +27,7 @@ export function Header({header, isLoggedIn, cart}) {
     <>
       <header className="header border-b border-gray-200 sm:mt-0 mt-4">
         <NavLink prefetch="intent" to="/" style={activeLinkStyle} end>
-          <img className="w-[16rem] h-[7.2rem] mb-10 sm:mb-0 mst_mobile_img" src="https://cdn.shopify.com/s/files/1/0809/4253/0882/files/MJK_Logo.png?v=1713158883" />
+          <img className="w-[16rem] mb-10 sm:mb-0 mst_mobile_img" src="https://cdn.shopify.com/s/files/1/0809/4253/0882/files/MJK_Logo.png?v=1713158883" />
           {/* <strong>{shop.name}</strong> */}
         </NavLink>
         
