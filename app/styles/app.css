@@ -598,7 +598,7 @@ footer{
 .collection_desc{ border-top: 5px solid #d87558; padding: 10px 0;}
 .product_info{
   padding: 10px;
-  min-height: 180px;
+  min-height: 160px;
   border-bottom-left-radius: 15px;
   border-bottom-right-radius: 15px;
   position: relative;
