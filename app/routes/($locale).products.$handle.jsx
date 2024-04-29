@@ -269,20 +269,15 @@ function ProductMain({selectedVariant, product, shareUrl, variants,recommendedPr
           </div>
           <h2 className="mt-[10px]">Product Description</h2>
           <div className="shadow-p relative p-4 sm:p-0">
-            <p className="text-gray-700">
-              <div
-                className="expect"
-                dangerouslySetInnerHTML={{__html: product.description}}
-              />
-            </p>
-            {moreText && (
+            <div className="product_desc" dangerouslySetInnerHTML={{__html: product.descriptionHtml}}></div>
+            {/* {moreText && (
               <>
               <div
                 className="expect"
                 dangerouslySetInnerHTML={{__html: product.description}}
               />
               </>
-            )}
+            )} */}
           </div>
           <div className='flex'>
           <OkendoReviews
@@ -993,28 +988,3 @@ const RECOMMENDED_PRODUCTS_QUERY = `#graphql
     }
   }
 `;
-/*
-function JsonToHtml({ json }) {
-  const renderChildren = (children) => {
-    return children.map((child, index) => {
-      if (child.type === 'paragraph') {
-        // If the type is 'paragraph', create a <p> element
-        return <p key={index}>{child.children[0].value}</p>;
-      } else if (child.type === 'list') {
-        // Handle list elements as needed (e.g., ul, ol)
-        // You can add logic to create list elements here
-        return null;
-      } else {
-        // Handle other types or unknown types
-        return null;
-      }
-    });
-  };
-
-  return (
-    <div>
-      {renderChildren(json.children)}
-    </div>
-  );
-};
-*/

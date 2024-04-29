@@ -64,7 +64,7 @@ export default function Orders() {
   const {customer} = useLoaderData();
   const {orders, numberOfOrders} = customer;
   return (
-    <div className="h-full w-full">
+    <div className="h-full w-full p-4">
       <h2>
         Orders <small>({numberOfOrders})</small>
       </h2>

@@ -108,13 +108,11 @@ legend {
   font-weight: 600;
   margin-bottom: 0.5rem;
 }
-
-ul {
-  list-style: none;
-  margin: 0;
-  padding: 0;
+.product_desc ul{
+  list-style: inherit !important;
+  margin: revert;
+  padding: revert;
 }
-
 li {
   margin-bottom: 0.5rem;
 }
