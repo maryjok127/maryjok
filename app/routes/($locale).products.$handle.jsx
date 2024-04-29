@@ -428,15 +428,15 @@ function ProductPrice({selectedVariant}) {
       {selectedVariant?.compareAtPrice ? (
         <>
           <div className="product-price-on-sale font-semibold">
-            {selectedVariant ? <Money data={selectedVariant.price} /> : null}
+            {selectedVariant ? <Money withoutTrailingZeros data={selectedVariant.price} /> : null}
             <s>
-              <Money data={selectedVariant.compareAtPrice} />
+              <Money withoutTrailingZeros data={selectedVariant.compareAtPrice} />
             </s>
           </div>
         </>
       ) : (
         selectedVariant?.price && (
-          <Money className="font-semibold" data={selectedVariant?.price} />
+          <Money withoutTrailingZeros className="font-semibold" data={selectedVariant?.price} />
         )
       )}
       <div>

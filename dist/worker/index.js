@@ -61958,7 +61958,7 @@ function MobileMenuAside({ menu }) {
 }
 
 // app/styles/tailwind.css
-var tailwind_default = "/build/_assets/tailwind-IFIC5GHO.css";
+var tailwind_default = "/build/_assets/tailwind-C2VIUKWT.css";
 
 // node_modules/@okendo/shopify-hydrogen/dist/esm/index.js
 var import_react27 = __toESM(require_react()), r = async ({ context: t18, subscriberId: e5, apiDomain: n7, cdnDomain: r9 }) => {
@@ -66598,7 +66598,7 @@ function Collection() {
                         columnNumber: 29
                       }, this),
                       /* @__PURE__ */ (0, import_jsx_dev_runtime20.jsxDEV)("div", { className: "h-8", children: /* @__PURE__ */ (0, import_jsx_dev_runtime20.jsxDEV)("h1", { className: "text-center sm:text-[26px] text-[21px] font-bold m-auto w-full", children: [
-                        product.priceRange.maxVariantPrice.amount,
+                        Math.trunc(product.priceRange.maxVariantPrice.amount),
                         " \xA0 Rs"
                       ] }, void 0, !0, {
                         fileName: "app/routes/($locale).collections.$handle.jsx",
@@ -68981,7 +68981,7 @@ var import_jsx_dev_runtime27 = __toESM(require_jsx_dev_runtime()), ProductsCorou
             columnNumber: 19
           }, this),
           /* @__PURE__ */ (0, import_jsx_dev_runtime27.jsxDEV)("div", { className: "h-12", children: /* @__PURE__ */ (0, import_jsx_dev_runtime27.jsxDEV)("h1", { className: "text-center font-bold h-full w-full m-auto", children: [
-            product.node.priceRange.minVariantPrice.amount,
+            Math.trunc(product.node.priceRange.minVariantPrice.amount),
             " Rs"
           ] }, void 0, !0, {
             fileName: "app/components/ProductsCorousel.jsx",
@@ -70648,12 +70648,12 @@ function ProductPrice({ selectedVariant }) {
   let price = Math.trunc(selectedVariant.price), compareAtPrice = Math.trunc(selectedVariant.compareAtPrice);
   return /* @__PURE__ */ (0, import_jsx_dev_runtime28.jsxDEV)("div", { className: "product-price flex gap-[10px] mb-2", children: [
     selectedVariant != null && selectedVariant.compareAtPrice ? /* @__PURE__ */ (0, import_jsx_dev_runtime28.jsxDEV)(import_jsx_dev_runtime28.Fragment, { children: /* @__PURE__ */ (0, import_jsx_dev_runtime28.jsxDEV)("div", { className: "product-price-on-sale font-semibold", children: [
-      selectedVariant ? /* @__PURE__ */ (0, import_jsx_dev_runtime28.jsxDEV)(Money, { data: selectedVariant.price }, void 0, !1, {
+      selectedVariant ? /* @__PURE__ */ (0, import_jsx_dev_runtime28.jsxDEV)(Money, { withoutTrailingZeros: !0, data: selectedVariant.price }, void 0, !1, {
         fileName: "app/routes/($locale).products.$handle.jsx",
         lineNumber: 431,
         columnNumber: 32
       }, this) : null,
-      /* @__PURE__ */ (0, import_jsx_dev_runtime28.jsxDEV)("s", { children: /* @__PURE__ */ (0, import_jsx_dev_runtime28.jsxDEV)(Money, { data: selectedVariant.compareAtPrice }, void 0, !1, {
+      /* @__PURE__ */ (0, import_jsx_dev_runtime28.jsxDEV)("s", { children: /* @__PURE__ */ (0, import_jsx_dev_runtime28.jsxDEV)(Money, { withoutTrailingZeros: !0, data: selectedVariant.compareAtPrice }, void 0, !1, {
         fileName: "app/routes/($locale).products.$handle.jsx",
         lineNumber: 433,
         columnNumber: 15
@@ -70670,7 +70670,7 @@ function ProductPrice({ selectedVariant }) {
       fileName: "app/routes/($locale).products.$handle.jsx",
       lineNumber: 429,
       columnNumber: 9
-    }, this) : (selectedVariant == null ? void 0 : selectedVariant.price) && /* @__PURE__ */ (0, import_jsx_dev_runtime28.jsxDEV)(Money, { className: "font-semibold", data: selectedVariant == null ? void 0 : selectedVariant.price }, void 0, !1, {
+    }, this) : (selectedVariant == null ? void 0 : selectedVariant.price) && /* @__PURE__ */ (0, import_jsx_dev_runtime28.jsxDEV)(Money, { withoutTrailingZeros: !0, className: "font-semibold", data: selectedVariant == null ? void 0 : selectedVariant.price }, void 0, !1, {
       fileName: "app/routes/($locale).products.$handle.jsx",
       lineNumber: 439,
       columnNumber: 11
@@ -72249,203 +72249,161 @@ function DefaultSidebar({ heading }) {
       lineNumber: 64,
       columnNumber: 13
     }, this),
-    /* @__PURE__ */ (0, import_jsx_dev_runtime34.jsxDEV)("div", { className: "bg-white", children: /* @__PURE__ */ (0, import_jsx_dev_runtime34.jsxDEV)("div", { className: "flex-col flex", children: [
-      /* @__PURE__ */ (0, import_jsx_dev_runtime34.jsxDEV)("div", { className: "w-full border-b-2 border-gray-200" }, void 0, !1, {
+    /* @__PURE__ */ (0, import_jsx_dev_runtime34.jsxDEV)("div", { className: "bg-white", children: /* @__PURE__ */ (0, import_jsx_dev_runtime34.jsxDEV)("div", { className: "flex-col flex", children: /* @__PURE__ */ (0, import_jsx_dev_runtime34.jsxDEV)("div", { className: "flex bg-gray-100  overflow-x-hidden", children: /* @__PURE__ */ (0, import_jsx_dev_runtime34.jsxDEV)("div", { className: "bg-white lg:flex md:w-60 md:flex-col hidden", children: /* @__PURE__ */ (0, import_jsx_dev_runtime34.jsxDEV)("div", { className: "flex-col p-2 flex overflow-y-auto", children: /* @__PURE__ */ (0, import_jsx_dev_runtime34.jsxDEV)("div", { className: "h-full justify-between flex", children: /* @__PURE__ */ (0, import_jsx_dev_runtime34.jsxDEV)("div", { className: "space-y-4", children: /* @__PURE__ */ (0, import_jsx_dev_runtime34.jsxDEV)("div", { className: "bg-top bg-cover space-y-1", children: [
+      /* @__PURE__ */ (0, import_jsx_dev_runtime34.jsxDEV)("section", { className: "w-40 mx-auto bg-[#20354b] rounded-2xl shadow-lg", children: /* @__PURE__ */ (0, import_jsx_dev_runtime34.jsxDEV)("div", { className: "w-fit mx-auto", children: /* @__PURE__ */ (0, import_jsx_dev_runtime34.jsxDEV)("img", { src: "https://api.lorem.space/image/face?w=120&h=120&hash=bart89fe", className: "rounded-full w-20 ", alt: "profile picture", srcset: "" }, void 0, !1, {
         fileName: "app/components/DefaultSidebar.jsx",
-        lineNumber: 67,
-        columnNumber: 21
+        lineNumber: 84,
+        columnNumber: 13
+      }, this) }, void 0, !1, {
+        fileName: "app/components/DefaultSidebar.jsx",
+        lineNumber: 83,
+        columnNumber: 9
+      }, this) }, void 0, !1, {
+        fileName: "app/components/DefaultSidebar.jsx",
+        lineNumber: 75,
+        columnNumber: 41
       }, this),
-      /* @__PURE__ */ (0, import_jsx_dev_runtime34.jsxDEV)("div", { className: "flex bg-gray-100  overflow-x-hidden", children: /* @__PURE__ */ (0, import_jsx_dev_runtime34.jsxDEV)("div", { className: "bg-white lg:flex md:w-64 md:flex-col hidden", children: /* @__PURE__ */ (0, import_jsx_dev_runtime34.jsxDEV)("div", { className: "flex-col pt-5 flex overflow-y-auto", children: /* @__PURE__ */ (0, import_jsx_dev_runtime34.jsxDEV)("div", { className: "h-full flex-col justify-between px-4 flex", children: /* @__PURE__ */ (0, import_jsx_dev_runtime34.jsxDEV)("div", { className: "space-y-4", children: /* @__PURE__ */ (0, import_jsx_dev_runtime34.jsxDEV)("div", { className: "bg-top bg-cover space-y-1", children: [
-        /* @__PURE__ */ (0, import_jsx_dev_runtime34.jsxDEV)("section", { className: "w-60 mx-auto bg-[#20354b] rounded-2xl px-8 py-3 shadow-lg", children: [
-          /* @__PURE__ */ (0, import_jsx_dev_runtime34.jsxDEV)("div", { className: "flex items-center justify-between", children: [
-            /* @__PURE__ */ (0, import_jsx_dev_runtime34.jsxDEV)("span", { className: "text-gray-400 text-sm", children: "2d ago" }, void 0, !1, {
-              fileName: "app/components/DefaultSidebar.jsx",
-              lineNumber: 77,
-              columnNumber: 13
-            }, this),
-            /* @__PURE__ */ (0, import_jsx_dev_runtime34.jsxDEV)("span", { className: "text-emerald-400", children: /* @__PURE__ */ (0, import_jsx_dev_runtime34.jsxDEV)("svg", { xmlns: "http://www.w3.org/2000/svg", className: "h-6 w-6", fill: "none", viewBox: "0 0 24 24", stroke: "currentColor", children: /* @__PURE__ */ (0, import_jsx_dev_runtime34.jsxDEV)("path", { strokeLinecap: "round", "stroke-linejoin": "round", "stroke-width": "2", d: "M5 12h.01M12 12h.01M19 12h.01M6 12a1 1 0 11-2 0 1 1 0 012 0zm7 0a1 1 0 11-2 0 1 1 0 012 0zm7 0a1 1 0 11-2 0 1 1 0 012 0z" }, void 0, !1, {
-              fileName: "app/components/DefaultSidebar.jsx",
-              lineNumber: 80,
-              columnNumber: 17
-            }, this) }, void 0, !1, {
-              fileName: "app/components/DefaultSidebar.jsx",
-              lineNumber: 79,
-              columnNumber: 17
-            }, this) }, void 0, !1, {
-              fileName: "app/components/DefaultSidebar.jsx",
-              lineNumber: 78,
-              columnNumber: 13
-            }, this)
-          ] }, void 0, !0, {
-            fileName: "app/components/DefaultSidebar.jsx",
-            lineNumber: 76,
-            columnNumber: 9
-          }, this),
-          /* @__PURE__ */ (0, import_jsx_dev_runtime34.jsxDEV)("div", { className: "mt-6 w-fit mx-auto", children: /* @__PURE__ */ (0, import_jsx_dev_runtime34.jsxDEV)("img", { src: "https://api.lorem.space/image/face?w=120&h=120&hash=bart89fe", className: "rounded-full w-28 ", alt: "profile picture", srcset: "" }, void 0, !1, {
-            fileName: "app/components/DefaultSidebar.jsx",
-            lineNumber: 85,
-            columnNumber: 13
-          }, this) }, void 0, !1, {
-            fileName: "app/components/DefaultSidebar.jsx",
-            lineNumber: 84,
-            columnNumber: 9
-          }, this),
-          /* @__PURE__ */ (0, import_jsx_dev_runtime34.jsxDEV)("div", { className: "mt-8 ", children: /* @__PURE__ */ (0, import_jsx_dev_runtime34.jsxDEV)("h2", { className: "text-white font-bold text-2xl tracking-wide", children: heading }, void 0, !1, {
-            fileName: "app/components/DefaultSidebar.jsx",
-            lineNumber: 88,
-            columnNumber: 13
-          }, this) }, void 0, !1, {
-            fileName: "app/components/DefaultSidebar.jsx",
-            lineNumber: 87,
-            columnNumber: 9
-          }, this)
-        ] }, void 0, !0, {
-          fileName: "app/components/DefaultSidebar.jsx",
-          lineNumber: 75,
-          columnNumber: 41
-        }, this),
-        /* @__PURE__ */ (0, import_jsx_dev_runtime34.jsxDEV)("a", { href: "/account/order", className: `font-medium text-sm items-center rounded-lg text-gray-900 px-4 py-2.5 flex
+      /* @__PURE__ */ (0, import_jsx_dev_runtime34.jsxDEV)("a", { href: "/account/order", className: `font-medium text-sm items-center rounded-lg text-gray-900 px-4 py-2.5 flex
                     transition-all duration-200 hover:bg-gray-200 group cursor-pointer`, children: [
-          /* @__PURE__ */ (0, import_jsx_dev_runtime34.jsxDEV)("span", { className: "justify-center items-center flex", children: /* @__PURE__ */ (0, import_jsx_dev_runtime34.jsxDEV)("span", { className: "justify-center items-center flex", children: /* @__PURE__ */ (0, import_jsx_dev_runtime34.jsxDEV)("span", { className: "justify-center items-center flex", children: /* @__PURE__ */ (0, import_jsx_dev_runtime34.jsxDEV)("span", { className: "items-center justify-center flex", children: /* @__PURE__ */ (0, import_jsx_dev_runtime34.jsxDEV)(import_react91.ListItemPrefix, { children: /* @__PURE__ */ (0, import_jsx_dev_runtime34.jsxDEV)(ShoppingBagIcon_default, { className: "h-5 w-5" }, void 0, !1, {
-            fileName: "app/components/DefaultSidebar.jsx",
-            lineNumber: 98,
-            columnNumber: 13
-          }, this) }, void 0, !1, {
-            fileName: "app/components/DefaultSidebar.jsx",
-            lineNumber: 97,
-            columnNumber: 61
-          }, this) }, void 0, !1, {
-            fileName: "app/components/DefaultSidebar.jsx",
-            lineNumber: 96,
-            columnNumber: 61
-          }, this) }, void 0, !1, {
-            fileName: "app/components/DefaultSidebar.jsx",
-            lineNumber: 95,
-            columnNumber: 57
-          }, this) }, void 0, !1, {
-            fileName: "app/components/DefaultSidebar.jsx",
-            lineNumber: 94,
-            columnNumber: 53
-          }, this) }, void 0, !1, {
-            fileName: "app/components/DefaultSidebar.jsx",
-            lineNumber: 93,
-            columnNumber: 49
-          }, this),
-          /* @__PURE__ */ (0, import_jsx_dev_runtime34.jsxDEV)("span", { children: "Order" }, void 0, !1, {
-            fileName: "app/components/DefaultSidebar.jsx",
-            lineNumber: 104,
-            columnNumber: 49
-          }, this)
-        ] }, void 0, !0, {
+        /* @__PURE__ */ (0, import_jsx_dev_runtime34.jsxDEV)("span", { className: "justify-center items-center flex", children: /* @__PURE__ */ (0, import_jsx_dev_runtime34.jsxDEV)("span", { className: "justify-center items-center flex", children: /* @__PURE__ */ (0, import_jsx_dev_runtime34.jsxDEV)("span", { className: "justify-center items-center flex", children: /* @__PURE__ */ (0, import_jsx_dev_runtime34.jsxDEV)("span", { className: "items-center justify-center flex", children: /* @__PURE__ */ (0, import_jsx_dev_runtime34.jsxDEV)(import_react91.ListItemPrefix, { children: /* @__PURE__ */ (0, import_jsx_dev_runtime34.jsxDEV)(ShoppingBagIcon_default, { className: "h-5 w-5" }, void 0, !1, {
           fileName: "app/components/DefaultSidebar.jsx",
-          lineNumber: 91,
-          columnNumber: 45
+          lineNumber: 97,
+          columnNumber: 13
+        }, this) }, void 0, !1, {
+          fileName: "app/components/DefaultSidebar.jsx",
+          lineNumber: 96,
+          columnNumber: 61
+        }, this) }, void 0, !1, {
+          fileName: "app/components/DefaultSidebar.jsx",
+          lineNumber: 95,
+          columnNumber: 61
+        }, this) }, void 0, !1, {
+          fileName: "app/components/DefaultSidebar.jsx",
+          lineNumber: 94,
+          columnNumber: 57
+        }, this) }, void 0, !1, {
+          fileName: "app/components/DefaultSidebar.jsx",
+          lineNumber: 93,
+          columnNumber: 53
+        }, this) }, void 0, !1, {
+          fileName: "app/components/DefaultSidebar.jsx",
+          lineNumber: 92,
+          columnNumber: 49
         }, this),
-        /* @__PURE__ */ (0, import_jsx_dev_runtime34.jsxDEV)("a", { href: "/account/profile", className: `font-medium text-sm items-center rounded-lg text-gray-900 px-4 py-2.5 flex
-                    transition-all duration-200 hover:bg-gray-200 group cursor-pointer`, children: [
-          /* @__PURE__ */ (0, import_jsx_dev_runtime34.jsxDEV)("span", { className: "justify-center items-center flex", children: /* @__PURE__ */ (0, import_jsx_dev_runtime34.jsxDEV)("span", { className: "justify-center items-center flex", children: /* @__PURE__ */ (0, import_jsx_dev_runtime34.jsxDEV)("span", { className: "justify-center items-center flex", children: /* @__PURE__ */ (0, import_jsx_dev_runtime34.jsxDEV)("span", { className: "items-center justify-center flex", children: /* @__PURE__ */ (0, import_jsx_dev_runtime34.jsxDEV)(import_react91.ListItemPrefix, { children: /* @__PURE__ */ (0, import_jsx_dev_runtime34.jsxDEV)(UserCircleIcon_default, { className: "h-5 w-5" }, void 0, !1, {
-            fileName: "app/components/DefaultSidebar.jsx",
-            lineNumber: 113,
-            columnNumber: 13
-          }, this) }, void 0, !1, {
-            fileName: "app/components/DefaultSidebar.jsx",
-            lineNumber: 112,
-            columnNumber: 61
-          }, this) }, void 0, !1, {
-            fileName: "app/components/DefaultSidebar.jsx",
-            lineNumber: 111,
-            columnNumber: 61
-          }, this) }, void 0, !1, {
-            fileName: "app/components/DefaultSidebar.jsx",
-            lineNumber: 110,
-            columnNumber: 57
-          }, this) }, void 0, !1, {
-            fileName: "app/components/DefaultSidebar.jsx",
-            lineNumber: 109,
-            columnNumber: 53
-          }, this) }, void 0, !1, {
-            fileName: "app/components/DefaultSidebar.jsx",
-            lineNumber: 108,
-            columnNumber: 49
-          }, this),
-          /* @__PURE__ */ (0, import_jsx_dev_runtime34.jsxDEV)("span", { children: "Profile" }, void 0, !1, {
-            fileName: "app/components/DefaultSidebar.jsx",
-            lineNumber: 119,
-            columnNumber: 49
-          }, this)
-        ] }, void 0, !0, {
+        /* @__PURE__ */ (0, import_jsx_dev_runtime34.jsxDEV)("span", { children: "Order" }, void 0, !1, {
           fileName: "app/components/DefaultSidebar.jsx",
-          lineNumber: 106,
-          columnNumber: 45
-        }, this),
-        /* @__PURE__ */ (0, import_jsx_dev_runtime34.jsxDEV)("a", { href: "/account/addresses", className: `font-medium text-sm items-center rounded-lg text-gray-900 px-4 py-2.5 flex
-                    transition-all duration-200 hover:bg-gray-200 group cursor-pointer`, children: [
-          /* @__PURE__ */ (0, import_jsx_dev_runtime34.jsxDEV)("span", { className: "justify-center items-center flex", children: /* @__PURE__ */ (0, import_jsx_dev_runtime34.jsxDEV)("span", { className: "justify-center items-center flex", children: /* @__PURE__ */ (0, import_jsx_dev_runtime34.jsxDEV)("span", { className: "justify-center items-center flex", children: /* @__PURE__ */ (0, import_jsx_dev_runtime34.jsxDEV)("span", { className: "items-center justify-center flex", children: /* @__PURE__ */ (0, import_jsx_dev_runtime34.jsxDEV)(import_react91.ListItemPrefix, { children: /* @__PURE__ */ (0, import_jsx_dev_runtime34.jsxDEV)(UserCircleIcon_default, { className: "h-5 w-5" }, void 0, !1, {
-            fileName: "app/components/DefaultSidebar.jsx",
-            lineNumber: 128,
-            columnNumber: 13
-          }, this) }, void 0, !1, {
-            fileName: "app/components/DefaultSidebar.jsx",
-            lineNumber: 127,
-            columnNumber: 61
-          }, this) }, void 0, !1, {
-            fileName: "app/components/DefaultSidebar.jsx",
-            lineNumber: 126,
-            columnNumber: 61
-          }, this) }, void 0, !1, {
-            fileName: "app/components/DefaultSidebar.jsx",
-            lineNumber: 125,
-            columnNumber: 57
-          }, this) }, void 0, !1, {
-            fileName: "app/components/DefaultSidebar.jsx",
-            lineNumber: 124,
-            columnNumber: 53
-          }, this) }, void 0, !1, {
-            fileName: "app/components/DefaultSidebar.jsx",
-            lineNumber: 123,
-            columnNumber: 49
-          }, this),
-          /* @__PURE__ */ (0, import_jsx_dev_runtime34.jsxDEV)("span", { children: "Address" }, void 0, !1, {
-            fileName: "app/components/DefaultSidebar.jsx",
-            lineNumber: 134,
-            columnNumber: 49
-          }, this)
-        ] }, void 0, !0, {
-          fileName: "app/components/DefaultSidebar.jsx",
-          lineNumber: 121,
-          columnNumber: 45
-        }, this),
-        /* @__PURE__ */ (0, import_jsx_dev_runtime34.jsxDEV)(Logout2, {}, void 0, !1, {
-          fileName: "app/components/DefaultSidebar.jsx",
-          lineNumber: 136,
-          columnNumber: 45
+          lineNumber: 103,
+          columnNumber: 49
         }, this)
       ] }, void 0, !0, {
         fileName: "app/components/DefaultSidebar.jsx",
-        lineNumber: 74,
-        columnNumber: 41
-      }, this) }, void 0, !1, {
+        lineNumber: 90,
+        columnNumber: 45
+      }, this),
+      /* @__PURE__ */ (0, import_jsx_dev_runtime34.jsxDEV)("a", { href: "/account/profile", className: `font-medium text-sm items-center rounded-lg text-gray-900 px-4 py-2.5 flex
+                    transition-all duration-200 hover:bg-gray-200 group cursor-pointer`, children: [
+        /* @__PURE__ */ (0, import_jsx_dev_runtime34.jsxDEV)("span", { className: "justify-center items-center flex", children: /* @__PURE__ */ (0, import_jsx_dev_runtime34.jsxDEV)("span", { className: "justify-center items-center flex", children: /* @__PURE__ */ (0, import_jsx_dev_runtime34.jsxDEV)("span", { className: "justify-center items-center flex", children: /* @__PURE__ */ (0, import_jsx_dev_runtime34.jsxDEV)("span", { className: "items-center justify-center flex", children: /* @__PURE__ */ (0, import_jsx_dev_runtime34.jsxDEV)(import_react91.ListItemPrefix, { children: /* @__PURE__ */ (0, import_jsx_dev_runtime34.jsxDEV)(UserCircleIcon_default, { className: "h-5 w-5" }, void 0, !1, {
+          fileName: "app/components/DefaultSidebar.jsx",
+          lineNumber: 112,
+          columnNumber: 13
+        }, this) }, void 0, !1, {
+          fileName: "app/components/DefaultSidebar.jsx",
+          lineNumber: 111,
+          columnNumber: 61
+        }, this) }, void 0, !1, {
+          fileName: "app/components/DefaultSidebar.jsx",
+          lineNumber: 110,
+          columnNumber: 61
+        }, this) }, void 0, !1, {
+          fileName: "app/components/DefaultSidebar.jsx",
+          lineNumber: 109,
+          columnNumber: 57
+        }, this) }, void 0, !1, {
+          fileName: "app/components/DefaultSidebar.jsx",
+          lineNumber: 108,
+          columnNumber: 53
+        }, this) }, void 0, !1, {
+          fileName: "app/components/DefaultSidebar.jsx",
+          lineNumber: 107,
+          columnNumber: 49
+        }, this),
+        /* @__PURE__ */ (0, import_jsx_dev_runtime34.jsxDEV)("span", { children: "Profile" }, void 0, !1, {
+          fileName: "app/components/DefaultSidebar.jsx",
+          lineNumber: 118,
+          columnNumber: 49
+        }, this)
+      ] }, void 0, !0, {
         fileName: "app/components/DefaultSidebar.jsx",
-        lineNumber: 73,
-        columnNumber: 37
-      }, this) }, void 0, !1, {
+        lineNumber: 105,
+        columnNumber: 45
+      }, this),
+      /* @__PURE__ */ (0, import_jsx_dev_runtime34.jsxDEV)("a", { href: "/account/addresses", className: `font-medium text-sm items-center rounded-lg text-gray-900 px-4 py-2.5 flex
+                    transition-all duration-200 hover:bg-gray-200 group cursor-pointer`, children: [
+        /* @__PURE__ */ (0, import_jsx_dev_runtime34.jsxDEV)("span", { className: "justify-center items-center flex", children: /* @__PURE__ */ (0, import_jsx_dev_runtime34.jsxDEV)("span", { className: "justify-center items-center flex", children: /* @__PURE__ */ (0, import_jsx_dev_runtime34.jsxDEV)("span", { className: "justify-center items-center flex", children: /* @__PURE__ */ (0, import_jsx_dev_runtime34.jsxDEV)("span", { className: "items-center justify-center flex", children: /* @__PURE__ */ (0, import_jsx_dev_runtime34.jsxDEV)(import_react91.ListItemPrefix, { children: /* @__PURE__ */ (0, import_jsx_dev_runtime34.jsxDEV)(UserCircleIcon_default, { className: "h-5 w-5" }, void 0, !1, {
+          fileName: "app/components/DefaultSidebar.jsx",
+          lineNumber: 127,
+          columnNumber: 13
+        }, this) }, void 0, !1, {
+          fileName: "app/components/DefaultSidebar.jsx",
+          lineNumber: 126,
+          columnNumber: 61
+        }, this) }, void 0, !1, {
+          fileName: "app/components/DefaultSidebar.jsx",
+          lineNumber: 125,
+          columnNumber: 61
+        }, this) }, void 0, !1, {
+          fileName: "app/components/DefaultSidebar.jsx",
+          lineNumber: 124,
+          columnNumber: 57
+        }, this) }, void 0, !1, {
+          fileName: "app/components/DefaultSidebar.jsx",
+          lineNumber: 123,
+          columnNumber: 53
+        }, this) }, void 0, !1, {
+          fileName: "app/components/DefaultSidebar.jsx",
+          lineNumber: 122,
+          columnNumber: 49
+        }, this),
+        /* @__PURE__ */ (0, import_jsx_dev_runtime34.jsxDEV)("span", { children: "Address" }, void 0, !1, {
+          fileName: "app/components/DefaultSidebar.jsx",
+          lineNumber: 133,
+          columnNumber: 49
+        }, this)
+      ] }, void 0, !0, {
         fileName: "app/components/DefaultSidebar.jsx",
-        lineNumber: 72,
-        columnNumber: 33
-      }, this) }, void 0, !1, {
+        lineNumber: 120,
+        columnNumber: 45
+      }, this),
+      /* @__PURE__ */ (0, import_jsx_dev_runtime34.jsxDEV)(Logout2, {}, void 0, !1, {
         fileName: "app/components/DefaultSidebar.jsx",
-        lineNumber: 71,
-        columnNumber: 29
-      }, this) }, void 0, !1, {
-        fileName: "app/components/DefaultSidebar.jsx",
-        lineNumber: 70,
-        columnNumber: 25
-      }, this) }, void 0, !1, {
-        fileName: "app/components/DefaultSidebar.jsx",
-        lineNumber: 69,
-        columnNumber: 21
+        lineNumber: 135,
+        columnNumber: 45
       }, this)
     ] }, void 0, !0, {
+      fileName: "app/components/DefaultSidebar.jsx",
+      lineNumber: 74,
+      columnNumber: 41
+    }, this) }, void 0, !1, {
+      fileName: "app/components/DefaultSidebar.jsx",
+      lineNumber: 73,
+      columnNumber: 37
+    }, this) }, void 0, !1, {
+      fileName: "app/components/DefaultSidebar.jsx",
+      lineNumber: 72,
+      columnNumber: 33
+    }, this) }, void 0, !1, {
+      fileName: "app/components/DefaultSidebar.jsx",
+      lineNumber: 71,
+      columnNumber: 29
+    }, this) }, void 0, !1, {
+      fileName: "app/components/DefaultSidebar.jsx",
+      lineNumber: 70,
+      columnNumber: 25
+    }, this) }, void 0, !1, {
+      fileName: "app/components/DefaultSidebar.jsx",
+      lineNumber: 69,
+      columnNumber: 21
+    }, this) }, void 0, !1, {
       fileName: "app/components/DefaultSidebar.jsx",
       lineNumber: 66,
       columnNumber: 17
@@ -72469,12 +72427,8 @@ function Logout2() {
                     transition-all duration-200 hover:bg-gray-200 group cursor-pointer`, children: [
     /* @__PURE__ */ (0, import_jsx_dev_runtime34.jsxDEV)("span", { className: "justify-center items-center flex", children: /* @__PURE__ */ (0, import_jsx_dev_runtime34.jsxDEV)("span", { className: "justify-center items-center flex", children: /* @__PURE__ */ (0, import_jsx_dev_runtime34.jsxDEV)("span", { className: "justify-center items-center flex", children: /* @__PURE__ */ (0, import_jsx_dev_runtime34.jsxDEV)("span", { className: "items-center justify-center flex", children: /* @__PURE__ */ (0, import_jsx_dev_runtime34.jsxDEV)(import_react91.ListItemPrefix, { children: /* @__PURE__ */ (0, import_jsx_dev_runtime34.jsxDEV)(PowerIcon_default, { className: "h-5 w-5" }, void 0, !1, {
       fileName: "app/components/DefaultSidebar.jsx",
-      lineNumber: 159,
-      columnNumber: 7
-    }, this) }, void 0, !1, {
-      fileName: "app/components/DefaultSidebar.jsx",
       lineNumber: 158,
-      columnNumber: 61
+      columnNumber: 7
     }, this) }, void 0, !1, {
       fileName: "app/components/DefaultSidebar.jsx",
       lineNumber: 157,
@@ -72482,28 +72436,32 @@ function Logout2() {
     }, this) }, void 0, !1, {
       fileName: "app/components/DefaultSidebar.jsx",
       lineNumber: 156,
-      columnNumber: 57
+      columnNumber: 61
     }, this) }, void 0, !1, {
       fileName: "app/components/DefaultSidebar.jsx",
       lineNumber: 155,
-      columnNumber: 53
+      columnNumber: 57
     }, this) }, void 0, !1, {
       fileName: "app/components/DefaultSidebar.jsx",
       lineNumber: 154,
+      columnNumber: 53
+    }, this) }, void 0, !1, {
+      fileName: "app/components/DefaultSidebar.jsx",
+      lineNumber: 153,
       columnNumber: 49
     }, this),
     /* @__PURE__ */ (0, import_jsx_dev_runtime34.jsxDEV)(Form, { method: "POST", action: "/account/logout", children: /* @__PURE__ */ (0, import_jsx_dev_runtime34.jsxDEV)("button", { type: "submit", children: "Sign out" }, void 0, !1, {
       fileName: "app/components/DefaultSidebar.jsx",
-      lineNumber: 166,
+      lineNumber: 165,
       columnNumber: 5
     }, this) }, void 0, !1, {
       fileName: "app/components/DefaultSidebar.jsx",
-      lineNumber: 165,
+      lineNumber: 164,
       columnNumber: 49
     }, this)
   ] }, void 0, !0, {
     fileName: "app/components/DefaultSidebar.jsx",
-    lineNumber: 152,
+    lineNumber: 151,
     columnNumber: 5
   }, this);
 }
@@ -75306,7 +75264,7 @@ var LAYOUT_QUERY = `#graphql
 `;
 
 // server-assets-manifest:@remix-run/dev/assets-manifest
-var assets_manifest_default = { entry: { module: "/build/entry.client-HWXT6HWF.js", imports: ["/build/_shared/chunk-FM7TTYIF.js", "/build/_shared/chunk-CFXHHO4K.js", "/build/_shared/chunk-PNG5AS42.js"] }, routes: { root: { id: "root", parentId: void 0, path: "", index: void 0, caseSensitive: void 0, module: "/build/root-XYOQLS7G.js", imports: ["/build/_shared/chunk-UTIKAAM3.js", "/build/_shared/chunk-BGS7F2B5.js", "/build/_shared/chunk-OOZLT3E7.js", "/build/_shared/chunk-F4TRWIY4.js", "/build/_shared/chunk-2W566VR7.js", "/build/_shared/chunk-DGST5VAI.js", "/build/_shared/chunk-AQMJZ442.js", "/build/_shared/chunk-NNH77UO3.js", "/build/_shared/chunk-D3AIAV2V.js", "/build/_shared/chunk-3G62A2VJ.js", "/build/_shared/chunk-BSZVYZCA.js", "/build/_shared/chunk-VY5OJHMS.js"], hasAction: !1, hasLoader: !0, hasCatchBoundary: !1, hasErrorBoundary: !0 }, "routes/($locale).$": { id: "routes/($locale).$", parentId: "root", path: ":locale?/*", index: void 0, caseSensitive: void 0, module: "/build/routes/($locale).$-DDDRNU3P.js", imports: void 0, hasAction: !1, hasLoader: !0, hasCatchBoundary: !1, hasErrorBoundary: !1 }, "routes/($locale).[sitemap.xml]": { id: "routes/($locale).[sitemap.xml]", parentId: "root", path: ":locale?/sitemap.xml", index: void 0, caseSensitive: void 0, module: "/build/routes/($locale).[sitemap.xml]-H6EIDNVM.js", imports: void 0, hasAction: !1, hasLoader: !0, hasCatchBoundary: !1, hasErrorBoundary: !1 }, "routes/($locale)._index": { id: "routes/($locale)._index", parentId: "root", path: ":locale?", index: !0, caseSensitive: void 0, module: "/build/routes/($locale)._index-RQWR76DZ.js", imports: void 0, hasAction: !1, hasLoader: !0, hasCatchBoundary: !1, hasErrorBoundary: !1 }, "routes/($locale).account": { id: "routes/($locale).account", parentId: "root", path: ":locale?/account", index: void 0, caseSensitive: void 0, module: "/build/routes/($locale).account-EYMOUO72.js", imports: ["/build/_shared/chunk-7M6P6K7X.js"], hasAction: !1, hasLoader: !0, hasCatchBoundary: !1, hasErrorBoundary: !1 }, "routes/($locale).account.$": { id: "routes/($locale).account.$", parentId: "routes/($locale).account", path: "*", index: void 0, caseSensitive: void 0, module: "/build/routes/($locale).account.$-IDA7PP7J.js", imports: void 0, hasAction: !1, hasLoader: !0, hasCatchBoundary: !1, hasErrorBoundary: !1 }, "routes/($locale).account.addresses": { id: "routes/($locale).account.addresses", parentId: "routes/($locale).account", path: "addresses", index: void 0, caseSensitive: void 0, module: "/build/routes/($locale).account.addresses-UW56T35F.js", imports: void 0, hasAction: !0, hasLoader: !0, hasCatchBoundary: !1, hasErrorBoundary: !1 }, "routes/($locale).account.orders.$id": { id: "routes/($locale).account.orders.$id", parentId: "routes/($locale).account", path: "orders/:id", index: void 0, caseSensitive: void 0, module: "/build/routes/($locale).account.orders.$id-P4I3QDMF.js", imports: ["/build/_shared/chunk-VY5OJHMS.js"], hasAction: !1, hasLoader: !0, hasCatchBoundary: !1, hasErrorBoundary: !1 }, "routes/($locale).account.orders._index": { id: "routes/($locale).account.orders._index", parentId: "routes/($locale).account", path: "orders", index: !0, caseSensitive: void 0, module: "/build/routes/($locale).account.orders._index-IBSE6E62.js", imports: ["/build/_shared/chunk-ZPBXTGWZ.js", "/build/_shared/chunk-3G62A2VJ.js", "/build/_shared/chunk-BSZVYZCA.js", "/build/_shared/chunk-VY5OJHMS.js"], hasAction: !1, hasLoader: !0, hasCatchBoundary: !1, hasErrorBoundary: !1 }, "routes/($locale).account.profile": { id: "routes/($locale).account.profile", parentId: "routes/($locale).account", path: "profile", index: void 0, caseSensitive: void 0, module: "/build/routes/($locale).account.profile-NXUTGPGB.js", imports: void 0, hasAction: !0, hasLoader: !0, hasCatchBoundary: !1, hasErrorBoundary: !1 }, "routes/($locale).account_.activate.$id.$activationToken": { id: "routes/($locale).account_.activate.$id.$activationToken", parentId: "root", path: ":locale?/account/activate/:id/:activationToken", index: void 0, caseSensitive: void 0, module: "/build/routes/($locale).account_.activate.$id.$activationToken-TWBKTJHT.js", imports: void 0, hasAction: !0, hasLoader: !0, hasCatchBoundary: !1, hasErrorBoundary: !1 }, "routes/($locale).account_.login": { id: "routes/($locale).account_.login", parentId: "root", path: ":locale?/account/login", index: void 0, caseSensitive: void 0, module: "/build/routes/($locale).account_.login-BCCBUGMG.js", imports: void 0, hasAction: !0, hasLoader: !0, hasCatchBoundary: !1, hasErrorBoundary: !1 }, "routes/($locale).account_.logout": { id: "routes/($locale).account_.logout", parentId: "root", path: ":locale?/account/logout", index: void 0, caseSensitive: void 0, module: "/build/routes/($locale).account_.logout-H6PFS4O4.js", imports: void 0, hasAction: !0, hasLoader: !0, hasCatchBoundary: !1, hasErrorBoundary: !1 }, "routes/($locale).account_.recover": { id: "routes/($locale).account_.recover", parentId: "root", path: ":locale?/account/recover", index: void 0, caseSensitive: void 0, module: "/build/routes/($locale).account_.recover-WPHFFVHS.js", imports: void 0, hasAction: !0, hasLoader: !0, hasCatchBoundary: !1, hasErrorBoundary: !1 }, "routes/($locale).account_.register": { id: "routes/($locale).account_.register", parentId: "root", path: ":locale?/account/register", index: void 0, caseSensitive: void 0, module: "/build/routes/($locale).account_.register-FCZOOCU5.js", imports: void 0, hasAction: !0, hasLoader: !0, hasCatchBoundary: !1, hasErrorBoundary: !1 }, "routes/($locale).account_.reset.$id.$resetToken": { id: "routes/($locale).account_.reset.$id.$resetToken", parentId: "root", path: ":locale?/account/reset/:id/:resetToken", index: void 0, caseSensitive: void 0, module: "/build/routes/($locale).account_.reset.$id.$resetToken-QJ3G3N7V.js", imports: void 0, hasAction: !0, hasLoader: !1, hasCatchBoundary: !1, hasErrorBoundary: !1 }, "routes/($locale).api.predictive-search": { id: "routes/($locale).api.predictive-search", parentId: "root", path: ":locale?/api/predictive-search", index: void 0, caseSensitive: void 0, module: "/build/routes/($locale).api.predictive-search-6SBFKV26.js", imports: void 0, hasAction: !0, hasLoader: !1, hasCatchBoundary: !1, hasErrorBoundary: !1 }, "routes/($locale).blogs.$blogHandle.$articleHandle": { id: "routes/($locale).blogs.$blogHandle.$articleHandle", parentId: "root", path: ":locale?/blogs/:blogHandle/:articleHandle", index: void 0, caseSensitive: void 0, module: "/build/routes/($locale).blogs.$blogHandle.$articleHandle-IIRQXA7S.js", imports: void 0, hasAction: !1, hasLoader: !0, hasCatchBoundary: !1, hasErrorBoundary: !1 }, "routes/($locale).blogs.$blogHandle._index": { id: "routes/($locale).blogs.$blogHandle._index", parentId: "root", path: ":locale?/blogs/:blogHandle", index: !0, caseSensitive: void 0, module: "/build/routes/($locale).blogs.$blogHandle._index-U4FIVITR.js", imports: void 0, hasAction: !1, hasLoader: !0, hasCatchBoundary: !1, hasErrorBoundary: !1 }, "routes/($locale).blogs._index": { id: "routes/($locale).blogs._index", parentId: "root", path: ":locale?/blogs", index: !0, caseSensitive: void 0, module: "/build/routes/($locale).blogs._index-6FNJVY6E.js", imports: void 0, hasAction: !1, hasLoader: !0, hasCatchBoundary: !1, hasErrorBoundary: !1 }, "routes/($locale).cart": { id: "routes/($locale).cart", parentId: "root", path: ":locale?/cart", index: void 0, caseSensitive: void 0, module: "/build/routes/($locale).cart-3VTCH7KT.js", imports: ["/build/_shared/chunk-BYUR5SQE.js"], hasAction: !0, hasLoader: !0, hasCatchBoundary: !1, hasErrorBoundary: !1 }, "routes/($locale).collections.$handle": { id: "routes/($locale).collections.$handle", parentId: "root", path: ":locale?/collections/:handle", index: void 0, caseSensitive: void 0, module: "/build/routes/($locale).collections.$handle-VOGS3ATS.js", imports: ["/build/_shared/chunk-ZPBXTGWZ.js"], hasAction: !1, hasLoader: !0, hasCatchBoundary: !1, hasErrorBoundary: !1 }, "routes/($locale).collections._index": { id: "routes/($locale).collections._index", parentId: "root", path: ":locale?/collections", index: !0, caseSensitive: void 0, module: "/build/routes/($locale).collections._index-3INPTDT3.js", imports: void 0, hasAction: !1, hasLoader: !0, hasCatchBoundary: !1, hasErrorBoundary: !1 }, "routes/($locale).offers": { id: "routes/($locale).offers", parentId: "root", path: ":locale?/offers", index: void 0, caseSensitive: void 0, module: "/build/routes/($locale).offers-PNLK3VAV.js", imports: void 0, hasAction: !1, hasLoader: !0, hasCatchBoundary: !1, hasErrorBoundary: !1 }, "routes/($locale).pages.$handle": { id: "routes/($locale).pages.$handle", parentId: "root", path: ":locale?/pages/:handle", index: void 0, caseSensitive: void 0, module: "/build/routes/($locale).pages.$handle-QTZOP6F6.js", imports: void 0, hasAction: !1, hasLoader: !0, hasCatchBoundary: !1, hasErrorBoundary: !1 }, "routes/($locale).policies.$handle": { id: "routes/($locale).policies.$handle", parentId: "root", path: ":locale?/policies/:handle", index: void 0, caseSensitive: void 0, module: "/build/routes/($locale).policies.$handle-XO72JGCK.js", imports: void 0, hasAction: !1, hasLoader: !0, hasCatchBoundary: !1, hasErrorBoundary: !1 }, "routes/($locale).policies._index": { id: "routes/($locale).policies._index", parentId: "root", path: ":locale?/policies", index: !0, caseSensitive: void 0, module: "/build/routes/($locale).policies._index-C4O43EB5.js", imports: void 0, hasAction: !1, hasLoader: !0, hasCatchBoundary: !1, hasErrorBoundary: !1 }, "routes/($locale).products.$handle": { id: "routes/($locale).products.$handle", parentId: "root", path: ":locale?/products/:handle", index: void 0, caseSensitive: void 0, module: "/build/routes/($locale).products.$handle-IN4B27ON.js", imports: ["/build/_shared/chunk-BYUR5SQE.js"], hasAction: !1, hasLoader: !0, hasCatchBoundary: !1, hasErrorBoundary: !1 }, "routes/($locale).search": { id: "routes/($locale).search", parentId: "root", path: ":locale?/search", index: void 0, caseSensitive: void 0, module: "/build/routes/($locale).search-F7FNEDA7.js", imports: void 0, hasAction: !1, hasLoader: !0, hasCatchBoundary: !1, hasErrorBoundary: !1 }, "routes/[robots.txt]": { id: "routes/[robots.txt]", parentId: "root", path: "robots.txt", index: void 0, caseSensitive: void 0, module: "/build/routes/[robots.txt]-OU6DB2IP.js", imports: void 0, hasAction: !1, hasLoader: !0, hasCatchBoundary: !1, hasErrorBoundary: !0 }, "virtual-routes/routes/graphiql": { id: "virtual-routes/routes/graphiql", parentId: "virtual-routes/virtual-root", path: "graphiql", index: void 0, caseSensitive: void 0, module: "/build/virtual-routes/routes/graphiql-IUV5DDHT.js", imports: void 0, hasAction: !1, hasLoader: !0, hasCatchBoundary: !1, hasErrorBoundary: !1 }, "virtual-routes/routes/index": { id: "virtual-routes/routes/index", parentId: "virtual-routes/virtual-root", path: void 0, index: !0, caseSensitive: void 0, module: "/build/virtual-routes/routes/index-53PT7KYB.js", imports: void 0, hasAction: !1, hasLoader: !0, hasCatchBoundary: !1, hasErrorBoundary: !0 }, "virtual-routes/virtual-root": { id: "virtual-routes/virtual-root", parentId: void 0, path: "", index: void 0, caseSensitive: void 0, module: "/build/virtual-routes/virtual-root-OBQMRAOA.js", imports: ["/build/_shared/chunk-Z7RIBLB2.js"], hasAction: !1, hasLoader: !1, hasCatchBoundary: !1, hasErrorBoundary: !1 } }, version: "6854091f", hmr: void 0, url: "/build/manifest-6854091F.js" };
+var assets_manifest_default = { entry: { module: "/build/entry.client-HWXT6HWF.js", imports: ["/build/_shared/chunk-FM7TTYIF.js", "/build/_shared/chunk-CFXHHO4K.js", "/build/_shared/chunk-PNG5AS42.js"] }, routes: { root: { id: "root", parentId: void 0, path: "", index: void 0, caseSensitive: void 0, module: "/build/root-DDX3QDWJ.js", imports: ["/build/_shared/chunk-UTIKAAM3.js", "/build/_shared/chunk-BGS7F2B5.js", "/build/_shared/chunk-OOZLT3E7.js", "/build/_shared/chunk-F4TRWIY4.js", "/build/_shared/chunk-2W566VR7.js", "/build/_shared/chunk-DGST5VAI.js", "/build/_shared/chunk-AQMJZ442.js", "/build/_shared/chunk-NNH77UO3.js", "/build/_shared/chunk-D3AIAV2V.js", "/build/_shared/chunk-3G62A2VJ.js", "/build/_shared/chunk-BSZVYZCA.js", "/build/_shared/chunk-VY5OJHMS.js"], hasAction: !1, hasLoader: !0, hasCatchBoundary: !1, hasErrorBoundary: !0 }, "routes/($locale).$": { id: "routes/($locale).$", parentId: "root", path: ":locale?/*", index: void 0, caseSensitive: void 0, module: "/build/routes/($locale).$-DDDRNU3P.js", imports: void 0, hasAction: !1, hasLoader: !0, hasCatchBoundary: !1, hasErrorBoundary: !1 }, "routes/($locale).[sitemap.xml]": { id: "routes/($locale).[sitemap.xml]", parentId: "root", path: ":locale?/sitemap.xml", index: void 0, caseSensitive: void 0, module: "/build/routes/($locale).[sitemap.xml]-H6EIDNVM.js", imports: void 0, hasAction: !1, hasLoader: !0, hasCatchBoundary: !1, hasErrorBoundary: !1 }, "routes/($locale)._index": { id: "routes/($locale)._index", parentId: "root", path: ":locale?", index: !0, caseSensitive: void 0, module: "/build/routes/($locale)._index-RQWR76DZ.js", imports: void 0, hasAction: !1, hasLoader: !0, hasCatchBoundary: !1, hasErrorBoundary: !1 }, "routes/($locale).account": { id: "routes/($locale).account", parentId: "root", path: ":locale?/account", index: void 0, caseSensitive: void 0, module: "/build/routes/($locale).account-LSSFFJZI.js", imports: ["/build/_shared/chunk-7M6P6K7X.js"], hasAction: !1, hasLoader: !0, hasCatchBoundary: !1, hasErrorBoundary: !1 }, "routes/($locale).account.$": { id: "routes/($locale).account.$", parentId: "routes/($locale).account", path: "*", index: void 0, caseSensitive: void 0, module: "/build/routes/($locale).account.$-IDA7PP7J.js", imports: void 0, hasAction: !1, hasLoader: !0, hasCatchBoundary: !1, hasErrorBoundary: !1 }, "routes/($locale).account.addresses": { id: "routes/($locale).account.addresses", parentId: "routes/($locale).account", path: "addresses", index: void 0, caseSensitive: void 0, module: "/build/routes/($locale).account.addresses-UW56T35F.js", imports: void 0, hasAction: !0, hasLoader: !0, hasCatchBoundary: !1, hasErrorBoundary: !1 }, "routes/($locale).account.orders.$id": { id: "routes/($locale).account.orders.$id", parentId: "routes/($locale).account", path: "orders/:id", index: void 0, caseSensitive: void 0, module: "/build/routes/($locale).account.orders.$id-P4I3QDMF.js", imports: ["/build/_shared/chunk-VY5OJHMS.js"], hasAction: !1, hasLoader: !0, hasCatchBoundary: !1, hasErrorBoundary: !1 }, "routes/($locale).account.orders._index": { id: "routes/($locale).account.orders._index", parentId: "routes/($locale).account", path: "orders", index: !0, caseSensitive: void 0, module: "/build/routes/($locale).account.orders._index-IBSE6E62.js", imports: ["/build/_shared/chunk-ZPBXTGWZ.js", "/build/_shared/chunk-3G62A2VJ.js", "/build/_shared/chunk-BSZVYZCA.js", "/build/_shared/chunk-VY5OJHMS.js"], hasAction: !1, hasLoader: !0, hasCatchBoundary: !1, hasErrorBoundary: !1 }, "routes/($locale).account.profile": { id: "routes/($locale).account.profile", parentId: "routes/($locale).account", path: "profile", index: void 0, caseSensitive: void 0, module: "/build/routes/($locale).account.profile-NXUTGPGB.js", imports: void 0, hasAction: !0, hasLoader: !0, hasCatchBoundary: !1, hasErrorBoundary: !1 }, "routes/($locale).account_.activate.$id.$activationToken": { id: "routes/($locale).account_.activate.$id.$activationToken", parentId: "root", path: ":locale?/account/activate/:id/:activationToken", index: void 0, caseSensitive: void 0, module: "/build/routes/($locale).account_.activate.$id.$activationToken-TWBKTJHT.js", imports: void 0, hasAction: !0, hasLoader: !0, hasCatchBoundary: !1, hasErrorBoundary: !1 }, "routes/($locale).account_.login": { id: "routes/($locale).account_.login", parentId: "root", path: ":locale?/account/login", index: void 0, caseSensitive: void 0, module: "/build/routes/($locale).account_.login-BCCBUGMG.js", imports: void 0, hasAction: !0, hasLoader: !0, hasCatchBoundary: !1, hasErrorBoundary: !1 }, "routes/($locale).account_.logout": { id: "routes/($locale).account_.logout", parentId: "root", path: ":locale?/account/logout", index: void 0, caseSensitive: void 0, module: "/build/routes/($locale).account_.logout-H6PFS4O4.js", imports: void 0, hasAction: !0, hasLoader: !0, hasCatchBoundary: !1, hasErrorBoundary: !1 }, "routes/($locale).account_.recover": { id: "routes/($locale).account_.recover", parentId: "root", path: ":locale?/account/recover", index: void 0, caseSensitive: void 0, module: "/build/routes/($locale).account_.recover-WPHFFVHS.js", imports: void 0, hasAction: !0, hasLoader: !0, hasCatchBoundary: !1, hasErrorBoundary: !1 }, "routes/($locale).account_.register": { id: "routes/($locale).account_.register", parentId: "root", path: ":locale?/account/register", index: void 0, caseSensitive: void 0, module: "/build/routes/($locale).account_.register-FCZOOCU5.js", imports: void 0, hasAction: !0, hasLoader: !0, hasCatchBoundary: !1, hasErrorBoundary: !1 }, "routes/($locale).account_.reset.$id.$resetToken": { id: "routes/($locale).account_.reset.$id.$resetToken", parentId: "root", path: ":locale?/account/reset/:id/:resetToken", index: void 0, caseSensitive: void 0, module: "/build/routes/($locale).account_.reset.$id.$resetToken-QJ3G3N7V.js", imports: void 0, hasAction: !0, hasLoader: !1, hasCatchBoundary: !1, hasErrorBoundary: !1 }, "routes/($locale).api.predictive-search": { id: "routes/($locale).api.predictive-search", parentId: "root", path: ":locale?/api/predictive-search", index: void 0, caseSensitive: void 0, module: "/build/routes/($locale).api.predictive-search-6SBFKV26.js", imports: void 0, hasAction: !0, hasLoader: !1, hasCatchBoundary: !1, hasErrorBoundary: !1 }, "routes/($locale).blogs.$blogHandle.$articleHandle": { id: "routes/($locale).blogs.$blogHandle.$articleHandle", parentId: "root", path: ":locale?/blogs/:blogHandle/:articleHandle", index: void 0, caseSensitive: void 0, module: "/build/routes/($locale).blogs.$blogHandle.$articleHandle-IIRQXA7S.js", imports: void 0, hasAction: !1, hasLoader: !0, hasCatchBoundary: !1, hasErrorBoundary: !1 }, "routes/($locale).blogs.$blogHandle._index": { id: "routes/($locale).blogs.$blogHandle._index", parentId: "root", path: ":locale?/blogs/:blogHandle", index: !0, caseSensitive: void 0, module: "/build/routes/($locale).blogs.$blogHandle._index-U4FIVITR.js", imports: void 0, hasAction: !1, hasLoader: !0, hasCatchBoundary: !1, hasErrorBoundary: !1 }, "routes/($locale).blogs._index": { id: "routes/($locale).blogs._index", parentId: "root", path: ":locale?/blogs", index: !0, caseSensitive: void 0, module: "/build/routes/($locale).blogs._index-6FNJVY6E.js", imports: void 0, hasAction: !1, hasLoader: !0, hasCatchBoundary: !1, hasErrorBoundary: !1 }, "routes/($locale).cart": { id: "routes/($locale).cart", parentId: "root", path: ":locale?/cart", index: void 0, caseSensitive: void 0, module: "/build/routes/($locale).cart-MAB6CR2L.js", imports: ["/build/_shared/chunk-IP4HFQWT.js"], hasAction: !0, hasLoader: !0, hasCatchBoundary: !1, hasErrorBoundary: !1 }, "routes/($locale).collections.$handle": { id: "routes/($locale).collections.$handle", parentId: "root", path: ":locale?/collections/:handle", index: void 0, caseSensitive: void 0, module: "/build/routes/($locale).collections.$handle-HI6HRLRF.js", imports: ["/build/_shared/chunk-ZPBXTGWZ.js"], hasAction: !1, hasLoader: !0, hasCatchBoundary: !1, hasErrorBoundary: !1 }, "routes/($locale).collections._index": { id: "routes/($locale).collections._index", parentId: "root", path: ":locale?/collections", index: !0, caseSensitive: void 0, module: "/build/routes/($locale).collections._index-3INPTDT3.js", imports: void 0, hasAction: !1, hasLoader: !0, hasCatchBoundary: !1, hasErrorBoundary: !1 }, "routes/($locale).offers": { id: "routes/($locale).offers", parentId: "root", path: ":locale?/offers", index: void 0, caseSensitive: void 0, module: "/build/routes/($locale).offers-PNLK3VAV.js", imports: void 0, hasAction: !1, hasLoader: !0, hasCatchBoundary: !1, hasErrorBoundary: !1 }, "routes/($locale).pages.$handle": { id: "routes/($locale).pages.$handle", parentId: "root", path: ":locale?/pages/:handle", index: void 0, caseSensitive: void 0, module: "/build/routes/($locale).pages.$handle-QTZOP6F6.js", imports: void 0, hasAction: !1, hasLoader: !0, hasCatchBoundary: !1, hasErrorBoundary: !1 }, "routes/($locale).policies.$handle": { id: "routes/($locale).policies.$handle", parentId: "root", path: ":locale?/policies/:handle", index: void 0, caseSensitive: void 0, module: "/build/routes/($locale).policies.$handle-XO72JGCK.js", imports: void 0, hasAction: !1, hasLoader: !0, hasCatchBoundary: !1, hasErrorBoundary: !1 }, "routes/($locale).policies._index": { id: "routes/($locale).policies._index", parentId: "root", path: ":locale?/policies", index: !0, caseSensitive: void 0, module: "/build/routes/($locale).policies._index-C4O43EB5.js", imports: void 0, hasAction: !1, hasLoader: !0, hasCatchBoundary: !1, hasErrorBoundary: !1 }, "routes/($locale).products.$handle": { id: "routes/($locale).products.$handle", parentId: "root", path: ":locale?/products/:handle", index: void 0, caseSensitive: void 0, module: "/build/routes/($locale).products.$handle-33G7TOWY.js", imports: ["/build/_shared/chunk-IP4HFQWT.js"], hasAction: !1, hasLoader: !0, hasCatchBoundary: !1, hasErrorBoundary: !1 }, "routes/($locale).search": { id: "routes/($locale).search", parentId: "root", path: ":locale?/search", index: void 0, caseSensitive: void 0, module: "/build/routes/($locale).search-F7FNEDA7.js", imports: void 0, hasAction: !1, hasLoader: !0, hasCatchBoundary: !1, hasErrorBoundary: !1 }, "routes/[robots.txt]": { id: "routes/[robots.txt]", parentId: "root", path: "robots.txt", index: void 0, caseSensitive: void 0, module: "/build/routes/[robots.txt]-OU6DB2IP.js", imports: void 0, hasAction: !1, hasLoader: !0, hasCatchBoundary: !1, hasErrorBoundary: !0 }, "virtual-routes/routes/graphiql": { id: "virtual-routes/routes/graphiql", parentId: "virtual-routes/virtual-root", path: "graphiql", index: void 0, caseSensitive: void 0, module: "/build/virtual-routes/routes/graphiql-IUV5DDHT.js", imports: void 0, hasAction: !1, hasLoader: !0, hasCatchBoundary: !1, hasErrorBoundary: !1 }, "virtual-routes/routes/index": { id: "virtual-routes/routes/index", parentId: "virtual-routes/virtual-root", path: void 0, index: !0, caseSensitive: void 0, module: "/build/virtual-routes/routes/index-53PT7KYB.js", imports: void 0, hasAction: !1, hasLoader: !0, hasCatchBoundary: !1, hasErrorBoundary: !0 }, "virtual-routes/virtual-root": { id: "virtual-routes/virtual-root", parentId: void 0, path: "", index: void 0, caseSensitive: void 0, module: "/build/virtual-routes/virtual-root-OBQMRAOA.js", imports: ["/build/_shared/chunk-Z7RIBLB2.js"], hasAction: !1, hasLoader: !1, hasCatchBoundary: !1, hasErrorBoundary: !1 } }, version: "f8398134", hmr: void 0, url: "/build/manifest-F8398134.js" };
 
 // server-entry-module:@remix-run/dev/server-build
 var assetsBuildDirectory = "dist/client/build", future = { v2_dev: !1, unstable_postcss: !1, unstable_tailwind: !1, v2_errorBoundary: !0, v2_headers: !0, v2_meta: !0, v2_normalizeFormMethod: !0, v2_routeConvention: !0 }, publicPath = "/build/", entry = { module: entry_server_exports }, routes = {

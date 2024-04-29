@@ -552,7 +552,7 @@ export default function Collection() {
                             </h2>
                             <div className="h-8">
                               <h1 className="text-center sm:text-[26px] text-[21px] font-bold m-auto w-full">
-                              {product.priceRange.maxVariantPrice.amount} &nbsp; Rs
+                              {Math.trunc(product.priceRange.maxVariantPrice.amount)} &nbsp; Rs
                               </h1>
                             </div>
                             <div className='flex justify-center py-2'>
