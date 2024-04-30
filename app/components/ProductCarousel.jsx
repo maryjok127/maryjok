@@ -9,23 +9,24 @@ const ProductCarousel = ({products}) => {
   let productsToShow = [];
   const lines = [];
   const [startIndex, setStartIndex] = useState(0);
+  var len = products.edges.length;
   const isLargeScreen = useMediaQuery({minWidth: 1024});
   const eIndex = isLargeScreen ? len < 4 ? len : 4 : 2;
   const [endIndex, setEndIndex]  = useState(eIndex);
-  var len = products.edges.length;
-  if (products != null || products != undefined) {
-    productsToShow = products.edges.slice(startIndex, endIndex);
-  }
+  
+  //if (products != null || products != undefined) {
+    productsToShow = products;
+  //}
  
-  const nextProducts = () => {
-    setStartIndex((prevIndex) => len == endIndex ? prevIndex -1 : prevIndex + 1 );
-    setEndIndex((prevIndex) => len == endIndex ? prevIndex-1 : prevIndex + 1);
-  };
+  // const nextProducts = () => {
+  //   setStartIndex((prevIndex) => len == endIndex ? prevIndex -1 : prevIndex + 1 );
+  //   setEndIndex((prevIndex) => len == endIndex ? prevIndex-1 : prevIndex + 1);
+  // };
 
-  const prevProducts = () => {
-    setStartIndex((prevIndex) => len == endIndex ? prevIndex -1 : prevIndex + 1 );
-    setEndIndex((prevIndex) => len == endIndex ? prevIndex-1 : prevIndex + 1);
-  };
+  // const prevProducts = () => {
+  //   setStartIndex((prevIndex) => len == endIndex ? prevIndex -1 : prevIndex + 1 );
+  //   setEndIndex((prevIndex) => len == endIndex ? prevIndex-1 : prevIndex + 1);
+  // };
 
   console.log("start INDEX ::",startIndex,"End Index ::",endIndex,"Length::",eIndex);
   products.edges.map((product) => {
@@ -78,7 +79,7 @@ const ProductCarousel = ({products}) => {
     infinite:true,
     dots: false,
     speed: 500,
-    slidesToShow: 2,
+    slidesToShow: eIndex,
     slidesToScroll: 1,
     nextArrow: <SamplePrevArrow />,
     prevArrow: <SampleNextArrow />,
@@ -86,7 +87,7 @@ const ProductCarousel = ({products}) => {
       {
         breakpoint: 1024,
         settings: {
-          slidesToShow: 3,
+          slidesToShow: eIndex,
           slidesToScroll: 3,
           infinite: true,
           dots: true
@@ -95,8 +96,8 @@ const ProductCarousel = ({products}) => {
       {
         breakpoint: 600,
         settings: {
-          slidesToShow: 3,
-          slidesToScroll: 1,
+          slidesToShow: eIndex,
+          slidesToScroll: eIndex,
           initialSlide: 1,
           dots: true
         }
@@ -104,7 +105,7 @@ const ProductCarousel = ({products}) => {
       {
         breakpoint: 520,
         settings: {
-          slidesToShow: 1,
+          slidesToShow: 2,
           slidesToScroll: 1,
           dots: true
         }
@@ -115,7 +116,7 @@ const ProductCarousel = ({products}) => {
     <div className="recommended_section w-full max-w-screen-xl mx-auto lg:px-24 sm:px-4 md:px-6">
       <div>
         <Slider {...settings}>
-          {productsToShow.map((product, index) => (
+          {productsToShow.edges.map((product, index) => (
             <div key={`product_${product.node.id}`} className="w-full" >
                 <div className="bg-white mst-card rounded-lg shadow-lg mx-2 p-1 sm:p-2 ">
                   <div className='cursor' onClick={()=> goToProduct(`/products/${product.node.handle}`)}>
