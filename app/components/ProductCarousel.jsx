@@ -1,13 +1,7 @@
-// src/ProductCarousel.js
-import React, {useState} from 'react';
+import {useState} from 'react';
 import {MdChevronLeft, MdChevronRight} from 'react-icons/md';
-import {Await, useLoaderData, Link} from '@remix-run/react';
 import {useMediaQuery} from 'react-responsive';
-import {
-  VariantSelector,
-  getSelectedProductOptions,
-  CartForm,
-} from '@shopify/hydrogen';
+import Slider from "react-slick";
 //import products from './products';
 
 const ProductCarousel = ({products}) => {
@@ -22,9 +16,7 @@ const ProductCarousel = ({products}) => {
   if (products != null || products != undefined) {
     productsToShow = products.edges.slice(startIndex, endIndex);
   }
-
-  //console.log("productsToShow:",productsToShow)
-
+ 
   const nextProducts = () => {
     setStartIndex((prevIndex) => len == endIndex ? prevIndex -1 : prevIndex + 1 );
     setEndIndex((prevIndex) => len == endIndex ? prevIndex-1 : prevIndex + 1);
@@ -35,7 +27,7 @@ const ProductCarousel = ({products}) => {
     setEndIndex((prevIndex) => len == endIndex ? prevIndex-1 : prevIndex + 1);
   };
 
-  //console.log("start INDEX ::",startIndex,"End Index ::",endIndex,"Length::",len);
+  console.log("start INDEX ::",startIndex,"End Index ::",endIndex,"Length::",eIndex);
   products.edges.map((product) => {
     product.node.variants.edges.map((line) => {
       if(line.node.availableForSale){
@@ -52,9 +44,105 @@ const ProductCarousel = ({products}) => {
   const goToProduct=(url_path)=>{
     window.location.href = url_path
   }
+
+  function SamplePrevArrow(props) {
+    const { onClick } = props;
+    return (
+      <button 
+        className="absolute lg:left-[-90px] top-1/2 transform -translate-y-1/2  bg-white bg-opacity-75 rounded-full p-2 ml-4 hover:bg-opacity-100 text-white"
+        onClick={onClick}>
+        <MdChevronLeft
+          className="opacity-50 cursor-pointer hover:opacity-100 mst-arrow"
+          size={40}
+        />
+      </button>
+    );
+  }
+
+  function SampleNextArrow(props) {
+    const { onClick } = props;
+    return (
+      <button 
+          className="absolute lg:right-[-90px] right-0 top-1/2 transform -translate-y-1/2  bg-white bg-opacity-75 rounded-full p-2 mr-4 hover:bg-opacity-100 text-white"
+          onClick={onClick}
+        >
+          <MdChevronRight
+            className="opacity-50 cursor-pointer hover:opacity-100 mst-arrow"
+            size={40}
+          />
+        </button>
+    );
+  }
+
+  const settings = {
+    infinite:true,
+    dots: false,
+    speed: 500,
+    slidesToShow: 2,
+    slidesToScroll: 1,
+    nextArrow: <SamplePrevArrow />,
+    prevArrow: <SampleNextArrow />,
+    responsive: [
+      {
+        breakpoint: 1024,
+        settings: {
+          slidesToShow: 3,
+          slidesToScroll: 3,
+          infinite: true,
+          dots: true
+        }
+      },
+      {
+        breakpoint: 600,
+        settings: {
+          slidesToShow: 3,
+          slidesToScroll: 1,
+          initialSlide: 1,
+          dots: true
+        }
+      },
+      {
+        breakpoint: 520,
+        settings: {
+          slidesToShow: 1,
+          slidesToScroll: 1,
+          dots: true
+        }
+      }
+    ]
+  };
   return (
     <div className="recommended_section w-full max-w-screen-xl mx-auto lg:px-24 sm:px-4 md:px-6">
-      <div className="relative">
+      <div>
+        <Slider {...settings}>
+          {productsToShow.map((product, index) => (
+            <div key={`product_${product.node.id}`} className="w-full" >
+                <div className="bg-white mst-card rounded-lg shadow-lg mx-2 p-1 sm:p-2 ">
+                  <div className='cursor' onClick={()=> goToProduct(`/products/${product.node.handle}`)}>
+                    <img
+                      src={`${ product.node.images.edges.length > 0 ? product.node.images.edges[0].node.url : noImg }`} // Make sure to put your images in the 'public/images/' directory
+                      alt={product.node.title}
+                      className="w-full h-auto"
+                    />
+                    <div className='product_info'>
+                      <h2 className="text-lg font-semibold mt-2 text-center">
+                        {product.node.title}
+                      </h2>
+                      <div className="h-12">
+                        <h1 className="text-center font-bold h-full w-full m-auto">
+                        &#x20b9; {Math.trunc(product.node.priceRange.minVariantPrice.amount)} Rs
+                        </h1>
+                      </div>
+                    </div>
+
+                  </div>
+                </div>
+              </div>
+          ))}
+   
+        </Slider>
+      </div>
+      {/* <div className="relative">
         <div className="flex gap-4">
           {productsToShow.map((product, index) => (
             <div key={product.node.id} className="w-full " >
@@ -77,7 +165,7 @@ const ProductCarousel = ({products}) => {
                     </div>
                   </div>
                 
-                {/* Add more product information here */}
+              
                 <div className="px-1 py-1 flex items-center sm:flex-row gap-3 justify-center w-[100%]">
                   <div className="w-[25%] flex justify-center">
                     <svg
@@ -146,7 +234,7 @@ const ProductCarousel = ({products}) => {
             size={40}
           />
         </button>
-      </div>
+      </div> */}
     </div>
   );
 };
