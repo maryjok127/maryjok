@@ -51,9 +51,11 @@ const GiftingCollection = ({collections,title}) => {
 
 return (
 <div className="recommended_section w-full max-w-screen-xl mx-auto lg:px-24 sm:px-4 md:px-6">
-<h1 className="text-center font-semibold my-[15px]">
+<h1 className="text-center font-semibold mb-[15px]">
   {title}
+  <p className='text-center font-light'> Perfect for Any Occasion </p>
 </h1> 
+
 <div className="relative mb-8">
     <Slider {...settings}>  
     {collections.map((coll, index) => {

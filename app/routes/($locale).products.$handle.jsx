@@ -146,7 +146,7 @@ function ProductImage({image, activeImg, setActiveImage, product}) {
   //console.log(ImageSrc)
 
   const [images, setImages] = useState(ImageSrc);
-  //const [activeImg, setActiveImage] = useState(images[0])
+  //const [activeImg, setActiveImage] = useState(activeImg)
   // console.log(image)
   if (!image) {
     return <div className="" />;
@@ -428,10 +428,10 @@ function ProductPrice({selectedVariant}) {
       {selectedVariant?.compareAtPrice ? (
         <>
           <div className="product-price-on-sale font-semibold">
-            {selectedVariant ? <Money withoutTrailingZeros data={selectedVariant.price} /> : null}
             <s>
               <Money withoutTrailingZeros data={selectedVariant.compareAtPrice} />
             </s>
+            {selectedVariant ? <Money withoutTrailingZeros data={selectedVariant.price} /> : null}
           </div>
         </>
       ) : (
@@ -439,11 +439,6 @@ function ProductPrice({selectedVariant}) {
           <Money withoutTrailingZeros className="font-semibold" data={selectedVariant?.price} />
         )
       )}
-      <div>
-        <span className="font-semibold bg-[#e1eecc] py-1 px-2 text-sm rounded">
-          FREE SHIPPING
-        </span>
-      </div>
     </div>
   );
 }
@@ -505,9 +500,6 @@ function ProductForm({
       }
     })
   }
-
- 
-  console.log("serviceble::",serviceble)
   const closeRef = useRef(null);
   return (
     <div className="product-form">
@@ -566,9 +558,9 @@ function ProductForm({
   );
 }
 
-function ProductOptions({option, activeImg,closeRef}) {
+function ProductOptions({option, activeImg,closeRef,setActiveImage,selectedVariant}) {
   var opt_length = option.values.length;
-  //console.log("selectedVariant ::",closeRef);
+  //console.log("selectedVariant ::",selectedVariant);
 
   return (
     <>
@@ -595,6 +587,7 @@ function ProductOptions({option, activeImg,closeRef}) {
                 onClick={() => {
                   if (!closeRef?.current) return;
                   closeRef.current.click();
+                  setActiveImage(selectedVariant.image?.url)
                 }}
               >
               <div dangerouslySetInnerHTML={{__html: value}} />

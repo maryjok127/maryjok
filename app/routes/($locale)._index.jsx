@@ -132,8 +132,10 @@ export default function Homepage() {
   const settings = {
   centerMode: isSmall ? true : false,
   dots: totalLen > 3 ? true : false,
-  infinite: false,
+  infinite: true,
   speed: 500,
+  autoplay: true,
+  autoplaySpeed: 3000,
   initialSlide: isSmall ? 1 : 0,
   slidesToShow: 3,
   slidesToScroll: 1,
@@ -141,6 +143,8 @@ export default function Homepage() {
     {
       breakpoint: 1024,
       settings: {
+        autoplay: true,
+        autoplaySpeed: 3000,
         slidesToShow: 3,
         slidesToScroll: 3,
         infinite: true,
@@ -150,6 +154,8 @@ export default function Homepage() {
     {
       breakpoint: 600,
       settings: {
+        autoplay: true,
+        autoplaySpeed: 3000,
         slidesToShow: 3,
         slidesToScroll: 1,
         initialSlide: 1,
@@ -159,6 +165,8 @@ export default function Homepage() {
     {
       breakpoint: 520,
       settings: {
+        autoplay: true,
+        autoplaySpeed: 3000,
         slidesToShow: 1,
         slidesToScroll: 1,
         dots: true
@@ -254,7 +262,7 @@ export default function Homepage() {
         products={ThirdHeroCollection}
         title="DAILY MUST-HAVES"
       />
-      <GiftingCollection collections={GiftCollections} title={'GIFTING'} />
+      <GiftingCollection collections={GiftCollections} title={'Glamorous Gift Picks'}  />
 
       <YouTubeVideo></YouTubeVideo>
 
@@ -633,7 +641,7 @@ const collectionArrayStatic = [
   },
   {
     collectionname: 'Eyes',
-    url:"kajal-pencil",
+    url:"eyes",
     collectionimageurl: 'https://cdn.shopify.com/s/files/1/0809/4253/0882/files/Kajal-Icon-Mobile.jpg?v=1713183444',
   },
   {

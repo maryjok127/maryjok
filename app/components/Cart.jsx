@@ -291,7 +291,7 @@ function CartDiscounts({discountCodes}) {
           &nbsp;
           <button
             type="submit text-[#fa4a0b]"
-            className="text-white bg-[#2f2f76] p-[8px] rounded"
+            className="text-white bg-[#f48580] p-[8px] rounded"
           >
             Apply
           </button>
