@@ -65,9 +65,9 @@ export function Footer({menu}) {
             }
             <div>
               <div className='footer_link_title'>Shop by sub-brands</div>
-              <li className='cursor-pointer list-none' onClick={()=> goToCollection("pro-studio") }> Pro Studio </li>
-              <li className='cursor-pointer list-none' onClick={()=> goToCollection("way-2-stay") }> Way 2 Slay </li>
-              <li className='cursor-pointer list-none' onClick={()=> goToCollection("rizz-roll") }> Rizz and Roll </li>
+              <li className='cursor-pointer list-none' onClick={()=> goToCollection("pro-studio-mjk") }> Pro Studio </li>
+              <li className='cursor-pointer list-none' onClick={()=> goToCollection("way-2-slay-mjk") }> Way 2 Slay </li>
+              <li className='cursor-pointer list-none' onClick={()=> goToCollection("rizz-roll-mjk") }> Rizz and Roll </li>
             </div>
           </div>
           

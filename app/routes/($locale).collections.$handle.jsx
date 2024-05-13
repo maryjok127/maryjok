@@ -35,9 +35,9 @@ const sortOptions = [
   {name: 'Price: High to Low', value:'hl', href: '#', current: false},
 ];
 const subCategories = [
-  {name: 'Way 2 Slay', href: '/collections/way-2-stay'},
-  {name: 'Rizz & Roll', href: '/collections/rizz-roll'},
-  {name: 'Pro Studio', href: '/collections/pro-studio'},
+  {name: 'Way 2 Slay', href: '/collections/way-2-slay-mjk'},
+  {name: 'Rizz & Roll', href: '/collections/rizz-roll-mjk'},
+  {name: 'Pro Studio', href: '/collections/pro-studio-mjk'},
 ];
 const filters = [
   {
