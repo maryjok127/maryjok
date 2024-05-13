@@ -733,7 +733,7 @@ footer{
 @media only screen and (max-width: 1024px) {
   .mobile-cart-product {
     position: fixed;
-    bottom: 25px;
+    bottom: 0;
     z-index: 9;
     width: 100%;
     justify-content: center;
