@@ -62,22 +62,6 @@ export default function Homepage() {
   var collectionArray = menus.filter((item)=> item.title !== "Home");
   const isLargeScreen = useMediaQuery({minWidth: 1024});
   const isSmall = useMediaQuery({maxWidth: 640});
-  var imageSrc = []
-  if(!isSmall){
-    imageSrc = [
-      'https://cdn.shopify.com/s/files/1/0809/4253/0882/files/desktop_banner_1.jpg?v=1713342696',
-      'https://cdn.shopify.com/s/files/1/0809/4253/0882/files/desktop_banner_3.jpg?v=1713342905',
-      'https://cdn.shopify.com/s/files/1/0809/4253/0882/files/desktop_banner_2.jpg?v=1713342905',
-      'https://cdn.shopify.com/s/files/1/0809/4253/0882/files/pro_studio__banner_5_opt_2.jpg?v=1714388254',
-    ];
-  }else{
-    imageSrc = [
-      'https://cdn.shopify.com/s/files/1/0809/4253/0882/files/mobile_Hero_Banners_1.jpg?v=1713353171',
-      'https://cdn.shopify.com/s/files/1/0809/4253/0882/files/mobile_Hero_Banners_2.jpg?v=1713353171',
-      'https://cdn.shopify.com/s/files/1/0809/4253/0882/files/mobile_Hero_Banners_4.jpg?v=1713353171',
-      'https://cdn.shopify.com/s/files/1/0809/4253/0882/files/pro_studio_mobile_banner_3_700_x_470.jpg?v=1714388254',
-    ];
-  }
 
   var GiftCollections = [];
   var ReviewCollection = [];
@@ -134,8 +118,6 @@ export default function Homepage() {
   dots: totalLen > 3 ? true : false,
   infinite: true,
   speed: 500,
-  autoplay: true,
-  autoplaySpeed: 3000,
   initialSlide: isSmall ? 1 : 0,
   slidesToShow: 3,
   slidesToScroll: 1,
@@ -143,8 +125,6 @@ export default function Homepage() {
     {
       breakpoint: 1024,
       settings: {
-        autoplay: true,
-        autoplaySpeed: 3000,
         slidesToShow: 3,
         slidesToScroll: 3,
         infinite: true,
@@ -154,8 +134,6 @@ export default function Homepage() {
     {
       breakpoint: 600,
       settings: {
-        autoplay: true,
-        autoplaySpeed: 3000,
         slidesToShow: 3,
         slidesToScroll: 1,
         initialSlide: 1,
@@ -165,8 +143,6 @@ export default function Homepage() {
     {
       breakpoint: 520,
       settings: {
-        autoplay: true,
-        autoplaySpeed: 3000,
         slidesToShow: 1,
         slidesToScroll: 1,
         dots: true
@@ -181,7 +157,7 @@ export default function Homepage() {
         <div className="inline-flex gap-4">
           {collectionArrayStatic?.map((item, index) => (
             <div
-              className=" col-item sm:w-auto  rounded-lg hover:shadow-md cursor-pointer"
+              className="col-item sm:w-auto  rounded-lg hover:shadow-md cursor-pointer"
               key={index}
             >
               <div className="image">
@@ -207,7 +183,7 @@ export default function Homepage() {
       }
       
       <div>
-        <ImageCarousel isSmall={isSmall} images={imageSrc}></ImageCarousel>
+        <ImageCarousel ></ImageCarousel>
       </div>
       <RecommendedProducts
         key={data.collectionProducts.nodes[0].id}

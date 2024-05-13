@@ -14336,7 +14336,7 @@ var require_react_dom_development = __commonJS({
           argsWithFormat.unshift("Warning: " + format), Function.prototype.apply.call(console[level], console, argsWithFormat);
         }
       }
-      var FunctionComponent = 0, ClassComponent = 1, IndeterminateComponent = 2, HostRoot = 3, HostPortal = 4, HostComponent = 5, HostText = 6, Fragment26 = 7, Mode = 8, ContextConsumer = 9, ContextProvider = 10, ForwardRef10 = 11, Profiler = 12, SuspenseComponent = 13, MemoComponent = 14, SimpleMemoComponent = 15, LazyComponent = 16, IncompleteClassComponent = 17, DehydratedFragment = 18, SuspenseListComponent = 19, ScopeComponent = 21, OffscreenComponent = 22, LegacyHiddenComponent = 23, CacheComponent = 24, TracingMarkerComponent = 25, enableClientRenderFallbackOnTextMismatch = !0, enableNewReconciler = !1, enableLazyContextPropagation = !1, enableLegacyHidden = !1, enableSuspenseAvoidThisFallback = !1, disableCommentsAsDOMContainers = !0, enableCustomElementPropertySupport = !1, warnAboutStringRefs = !1, enableSchedulingProfiler = !0, enableProfilerTimer = !0, enableProfilerCommitHooks = !0, allNativeEvents = /* @__PURE__ */ new Set(), registrationNameDependencies = {}, possibleRegistrationNames = {};
+      var FunctionComponent = 0, ClassComponent = 1, IndeterminateComponent = 2, HostRoot = 3, HostPortal = 4, HostComponent = 5, HostText = 6, Fragment27 = 7, Mode = 8, ContextConsumer = 9, ContextProvider = 10, ForwardRef10 = 11, Profiler = 12, SuspenseComponent = 13, MemoComponent = 14, SimpleMemoComponent = 15, LazyComponent = 16, IncompleteClassComponent = 17, DehydratedFragment = 18, SuspenseListComponent = 19, ScopeComponent = 21, OffscreenComponent = 22, LegacyHiddenComponent = 23, CacheComponent = 24, TracingMarkerComponent = 25, enableClientRenderFallbackOnTextMismatch = !0, enableNewReconciler = !1, enableLazyContextPropagation = !1, enableLegacyHidden = !1, enableSuspenseAvoidThisFallback = !1, disableCommentsAsDOMContainers = !0, enableCustomElementPropertySupport = !1, warnAboutStringRefs = !1, enableSchedulingProfiler = !0, enableProfilerTimer = !0, enableProfilerCommitHooks = !0, allNativeEvents = /* @__PURE__ */ new Set(), registrationNameDependencies = {}, possibleRegistrationNames = {};
       function registerTwoPhaseEvent(registrationName, dependencies) {
         registerDirectEvent(registrationName, dependencies), registerDirectEvent(registrationName + "Capture", dependencies);
       }
@@ -15186,7 +15186,7 @@ Error generating stack: ` + x5.message + `
             return "DehydratedFragment";
           case ForwardRef10:
             return getWrappedName$1(type, type.render, "ForwardRef");
-          case Fragment26:
+          case Fragment27:
             return "Fragment";
           case HostComponent:
             return type;
@@ -21515,7 +21515,7 @@ See https://reactjs.org/link/refs-must-have-owner for more information.`);
           }
         }
         function updateFragment2(returnFiber, current2, fragment, lanes, key) {
-          if (current2 === null || current2.tag !== Fragment26) {
+          if (current2 === null || current2.tag !== Fragment27) {
             var created = createFiberFromFragment(fragment, returnFiber.mode, lanes, key);
             return created.return = returnFiber, created;
           } else {
@@ -21743,7 +21743,7 @@ See https://reactjs.org/link/refs-must-have-owner for more information.`);
             if (child.key === key) {
               var elementType = element.type;
               if (elementType === REACT_FRAGMENT_TYPE) {
-                if (child.tag === Fragment26) {
+                if (child.tag === Fragment27) {
                   deleteRemainingChildren(returnFiber, child.sibling);
                   var existing = useFiber(child, element.props.children);
                   return existing.return = returnFiber, existing._debugSource = element._source, existing._debugOwner = element._owner, existing;
@@ -24333,7 +24333,7 @@ Check the render method of \`` + ownerName + "`.");
             var type = workInProgress2.type, _unresolvedProps2 = workInProgress2.pendingProps, _resolvedProps2 = workInProgress2.elementType === type ? _unresolvedProps2 : resolveDefaultProps(type, _unresolvedProps2);
             return updateForwardRef(current2, workInProgress2, type, _resolvedProps2, renderLanes2);
           }
-          case Fragment26:
+          case Fragment27:
             return updateFragment(current2, workInProgress2, renderLanes2);
           case Mode:
             return updateMode(current2, workInProgress2, renderLanes2);
@@ -24485,7 +24485,7 @@ Check the render method of \`` + ownerName + "`.");
           case SimpleMemoComponent:
           case FunctionComponent:
           case ForwardRef10:
-          case Fragment26:
+          case Fragment27:
           case Mode:
           case Profiler:
           case ContextConsumer:
@@ -27042,7 +27042,7 @@ Check the render method of \`` + ownerName + "`.");
         return fiber._debugSource = element._source, fiber._debugOwner = element._owner, fiber;
       }
       function createFiberFromFragment(elements, mode, lanes, key) {
-        var fiber = createFiber(Fragment26, elements, key, mode);
+        var fiber = createFiber(Fragment27, elements, key, mode);
         return fiber.lanes = lanes, fiber;
       }
       function createFiberFromProfiler(pendingProps, mode, lanes, key) {
@@ -28407,7 +28407,7 @@ Valid keys: ` + JSON.stringify(Object.keys(shapeTypes), null, "  ")
                     }
                   }
                 }
-                var AsyncMode = REACT_ASYNC_MODE_TYPE, ConcurrentMode = REACT_CONCURRENT_MODE_TYPE, ContextConsumer = REACT_CONTEXT_TYPE, ContextProvider = REACT_PROVIDER_TYPE, Element2 = REACT_ELEMENT_TYPE, ForwardRef10 = REACT_FORWARD_REF_TYPE, Fragment26 = REACT_FRAGMENT_TYPE, Lazy = REACT_LAZY_TYPE, Memo = REACT_MEMO_TYPE, Portal = REACT_PORTAL_TYPE, Profiler = REACT_PROFILER_TYPE, StrictMode = REACT_STRICT_MODE_TYPE, Suspense8 = REACT_SUSPENSE_TYPE, hasWarnedAboutDeprecatedIsAsyncMode = !1;
+                var AsyncMode = REACT_ASYNC_MODE_TYPE, ConcurrentMode = REACT_CONCURRENT_MODE_TYPE, ContextConsumer = REACT_CONTEXT_TYPE, ContextProvider = REACT_PROVIDER_TYPE, Element2 = REACT_ELEMENT_TYPE, ForwardRef10 = REACT_FORWARD_REF_TYPE, Fragment27 = REACT_FRAGMENT_TYPE, Lazy = REACT_LAZY_TYPE, Memo = REACT_MEMO_TYPE, Portal = REACT_PORTAL_TYPE, Profiler = REACT_PROFILER_TYPE, StrictMode = REACT_STRICT_MODE_TYPE, Suspense8 = REACT_SUSPENSE_TYPE, hasWarnedAboutDeprecatedIsAsyncMode = !1;
                 function isAsyncMode(object) {
                   return hasWarnedAboutDeprecatedIsAsyncMode || (hasWarnedAboutDeprecatedIsAsyncMode = !0, console.warn("The ReactIs.isAsyncMode() alias has been deprecated, and will be removed in React 17+. Update your code to use ReactIs.isConcurrentMode() instead. It has the exact same API.")), isConcurrentMode(object) || typeOf(object) === REACT_ASYNC_MODE_TYPE;
                 }
@@ -28447,7 +28447,7 @@ Valid keys: ` + JSON.stringify(Object.keys(shapeTypes), null, "  ")
                 function isSuspense(object) {
                   return typeOf(object) === REACT_SUSPENSE_TYPE;
                 }
-                exports2.AsyncMode = AsyncMode, exports2.ConcurrentMode = ConcurrentMode, exports2.ContextConsumer = ContextConsumer, exports2.ContextProvider = ContextProvider, exports2.Element = Element2, exports2.ForwardRef = ForwardRef10, exports2.Fragment = Fragment26, exports2.Lazy = Lazy, exports2.Memo = Memo, exports2.Portal = Portal, exports2.Profiler = Profiler, exports2.StrictMode = StrictMode, exports2.Suspense = Suspense8, exports2.isAsyncMode = isAsyncMode, exports2.isConcurrentMode = isConcurrentMode, exports2.isContextConsumer = isContextConsumer, exports2.isContextProvider = isContextProvider, exports2.isElement = isElement, exports2.isForwardRef = isForwardRef, exports2.isFragment = isFragment, exports2.isLazy = isLazy, exports2.isMemo = isMemo, exports2.isPortal = isPortal, exports2.isProfiler = isProfiler, exports2.isStrictMode = isStrictMode, exports2.isSuspense = isSuspense, exports2.isValidElementType = isValidElementType, exports2.typeOf = typeOf;
+                exports2.AsyncMode = AsyncMode, exports2.ConcurrentMode = ConcurrentMode, exports2.ContextConsumer = ContextConsumer, exports2.ContextProvider = ContextProvider, exports2.Element = Element2, exports2.ForwardRef = ForwardRef10, exports2.Fragment = Fragment27, exports2.Lazy = Lazy, exports2.Memo = Memo, exports2.Portal = Portal, exports2.Profiler = Profiler, exports2.StrictMode = StrictMode, exports2.Suspense = Suspense8, exports2.isAsyncMode = isAsyncMode, exports2.isConcurrentMode = isConcurrentMode, exports2.isContextConsumer = isContextConsumer, exports2.isContextProvider = isContextProvider, exports2.isElement = isElement, exports2.isForwardRef = isForwardRef, exports2.isFragment = isFragment, exports2.isLazy = isLazy, exports2.isMemo = isMemo, exports2.isPortal = isPortal, exports2.isProfiler = isProfiler, exports2.isStrictMode = isStrictMode, exports2.isSuspense = isSuspense, exports2.isValidElementType = isValidElementType, exports2.typeOf = typeOf;
               })();
             }
           ),
@@ -28792,7 +28792,7 @@ Valid keys: ` + JSON.stringify(Object.keys(shapeTypes), null, "  ")
                     mediaQuery.removeListener(updateMatches);
                   };
                 }, [mediaQuery]), matches;
-              }, useMediaQuery10 = function(settings, device, onChange) {
+              }, useMediaQuery11 = function(settings, device, onChange) {
                 var deviceSettings = useDevice(device), query = useQuery(settings);
                 if (!query)
                   throw new Error("Invalid or missing MediaQuery!");
@@ -28805,7 +28805,7 @@ Valid keys: ` + JSON.stringify(Object.keys(shapeTypes), null, "  ")
                   };
                 }, []), matches;
               };
-              exports2.default = useMediaQuery10;
+              exports2.default = useMediaQuery11;
             }
           ),
           /***/
@@ -31148,7 +31148,7 @@ var require_react_is_development = __commonJS({
           }
         }
       }
-      var AsyncMode = REACT_ASYNC_MODE_TYPE, ConcurrentMode = REACT_CONCURRENT_MODE_TYPE, ContextConsumer = REACT_CONTEXT_TYPE, ContextProvider = REACT_PROVIDER_TYPE, Element2 = REACT_ELEMENT_TYPE, ForwardRef10 = REACT_FORWARD_REF_TYPE, Fragment26 = REACT_FRAGMENT_TYPE, Lazy = REACT_LAZY_TYPE, Memo = REACT_MEMO_TYPE, Portal = REACT_PORTAL_TYPE, Profiler = REACT_PROFILER_TYPE, StrictMode = REACT_STRICT_MODE_TYPE, Suspense8 = REACT_SUSPENSE_TYPE, hasWarnedAboutDeprecatedIsAsyncMode = !1;
+      var AsyncMode = REACT_ASYNC_MODE_TYPE, ConcurrentMode = REACT_CONCURRENT_MODE_TYPE, ContextConsumer = REACT_CONTEXT_TYPE, ContextProvider = REACT_PROVIDER_TYPE, Element2 = REACT_ELEMENT_TYPE, ForwardRef10 = REACT_FORWARD_REF_TYPE, Fragment27 = REACT_FRAGMENT_TYPE, Lazy = REACT_LAZY_TYPE, Memo = REACT_MEMO_TYPE, Portal = REACT_PORTAL_TYPE, Profiler = REACT_PROFILER_TYPE, StrictMode = REACT_STRICT_MODE_TYPE, Suspense8 = REACT_SUSPENSE_TYPE, hasWarnedAboutDeprecatedIsAsyncMode = !1;
       function isAsyncMode(object) {
         return hasWarnedAboutDeprecatedIsAsyncMode || (hasWarnedAboutDeprecatedIsAsyncMode = !0, console.warn("The ReactIs.isAsyncMode() alias has been deprecated, and will be removed in React 17+. Update your code to use ReactIs.isConcurrentMode() instead. It has the exact same API.")), isConcurrentMode(object) || typeOf(object) === REACT_ASYNC_MODE_TYPE;
       }
@@ -31188,7 +31188,7 @@ var require_react_is_development = __commonJS({
       function isSuspense(object) {
         return typeOf(object) === REACT_SUSPENSE_TYPE;
       }
-      exports.AsyncMode = AsyncMode, exports.ConcurrentMode = ConcurrentMode, exports.ContextConsumer = ContextConsumer, exports.ContextProvider = ContextProvider, exports.Element = Element2, exports.ForwardRef = ForwardRef10, exports.Fragment = Fragment26, exports.Lazy = Lazy, exports.Memo = Memo, exports.Portal = Portal, exports.Profiler = Profiler, exports.StrictMode = StrictMode, exports.Suspense = Suspense8, exports.isAsyncMode = isAsyncMode, exports.isConcurrentMode = isConcurrentMode, exports.isContextConsumer = isContextConsumer, exports.isContextProvider = isContextProvider, exports.isElement = isElement, exports.isForwardRef = isForwardRef, exports.isFragment = isFragment, exports.isLazy = isLazy, exports.isMemo = isMemo, exports.isPortal = isPortal, exports.isProfiler = isProfiler, exports.isStrictMode = isStrictMode, exports.isSuspense = isSuspense, exports.isValidElementType = isValidElementType, exports.typeOf = typeOf;
+      exports.AsyncMode = AsyncMode, exports.ConcurrentMode = ConcurrentMode, exports.ContextConsumer = ContextConsumer, exports.ContextProvider = ContextProvider, exports.Element = Element2, exports.ForwardRef = ForwardRef10, exports.Fragment = Fragment27, exports.Lazy = Lazy, exports.Memo = Memo, exports.Portal = Portal, exports.Profiler = Profiler, exports.StrictMode = StrictMode, exports.Suspense = Suspense8, exports.isAsyncMode = isAsyncMode, exports.isConcurrentMode = isConcurrentMode, exports.isContextConsumer = isContextConsumer, exports.isContextProvider = isContextProvider, exports.isElement = isElement, exports.isForwardRef = isForwardRef, exports.isFragment = isFragment, exports.isLazy = isLazy, exports.isMemo = isMemo, exports.isPortal = isPortal, exports.isProfiler = isProfiler, exports.isStrictMode = isStrictMode, exports.isSuspense = isSuspense, exports.isValidElementType = isValidElementType, exports.typeOf = typeOf;
     })();
   }
 });
@@ -49878,7 +49878,7 @@ var require_Slider = __commonJS({
         Object.defineProperty(target, name, { enumerable: !0, get: all[name] });
     }
     _export(exports, { Slider: function() {
-      return Slider6;
+      return Slider7;
     }, default: function() {
       return _default;
     } });
@@ -49962,7 +49962,7 @@ var require_Slider = __commonJS({
           return _arrayLikeToArray2(o11, minLen);
       }
     }
-    var Slider6 = _react.default.forwardRef(function(_param, ref) {
+    var Slider7 = _react.default.forwardRef(function(_param, ref) {
       var color = _param.color, size = _param.size, className = _param.className, trackClassName = _param.trackClassName, thumbClassName = _param.thumbClassName, barClassName = _param.barClassName, value = _param.value, defaultValue = _param.defaultValue, onChange = _param.onChange, min = _param.min, max = _param.max, step = _param.step, inputRef = _param.inputRef, inputProps = _param.inputProps, rest = _objectWithoutProperties(_param, ["color", "size", "className", "trackClassName", "thumbClassName", "barClassName", "value", "defaultValue", "onChange", "min", "max", "step", "inputRef", "inputProps"]), slider = (0, _theme.useTheme)().slider, valid = slider.valid, defaultProps = slider.defaultProps, styles = slider.styles, base = styles.base, sizes = styles.sizes, colors = styles.colors, _React_useState = _slicedToArray2(_react.default.useState(defaultValue || 0), 2), innerValue = _React_useState[0], setInnerValue = _React_useState[1];
       _react.default.useMemo(function() {
         defaultValue && setInnerValue(defaultValue);
@@ -49982,9 +49982,9 @@ var require_Slider = __commonJS({
         return onChange ? onChange(e5) : setInnerValue(Number(e5.target.value));
       } })));
     });
-    Slider6.propTypes = { color: _propTypes.default.oneOf(_slider.propTypesColor), size: _propTypes.default.oneOf(_slider.propTypesSize), className: _slider.propTypesClassName, trackClassName: _slider.propTypesTrackClassName, thumbClassName: _slider.propTypesThumbClassName, barClassName: _slider.propTypesBarClassName, defaultValue: _slider.propTypesDefaultValue, value: _slider.propTypesValue, onChange: _slider.propTypesOnChange, min: _slider.propTypesMin, max: _slider.propTypesMax, step: _slider.propTypesStep, inputRef: _slider.propTypesInputRef, inputProps: _slider.propTypesInputProps };
-    Slider6.displayName = "MaterialTailwind.Slider";
-    var _default = Slider6;
+    Slider7.propTypes = { color: _propTypes.default.oneOf(_slider.propTypesColor), size: _propTypes.default.oneOf(_slider.propTypesSize), className: _slider.propTypesClassName, trackClassName: _slider.propTypesTrackClassName, thumbClassName: _slider.propTypesThumbClassName, barClassName: _slider.propTypesBarClassName, defaultValue: _slider.propTypesDefaultValue, value: _slider.propTypesValue, onChange: _slider.propTypesOnChange, min: _slider.propTypesMin, max: _slider.propTypesMax, step: _slider.propTypesStep, inputRef: _slider.propTypesInputRef, inputProps: _slider.propTypesInputProps };
+    Slider7.displayName = "MaterialTailwind.Slider";
+    var _default = Slider7;
   }
 });
 
@@ -53097,8 +53097,8 @@ var require_inner_slider = __commonJS({
             trackStyle
           };
         }), _defineProperty2(_assertThisInitialized(_this), "checkImagesLoad", function() {
-          var images = _this.list && _this.list.querySelectorAll && _this.list.querySelectorAll(".slick-slide img") || [], imagesCount = images.length, loadedCount = 0;
-          Array.prototype.forEach.call(images, function(image) {
+          var images2 = _this.list && _this.list.querySelectorAll && _this.list.querySelectorAll(".slick-slide img") || [], imagesCount = images2.length, loadedCount = 0;
+          Array.prototype.forEach.call(images2, function(image) {
             var handler = function() {
               return ++loadedCount && loadedCount >= imagesCount && _this.onWindowResized();
             };
@@ -53723,12 +53723,12 @@ var require_slider3 = __commonJS({
       }
       return (r9 === "string" ? String : Number)(t18);
     }
-    var enquire = (0, _innerSliderUtils.canUseDOM)() && require_src(), Slider6 = exports.default = /* @__PURE__ */ function(_React$Component) {
-      _inherits(Slider7, _React$Component);
-      var _super = _createSuper(Slider7);
-      function Slider7(props) {
+    var enquire = (0, _innerSliderUtils.canUseDOM)() && require_src(), Slider7 = exports.default = /* @__PURE__ */ function(_React$Component) {
+      _inherits(Slider8, _React$Component);
+      var _super = _createSuper(Slider8);
+      function Slider8(props) {
         var _this;
-        return _classCallCheck2(this, Slider7), _this = _super.call(this, props), _defineProperty2(_assertThisInitialized(_this), "innerSliderRefHandler", function(ref) {
+        return _classCallCheck2(this, Slider8), _this = _super.call(this, props), _defineProperty2(_assertThisInitialized(_this), "innerSliderRefHandler", function(ref) {
           return _this.innerSlider = ref;
         }), _defineProperty2(_assertThisInitialized(_this), "slickPrev", function() {
           return _this.innerSlider.slickPrev();
@@ -53745,7 +53745,7 @@ var require_slider3 = __commonJS({
           breakpoint: null
         }, _this._responsiveMediaHandlers = [], _this;
       }
-      return _createClass2(Slider7, [{
+      return _createClass2(Slider8, [{
         key: "media",
         value: function(query, handler) {
           enquire.register(query, handler), this._responsiveMediaHandlers.push({
@@ -53842,7 +53842,7 @@ var require_slider3 = __commonJS({
             ref: this.innerSliderRefHandler
           }, (0, _innerSliderUtils.filterSettings)(settings)), newChildren);
         }
-      }]), Slider7;
+      }]), Slider8;
     }(_react.default.Component);
   }
 });
@@ -61232,38 +61232,55 @@ function MdChevronRight(props) {
 }
 
 // app/components/ImageCarousel.jsx
-var import_jsx_dev_runtime8 = __toESM(require_jsx_dev_runtime()), ImageCarousel = ({ images, isSmall }) => {
-  let [currentImageIndex, setCurrentImageIndex] = (0, import_react21.useState)(0);
-  var mobImgHeight = { height: "inherit" };
-  let nextImage = () => {
-    setCurrentImageIndex((currentImageIndex + 1) % images.length);
-  }, prevImage = () => {
-    setCurrentImageIndex(
-      (currentImageIndex - 1 + images.length) % images.length
-    );
-  }, goToCollection = (index3) => {
-    switch (index3) {
-      case 0:
-        window.location.href = "/collections/cult-makeup";
-        break;
-      case 1:
-        window.location.href = "/collections/way-2-slay-mjk";
-        break;
-      case 2:
-        window.location.href = "/collections/rizz-roll-mjk";
-        break;
-      default:
-        window.location.href = "/collections/pro-studio-mjk";
-    }
+var import_react_responsive2 = __toESM(require_react_responsive()), import_react_slick = __toESM(require_lib()), import_jsx_dev_runtime8 = __toESM(require_jsx_dev_runtime()), ImageCarousel = () => {
+  let isSmall = (0, import_react_responsive2.useMediaQuery)({ maxWidth: 640 });
+  var imageSrc = [];
+  let goToCollection = (url) => {
+    window.location.href = url;
   };
-  return isSmall && (mobImgHeight = { height: "inherit" }), /* @__PURE__ */ (0, import_jsx_dev_runtime8.jsxDEV)("div", { className: "relative", children: [
-    /* @__PURE__ */ (0, import_jsx_dev_runtime8.jsxDEV)(
+  var imageSrc = [];
+  isSmall ? imageSrc = [
+    {
+      url: "/collections/cult-makeup",
+      img: "https://cdn.shopify.com/s/files/1/0809/4253/0882/files/desktop_banner_1.jpg?v=1713342696"
+    },
+    {
+      img: "https://cdn.shopify.com/s/files/1/0809/4253/0882/files/mobile_Hero_Banners_2.jpg?v=1713353171",
+      url: "/collections/way-2-slay-mjk"
+    },
+    {
+      img: "https://cdn.shopify.com/s/files/1/0809/4253/0882/files/mobile_Hero_Banners_4.jpg?v=1713353171",
+      url: "/collections/rizz-roll-mjk"
+    },
+    {
+      img: "https://cdn.shopify.com/s/files/1/0809/4253/0882/files/pro_studio_mobile_banner_3_700_x_470.jpg?v=1714388254",
+      url: "collections/pro-studio-mjk"
+    }
+  ] : imageSrc = [
+    {
+      url: "/collections/cult-makeup",
+      img: "https://cdn.shopify.com/s/files/1/0809/4253/0882/files/desktop_banner_1.jpg?v=1713342696"
+    },
+    {
+      img: "https://cdn.shopify.com/s/files/1/0809/4253/0882/files/desktop_banner_3.jpg?v=1713342905",
+      url: "/collections/way-2-slay-mjk"
+    },
+    {
+      img: "https://cdn.shopify.com/s/files/1/0809/4253/0882/files/desktop_banner_2.jpg?v=1713342905",
+      url: "/collections/rizz-roll-mjk"
+    },
+    {
+      img: "https://cdn.shopify.com/s/files/1/0809/4253/0882/files/pro_studio__banner_5_opt_2.jpg?v=1714388254",
+      url: "collections/pro-studio-mjk"
+    }
+  ];
+  function PrevArrow(props) {
+    let { onClick } = props;
+    return /* @__PURE__ */ (0, import_jsx_dev_runtime8.jsxDEV)(
       "button",
       {
-        className: "absolute left-0 top-1/2 transform -translate-y-1/2 px-4 py-2 text-white",
-        onClick: () => setCurrentImageIndex(
-          (currentImageIndex - 1 + images.length) % images.length
-        ),
+        className: "absolute top-1/2 transform -translate-y-1/2  bg-opacity-75 rounded-full p-2 ml-4 hover:bg-opacity-100 text-white",
+        onClick,
         children: /* @__PURE__ */ (0, import_jsx_dev_runtime8.jsxDEV)(
           MdChevronLeft,
           {
@@ -61274,8 +61291,8 @@ var import_jsx_dev_runtime8 = __toESM(require_jsx_dev_runtime()), ImageCarousel 
           !1,
           {
             fileName: "app/components/ImageCarousel.jsx",
-            lineNumber: 39,
-            columnNumber: 7
+            lineNumber: 54,
+            columnNumber: 9
           },
           this
         )
@@ -61284,32 +61301,19 @@ var import_jsx_dev_runtime8 = __toESM(require_jsx_dev_runtime()), ImageCarousel 
       !1,
       {
         fileName: "app/components/ImageCarousel.jsx",
-        lineNumber: 31,
+        lineNumber: 51,
         columnNumber: 7
       },
       this
-    ),
-    /* @__PURE__ */ (0, import_jsx_dev_runtime8.jsxDEV)(
-      "img",
-      {
-        onClick: () => goToCollection(currentImageIndex),
-        className: `lg:w-full md:w-full cursor-pointer sm:w-full object-cover ${isSmall ? "rounded-2xl" : ""} w-[100%]`,
-        src: images[currentImageIndex]
-      },
-      void 0,
-      !1,
-      {
-        fileName: "app/components/ImageCarousel.jsx",
-        lineNumber: 44,
-        columnNumber: 7
-      },
-      this
-    ),
-    /* @__PURE__ */ (0, import_jsx_dev_runtime8.jsxDEV)(
+    );
+  }
+  function NextArrow(props) {
+    let { onClick } = props;
+    return /* @__PURE__ */ (0, import_jsx_dev_runtime8.jsxDEV)(
       "button",
       {
-        className: "absolute right-0 top-1/2 transform -translate-y-1/2 px-4 py-2 text-white",
-        onClick: () => setCurrentImageIndex((currentImageIndex + 1) % images.length),
+        className: "absolute right-0 top-1/2 transform -translate-y-1/2 bg-opacity-75 rounded-full p-2 mr-4 hover:bg-opacity-100 text-white",
+        onClick,
         children: /* @__PURE__ */ (0, import_jsx_dev_runtime8.jsxDEV)(
           MdChevronRight,
           {
@@ -61320,8 +61324,8 @@ var import_jsx_dev_runtime8 = __toESM(require_jsx_dev_runtime()), ImageCarousel 
           !1,
           {
             fileName: "app/components/ImageCarousel.jsx",
-            lineNumber: 55,
-            columnNumber: 7
+            lineNumber: 69,
+            columnNumber: 11
           },
           this
         )
@@ -61330,24 +61334,104 @@ var import_jsx_dev_runtime8 = __toESM(require_jsx_dev_runtime()), ImageCarousel 
       !1,
       {
         fileName: "app/components/ImageCarousel.jsx",
-        lineNumber: 49,
+        lineNumber: 65,
         columnNumber: 7
       },
       this
-    )
-  ] }, void 0, !0, {
+    );
+  }
+  let settings = {
+    infinite: !0,
+    speed: 500,
+    initialSlide: isSmall ? 1 : 0,
+    slidesToShow: 1,
+    slidesToScroll: 1,
+    autoplay: !0,
+    autoplaySpeed: 3500,
+    cssEase: "linear",
+    nextArrow: /* @__PURE__ */ (0, import_jsx_dev_runtime8.jsxDEV)(PrevArrow, {}, void 0, !1, {
+      fileName: "app/components/ImageCarousel.jsx",
+      lineNumber: 85,
+      columnNumber: 16
+    }, this),
+    prevArrow: /* @__PURE__ */ (0, import_jsx_dev_runtime8.jsxDEV)(NextArrow, {}, void 0, !1, {
+      fileName: "app/components/ImageCarousel.jsx",
+      lineNumber: 86,
+      columnNumber: 16
+    }, this),
+    responsive: [
+      {
+        breakpoint: 1024,
+        settings: {
+          slidesToShow: 1,
+          slidesToScroll: 3,
+          infinite: !0,
+          dots: !0
+        }
+      },
+      {
+        breakpoint: 600,
+        settings: {
+          slidesToShow: 1,
+          slidesToScroll: 1,
+          initialSlide: 1,
+          dots: !0
+        }
+      },
+      {
+        breakpoint: 520,
+        settings: {
+          slidesToShow: 1,
+          slidesToScroll: 1,
+          dots: !0
+        }
+      }
+    ]
+  }, [currentImageIndex, setCurrentImageIndex] = (0, import_react21.useState)(0);
+  var mobImgHeight = { height: "inherit" };
+  let nextImage = () => {
+    setCurrentImageIndex((currentImageIndex + 1) % images.length);
+  }, prevImage = () => {
+    setCurrentImageIndex(
+      (currentImageIndex - 1 + images.length) % images.length
+    );
+  };
+  return /* @__PURE__ */ (0, import_jsx_dev_runtime8.jsxDEV)("div", { className: "relative", children: /* @__PURE__ */ (0, import_jsx_dev_runtime8.jsxDEV)(import_react_slick.default, { ...settings, children: imageSrc.map((item) => /* @__PURE__ */ (0, import_jsx_dev_runtime8.jsxDEV)(import_jsx_dev_runtime8.Fragment, { children: /* @__PURE__ */ (0, import_jsx_dev_runtime8.jsxDEV)(
+    "img",
+    {
+      onClick: () => goToCollection(item.url),
+      className: `lg:w-full md:w-full cursor-pointer sm:w-full object-cover ${isSmall ? "rounded-2xl" : ""} w-[100%]`,
+      src: item.img
+    },
+    void 0,
+    !1,
+    {
+      fileName: "app/components/ImageCarousel.jsx",
+      lineNumber: 135,
+      columnNumber: 15
+    },
+    this
+  ) }, void 0, !1, {
     fileName: "app/components/ImageCarousel.jsx",
-    lineNumber: 30,
+    lineNumber: 134,
+    columnNumber: 13
+  }, this)) }, void 0, !1, {
+    fileName: "app/components/ImageCarousel.jsx",
+    lineNumber: 131,
+    columnNumber: 7
+  }, this) }, void 0, !1, {
+    fileName: "app/components/ImageCarousel.jsx",
+    lineNumber: 130,
     columnNumber: 5
   }, this);
 }, ImageCarousel_default = ImageCarousel;
 
 // app/components/ProductCarousel.jsx
 var import_react22 = __toESM(require_react());
-var import_react_responsive2 = __toESM(require_react_responsive()), import_react_slick = __toESM(require_lib()), import_jsx_dev_runtime9 = __toESM(require_jsx_dev_runtime()), ProductCarousel = ({ products: products2 }) => {
+var import_react_responsive3 = __toESM(require_react_responsive()), import_react_slick2 = __toESM(require_lib()), import_jsx_dev_runtime9 = __toESM(require_jsx_dev_runtime()), ProductCarousel = ({ products: products2 }) => {
   let noImg = "https://cdn.shopify.com/s/files/1/0809/4253/0882/files/No-image-found.jpg?v=1708942129", productsToShow = [], lines = [], [startIndex, setStartIndex] = (0, import_react22.useState)(0);
   var len = products2.edges.length;
-  let eIndex = (0, import_react_responsive2.useMediaQuery)({ minWidth: 1024 }) ? len < 4 ? len : 4 : 2, [endIndex, setEndIndex] = (0, import_react22.useState)(eIndex);
+  let eIndex = (0, import_react_responsive3.useMediaQuery)({ minWidth: 1024 }) ? len < 4 ? len : 4 : 2, [endIndex, setEndIndex] = (0, import_react22.useState)(eIndex);
   productsToShow = products2, console.log("start INDEX ::", startIndex, "End Index ::", endIndex, "Length::", eIndex), products2.edges.map((product) => {
     product.node.variants.edges.map((line) => {
       line.node.availableForSale && lines.push([
@@ -61427,7 +61511,7 @@ var import_react_responsive2 = __toESM(require_react_responsive()), import_react
       this
     );
   }
-  return /* @__PURE__ */ (0, import_jsx_dev_runtime9.jsxDEV)("div", { className: "recommended_section w-full max-w-screen-xl mx-auto lg:px-24 sm:px-4 md:px-6", children: /* @__PURE__ */ (0, import_jsx_dev_runtime9.jsxDEV)("div", { children: /* @__PURE__ */ (0, import_jsx_dev_runtime9.jsxDEV)(import_react_slick.default, { ...{
+  return /* @__PURE__ */ (0, import_jsx_dev_runtime9.jsxDEV)("div", { className: "recommended_section w-full max-w-screen-xl mx-auto lg:px-24 sm:px-4 md:px-6", children: /* @__PURE__ */ (0, import_jsx_dev_runtime9.jsxDEV)("div", { children: /* @__PURE__ */ (0, import_jsx_dev_runtime9.jsxDEV)(import_react_slick2.default, { ...{
     infinite: !0,
     dots: !1,
     speed: 500,
@@ -61647,7 +61731,7 @@ var import_jsx_dev_runtime10 = __toESM(require_jsx_dev_runtime()), OfferCarousel
 }, OfferCarousel_default = OfferCarousel;
 
 // app/components/YouTubeVideo.jsx
-var import_react24 = __toESM(require_react()), import_react_responsive3 = __toESM(require_react_responsive()), import_jsx_dev_runtime11 = __toESM(require_jsx_dev_runtime()), MobileVideo = ({ playVideo, src, isPlay, embedUrl }) => (console.log("MobileVideo:", isPlay), /* @__PURE__ */ (0, import_jsx_dev_runtime11.jsxDEV)("div", { className: "w-full h-full mx-auto", children: /* @__PURE__ */ (0, import_jsx_dev_runtime11.jsxDEV)("div", { className: "relative rounded-lg cursor-pointer", onClick: () => playVideo(), children: [
+var import_react24 = __toESM(require_react()), import_react_responsive4 = __toESM(require_react_responsive()), import_jsx_dev_runtime11 = __toESM(require_jsx_dev_runtime()), MobileVideo = ({ playVideo, src, isPlay, embedUrl }) => (console.log("MobileVideo:", isPlay), /* @__PURE__ */ (0, import_jsx_dev_runtime11.jsxDEV)("div", { className: "w-full h-full mx-auto", children: /* @__PURE__ */ (0, import_jsx_dev_runtime11.jsxDEV)("div", { className: "relative rounded-lg cursor-pointer", onClick: () => playVideo(), children: [
   /* @__PURE__ */ (0, import_jsx_dev_runtime11.jsxDEV)("img", { className: "relative rounded-2xl", src, alt: "Youtube Video" }, void 0, !1, {
     fileName: "app/components/YouTubeVideo.jsx",
     lineNumber: 9,
@@ -61726,7 +61810,7 @@ var import_react24 = __toESM(require_react()), import_react_responsive3 = __toES
   lineNumber: 29,
   columnNumber: 5
 }, this), YouTubeVideo = () => {
-  let embedUrl = "https://www.youtube.com/embed/WKKai8jures?si=RwowF2iZZmbeL8H3?&autoplay=1", src = "https://cdn.shopify.com/s/files/1/0809/4253/0882/files/youtube_thumbnail.jpg?v=1713503453", isLargeScreen = (0, import_react_responsive3.useMediaQuery)({ minWidth: 1024 }), isSmall = (0, import_react_responsive3.useMediaQuery)({ maxWidth: 640 }), [play, setPlay] = (0, import_react24.useState)(!1), playVideo = () => {
+  let embedUrl = "https://www.youtube.com/embed/WKKai8jures?si=RwowF2iZZmbeL8H3?&autoplay=1", src = "https://cdn.shopify.com/s/files/1/0809/4253/0882/files/youtube_thumbnail.jpg?v=1713503453", isLargeScreen = (0, import_react_responsive4.useMediaQuery)({ minWidth: 1024 }), isSmall = (0, import_react_responsive4.useMediaQuery)({ maxWidth: 640 }), [play, setPlay] = (0, import_react24.useState)(!1), playVideo = () => {
     setPlay(!play);
   };
   return /* @__PURE__ */ (0, import_jsx_dev_runtime11.jsxDEV)("div", { children: [
@@ -61750,7 +61834,7 @@ var import_react24 = __toESM(require_react()), import_react_responsive3 = __toES
 // app/components/Layout.jsx
 var import_jsx_dev_runtime12 = __toESM(require_jsx_dev_runtime());
 function Layout({ cart, children = null, footer, header, isLoggedIn }) {
-  let images = [
+  let images2 = [
     "https://cdn.shopify.com/s/files/1/0810/9863/7603/files/6995513d5b84551a7c89579bda02b56d.jpg?v=1693061468",
     "https://cdn.shopify.com/s/files/1/0810/9863/7603/files/6995513d5b84551a7c89579bda02b56d.jpg?v=1693061468",
     "https://cdn.shopify.com/s/files/1/0810/9863/7603/files/6995513d5b84551a7c89579bda02b56d.jpg?v=1693061468"
@@ -63691,7 +63775,7 @@ __export(locale_collections_handle_exports, {
   meta: () => meta6
 });
 var import_react69 = __toESM(require_react());
-var import_react_responsive5 = __toESM(require_react_responsive());
+var import_react_responsive6 = __toESM(require_react_responsive());
 var import_react71 = __toESM(require_react());
 
 // node_modules/@headlessui/react/dist/hooks/use-iso-morphic-effect.js
@@ -65551,10 +65635,10 @@ var ForwardRef9 = React24.forwardRef(Squares2X2Icon), Squares2X2Icon_default = F
 
 // app/components/CollectionCarousel.jsx
 var import_react68 = __toESM(require_react());
-var import_react_responsive4 = __toESM(require_react_responsive());
+var import_react_responsive5 = __toESM(require_react_responsive());
 var import_jsx_dev_runtime19 = __toESM(require_jsx_dev_runtime()), CollectionCarousel = ({ collection, handle, sortArr, all_collections }) => {
   var _a2, _b;
-  let noImg = "https://cdn.shopify.com/s/files/1/0809/4253/0882/files/No-image-found.jpg?v=1708942129", collectionsToShow = [], [startIndex, setStartIndex] = (0, import_react68.useState)(0), eIndex = (0, import_react_responsive4.useMediaQuery)({ minWidth: 1024 }) ? len < 4 ? len : 4 : 2, [endIndex, setEndIndex] = (0, import_react68.useState)(eIndex);
+  let noImg = "https://cdn.shopify.com/s/files/1/0809/4253/0882/files/No-image-found.jpg?v=1708942129", collectionsToShow = [], [startIndex, setStartIndex] = (0, import_react68.useState)(0), eIndex = (0, import_react_responsive5.useMediaQuery)({ minWidth: 1024 }) ? len < 4 ? len : 4 : 2, [endIndex, setEndIndex] = (0, import_react68.useState)(eIndex);
   var len = sortArr == null ? void 0 : sortArr.length;
   (sortArr != null || sortArr != null) && (collectionsToShow = sortArr.slice(startIndex, endIndex)), console.log("Meta :;", (_b = (_a2 = collectionsToShow[0]) == null ? void 0 : _a2.node) == null ? void 0 : _b.metafields);
   let nextCollections = () => {
@@ -65755,7 +65839,7 @@ function Collection() {
   console.log("sortColl::", sortColl);
   let [mobileFiltersOpen, setMobileFiltersOpen] = (0, import_react69.useState)(!1);
   var productsToShow1 = [];
-  let lines = [], [startIndex, setStartIndex] = (0, import_react69.useState)(0), [productsToShow, setProductToShow] = (0, import_react69.useState)([]), [productsToShowDump, setProductToShowDump] = (0, import_react69.useState)([]), [imgUrl, setImgUrl] = (0, import_react69.useState)(""), isLargeScreen = (0, import_react_responsive5.useMediaQuery)({ minWidth: 1024 }), isSmall = (0, import_react_responsive5.useMediaQuery)({ maxWidth: 640 }), [readMore, setMore] = (0, import_react69.useState)(!1), endIndex = isLargeScreen ? 4 : 2;
+  let lines = [], [startIndex, setStartIndex] = (0, import_react69.useState)(0), [productsToShow, setProductToShow] = (0, import_react69.useState)([]), [productsToShowDump, setProductToShowDump] = (0, import_react69.useState)([]), [imgUrl, setImgUrl] = (0, import_react69.useState)(""), isLargeScreen = (0, import_react_responsive6.useMediaQuery)({ minWidth: 1024 }), isSmall = (0, import_react_responsive6.useMediaQuery)({ maxWidth: 640 }), [readMore, setMore] = (0, import_react69.useState)(!1), endIndex = isLargeScreen ? 4 : 2;
   (0, import_react69.useEffect)(() => {
     (collection.products != null || collection.products != null) && (productsToShow1 = collection.products.nodes, setProductToShow(productsToShow1), setProductToShowDump(productsToShow1));
   }, []), collection.products.nodes.map((product) => {
@@ -68885,9 +68969,9 @@ var import_react81 = __toESM(require_react());
 var import_react83 = __toESM(require_react());
 
 // app/components/ProductsCorousel.jsx
-var import_react79 = __toESM(require_react()), import_react_responsive6 = __toESM(require_react_responsive());
+var import_react79 = __toESM(require_react()), import_react_responsive7 = __toESM(require_react_responsive());
 var import_jsx_dev_runtime27 = __toESM(require_jsx_dev_runtime()), ProductsCorousel = ({ products: products2 }) => {
-  let noImg = "https://cdn.shopify.com/s/files/1/0809/4253/0882/files/No-image-found.jpg?v=1708942129", productsToShow = [], [startIndex, setStartIndex] = (0, import_react79.useState)(0), lines = [], endIndex = (0, import_react_responsive6.useMediaQuery)({ minWidth: 1024 }) ? 4 : 2;
+  let noImg = "https://cdn.shopify.com/s/files/1/0809/4253/0882/files/No-image-found.jpg?v=1708942129", productsToShow = [], [startIndex, setStartIndex] = (0, import_react79.useState)(0), lines = [], endIndex = (0, import_react_responsive7.useMediaQuery)({ minWidth: 1024 }) ? 4 : 2;
   (products2 != null || products2 != null) && (productsToShow = products2.edges.slice(startIndex, startIndex + endIndex));
   let goToProduct = (url_path) => {
     window.location.href = url_path;
@@ -70019,15 +70103,15 @@ function ProductImage({ image, activeImg, setActiveImage, product }) {
   product.images.edges.forEach((item) => {
     ImageSrc.push(item.node.url);
   });
-  let [images, setImages] = (0, import_react83.useState)(ImageSrc);
+  let [images2, setImages] = (0, import_react83.useState)(ImageSrc);
   return image ? /* @__PURE__ */ (0, import_jsx_dev_runtime28.jsxDEV)(import_jsx_dev_runtime28.Fragment, { children: /* @__PURE__ */ (0, import_jsx_dev_runtime28.jsxDEV)("div", { className: "lg:grid flex flex-col-reverse lg:grid-cols-[20%_80%] gap-2 lg:gap-0 items-center", children: [
     /* @__PURE__ */ (0, import_jsx_dev_runtime28.jsxDEV)("div", { className: "flex  lg:flex-col  justify-between lg:h-[325px] overflow-x-auto gap-[5px]", children: product.images.edges && product.images.edges.map((item, index3) => /* @__PURE__ */ (0, import_jsx_dev_runtime28.jsxDEV)(
       "img",
       {
-        src: images[index3],
+        src: images2[index3],
         alt: "",
         className: "w-24 h-24 rounded-md cursor-pointer product-image-caro ",
-        onClick: () => setActiveImage(images[index3])
+        onClick: () => setActiveImage(images2[index3])
       },
       void 0,
       !1,
@@ -70078,9 +70162,9 @@ function ProductMain({ selectedVariant, product, shareUrl, variants, recommended
   product.images.edges.forEach((item) => {
     ImageSrc.push(item.node.url);
   });
-  let [images, setImages] = (0, import_react83.useState)(ImageSrc), expaction = (_a2 = product.metafields[0]) == null ? void 0 : _a2.value, key_ingredients = (_b = product.metafields[1]) == null ? void 0 : _b.value, How_To_use = (_c = product.metafields[2]) == null ? void 0 : _c.value, who_can_use = (_d = product.metafields[3]) == null ? void 0 : _d.value, why_us = (_e3 = product.metafields[4]) == null ? void 0 : _e3.value, ingredient = (_f = product.metafields[5]) == null ? void 0 : _f.value, [activeTab, setActiveTab] = (0, import_react83.useState)("Ingredient"), handleTabClick = (tab) => {
+  let [images2, setImages] = (0, import_react83.useState)(ImageSrc), expaction = (_a2 = product.metafields[0]) == null ? void 0 : _a2.value, key_ingredients = (_b = product.metafields[1]) == null ? void 0 : _b.value, How_To_use = (_c = product.metafields[2]) == null ? void 0 : _c.value, who_can_use = (_d = product.metafields[3]) == null ? void 0 : _d.value, why_us = (_e3 = product.metafields[4]) == null ? void 0 : _e3.value, ingredient = (_f = product.metafields[5]) == null ? void 0 : _f.value, [activeTab, setActiveTab] = (0, import_react83.useState)("Ingredient"), handleTabClick = (tab) => {
     setActiveTab(tab);
-  }, [activeImg, setActiveImage] = (0, import_react83.useState)(images[0]), [moreText, setMoreText] = (0, import_react83.useState)(!0);
+  }, [activeImg, setActiveImage] = (0, import_react83.useState)(images2[0]), [moreText, setMoreText] = (0, import_react83.useState)(!0);
   return /* @__PURE__ */ (0, import_jsx_dev_runtime28.jsxDEV)(import_jsx_dev_runtime28.Fragment, { children: [
     /* @__PURE__ */ (0, import_jsx_dev_runtime28.jsxDEV)("div", { className: "flex m-[2%] gap-2 items-center", children: [
       /* @__PURE__ */ (0, import_jsx_dev_runtime28.jsxDEV)(Link2, { className: "mst-color", to: "/", children: "Home" }, void 0, !1, {
@@ -72568,8 +72652,8 @@ __export(locale_index_exports, {
 var import_react97 = __toESM(require_react());
 
 // app/components/GiftingCollection.jsx
-var import_react94 = __toESM(require_react()), import_react_responsive7 = __toESM(require_react_responsive()), import_react_slick2 = __toESM(require_lib()), import_jsx_dev_runtime36 = __toESM(require_jsx_dev_runtime()), GiftingCollection = ({ collections, title }) => {
-  let productsToShow = [], [startIndex, setStartIndex] = (0, import_react94.useState)(0), isLargeScreen = (0, import_react_responsive7.useMediaQuery)({ minWidth: 1024 }), goToCollection = (url_path) => {
+var import_react94 = __toESM(require_react()), import_react_responsive8 = __toESM(require_react_responsive()), import_react_slick3 = __toESM(require_lib()), import_jsx_dev_runtime36 = __toESM(require_jsx_dev_runtime()), GiftingCollection = ({ collections, title }) => {
+  let productsToShow = [], [startIndex, setStartIndex] = (0, import_react94.useState)(0), isLargeScreen = (0, import_react_responsive8.useMediaQuery)({ minWidth: 1024 }), goToCollection = (url_path) => {
     window.location.href = url_path;
   };
   console.log("isLarge ::", isLargeScreen);
@@ -72623,7 +72707,7 @@ var import_react94 = __toESM(require_react()), import_react_responsive7 = __toES
       lineNumber: 54,
       columnNumber: 1
     }, this),
-    /* @__PURE__ */ (0, import_jsx_dev_runtime36.jsxDEV)("div", { className: "relative mb-8", children: /* @__PURE__ */ (0, import_jsx_dev_runtime36.jsxDEV)(import_react_slick2.default, { ...settings, children: collections.map((coll, index3) => /* @__PURE__ */ (0, import_jsx_dev_runtime36.jsxDEV)("div", { className: "w-full", children: /* @__PURE__ */ (0, import_jsx_dev_runtime36.jsxDEV)("div", { children: /* @__PURE__ */ (0, import_jsx_dev_runtime36.jsxDEV)(
+    /* @__PURE__ */ (0, import_jsx_dev_runtime36.jsxDEV)("div", { className: "relative mb-8", children: /* @__PURE__ */ (0, import_jsx_dev_runtime36.jsxDEV)(import_react_slick3.default, { ...settings, children: collections.map((coll, index3) => /* @__PURE__ */ (0, import_jsx_dev_runtime36.jsxDEV)("div", { className: "w-full", children: /* @__PURE__ */ (0, import_jsx_dev_runtime36.jsxDEV)("div", { children: /* @__PURE__ */ (0, import_jsx_dev_runtime36.jsxDEV)(
       "img",
       {
         onClick: () => goToCollection(`/collections/${coll.handle}`),
@@ -72665,10 +72749,10 @@ var import_react94 = __toESM(require_react()), import_react_responsive7 = __toES
 var GiftingCollection_default = GiftingCollection;
 
 // app/routes/($locale)._index.jsx
-var import_react_responsive9 = __toESM(require_react_responsive());
+var import_react_responsive10 = __toESM(require_react_responsive());
 
 // app/components/BlogCorousel.jsx
-var import_react95 = __toESM(require_react()), import_react_responsive8 = __toESM(require_react_responsive()), import_react_slick3 = __toESM(require_lib()), import_jsx_dev_runtime37 = __toESM(require_jsx_dev_runtime()), MobileProductCorousel = ({ products: products2, title, settings }) => {
+var import_react95 = __toESM(require_react()), import_react_responsive9 = __toESM(require_react_responsive()), import_react_slick4 = __toESM(require_lib()), import_jsx_dev_runtime37 = __toESM(require_jsx_dev_runtime()), MobileProductCorousel = ({ products: products2, title, settings }) => {
   let [startIndex, setStartIndex] = (0, import_react95.useState)(0);
   return /* @__PURE__ */ (0, import_jsx_dev_runtime37.jsxDEV)("div", { className: "w-full max-w-screen-2xl mx-auto px-1", children: /* @__PURE__ */ (0, import_jsx_dev_runtime37.jsxDEV)("div", { className: "relative", children: [
     /* @__PURE__ */ (0, import_jsx_dev_runtime37.jsxDEV)("h1", { className: "text-center mt-0 lg:text-[28px] text-[20px]", children: title }, void 0, !1, {
@@ -72676,7 +72760,7 @@ var import_react95 = __toESM(require_react()), import_react_responsive8 = __toES
       lineNumber: 12,
       columnNumber: 9
     }, this),
-    /* @__PURE__ */ (0, import_jsx_dev_runtime37.jsxDEV)(import_react_slick3.default, { ...settings, children: products2.nodes.map((product, index3) => /* @__PURE__ */ (0, import_jsx_dev_runtime37.jsxDEV)("div", { className: "px-2 bg-white", children: /* @__PURE__ */ (0, import_jsx_dev_runtime37.jsxDEV)("a", { href: `/blogs/${product.handle}`, children: /* @__PURE__ */ (0, import_jsx_dev_runtime37.jsxDEV)(
+    /* @__PURE__ */ (0, import_jsx_dev_runtime37.jsxDEV)(import_react_slick4.default, { ...settings, children: products2.nodes.map((product, index3) => /* @__PURE__ */ (0, import_jsx_dev_runtime37.jsxDEV)("div", { className: "px-2 bg-white", children: /* @__PURE__ */ (0, import_jsx_dev_runtime37.jsxDEV)("a", { href: `/blogs/${product.handle}`, children: /* @__PURE__ */ (0, import_jsx_dev_runtime37.jsxDEV)(
       "img",
       {
         src: `${product.articles.edges[0].node.image.url}`,
@@ -72714,7 +72798,7 @@ var import_react95 = __toESM(require_react()), import_react_responsive8 = __toES
     columnNumber: 5
   }, this);
 }, DesktopCorousel2 = ({ products: products2, title, settings }) => {
-  let [startIndex, setStartIndex] = (0, import_react95.useState)(0), productsToShow = products2.nodes.slice(startIndex, startIndex + 3), isMobile = (0, import_react_responsive8.useMediaQuery)({ maxWidth: 640 }), nextProducts = () => {
+  let [startIndex, setStartIndex] = (0, import_react95.useState)(0), productsToShow = products2.nodes.slice(startIndex, startIndex + 3), isMobile = (0, import_react_responsive9.useMediaQuery)({ maxWidth: 640 }), nextProducts = () => {
     setStartIndex((prevIndex) => (prevIndex + 3) % products2.length);
   };
   settings.infinite = !1;
@@ -72729,7 +72813,7 @@ var import_react95 = __toESM(require_react()), import_react_responsive8 = __toES
       lineNumber: 68,
       columnNumber: 11
     }, this),
-    /* @__PURE__ */ (0, import_jsx_dev_runtime37.jsxDEV)(import_react_slick3.default, { ...settings, children: products2.nodes.map((product, index3) => /* @__PURE__ */ (0, import_jsx_dev_runtime37.jsxDEV)("div", { className: "px-2 bg-white", children: /* @__PURE__ */ (0, import_jsx_dev_runtime37.jsxDEV)("a", { href: `/blogs/${product.handle}`, children: /* @__PURE__ */ (0, import_jsx_dev_runtime37.jsxDEV)(
+    /* @__PURE__ */ (0, import_jsx_dev_runtime37.jsxDEV)(import_react_slick4.default, { ...settings, children: products2.nodes.map((product, index3) => /* @__PURE__ */ (0, import_jsx_dev_runtime37.jsxDEV)("div", { className: "px-2 bg-white", children: /* @__PURE__ */ (0, import_jsx_dev_runtime37.jsxDEV)("a", { href: `/blogs/${product.handle}`, children: /* @__PURE__ */ (0, import_jsx_dev_runtime37.jsxDEV)(
       "img",
       {
         src: `${product.articles.edges[0].node.image.url}`,
@@ -72824,7 +72908,7 @@ var import_react95 = __toESM(require_react()), import_react_responsive8 = __toES
 }, BlogCorousel_default = BlogCorousel;
 
 // app/components/Testimonials.jsx
-var import_react_slick4 = __toESM(require_lib()), import_jsx_dev_runtime38 = __toESM(require_jsx_dev_runtime()), Testimonials = ({ page, isSmall }) => {
+var import_react_slick5 = __toESM(require_lib()), import_jsx_dev_runtime38 = __toESM(require_jsx_dev_runtime()), Testimonials = ({ page, isSmall }) => {
   let context = page.body.split("<p>split_code</p>"), totalLen = context.length, settings = {
     centerMode: !!isSmall,
     dots: totalLen > 3,
@@ -72868,7 +72952,7 @@ var import_react_slick4 = __toESM(require_lib()), import_jsx_dev_runtime38 = __t
       lineNumber: 46,
       columnNumber: 9
     }, this),
-    /* @__PURE__ */ (0, import_jsx_dev_runtime38.jsxDEV)("ul", { children: /* @__PURE__ */ (0, import_jsx_dev_runtime38.jsxDEV)(import_react_slick4.default, { ...settings, children: context.map((content, index3) => /* @__PURE__ */ (0, import_jsx_dev_runtime38.jsxDEV)("li", { className: "flex gap-4 justify-center", children: /* @__PURE__ */ (0, import_jsx_dev_runtime38.jsxDEV)("div", { className: "shadow-xl p-4 min-h-[220px]", dangerouslySetInnerHTML: { __html: content } }, void 0, !1, {
+    /* @__PURE__ */ (0, import_jsx_dev_runtime38.jsxDEV)("ul", { children: /* @__PURE__ */ (0, import_jsx_dev_runtime38.jsxDEV)(import_react_slick5.default, { ...settings, children: context.map((content, index3) => /* @__PURE__ */ (0, import_jsx_dev_runtime38.jsxDEV)("li", { className: "flex gap-4 justify-center", children: /* @__PURE__ */ (0, import_jsx_dev_runtime38.jsxDEV)("div", { className: "shadow-xl p-4 min-h-[220px]", dangerouslySetInnerHTML: { __html: content } }, void 0, !1, {
       fileName: "app/components/Testimonials.jsx",
       lineNumber: 51,
       columnNumber: 21
@@ -72933,7 +73017,7 @@ var import_jsx_dev_runtime39 = __toESM(require_jsx_dev_runtime()), LooksComp = (
 }, LooksComp_default = LooksComp;
 
 // app/routes/($locale)._index.jsx
-var import_react_slick5 = __toESM(require_lib()), import_jsx_dev_runtime40 = __toESM(require_jsx_dev_runtime()), meta16 = () => [{ title: "Hydrogen | Home" }];
+var import_react_slick6 = __toESM(require_lib()), import_jsx_dev_runtime40 = __toESM(require_jsx_dev_runtime()), meta16 = () => [{ title: "Hydrogen | Home" }];
 async function loader23({ context }) {
   let { storefront } = context, { collections } = await storefront.query(FEATURED_COLLECTION_QUERY2), collectionProducts = collections, featuredCollection = collections.nodes, recommendedProducts = storefront.query(RECOMMENDED_PRODUCTS_QUERY), { products: products2 } = await storefront.query(RECOMMENDED_PRODUCTS_QUERY), { blogs } = await storefront.query(BLOGS_QUERY3), { page } = await storefront.query(PAGE_QUERY2, {
     variables: {
@@ -72961,19 +73045,7 @@ function Homepage() {
   var _a2;
   let noImg = "https://cdn.shopify.com/shopifycloud/shopify/assets/no-image-2048-5e88c1b20e087fb7bbe9a3771824e743c244f437e4f8ba93bbf7b11b53f7824c_600x600.gif", data2 = useLoaderData2(), { header, page: testimonialPage } = data2;
   var menus = header.menu.items, collectionArray = menus.filter((item) => item.title !== "Home");
-  let isLargeScreen = (0, import_react_responsive9.useMediaQuery)({ minWidth: 1024 }), isSmall = (0, import_react_responsive9.useMediaQuery)({ maxWidth: 640 });
-  var imageSrc = [];
-  isSmall ? imageSrc = [
-    "https://cdn.shopify.com/s/files/1/0809/4253/0882/files/mobile_Hero_Banners_1.jpg?v=1713353171",
-    "https://cdn.shopify.com/s/files/1/0809/4253/0882/files/mobile_Hero_Banners_2.jpg?v=1713353171",
-    "https://cdn.shopify.com/s/files/1/0809/4253/0882/files/mobile_Hero_Banners_4.jpg?v=1713353171",
-    "https://cdn.shopify.com/s/files/1/0809/4253/0882/files/pro_studio_mobile_banner_3_700_x_470.jpg?v=1714388254"
-  ] : imageSrc = [
-    "https://cdn.shopify.com/s/files/1/0809/4253/0882/files/desktop_banner_1.jpg?v=1713342696",
-    "https://cdn.shopify.com/s/files/1/0809/4253/0882/files/desktop_banner_3.jpg?v=1713342905",
-    "https://cdn.shopify.com/s/files/1/0809/4253/0882/files/desktop_banner_2.jpg?v=1713342905",
-    "https://cdn.shopify.com/s/files/1/0809/4253/0882/files/pro_studio__banner_5_opt_2.jpg?v=1714388254"
-  ];
+  let isLargeScreen = (0, import_react_responsive10.useMediaQuery)({ minWidth: 1024 }), isSmall = (0, import_react_responsive10.useMediaQuery)({ maxWidth: 640 });
   var GiftCollections = [], ReviewCollection = [], BuildYourOwnColl = [], ThirdHeroCollection = [];
   collectionArray.map((col, index3) => {
     let collNodes = data2.collections.nodes;
@@ -72999,8 +73071,6 @@ function Homepage() {
     dots: totalLen > 3,
     infinite: !0,
     speed: 500,
-    autoplay: !0,
-    autoplaySpeed: 3e3,
     initialSlide: isSmall ? 1 : 0,
     slidesToShow: 3,
     slidesToScroll: 1,
@@ -73008,8 +73078,6 @@ function Homepage() {
       {
         breakpoint: 1024,
         settings: {
-          autoplay: !0,
-          autoplaySpeed: 3e3,
           slidesToShow: 3,
           slidesToScroll: 3,
           infinite: !0,
@@ -73019,8 +73087,6 @@ function Homepage() {
       {
         breakpoint: 600,
         settings: {
-          autoplay: !0,
-          autoplaySpeed: 3e3,
           slidesToShow: 3,
           slidesToScroll: 1,
           initialSlide: 1,
@@ -73030,8 +73096,6 @@ function Homepage() {
       {
         breakpoint: 520,
         settings: {
-          autoplay: !0,
-          autoplaySpeed: 3e3,
           slidesToShow: 1,
           slidesToScroll: 1,
           dots: !0
@@ -73043,7 +73107,7 @@ function Homepage() {
     isSmall ? /* @__PURE__ */ (0, import_jsx_dev_runtime40.jsxDEV)("section", { className: "collectionContent lg:hidden block sm:mt-4 overflow-auto ", children: /* @__PURE__ */ (0, import_jsx_dev_runtime40.jsxDEV)("div", { className: "inline-flex gap-4", children: collectionArrayStatic == null ? void 0 : collectionArrayStatic.map((item, index3) => /* @__PURE__ */ (0, import_jsx_dev_runtime40.jsxDEV)(
       "div",
       {
-        className: " col-item sm:w-auto  rounded-lg hover:shadow-md cursor-pointer",
+        className: "col-item sm:w-auto  rounded-lg hover:shadow-md cursor-pointer",
         children: [
           /* @__PURE__ */ (0, import_jsx_dev_runtime40.jsxDEV)("div", { className: "image", children: /* @__PURE__ */ (0, import_jsx_dev_runtime40.jsxDEV)(NavLink2, { to: `/collections/${item.url}`, children: /* @__PURE__ */ (0, import_jsx_dev_runtime40.jsxDEV)(
             "img",
@@ -73057,22 +73121,22 @@ function Homepage() {
             !1,
             {
               fileName: "app/routes/($locale)._index.jsx",
-              lineNumber: 189,
+              lineNumber: 165,
               columnNumber: 19
             },
             this
           ) }, void 0, !1, {
             fileName: "app/routes/($locale)._index.jsx",
-            lineNumber: 188,
+            lineNumber: 164,
             columnNumber: 17
           }, this) }, void 0, !1, {
             fileName: "app/routes/($locale)._index.jsx",
-            lineNumber: 187,
+            lineNumber: 163,
             columnNumber: 15
           }, this),
           /* @__PURE__ */ (0, import_jsx_dev_runtime40.jsxDEV)("div", { className: "collectionname  sm:text-lg text-[12px] font-semibold  text-center px-[15px] pb-[12px]  pt-[5px]", children: item.collectionname }, void 0, !1, {
             fileName: "app/routes/($locale)._index.jsx",
-            lineNumber: 198,
+            lineNumber: 174,
             columnNumber: 15
           }, this)
         ]
@@ -73081,26 +73145,26 @@ function Homepage() {
       !0,
       {
         fileName: "app/routes/($locale)._index.jsx",
-        lineNumber: 183,
+        lineNumber: 159,
         columnNumber: 13
       },
       this
     )) }, void 0, !1, {
       fileName: "app/routes/($locale)._index.jsx",
-      lineNumber: 181,
+      lineNumber: 157,
       columnNumber: 9
     }, this) }, void 0, !1, {
       fileName: "app/routes/($locale)._index.jsx",
-      lineNumber: 180,
+      lineNumber: 156,
       columnNumber: 9
     }, this) : null,
-    /* @__PURE__ */ (0, import_jsx_dev_runtime40.jsxDEV)("div", { children: /* @__PURE__ */ (0, import_jsx_dev_runtime40.jsxDEV)(ImageCarousel_default, { isSmall, images: imageSrc }, void 0, !1, {
+    /* @__PURE__ */ (0, import_jsx_dev_runtime40.jsxDEV)("div", { children: /* @__PURE__ */ (0, import_jsx_dev_runtime40.jsxDEV)(ImageCarousel_default, {}, void 0, !1, {
       fileName: "app/routes/($locale)._index.jsx",
-      lineNumber: 210,
+      lineNumber: 186,
       columnNumber: 9
     }, this) }, void 0, !1, {
       fileName: "app/routes/($locale)._index.jsx",
-      lineNumber: 209,
+      lineNumber: 185,
       columnNumber: 7
     }, this),
     /* @__PURE__ */ (0, import_jsx_dev_runtime40.jsxDEV)(
@@ -73113,7 +73177,7 @@ function Homepage() {
       !1,
       {
         fileName: "app/routes/($locale)._index.jsx",
-        lineNumber: 212,
+        lineNumber: 188,
         columnNumber: 7
       },
       this
@@ -73121,10 +73185,10 @@ function Homepage() {
     /* @__PURE__ */ (0, import_jsx_dev_runtime40.jsxDEV)("div", { className: "slider-container mb-8 max-w-screen-xl mx-auto lg:px-16 sm:px-4 md:px-6", children: [
       /* @__PURE__ */ (0, import_jsx_dev_runtime40.jsxDEV)("h1", { className: "text-center lg:text=[28px] text-[20px] mt-[15px]", children: "CHOOSE YOUR CULT" }, void 0, !1, {
         fileName: "app/routes/($locale)._index.jsx",
-        lineNumber: 218,
+        lineNumber: 194,
         columnNumber: 9
       }, this),
-      /* @__PURE__ */ (0, import_jsx_dev_runtime40.jsxDEV)(import_react_slick5.default, { ...settings, children: collectionCult.map((coll, index3) => /* @__PURE__ */ (0, import_jsx_dev_runtime40.jsxDEV)("div", { className: "px-2", children: /* @__PURE__ */ (0, import_jsx_dev_runtime40.jsxDEV)("div", { className: "bg-white", children: /* @__PURE__ */ (0, import_jsx_dev_runtime40.jsxDEV)(
+      /* @__PURE__ */ (0, import_jsx_dev_runtime40.jsxDEV)(import_react_slick6.default, { ...settings, children: collectionCult.map((coll, index3) => /* @__PURE__ */ (0, import_jsx_dev_runtime40.jsxDEV)("div", { className: "px-2", children: /* @__PURE__ */ (0, import_jsx_dev_runtime40.jsxDEV)("div", { className: "bg-white", children: /* @__PURE__ */ (0, import_jsx_dev_runtime40.jsxDEV)(
         "img",
         {
           onClick: () => goToCollection(`/collections/${coll.handle}`),
@@ -73136,26 +73200,26 @@ function Homepage() {
         !1,
         {
           fileName: "app/routes/($locale)._index.jsx",
-          lineNumber: 225,
+          lineNumber: 201,
           columnNumber: 19
         },
         this
       ) }, void 0, !1, {
         fileName: "app/routes/($locale)._index.jsx",
-        lineNumber: 224,
+        lineNumber: 200,
         columnNumber: 17
       }, this) }, `cult_choose_${index3}`, !1, {
         fileName: "app/routes/($locale)._index.jsx",
-        lineNumber: 223,
+        lineNumber: 199,
         columnNumber: 22
       }, this)) }, void 0, !1, {
         fileName: "app/routes/($locale)._index.jsx",
-        lineNumber: 221,
+        lineNumber: 197,
         columnNumber: 9
       }, this)
     ] }, void 0, !0, {
       fileName: "app/routes/($locale)._index.jsx",
-      lineNumber: 217,
+      lineNumber: 193,
       columnNumber: 7
     }, this),
     isLargeScreen && /* @__PURE__ */ (0, import_jsx_dev_runtime40.jsxDEV)("a", { href: "/collections/daily-essentials", children: /* @__PURE__ */ (0, import_jsx_dev_runtime40.jsxDEV)("div", { className: "my-[15px]", children: /* @__PURE__ */ (0, import_jsx_dev_runtime40.jsxDEV)(
@@ -73168,17 +73232,17 @@ function Homepage() {
       !1,
       {
         fileName: "app/routes/($locale)._index.jsx",
-        lineNumber: 242,
+        lineNumber: 218,
         columnNumber: 13
       },
       this
     ) }, void 0, !1, {
       fileName: "app/routes/($locale)._index.jsx",
-      lineNumber: 241,
+      lineNumber: 217,
       columnNumber: 11
     }, this) }, void 0, !1, {
       fileName: "app/routes/($locale)._index.jsx",
-      lineNumber: 240,
+      lineNumber: 216,
       columnNumber: 10
     }, this),
     isSmall && /* @__PURE__ */ (0, import_jsx_dev_runtime40.jsxDEV)("a", { href: "/collections/daily-essentials", children: /* @__PURE__ */ (0, import_jsx_dev_runtime40.jsxDEV)("div", { className: "my-[15px]", children: /* @__PURE__ */ (0, import_jsx_dev_runtime40.jsxDEV)(
@@ -73191,17 +73255,17 @@ function Homepage() {
       !1,
       {
         fileName: "app/routes/($locale)._index.jsx",
-        lineNumber: 252,
+        lineNumber: 228,
         columnNumber: 13
       },
       this
     ) }, void 0, !1, {
       fileName: "app/routes/($locale)._index.jsx",
-      lineNumber: 251,
+      lineNumber: 227,
       columnNumber: 11
     }, this) }, void 0, !1, {
       fileName: "app/routes/($locale)._index.jsx",
-      lineNumber: 250,
+      lineNumber: 226,
       columnNumber: 9
     }, this),
     /* @__PURE__ */ (0, import_jsx_dev_runtime40.jsxDEV)(
@@ -73214,19 +73278,19 @@ function Homepage() {
       !1,
       {
         fileName: "app/routes/($locale)._index.jsx",
-        lineNumber: 260,
+        lineNumber: 236,
         columnNumber: 7
       },
       this
     ),
     /* @__PURE__ */ (0, import_jsx_dev_runtime40.jsxDEV)(GiftingCollection_default, { collections: GiftCollections, title: "Glamorous Gift Picks" }, void 0, !1, {
       fileName: "app/routes/($locale)._index.jsx",
-      lineNumber: 265,
+      lineNumber: 241,
       columnNumber: 7
     }, this),
     /* @__PURE__ */ (0, import_jsx_dev_runtime40.jsxDEV)(YouTubeVideo_default, {}, void 0, !1, {
       fileName: "app/routes/($locale)._index.jsx",
-      lineNumber: 267,
+      lineNumber: 243,
       columnNumber: 7
     }, this),
     isLargeScreen && /* @__PURE__ */ (0, import_jsx_dev_runtime40.jsxDEV)("a", { children: /* @__PURE__ */ (0, import_jsx_dev_runtime40.jsxDEV)("div", { className: "my-[15px]", children: /* @__PURE__ */ (0, import_jsx_dev_runtime40.jsxDEV)(
@@ -73239,17 +73303,17 @@ function Homepage() {
       !1,
       {
         fileName: "app/routes/($locale)._index.jsx",
-        lineNumber: 272,
+        lineNumber: 248,
         columnNumber: 13
       },
       this
     ) }, void 0, !1, {
       fileName: "app/routes/($locale)._index.jsx",
-      lineNumber: 271,
+      lineNumber: 247,
       columnNumber: 11
     }, this) }, void 0, !1, {
       fileName: "app/routes/($locale)._index.jsx",
-      lineNumber: 270,
+      lineNumber: 246,
       columnNumber: 10
     }, this),
     isSmall && /* @__PURE__ */ (0, import_jsx_dev_runtime40.jsxDEV)("a", { children: /* @__PURE__ */ (0, import_jsx_dev_runtime40.jsxDEV)("div", { className: "my-[15px]", children: /* @__PURE__ */ (0, import_jsx_dev_runtime40.jsxDEV)(
@@ -73262,22 +73326,22 @@ function Homepage() {
       !1,
       {
         fileName: "app/routes/($locale)._index.jsx",
-        lineNumber: 282,
+        lineNumber: 258,
         columnNumber: 13
       },
       this
     ) }, void 0, !1, {
       fileName: "app/routes/($locale)._index.jsx",
-      lineNumber: 281,
+      lineNumber: 257,
       columnNumber: 11
     }, this) }, void 0, !1, {
       fileName: "app/routes/($locale)._index.jsx",
-      lineNumber: 280,
+      lineNumber: 256,
       columnNumber: 9
     }, this),
     /* @__PURE__ */ (0, import_jsx_dev_runtime40.jsxDEV)(LooksComp_default, { looks }, void 0, !1, {
       fileName: "app/routes/($locale)._index.jsx",
-      lineNumber: 290,
+      lineNumber: 266,
       columnNumber: 5
     }, this),
     /* @__PURE__ */ (0, import_jsx_dev_runtime40.jsxDEV)("div", { children: /* @__PURE__ */ (0, import_jsx_dev_runtime40.jsxDEV)("a", { href: "/pages/about-us", children: /* @__PURE__ */ (0, import_jsx_dev_runtime40.jsxDEV)("div", { children: isSmall ? /* @__PURE__ */ (0, import_jsx_dev_runtime40.jsxDEV)(
@@ -73290,7 +73354,7 @@ function Homepage() {
       !1,
       {
         fileName: "app/routes/($locale)._index.jsx",
-        lineNumber: 300,
+        lineNumber: 276,
         columnNumber: 11
       },
       this
@@ -73304,40 +73368,40 @@ function Homepage() {
       !1,
       {
         fileName: "app/routes/($locale)._index.jsx",
-        lineNumber: 295,
+        lineNumber: 271,
         columnNumber: 11
       },
       this
     ) }, void 0, !1, {
       fileName: "app/routes/($locale)._index.jsx",
-      lineNumber: 293,
+      lineNumber: 269,
       columnNumber: 9
     }, this) }, void 0, !1, {
       fileName: "app/routes/($locale)._index.jsx",
-      lineNumber: 292,
+      lineNumber: 268,
       columnNumber: 7
     }, this) }, void 0, !1, {
       fileName: "app/routes/($locale)._index.jsx",
-      lineNumber: 291,
+      lineNumber: 267,
       columnNumber: 5
     }, this),
     /* @__PURE__ */ (0, import_jsx_dev_runtime40.jsxDEV)("div", { className: "mx-8", children: /* @__PURE__ */ (0, import_jsx_dev_runtime40.jsxDEV)(BlogCorousel_default, { isSmall, collections: data2.blogs, title: "CULT CHAPTERS" }, void 0, !1, {
       fileName: "app/routes/($locale)._index.jsx",
-      lineNumber: 312,
+      lineNumber: 288,
       columnNumber: 7
     }, this) }, void 0, !1, {
       fileName: "app/routes/($locale)._index.jsx",
-      lineNumber: 311,
+      lineNumber: 287,
       columnNumber: 7
     }, this),
     /* @__PURE__ */ (0, import_jsx_dev_runtime40.jsxDEV)(Testimonials_default, { page: testimonialPage, isSmall }, void 0, !1, {
       fileName: "app/routes/($locale)._index.jsx",
-      lineNumber: 315,
+      lineNumber: 291,
       columnNumber: 7
     }, this)
   ] }, void 0, !0, {
     fileName: "app/routes/($locale)._index.jsx",
-    lineNumber: 178,
+    lineNumber: 154,
     columnNumber: 5
   }, this);
 }
@@ -73348,40 +73412,40 @@ function RecommendedProducts2({ products: products2, title }) {
       " "
     ] }, void 0, !0, {
       fileName: "app/routes/($locale)._index.jsx",
-      lineNumber: 340,
+      lineNumber: 316,
       columnNumber: 7
     }, this),
     /* @__PURE__ */ (0, import_jsx_dev_runtime40.jsxDEV)("div", { children: [
       /* @__PURE__ */ (0, import_jsx_dev_runtime40.jsxDEV)(import_react97.Suspense, { fallback: /* @__PURE__ */ (0, import_jsx_dev_runtime40.jsxDEV)("div", { children: "Loading..." }, void 0, !1, {
         fileName: "app/routes/($locale)._index.jsx",
-        lineNumber: 342,
+        lineNumber: 318,
         columnNumber: 29
       }, this), children: /* @__PURE__ */ (0, import_jsx_dev_runtime40.jsxDEV)(Await2, { resolve: products2, children: /* @__PURE__ */ (0, import_jsx_dev_runtime40.jsxDEV)(ProductCarousel_default, { products: products2 }, void 0, !1, {
         fileName: "app/routes/($locale)._index.jsx",
-        lineNumber: 345,
+        lineNumber: 321,
         columnNumber: 14
       }, this) }, void 0, !1, {
         fileName: "app/routes/($locale)._index.jsx",
-        lineNumber: 343,
+        lineNumber: 319,
         columnNumber: 11
       }, this) }, void 0, !1, {
         fileName: "app/routes/($locale)._index.jsx",
-        lineNumber: 342,
+        lineNumber: 318,
         columnNumber: 9
       }, this),
       /* @__PURE__ */ (0, import_jsx_dev_runtime40.jsxDEV)("br", {}, void 0, !1, {
         fileName: "app/routes/($locale)._index.jsx",
-        lineNumber: 348,
+        lineNumber: 324,
         columnNumber: 9
       }, this)
     ] }, void 0, !0, {
       fileName: "app/routes/($locale)._index.jsx",
-      lineNumber: 341,
+      lineNumber: 317,
       columnNumber: 7
     }, this)
   ] }, void 0, !0, {
     fileName: "app/routes/($locale)._index.jsx",
-    lineNumber: 339,
+    lineNumber: 315,
     columnNumber: 5
   }, this);
 }
@@ -75221,7 +75285,7 @@ var LAYOUT_QUERY = `#graphql
 `;
 
 // server-assets-manifest:@remix-run/dev/assets-manifest
-var assets_manifest_default = { entry: { module: "/build/entry.client-HWXT6HWF.js", imports: ["/build/_shared/chunk-FM7TTYIF.js", "/build/_shared/chunk-CFXHHO4K.js", "/build/_shared/chunk-PNG5AS42.js"] }, routes: { root: { id: "root", parentId: void 0, path: "", index: void 0, caseSensitive: void 0, module: "/build/root-VWCBCJ3V.js", imports: ["/build/_shared/chunk-UTIKAAM3.js", "/build/_shared/chunk-BGS7F2B5.js", "/build/_shared/chunk-OOZLT3E7.js", "/build/_shared/chunk-2KXI7LON.js", "/build/_shared/chunk-XO3LOQFD.js", "/build/_shared/chunk-DGST5VAI.js", "/build/_shared/chunk-AQMJZ442.js", "/build/_shared/chunk-NNH77UO3.js", "/build/_shared/chunk-D3AIAV2V.js", "/build/_shared/chunk-3G62A2VJ.js", "/build/_shared/chunk-BSZVYZCA.js", "/build/_shared/chunk-VY5OJHMS.js"], hasAction: !1, hasLoader: !0, hasCatchBoundary: !1, hasErrorBoundary: !0 }, "routes/($locale).$": { id: "routes/($locale).$", parentId: "root", path: ":locale?/*", index: void 0, caseSensitive: void 0, module: "/build/routes/($locale).$-DDDRNU3P.js", imports: void 0, hasAction: !1, hasLoader: !0, hasCatchBoundary: !1, hasErrorBoundary: !1 }, "routes/($locale).[sitemap.xml]": { id: "routes/($locale).[sitemap.xml]", parentId: "root", path: ":locale?/sitemap.xml", index: void 0, caseSensitive: void 0, module: "/build/routes/($locale).[sitemap.xml]-H6EIDNVM.js", imports: void 0, hasAction: !1, hasLoader: !0, hasCatchBoundary: !1, hasErrorBoundary: !1 }, "routes/($locale)._index": { id: "routes/($locale)._index", parentId: "root", path: ":locale?", index: !0, caseSensitive: void 0, module: "/build/routes/($locale)._index-JHC2AI5R.js", imports: void 0, hasAction: !1, hasLoader: !0, hasCatchBoundary: !1, hasErrorBoundary: !1 }, "routes/($locale).account": { id: "routes/($locale).account", parentId: "root", path: ":locale?/account", index: void 0, caseSensitive: void 0, module: "/build/routes/($locale).account-LSSFFJZI.js", imports: ["/build/_shared/chunk-7M6P6K7X.js"], hasAction: !1, hasLoader: !0, hasCatchBoundary: !1, hasErrorBoundary: !1 }, "routes/($locale).account.$": { id: "routes/($locale).account.$", parentId: "routes/($locale).account", path: "*", index: void 0, caseSensitive: void 0, module: "/build/routes/($locale).account.$-IDA7PP7J.js", imports: void 0, hasAction: !1, hasLoader: !0, hasCatchBoundary: !1, hasErrorBoundary: !1 }, "routes/($locale).account.addresses": { id: "routes/($locale).account.addresses", parentId: "routes/($locale).account", path: "addresses", index: void 0, caseSensitive: void 0, module: "/build/routes/($locale).account.addresses-UW56T35F.js", imports: void 0, hasAction: !0, hasLoader: !0, hasCatchBoundary: !1, hasErrorBoundary: !1 }, "routes/($locale).account.orders.$id": { id: "routes/($locale).account.orders.$id", parentId: "routes/($locale).account", path: "orders/:id", index: void 0, caseSensitive: void 0, module: "/build/routes/($locale).account.orders.$id-P4I3QDMF.js", imports: ["/build/_shared/chunk-VY5OJHMS.js"], hasAction: !1, hasLoader: !0, hasCatchBoundary: !1, hasErrorBoundary: !1 }, "routes/($locale).account.orders._index": { id: "routes/($locale).account.orders._index", parentId: "routes/($locale).account", path: "orders", index: !0, caseSensitive: void 0, module: "/build/routes/($locale).account.orders._index-IBSE6E62.js", imports: ["/build/_shared/chunk-ZPBXTGWZ.js", "/build/_shared/chunk-3G62A2VJ.js", "/build/_shared/chunk-BSZVYZCA.js", "/build/_shared/chunk-VY5OJHMS.js"], hasAction: !1, hasLoader: !0, hasCatchBoundary: !1, hasErrorBoundary: !1 }, "routes/($locale).account.profile": { id: "routes/($locale).account.profile", parentId: "routes/($locale).account", path: "profile", index: void 0, caseSensitive: void 0, module: "/build/routes/($locale).account.profile-NXUTGPGB.js", imports: void 0, hasAction: !0, hasLoader: !0, hasCatchBoundary: !1, hasErrorBoundary: !1 }, "routes/($locale).account_.activate.$id.$activationToken": { id: "routes/($locale).account_.activate.$id.$activationToken", parentId: "root", path: ":locale?/account/activate/:id/:activationToken", index: void 0, caseSensitive: void 0, module: "/build/routes/($locale).account_.activate.$id.$activationToken-TWBKTJHT.js", imports: void 0, hasAction: !0, hasLoader: !0, hasCatchBoundary: !1, hasErrorBoundary: !1 }, "routes/($locale).account_.login": { id: "routes/($locale).account_.login", parentId: "root", path: ":locale?/account/login", index: void 0, caseSensitive: void 0, module: "/build/routes/($locale).account_.login-BCCBUGMG.js", imports: void 0, hasAction: !0, hasLoader: !0, hasCatchBoundary: !1, hasErrorBoundary: !1 }, "routes/($locale).account_.logout": { id: "routes/($locale).account_.logout", parentId: "root", path: ":locale?/account/logout", index: void 0, caseSensitive: void 0, module: "/build/routes/($locale).account_.logout-H6PFS4O4.js", imports: void 0, hasAction: !0, hasLoader: !0, hasCatchBoundary: !1, hasErrorBoundary: !1 }, "routes/($locale).account_.recover": { id: "routes/($locale).account_.recover", parentId: "root", path: ":locale?/account/recover", index: void 0, caseSensitive: void 0, module: "/build/routes/($locale).account_.recover-WPHFFVHS.js", imports: void 0, hasAction: !0, hasLoader: !0, hasCatchBoundary: !1, hasErrorBoundary: !1 }, "routes/($locale).account_.register": { id: "routes/($locale).account_.register", parentId: "root", path: ":locale?/account/register", index: void 0, caseSensitive: void 0, module: "/build/routes/($locale).account_.register-FCZOOCU5.js", imports: void 0, hasAction: !0, hasLoader: !0, hasCatchBoundary: !1, hasErrorBoundary: !1 }, "routes/($locale).account_.reset.$id.$resetToken": { id: "routes/($locale).account_.reset.$id.$resetToken", parentId: "root", path: ":locale?/account/reset/:id/:resetToken", index: void 0, caseSensitive: void 0, module: "/build/routes/($locale).account_.reset.$id.$resetToken-QJ3G3N7V.js", imports: void 0, hasAction: !0, hasLoader: !1, hasCatchBoundary: !1, hasErrorBoundary: !1 }, "routes/($locale).api.predictive-search": { id: "routes/($locale).api.predictive-search", parentId: "root", path: ":locale?/api/predictive-search", index: void 0, caseSensitive: void 0, module: "/build/routes/($locale).api.predictive-search-6SBFKV26.js", imports: void 0, hasAction: !0, hasLoader: !1, hasCatchBoundary: !1, hasErrorBoundary: !1 }, "routes/($locale).blogs.$blogHandle.$articleHandle": { id: "routes/($locale).blogs.$blogHandle.$articleHandle", parentId: "root", path: ":locale?/blogs/:blogHandle/:articleHandle", index: void 0, caseSensitive: void 0, module: "/build/routes/($locale).blogs.$blogHandle.$articleHandle-IIRQXA7S.js", imports: void 0, hasAction: !1, hasLoader: !0, hasCatchBoundary: !1, hasErrorBoundary: !1 }, "routes/($locale).blogs.$blogHandle._index": { id: "routes/($locale).blogs.$blogHandle._index", parentId: "root", path: ":locale?/blogs/:blogHandle", index: !0, caseSensitive: void 0, module: "/build/routes/($locale).blogs.$blogHandle._index-U4FIVITR.js", imports: void 0, hasAction: !1, hasLoader: !0, hasCatchBoundary: !1, hasErrorBoundary: !1 }, "routes/($locale).blogs._index": { id: "routes/($locale).blogs._index", parentId: "root", path: ":locale?/blogs", index: !0, caseSensitive: void 0, module: "/build/routes/($locale).blogs._index-6FNJVY6E.js", imports: void 0, hasAction: !1, hasLoader: !0, hasCatchBoundary: !1, hasErrorBoundary: !1 }, "routes/($locale).cart": { id: "routes/($locale).cart", parentId: "root", path: ":locale?/cart", index: void 0, caseSensitive: void 0, module: "/build/routes/($locale).cart-ZCVV77CU.js", imports: ["/build/_shared/chunk-UGRVE2NX.js"], hasAction: !0, hasLoader: !0, hasCatchBoundary: !1, hasErrorBoundary: !1 }, "routes/($locale).collections.$handle": { id: "routes/($locale).collections.$handle", parentId: "root", path: ":locale?/collections/:handle", index: void 0, caseSensitive: void 0, module: "/build/routes/($locale).collections.$handle-YECBOX3B.js", imports: ["/build/_shared/chunk-ZPBXTGWZ.js"], hasAction: !1, hasLoader: !0, hasCatchBoundary: !1, hasErrorBoundary: !1 }, "routes/($locale).collections._index": { id: "routes/($locale).collections._index", parentId: "root", path: ":locale?/collections", index: !0, caseSensitive: void 0, module: "/build/routes/($locale).collections._index-3INPTDT3.js", imports: void 0, hasAction: !1, hasLoader: !0, hasCatchBoundary: !1, hasErrorBoundary: !1 }, "routes/($locale).offers": { id: "routes/($locale).offers", parentId: "root", path: ":locale?/offers", index: void 0, caseSensitive: void 0, module: "/build/routes/($locale).offers-PNLK3VAV.js", imports: void 0, hasAction: !1, hasLoader: !0, hasCatchBoundary: !1, hasErrorBoundary: !1 }, "routes/($locale).pages.$handle": { id: "routes/($locale).pages.$handle", parentId: "root", path: ":locale?/pages/:handle", index: void 0, caseSensitive: void 0, module: "/build/routes/($locale).pages.$handle-QTZOP6F6.js", imports: void 0, hasAction: !1, hasLoader: !0, hasCatchBoundary: !1, hasErrorBoundary: !1 }, "routes/($locale).policies.$handle": { id: "routes/($locale).policies.$handle", parentId: "root", path: ":locale?/policies/:handle", index: void 0, caseSensitive: void 0, module: "/build/routes/($locale).policies.$handle-XO72JGCK.js", imports: void 0, hasAction: !1, hasLoader: !0, hasCatchBoundary: !1, hasErrorBoundary: !1 }, "routes/($locale).policies._index": { id: "routes/($locale).policies._index", parentId: "root", path: ":locale?/policies", index: !0, caseSensitive: void 0, module: "/build/routes/($locale).policies._index-C4O43EB5.js", imports: void 0, hasAction: !1, hasLoader: !0, hasCatchBoundary: !1, hasErrorBoundary: !1 }, "routes/($locale).products.$handle": { id: "routes/($locale).products.$handle", parentId: "root", path: ":locale?/products/:handle", index: void 0, caseSensitive: void 0, module: "/build/routes/($locale).products.$handle-T22JKZ3W.js", imports: ["/build/_shared/chunk-UGRVE2NX.js"], hasAction: !1, hasLoader: !0, hasCatchBoundary: !1, hasErrorBoundary: !1 }, "routes/($locale).search": { id: "routes/($locale).search", parentId: "root", path: ":locale?/search", index: void 0, caseSensitive: void 0, module: "/build/routes/($locale).search-F7FNEDA7.js", imports: void 0, hasAction: !1, hasLoader: !0, hasCatchBoundary: !1, hasErrorBoundary: !1 }, "routes/[robots.txt]": { id: "routes/[robots.txt]", parentId: "root", path: "robots.txt", index: void 0, caseSensitive: void 0, module: "/build/routes/[robots.txt]-OU6DB2IP.js", imports: void 0, hasAction: !1, hasLoader: !0, hasCatchBoundary: !1, hasErrorBoundary: !0 }, "virtual-routes/routes/graphiql": { id: "virtual-routes/routes/graphiql", parentId: "virtual-routes/virtual-root", path: "graphiql", index: void 0, caseSensitive: void 0, module: "/build/virtual-routes/routes/graphiql-IUV5DDHT.js", imports: void 0, hasAction: !1, hasLoader: !0, hasCatchBoundary: !1, hasErrorBoundary: !1 }, "virtual-routes/routes/index": { id: "virtual-routes/routes/index", parentId: "virtual-routes/virtual-root", path: void 0, index: !0, caseSensitive: void 0, module: "/build/virtual-routes/routes/index-53PT7KYB.js", imports: void 0, hasAction: !1, hasLoader: !0, hasCatchBoundary: !1, hasErrorBoundary: !0 }, "virtual-routes/virtual-root": { id: "virtual-routes/virtual-root", parentId: void 0, path: "", index: void 0, caseSensitive: void 0, module: "/build/virtual-routes/virtual-root-OBQMRAOA.js", imports: ["/build/_shared/chunk-Z7RIBLB2.js"], hasAction: !1, hasLoader: !1, hasCatchBoundary: !1, hasErrorBoundary: !1 } }, version: "827e886b", hmr: void 0, url: "/build/manifest-827E886B.js" };
+var assets_manifest_default = { entry: { module: "/build/entry.client-HWXT6HWF.js", imports: ["/build/_shared/chunk-FM7TTYIF.js", "/build/_shared/chunk-CFXHHO4K.js", "/build/_shared/chunk-PNG5AS42.js"] }, routes: { root: { id: "root", parentId: void 0, path: "", index: void 0, caseSensitive: void 0, module: "/build/root-BKXXMCBO.js", imports: ["/build/_shared/chunk-L57CSXKI.js", "/build/_shared/chunk-BGS7F2B5.js", "/build/_shared/chunk-OOZLT3E7.js", "/build/_shared/chunk-2KXI7LON.js", "/build/_shared/chunk-XO3LOQFD.js", "/build/_shared/chunk-DGST5VAI.js", "/build/_shared/chunk-AQMJZ442.js", "/build/_shared/chunk-NNH77UO3.js", "/build/_shared/chunk-D3AIAV2V.js", "/build/_shared/chunk-3G62A2VJ.js", "/build/_shared/chunk-BSZVYZCA.js", "/build/_shared/chunk-VY5OJHMS.js"], hasAction: !1, hasLoader: !0, hasCatchBoundary: !1, hasErrorBoundary: !0 }, "routes/($locale).$": { id: "routes/($locale).$", parentId: "root", path: ":locale?/*", index: void 0, caseSensitive: void 0, module: "/build/routes/($locale).$-DDDRNU3P.js", imports: void 0, hasAction: !1, hasLoader: !0, hasCatchBoundary: !1, hasErrorBoundary: !1 }, "routes/($locale).[sitemap.xml]": { id: "routes/($locale).[sitemap.xml]", parentId: "root", path: ":locale?/sitemap.xml", index: void 0, caseSensitive: void 0, module: "/build/routes/($locale).[sitemap.xml]-H6EIDNVM.js", imports: void 0, hasAction: !1, hasLoader: !0, hasCatchBoundary: !1, hasErrorBoundary: !1 }, "routes/($locale)._index": { id: "routes/($locale)._index", parentId: "root", path: ":locale?", index: !0, caseSensitive: void 0, module: "/build/routes/($locale)._index-GDTBWZWF.js", imports: void 0, hasAction: !1, hasLoader: !0, hasCatchBoundary: !1, hasErrorBoundary: !1 }, "routes/($locale).account": { id: "routes/($locale).account", parentId: "root", path: ":locale?/account", index: void 0, caseSensitive: void 0, module: "/build/routes/($locale).account-LSSFFJZI.js", imports: ["/build/_shared/chunk-7M6P6K7X.js"], hasAction: !1, hasLoader: !0, hasCatchBoundary: !1, hasErrorBoundary: !1 }, "routes/($locale).account.$": { id: "routes/($locale).account.$", parentId: "routes/($locale).account", path: "*", index: void 0, caseSensitive: void 0, module: "/build/routes/($locale).account.$-IDA7PP7J.js", imports: void 0, hasAction: !1, hasLoader: !0, hasCatchBoundary: !1, hasErrorBoundary: !1 }, "routes/($locale).account.addresses": { id: "routes/($locale).account.addresses", parentId: "routes/($locale).account", path: "addresses", index: void 0, caseSensitive: void 0, module: "/build/routes/($locale).account.addresses-UW56T35F.js", imports: void 0, hasAction: !0, hasLoader: !0, hasCatchBoundary: !1, hasErrorBoundary: !1 }, "routes/($locale).account.orders.$id": { id: "routes/($locale).account.orders.$id", parentId: "routes/($locale).account", path: "orders/:id", index: void 0, caseSensitive: void 0, module: "/build/routes/($locale).account.orders.$id-P4I3QDMF.js", imports: ["/build/_shared/chunk-VY5OJHMS.js"], hasAction: !1, hasLoader: !0, hasCatchBoundary: !1, hasErrorBoundary: !1 }, "routes/($locale).account.orders._index": { id: "routes/($locale).account.orders._index", parentId: "routes/($locale).account", path: "orders", index: !0, caseSensitive: void 0, module: "/build/routes/($locale).account.orders._index-IBSE6E62.js", imports: ["/build/_shared/chunk-ZPBXTGWZ.js", "/build/_shared/chunk-3G62A2VJ.js", "/build/_shared/chunk-BSZVYZCA.js", "/build/_shared/chunk-VY5OJHMS.js"], hasAction: !1, hasLoader: !0, hasCatchBoundary: !1, hasErrorBoundary: !1 }, "routes/($locale).account.profile": { id: "routes/($locale).account.profile", parentId: "routes/($locale).account", path: "profile", index: void 0, caseSensitive: void 0, module: "/build/routes/($locale).account.profile-NXUTGPGB.js", imports: void 0, hasAction: !0, hasLoader: !0, hasCatchBoundary: !1, hasErrorBoundary: !1 }, "routes/($locale).account_.activate.$id.$activationToken": { id: "routes/($locale).account_.activate.$id.$activationToken", parentId: "root", path: ":locale?/account/activate/:id/:activationToken", index: void 0, caseSensitive: void 0, module: "/build/routes/($locale).account_.activate.$id.$activationToken-TWBKTJHT.js", imports: void 0, hasAction: !0, hasLoader: !0, hasCatchBoundary: !1, hasErrorBoundary: !1 }, "routes/($locale).account_.login": { id: "routes/($locale).account_.login", parentId: "root", path: ":locale?/account/login", index: void 0, caseSensitive: void 0, module: "/build/routes/($locale).account_.login-BCCBUGMG.js", imports: void 0, hasAction: !0, hasLoader: !0, hasCatchBoundary: !1, hasErrorBoundary: !1 }, "routes/($locale).account_.logout": { id: "routes/($locale).account_.logout", parentId: "root", path: ":locale?/account/logout", index: void 0, caseSensitive: void 0, module: "/build/routes/($locale).account_.logout-H6PFS4O4.js", imports: void 0, hasAction: !0, hasLoader: !0, hasCatchBoundary: !1, hasErrorBoundary: !1 }, "routes/($locale).account_.recover": { id: "routes/($locale).account_.recover", parentId: "root", path: ":locale?/account/recover", index: void 0, caseSensitive: void 0, module: "/build/routes/($locale).account_.recover-WPHFFVHS.js", imports: void 0, hasAction: !0, hasLoader: !0, hasCatchBoundary: !1, hasErrorBoundary: !1 }, "routes/($locale).account_.register": { id: "routes/($locale).account_.register", parentId: "root", path: ":locale?/account/register", index: void 0, caseSensitive: void 0, module: "/build/routes/($locale).account_.register-FCZOOCU5.js", imports: void 0, hasAction: !0, hasLoader: !0, hasCatchBoundary: !1, hasErrorBoundary: !1 }, "routes/($locale).account_.reset.$id.$resetToken": { id: "routes/($locale).account_.reset.$id.$resetToken", parentId: "root", path: ":locale?/account/reset/:id/:resetToken", index: void 0, caseSensitive: void 0, module: "/build/routes/($locale).account_.reset.$id.$resetToken-QJ3G3N7V.js", imports: void 0, hasAction: !0, hasLoader: !1, hasCatchBoundary: !1, hasErrorBoundary: !1 }, "routes/($locale).api.predictive-search": { id: "routes/($locale).api.predictive-search", parentId: "root", path: ":locale?/api/predictive-search", index: void 0, caseSensitive: void 0, module: "/build/routes/($locale).api.predictive-search-6SBFKV26.js", imports: void 0, hasAction: !0, hasLoader: !1, hasCatchBoundary: !1, hasErrorBoundary: !1 }, "routes/($locale).blogs.$blogHandle.$articleHandle": { id: "routes/($locale).blogs.$blogHandle.$articleHandle", parentId: "root", path: ":locale?/blogs/:blogHandle/:articleHandle", index: void 0, caseSensitive: void 0, module: "/build/routes/($locale).blogs.$blogHandle.$articleHandle-IIRQXA7S.js", imports: void 0, hasAction: !1, hasLoader: !0, hasCatchBoundary: !1, hasErrorBoundary: !1 }, "routes/($locale).blogs.$blogHandle._index": { id: "routes/($locale).blogs.$blogHandle._index", parentId: "root", path: ":locale?/blogs/:blogHandle", index: !0, caseSensitive: void 0, module: "/build/routes/($locale).blogs.$blogHandle._index-U4FIVITR.js", imports: void 0, hasAction: !1, hasLoader: !0, hasCatchBoundary: !1, hasErrorBoundary: !1 }, "routes/($locale).blogs._index": { id: "routes/($locale).blogs._index", parentId: "root", path: ":locale?/blogs", index: !0, caseSensitive: void 0, module: "/build/routes/($locale).blogs._index-6FNJVY6E.js", imports: void 0, hasAction: !1, hasLoader: !0, hasCatchBoundary: !1, hasErrorBoundary: !1 }, "routes/($locale).cart": { id: "routes/($locale).cart", parentId: "root", path: ":locale?/cart", index: void 0, caseSensitive: void 0, module: "/build/routes/($locale).cart-ZCVV77CU.js", imports: ["/build/_shared/chunk-UGRVE2NX.js"], hasAction: !0, hasLoader: !0, hasCatchBoundary: !1, hasErrorBoundary: !1 }, "routes/($locale).collections.$handle": { id: "routes/($locale).collections.$handle", parentId: "root", path: ":locale?/collections/:handle", index: void 0, caseSensitive: void 0, module: "/build/routes/($locale).collections.$handle-YECBOX3B.js", imports: ["/build/_shared/chunk-ZPBXTGWZ.js"], hasAction: !1, hasLoader: !0, hasCatchBoundary: !1, hasErrorBoundary: !1 }, "routes/($locale).collections._index": { id: "routes/($locale).collections._index", parentId: "root", path: ":locale?/collections", index: !0, caseSensitive: void 0, module: "/build/routes/($locale).collections._index-3INPTDT3.js", imports: void 0, hasAction: !1, hasLoader: !0, hasCatchBoundary: !1, hasErrorBoundary: !1 }, "routes/($locale).offers": { id: "routes/($locale).offers", parentId: "root", path: ":locale?/offers", index: void 0, caseSensitive: void 0, module: "/build/routes/($locale).offers-PNLK3VAV.js", imports: void 0, hasAction: !1, hasLoader: !0, hasCatchBoundary: !1, hasErrorBoundary: !1 }, "routes/($locale).pages.$handle": { id: "routes/($locale).pages.$handle", parentId: "root", path: ":locale?/pages/:handle", index: void 0, caseSensitive: void 0, module: "/build/routes/($locale).pages.$handle-QTZOP6F6.js", imports: void 0, hasAction: !1, hasLoader: !0, hasCatchBoundary: !1, hasErrorBoundary: !1 }, "routes/($locale).policies.$handle": { id: "routes/($locale).policies.$handle", parentId: "root", path: ":locale?/policies/:handle", index: void 0, caseSensitive: void 0, module: "/build/routes/($locale).policies.$handle-XO72JGCK.js", imports: void 0, hasAction: !1, hasLoader: !0, hasCatchBoundary: !1, hasErrorBoundary: !1 }, "routes/($locale).policies._index": { id: "routes/($locale).policies._index", parentId: "root", path: ":locale?/policies", index: !0, caseSensitive: void 0, module: "/build/routes/($locale).policies._index-C4O43EB5.js", imports: void 0, hasAction: !1, hasLoader: !0, hasCatchBoundary: !1, hasErrorBoundary: !1 }, "routes/($locale).products.$handle": { id: "routes/($locale).products.$handle", parentId: "root", path: ":locale?/products/:handle", index: void 0, caseSensitive: void 0, module: "/build/routes/($locale).products.$handle-T22JKZ3W.js", imports: ["/build/_shared/chunk-UGRVE2NX.js"], hasAction: !1, hasLoader: !0, hasCatchBoundary: !1, hasErrorBoundary: !1 }, "routes/($locale).search": { id: "routes/($locale).search", parentId: "root", path: ":locale?/search", index: void 0, caseSensitive: void 0, module: "/build/routes/($locale).search-F7FNEDA7.js", imports: void 0, hasAction: !1, hasLoader: !0, hasCatchBoundary: !1, hasErrorBoundary: !1 }, "routes/[robots.txt]": { id: "routes/[robots.txt]", parentId: "root", path: "robots.txt", index: void 0, caseSensitive: void 0, module: "/build/routes/[robots.txt]-OU6DB2IP.js", imports: void 0, hasAction: !1, hasLoader: !0, hasCatchBoundary: !1, hasErrorBoundary: !0 }, "virtual-routes/routes/graphiql": { id: "virtual-routes/routes/graphiql", parentId: "virtual-routes/virtual-root", path: "graphiql", index: void 0, caseSensitive: void 0, module: "/build/virtual-routes/routes/graphiql-IUV5DDHT.js", imports: void 0, hasAction: !1, hasLoader: !0, hasCatchBoundary: !1, hasErrorBoundary: !1 }, "virtual-routes/routes/index": { id: "virtual-routes/routes/index", parentId: "virtual-routes/virtual-root", path: void 0, index: !0, caseSensitive: void 0, module: "/build/virtual-routes/routes/index-53PT7KYB.js", imports: void 0, hasAction: !1, hasLoader: !0, hasCatchBoundary: !1, hasErrorBoundary: !0 }, "virtual-routes/virtual-root": { id: "virtual-routes/virtual-root", parentId: void 0, path: "", index: void 0, caseSensitive: void 0, module: "/build/virtual-routes/virtual-root-OBQMRAOA.js", imports: ["/build/_shared/chunk-Z7RIBLB2.js"], hasAction: !1, hasLoader: !1, hasCatchBoundary: !1, hasErrorBoundary: !1 } }, version: "3c0ffceb", hmr: void 0, url: "/build/manifest-3C0FFCEB.js" };
 
 // server-entry-module:@remix-run/dev/server-build
 var assetsBuildDirectory = "dist/client/build", future = { v2_dev: !1, unstable_postcss: !1, unstable_tailwind: !1, v2_errorBoundary: !0, v2_headers: !0, v2_meta: !0, v2_normalizeFormMethod: !0, v2_routeConvention: !0 }, publicPath = "/build/", entry = { module: entry_server_exports }, routes = {
