@@ -9,10 +9,9 @@ const MobileProductCorousel = ({products,title, settings}) => {
   return (
     <div className="w-full max-w-screen-2xl mx-auto px-1">
       <div className="relative">
-        <h1 className="text-center mt-0 lg:text-[28px] text-[20px]">
+        <h1 className="text-center lg:text-[28px] my-4 text-[20px]">
          {title}
         </h1>
-   
         <Slider {...settings}>
           {products.nodes.map((product,index) => (
             <div key={`blog_${index}`} className="px-2 bg-white">

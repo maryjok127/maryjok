@@ -191,7 +191,7 @@ export default function Homepage() {
         title="CULT FAVES"
       />
       <div className='slider-container mb-8 max-w-screen-xl mx-auto lg:px-16 sm:px-4 md:px-6'>
-        <h1 className="text-center lg:text=[28px] text-[20px] mt-[15px]">
+        <h1 className="text-center lg:text=[28px] text-[20px]">
         CHOOSE YOUR CULT
         </h1> 
         <Slider {...settings}>
