@@ -25,20 +25,6 @@ const MobileProductCorousel = ({products,title, settings}) => {
             </div>
           ))}
         </Slider>
-        
-        {/* <div className="flex gap-2 overflow-y-auto">
-          {products.nodes.map((product) => (
-             <div className="bg-white shadow-lg">
-            <a href={`/blogs/${product.handle}`}>
-            <img
-              src={`${product.articles.edges[0].node.image.url}`} // Make sure to put your images in the 'public/images/' directory
-              alt={product.title}
-              className="lg:w-full lg:h-auto lg:px-5 sm:px-3 sm:mx-3 w-[320px]"
-            />
-            </a>
-            </div>
-          ))}
-        </div> */}
       </div>
     </div>
   );
@@ -94,6 +80,7 @@ const BlogCorousel = ({collections , title, isSmall}) => {
   initialSlide: isSmall ? 1 : 0,
   slidesToShow: 3,
   slidesToScroll: 1,
+  arrows: false,
   responsive: [
     {
       breakpoint: 1024,

@@ -1,4 +1,4 @@
-import {useRef,Suspense} from 'react';
+import {useRef,Suspense,useCallback} from 'react';
 import {defer, redirect} from '@shopify/remix-oxygen';
 import {Await, Link, useLoaderData} from '@remix-run/react';
 import React, {useState} from 'react';
@@ -119,11 +119,8 @@ export default function Product() {
   const shareUrl = `https://15f63f.myshopify.com/products/${product.handle}`;
   const [socialCount, setSocialCount] = useState();
 
-  //console.log("product:: ::",product);
   return (
     <>
-      {/*<ProductVariantColrousel className="col-span-1 overflow-x-auto" product={product}></ProductVariantColrousel>*/}
-      {/*<ProductImage image={selectedVariant?.image} />*/}
       <ProductMain
         selectedVariant={selectedVariant}
         product={product}
@@ -142,9 +139,7 @@ function ProductImage({image, activeImg, setActiveImage, product}) {
   product.images.edges.forEach((item) => {
     ImageSrc.push(item.node.url);
   });
-
   //console.log(ImageSrc)
-
   const [images, setImages] = useState(ImageSrc);
   //const [activeImg, setActiveImage] = useState(activeImg)
   // console.log(image)
@@ -195,6 +190,14 @@ function ProductMain({selectedVariant, product, shareUrl, variants,recommendedPr
   const [activeImg, setActiveImage] = useState(images[0]);
   const [moreText, setMoreText] = useState(true);
 
+  const setActiveImage1 = (url)=>{
+   
+      console.log("setIMG::",url)
+      setActiveImage(url)
+   
+   
+  }
+
   return (
     <>
       {/*<ProductImage image={selectedVariant?.image} />*/}
@@ -216,13 +219,13 @@ function ProductMain({selectedVariant, product, shareUrl, variants,recommendedPr
             image={selectedVariant?.image}
             product={product}
             activeImg={activeImg}
-            setActiveImage={setActiveImage}
+            setActiveImage={setActiveImage1}
           />
         </div>
         {/* ABOUT */}
         <div className="flex flex-col lg:w-3/4">
           <div>
-            <h1 className="text-2xl font-semibold mt-0 mb-0">
+            <h1 className="text-2xl font-bold mt-0 mb-0">
               {product.title}
             </h1>
             <div className='flex py-2 px-2'>
@@ -241,7 +244,7 @@ function ProductMain({selectedVariant, product, shareUrl, variants,recommendedPr
                   selectedVariant={selectedVariant}
                   variants={[]}
                   activeImg={activeImg}
-                  setActiveImage={setActiveImage}
+                  setActiveImage={setActiveImage1}
                 />
               }
             >
@@ -254,7 +257,7 @@ function ProductMain({selectedVariant, product, shareUrl, variants,recommendedPr
                     product={product}
                     selectedVariant={selectedVariant}
                     activeImg={activeImg}
-                    setActiveImage={setActiveImage}
+                    setActiveImage={setActiveImage1}
                     variants={data.product?.variants.nodes || []}
                   />
                 )}
@@ -428,7 +431,7 @@ function ProductPrice({selectedVariant}) {
       {selectedVariant?.compareAtPrice ? (
         <>
           <div className="product-price-on-sale font-semibold">
-            {selectedVariant ? <Money withoutTrailingZeros data={selectedVariant.price} /> : null}
+            <h1 className='m-0'>{selectedVariant ? <Money withoutTrailingZeros data={selectedVariant.price} /> : null}</h1>
             &nbsp;
             <s className='opacity-50'>
               <Money withoutTrailingZeros data={selectedVariant.compareAtPrice} />
@@ -437,7 +440,7 @@ function ProductPrice({selectedVariant}) {
         </>
       ) : (
         selectedVariant?.price && (
-          <Money withoutTrailingZeros className="font-semibold" data={selectedVariant?.price} />
+          <h1 className='m-0'><Money withoutTrailingZeros className="font-semibold" data={selectedVariant?.price} /></h1>
         )
       )}
     </div>
@@ -561,7 +564,16 @@ function ProductForm({
 
 function ProductOptions({option, activeImg,closeRef,setActiveImage,selectedVariant}) {
   var opt_length = option.values.length;
-  //console.log("selectedVariant ::",selectedVariant);
+
+
+  const setImg = ()=>{
+    setActiveImage(selectedVariant?.image?.url);
+        if (!closeRef?.current) return;
+        closeRef.current.click();
+  
+  }
+
+
 
   return (
     <>
@@ -569,6 +581,7 @@ function ProductOptions({option, activeImg,closeRef,setActiveImage,selectedVaria
         <h5 className="font-semibold">{option.name}</h5>
         <div className="product-options-grid items-center">
           {option.values.map(({value, isAvailable, isActive, to}) => {
+            //console.log("to ::",to)
             return (
               <Link
                 ref={closeRef}
@@ -582,14 +595,10 @@ function ProductOptions({option, activeImg,closeRef,setActiveImage,selectedVaria
                   border: isActive
                     ? '1px solid #d0715f'
                     : '1px solid transparent',
-                  opacity: isAvailable ? 1 : 0.3,
+                  //opacity: isAvailable ? 1 : 0.3,
                   borderRadius: '5px',
                 }}
-                onClick={() => {
-                  if (!closeRef?.current) return;
-                  setActiveImage(selectedVariant.image?.url);
-                  closeRef.current.click();
-                }}
+                onClick={() =>  setImg() }
               >
               <div dangerouslySetInnerHTML={{__html: value}} />
               </Link>

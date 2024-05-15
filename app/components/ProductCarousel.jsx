@@ -35,7 +35,7 @@ const ProductCarousel = ({products}) => {
     const { onClick } = props;
     return (
       <button 
-        className="absolute lg:left-[-90px] top-1/2 transform -translate-y-1/2  bg-white bg-opacity-75 rounded-full p-2 ml-4 hover:bg-opacity-100 text-white"
+        className="absolute lg:left-[-90px] top-1/2 transform -translate-y-1/2  bg-white bg-opacity-75 rounded-full p-2 ml-4 hover:bg-opacity-100 z-40 text-white"
         onClick={onClick}>
         <MdChevronLeft
           className="opacity-50 cursor-pointer hover:opacity-100 mst-arrow"
@@ -66,8 +66,8 @@ const ProductCarousel = ({products}) => {
     speed: 500,
     slidesToShow: eIndex,
     slidesToScroll: 1,
-    nextArrow: <SamplePrevArrow />,
-    prevArrow: <SampleNextArrow />,
+    nextArrow:<SampleNextArrow />,
+    prevArrow: <SamplePrevArrow /> ,
     responsive: [
       {
         breakpoint: 1024,
@@ -111,7 +111,7 @@ const ProductCarousel = ({products}) => {
                       className="w-full h-auto"
                     />
                     <div className='product_info'>
-                      <h2 className="text-lg font-semibold mt-2 text-center min-h-[50px]">
+                      <h2 className="text-lg font-semibold mt-2 text-center min-h-[85px] sm:min-h-[50px]">
                         {product.node.title}
                       </h2>
                       <div>

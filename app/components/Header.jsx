@@ -25,12 +25,10 @@ export function Header({header, isLoggedIn, cart}) {
   const isLargeScreen = useMediaQuery({minWidth: 1024});
   return (
     <>
-      <header className="header border-b border-gray-200 sm:mt-0 mt-4">        
+      <header className="header border-b border-gray-200 sm:mt-0">        
         <div className='w-full grid grid-rows-2 items-center sm:grid-rows-1 grid-flow-col gap-0 sm:gap-4'>
         {/* {isLargeScreen && ( */}
-         
           <div className="m-auto sm:flex">
-          
             <div className="relative flex w-full justify-end">
             <div className="logo flex">
               <NavLink className="flex items-center" prefetch="intent" to="/" style={activeLinkStyle} end>
@@ -41,7 +39,7 @@ export function Header({header, isLoggedIn, cart}) {
                 <PredictiveSearchForm>
                   {({fetchResults, inputRef}) => (
                     <div className=" ">
-                      <div className="relative  flex w-full items-center justify-end">
+                      <div style={{backgroundColor:"#000"}} className="relative flex w-full items-center justify-end">
                         <input
                           type="search"
                           className="search relative w-48 sm:h-[50px] h-[40px] sm:w-[320px] md:w-[400px] lg:w-[470px] m-0 py-[10px] px-[15px] block rounded-bl-lg rounded-tl-lg border bg-transparent bg-clip-padding  text-base font-normal leading-[1.6] text-neutral-700 outline-none transition duration-200 ease-in-out focus:z-[3] focus:border-primary focus:text-neutral-700 focus:outline-none dark:border-neutral-600 dark:text-neutral-200 dark:placeholder:text-neutral-200 dark:focus:border-primary mst-card"
@@ -53,15 +51,15 @@ export function Header({header, isLoggedIn, cart}) {
                           placeholder='Mary Jo K'
                           ref={inputRef}
                         />
-                   
+                        <img className="absolute right-2 h-[25px] w-[25px]" src="https://cdn.shopify.com/s/files/1/0809/4253/0882/files/search_icon_91210688-67e5-46ef-bdb0-5552bfc77b0b.png?v=1713174297" alt="search"/>
                         <TERipple>
-                          <button
+                          {/* <button
                             className="mst_search_btn relative z-[2] sm:h-[50px] h-[40px] rounded-tr-lg rounded-br-lg border border-1 mst-card px-[15px]  text-xs font-medium uppercase text-primary transition duration-150 ease-in-out hover:bg-black hover:bg-opacity-5 focus:outline-none focus:ring-0 mst-color"
                             type="submit"
                             id="button-addon3"
                           >
-                          <img className="h-[25px] w-[25px]" src="https://cdn.shopify.com/s/files/1/0809/4253/0882/files/search_icon_91210688-67e5-46ef-bdb0-5552bfc77b0b.png?v=1713174297" alt="search"/>
-                          </button>
+                          
+                          </button> */}
                         </TERipple>
                       </div>
                     </div>

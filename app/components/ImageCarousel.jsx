@@ -13,7 +13,7 @@ const ImageCarousel = () => {
   if(!isSmall){
     imageSrc = [{
       url:"/collections/cult-makeup",
-      img:'https://cdn.shopify.com/s/files/1/0809/4253/0882/files/desktop_banner_1.jpg?v=1713342696'
+      img:'https://cdn.shopify.com/s/files/1/0809/4253/0882/files/desktop_banner_1.jpg?v=1715767477'
     },
     {
       img:"https://cdn.shopify.com/s/files/1/0809/4253/0882/files/desktop_banner_3.jpg?v=1713342905",
@@ -30,7 +30,7 @@ const ImageCarousel = () => {
   }else{
     imageSrc = [{
       url:"/collections/cult-makeup",
-      img:'https://cdn.shopify.com/s/files/1/0809/4253/0882/files/mobile_Hero_Banners_1.jpg?v=1713342696'
+      img:'https://cdn.shopify.com/s/files/1/0809/4253/0882/files/mobile_Hero_Banners_1.jpg?v=1715767503'
     },
     {
       img:'https://cdn.shopify.com/s/files/1/0809/4253/0882/files/mobile_Hero_Banners_2.jpg?v=1713353171',
@@ -49,7 +49,7 @@ const ImageCarousel = () => {
     const { onClick } = props;
     return (
       <button 
-        className="absolute top-1/2 transform -translate-y-1/2  bg-opacity-75 rounded-full p-2 ml-4 hover:bg-opacity-100 text-white"
+        className="absolute top-1/2 z-40 transform -translate-y-1/2  bg-opacity-75 rounded-full p-2 ml-4 hover:bg-opacity-100 text-white"
         onClick={onClick}>
         <MdChevronLeft
           className="opacity-50 cursor-pointer hover:opacity-100 mst-arrow"
@@ -82,8 +82,8 @@ const ImageCarousel = () => {
     autoplay:true,
     autoplaySpeed:3500,
     cssEase: "linear",
-    nextArrow: <PrevArrow />,
-    prevArrow: <NextArrow />,
+    nextArrow: <NextArrow />,
+    prevArrow: <PrevArrow />,
     responsive: [
       {
         breakpoint: 1024,

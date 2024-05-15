@@ -121,6 +121,7 @@ export default function Homepage() {
   initialSlide: isSmall ? 1 : 0,
   slidesToShow: 3,
   slidesToScroll: 1,
+  arrows: false,
   responsive: [
     {
       breakpoint: 1024,
