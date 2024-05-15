@@ -606,7 +606,8 @@ footer{
   position: relative;
 }
 .login_wrapper fieldset{margin: 10%;}
-.home-product:hover {
+.product-cart-btn {background: linear-gradient(#ff9f9f, #DE6C63);}
+.home-product {
   background: linear-gradient(#ff9f9f,#DE6C63);
 }
 /* .search {

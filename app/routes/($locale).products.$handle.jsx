@@ -667,7 +667,7 @@ function AddToCartButton({analytics, children, disabled, lines, onClick}) {
                 </button>
               </div>
               <button
-                className="w-[150px] h-11 bg-black hover:bg-blue-700 text-white font-bold py-1 px-4 rounded-lg"
+                className="w-[150px] h-11 bg-black hover:bg-blue-700 text-white font-bold py-1 px-4 rounded-lg product-cart-btn"
                 type="submit"
                 onClick={onClick}
                 disabled={disabled ?? fetcher.state !== 'idle'}
