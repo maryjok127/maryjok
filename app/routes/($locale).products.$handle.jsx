@@ -424,14 +424,15 @@ function ProductPrice({selectedVariant}) {
   let price = Math.trunc(selectedVariant.price);
   let compareAtPrice = Math.trunc(selectedVariant.compareAtPrice)
   return (
-    <div className="product-price flex gap-[10px] mb-2">
+    <div className="product-price flex gap-[10px] mb-2 text-xl">
       {selectedVariant?.compareAtPrice ? (
         <>
           <div className="product-price-on-sale font-semibold">
-            <s>
+            {selectedVariant ? <Money withoutTrailingZeros data={selectedVariant.price} /> : null}
+            &nbsp;
+            <s className='opacity-50'>
               <Money withoutTrailingZeros data={selectedVariant.compareAtPrice} />
             </s>
-            {selectedVariant ? <Money withoutTrailingZeros data={selectedVariant.price} /> : null}
           </div>
         </>
       ) : (
@@ -586,8 +587,8 @@ function ProductOptions({option, activeImg,closeRef,setActiveImage,selectedVaria
                 }}
                 onClick={() => {
                   if (!closeRef?.current) return;
+                  setActiveImage(selectedVariant.image?.url);
                   closeRef.current.click();
-                  setActiveImage(selectedVariant.image?.url)
                 }}
               >
               <div dangerouslySetInnerHTML={{__html: value}} />

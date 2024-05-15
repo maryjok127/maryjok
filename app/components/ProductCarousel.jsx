@@ -8,27 +8,12 @@ const ProductCarousel = ({products}) => {
   const noImg = "https://cdn.shopify.com/s/files/1/0809/4253/0882/files/No-image-found.jpg?v=1708942129"
   let productsToShow = [];
   const lines = [];
-  const [startIndex, setStartIndex] = useState(0);
   var len = products.edges.length;
   const isLargeScreen = useMediaQuery({minWidth: 1024});
   const eIndex = isLargeScreen ? len < 4 ? len : 4 : 2;
-  const [endIndex, setEndIndex]  = useState(eIndex);
-  
-  //if (products != null || products != undefined) {
-    productsToShow = products;
-  //}
+  productsToShow = products;
+
  
-  // const nextProducts = () => {
-  //   setStartIndex((prevIndex) => len == endIndex ? prevIndex -1 : prevIndex + 1 );
-  //   setEndIndex((prevIndex) => len == endIndex ? prevIndex-1 : prevIndex + 1);
-  // };
-
-  // const prevProducts = () => {
-  //   setStartIndex((prevIndex) => len == endIndex ? prevIndex -1 : prevIndex + 1 );
-  //   setEndIndex((prevIndex) => len == endIndex ? prevIndex-1 : prevIndex + 1);
-  // };
-
-  console.log("start INDEX ::",startIndex,"End Index ::",endIndex,"Length::",eIndex);
   products.edges.map((product) => {
     product.node.variants.edges.map((line) => {
       if(line.node.availableForSale){
@@ -126,12 +111,22 @@ const ProductCarousel = ({products}) => {
                       className="w-full h-auto"
                     />
                     <div className='product_info'>
-                      <h2 className="text-lg font-semibold mt-2 text-center">
+                      <h2 className="text-lg font-semibold mt-2 text-center min-h-[50px]">
                         {product.node.title}
                       </h2>
-                      <div className="h-12">
+                      <div>
                         <h1 className="text-center font-bold h-full w-full m-auto">
                         &#x20b9;{Math.trunc(product.node.priceRange.minVariantPrice.amount)} 
+                        &nbsp;&nbsp;
+                        { product.node.variants.edges[0].node.compareAtPrice?.amount ?
+                          <s className="opacity-50 text-xl">
+                          &#x20b9;{Math.trunc(product.node.variants.edges[0].node.compareAtPrice?.amount)} 
+                          </s>
+                          :
+                          <s className="opacity-50 text-xl">
+                          &#x20b9;{Math.trunc(product.node.priceRange.minVariantPrice.amount)} 
+                          </s>
+                        }
                         </h1>
                       </div>
                     </div>

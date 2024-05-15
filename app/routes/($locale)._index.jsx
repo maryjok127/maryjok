@@ -346,6 +346,10 @@ const FEATURED_COLLECTION_QUERY = `#graphql
           node {
                 id
                 availableForSale
+                compareAtPrice {
+                  amount
+                  currencyCode
+                }
                 metafields(identifiers: [{namespace: "custom", key: "isdefault"} ]){
                     key
                     value
@@ -409,6 +413,10 @@ const RECOMMENDED_PRODUCTS_QUERY = `#graphql
       edges {
         node {
           availableForSale
+          compareAtPrice {
+            amount
+            currencyCode
+          }
           id
           metafields(identifiers: [{namespace: "custom", key: "isdefault"} ]){
               key

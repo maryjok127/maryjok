@@ -130,7 +130,8 @@ export default function Collection() {
       setProductToShowDump(productsToShow1)
     }
   },[])
-
+ 
+   console.log("productsToShow ::",JSON.stringify(productsToShow));
   collection.products.nodes.map((product) => {
     product.variants.nodes.map((line) => {
         lines.push({
@@ -216,6 +217,9 @@ export default function Collection() {
     }
     setImgUrl(img)
   },[collection])
+
+
+  console.log("productsToShow ::",JSON.stringify(productsToShow));
 
   return (
     <>
@@ -554,7 +558,18 @@ export default function Collection() {
                               <div className="h-8">
                                 <h1 className="text-center sm:text-[26px] text-[21px] font-bold m-auto w-full">
                                 &#x20b9;{Math.trunc(product.priceRange.maxVariantPrice.amount)} &nbsp; 
-                                </h1>
+                               
+                                &nbsp;&nbsp;
+                                { product.variants.nodes[0].compareAtPrice?.amount ?
+                                  <s className="opacity-50 text-xl">
+                                  &#x20b9;{Math.trunc(product.variants.nodes[0].compareAtPrice?.amount)} 
+                                  </s>
+                                  :
+                                  <s className="opacity-50 text-xl">
+                                  &#x20b9;{Math.trunc(product.priceRange?.maxVariantPrice.amount)} 
+                                  </s>
+                                }
+                                 </h1>
                               </div>
                             </div>
                             <div className='flex justify-center py-2'>
@@ -702,6 +717,8 @@ const PRODUCT_ITEM_FRAGMENT = `#graphql
       minVariantPrice {
         ...MoneyProductItem
       }
+    }
+    priceRange {
       maxVariantPrice {
         ...MoneyProductItem
       }
@@ -720,6 +737,10 @@ const PRODUCT_ITEM_FRAGMENT = `#graphql
     variants(first: 1) {
       nodes {
         id
+        compareAtPrice {
+          amount
+          currencyCode
+        }
         selectedOptions {
           name
           value
