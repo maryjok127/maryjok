@@ -2,6 +2,11 @@ import {useState} from 'react';
 import {MdChevronLeft, MdChevronRight} from 'react-icons/md';
 import {useMediaQuery} from 'react-responsive';
 import Slider from "react-slick";
+import {
+  VariantSelector,
+  getSelectedProductOptions,
+  CartForm,
+} from '@shopify/hydrogen';
 //import products from './products';
 
 const ProductCarousel = ({products}) => {
@@ -130,8 +135,54 @@ const ProductCarousel = ({products}) => {
                         </h1>
                       </div>
                     </div>
-
+                    </div>
+                    <div className="px-1 py-1 flex items-center sm:flex-row gap-3 justify-center w-[100%]">
+                  <div className="w-[25%] flex justify-center">
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      viewBox="0 0 32 33"
+                      xmlSpace="preserve"
+                      className="sm:w-[43px] w-[43px] like-home"
+                    >
+                      <path
+                        d="M9 .5h14c4.7 0 8.5 3.8 8.5 8.5v14c0 4.7-3.8 8.5-8.5 8.5H9C4.3 31.5.5 27.7.5 23V9C.5 4.3 4.3.5 9 .5z"
+                        fill="rgb(255, 255, 255)"
+                        stroke="rgb(0, 0, 0)"
+                      ></path>
+                      <path
+                        d="M22.3 11.8c.4.4.7.9.9 1.4.2.5.3 1.1.3 1.6 0 .6-.1 1.1-.3 1.6-.2.5-.5 1-.9 1.4l-5.6 5.6s-.1 0-.1.1h-.2s-.1 0-.1-.1l-5.6-5.6C10 17 9.5 16 9.5 14.9c0-1.1.3-2.1 1-2.9.7-.8 1.7-1.3 2.7-1.5 1.1-.1 2.1.2 3 .8l.3.2.3-.2c.8-.6 1.8-.9 2.8-.8 1.1.1 2 .5 2.7 1.3z"
+                        fill="none"
+                        stroke="rgb(0, 0, 0)"
+                      ></path>
+                    </svg>
                   </div>
+              
+                  <div d-line={index} className="w-[75%]">
+                    <CartForm
+                      route="/cart"
+                      inputs={{lines: lines[index]}}
+                      action={CartForm.ACTIONS.LinesAdd}
+                      className="w-[83%] "
+                    >
+                      {(fetcher) => (
+                        <>
+                          <button
+                          disabled={!product.node.variants || !product.node.variants.edges[0].node.availableForSale}
+                            className="w-[100%] h-11 bg-black hover:bg-blue-700 text-white font-bold py-1 rounded-lg inline-block home-product"
+                            type="submit"
+                            onClick={() => {
+                              window.location.href =
+                                window.location.href + '#cart-aside';
+                            }}
+                          >
+                           { product.node.variants && product.node.variants.edges[0].node.availableForSale ? 'ADD TO CART' : 'Sold out'}
+                          </button>
+                        </>
+                      )}
+                    </CartForm>
+                  </div>
+                </div>
+                 
                 </div>
               </div>
           ))}
