@@ -48,7 +48,7 @@ const Testimonials = ({page , isSmall})=>{
             <Slider {...settings}>
                 { context.map((content,index)=>{
                 return <li key={`testimonials_${index}`} className="flex gap-4 justify-center">
-                    <div className="shadow-xl p-4 min-h-[280px] sm:min-h-[230px]"  dangerouslySetInnerHTML={{__html: content}}>
+                    <div className="shadow-xl p-4 xs:min-h-[345px] sm:min-h-[230px]  min-h-[280px]"  dangerouslySetInnerHTML={{__html: content}}>
                     </div>
                 </li>
                 })

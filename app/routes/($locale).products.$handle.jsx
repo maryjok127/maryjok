@@ -1,4 +1,4 @@
-import {useRef,Suspense,useCallback} from 'react';
+import {useRef,Suspense,useEffect} from 'react';
 import {defer, redirect} from '@shopify/remix-oxygen';
 import {Await, Link, useLoaderData} from '@remix-run/react';
 import React, {useState} from 'react';
@@ -69,7 +69,6 @@ export async function loader({params, request, context}) {
   if (!product?.id) {
     throw new Response(null, {status: 404});
   }
-
   const firstVariant = product.variants.nodes[0];
   const firstVariantIsDefault = Boolean(
     firstVariant.selectedOptions.find(
@@ -86,11 +85,8 @@ export async function loader({params, request, context}) {
       return redirectToFirstVariant({product, request});
     }
   }
-  
   const {collections} = await storefront.query(FEATURED_COLLECTION_QUERY);
-  //console.log(collections.nodes[0].products);
   const recommendedProducts = collections;
-  //console.log("Recommended Products::",recommendedProducts)
   return defer({product, variants, productsreturn ,recommendedProducts});
 }
 
@@ -116,13 +112,18 @@ function redirectToFirstVariant({product, request}) {
 export default function Product() {
   const {product, variants, productsreturn,recommendedProducts} = useLoaderData();
   const {selectedVariant} = product;
+  const [activeVariant, setActiveVar] = useState([]); 
   const shareUrl = `https://15f63f.myshopify.com/products/${product.handle}`;
   const [socialCount, setSocialCount] = useState();
+
+  useEffect(() => {
+    setActiveVar(selectedVariant)
+  }, [selectedVariant,product])
 
   return (
     <>
       <ProductMain
-        selectedVariant={selectedVariant}
+        selectedVariant={activeVariant}
         product={product}
         variants={variants}
         shareUrl={shareUrl}
@@ -190,13 +191,6 @@ function ProductMain({selectedVariant, product, shareUrl, variants,recommendedPr
   const [activeImg, setActiveImage] = useState(images[0]);
   const [moreText, setMoreText] = useState(true);
 
-  const setActiveImage1 = (url)=>{
-   
-      console.log("setIMG::",url)
-      setActiveImage(url)
-   
-   
-  }
 
   return (
     <>
@@ -219,7 +213,7 @@ function ProductMain({selectedVariant, product, shareUrl, variants,recommendedPr
             image={selectedVariant?.image}
             product={product}
             activeImg={activeImg}
-            setActiveImage={setActiveImage1}
+            setActiveImage={setActiveImage}
           />
         </div>
         {/* ABOUT */}
@@ -244,7 +238,7 @@ function ProductMain({selectedVariant, product, shareUrl, variants,recommendedPr
                   selectedVariant={selectedVariant}
                   variants={[]}
                   activeImg={activeImg}
-                  setActiveImage={setActiveImage1}
+                  setActiveImage={setActiveImage}
                 />
               }
             >
@@ -257,7 +251,7 @@ function ProductMain({selectedVariant, product, shareUrl, variants,recommendedPr
                     product={product}
                     selectedVariant={selectedVariant}
                     activeImg={activeImg}
-                    setActiveImage={setActiveImage1}
+                    setActiveImage={setActiveImage}
                     variants={data.product?.variants.nodes || []}
                   />
                 )}
@@ -268,7 +262,7 @@ function ProductMain({selectedVariant, product, shareUrl, variants,recommendedPr
             <img src="https://cdn.shopify.com/s/files/1/0809/4253/0882/files/Vegetarian.jpg?v=1712825726"/>  
             <img src="https://cdn.shopify.com/s/files/1/0809/4253/0882/files/Cruelty-Free.jpg?v=1712825726"/>  
             <img src="https://cdn.shopify.com/s/files/1/0809/4253/0882/files/High_Quality.jpg?v=1712825727"/>  
-            <img src="https://cdn.shopify.com/s/files/1/0809/4253/0882/files/Suitable_for_all_Skin_Types.jpg?v=1712825726"/>     
+            <img src="https://cdn.shopify.com/s/files/1/0809/4253/0882/files/Suitable_for_all_Skin_Types.jpg?v=1715852367"/>     
           </div>
           <h2 className="mt-[10px]">Product Description</h2>
           <div className="shadow-p relative p-4 sm:p-0">
@@ -424,18 +418,24 @@ function ProductMain({selectedVariant, product, shareUrl, variants,recommendedPr
 //{"type":"root","children":[{"type":"paragraph","children":[{"type":"text","value":"Onion, in combination with coconut, reduces hair fall and promotes growth of lost hair."}]}]}
 
 function ProductPrice({selectedVariant}) {
-  let price = Math.trunc(selectedVariant.price);
-  let compareAtPrice = Math.trunc(selectedVariant.compareAtPrice)
+  let price = Math.trunc(selectedVariant?.price?.amount);
+  let compareAtPrice = Math.trunc(selectedVariant?.compareAtPrice?.amount);
+  const calculatePer = ()=>{
+    let per = (compareAtPrice - price) / (price) * 100;
+    return Math.trunc(per);
+  }
   return (
     <div className="product-price flex gap-[10px] mb-2 text-xl">
       {selectedVariant?.compareAtPrice ? (
         <>
-          <div className="product-price-on-sale font-semibold">
+          <div className="product-price-on-sale font-semibold flex items-center">
             <h1 className='m-0'>{selectedVariant ? <Money withoutTrailingZeros data={selectedVariant.price} /> : null}</h1>
             &nbsp;
             <s className='opacity-50'>
               <Money withoutTrailingZeros data={selectedVariant.compareAtPrice} />
             </s>
+            &nbsp;
+            <b className='text-red-500'> ({ calculatePer() } % Off) </b>
           </div>
         </>
       ) : (
@@ -523,7 +523,6 @@ function ProductForm({
           />
         )}
       </VariantSelector>
-      <Offers />
       <br />
       {/* <WishlistButton
         selectedVariant={selectedVariant}
@@ -562,43 +561,42 @@ function ProductForm({
   );
 }
 
-function ProductOptions({option, activeImg,closeRef,setActiveImage,selectedVariant}) {
-  var opt_length = option.values.length;
-
-
-  const setImg = ()=>{
+function ProductOptions({option,activeImg,closeRef,setActiveImage,selectedVariant}) {
+  const [selectedVar, setVar] = useState({0:true});
+  useEffect(()=>{
     setActiveImage(selectedVariant?.image?.url);
-        if (!closeRef?.current) return;
-        closeRef.current.click();
-  
+  },[selectedVariant]);
+
+  const setImg = (index)=>{
+    setVar({[index]:true})
+    //if (!closeRef?.current) return;
+    //setActiveImage(img);
+    //closeRef.current.click();
   }
-
-
 
   return (
     <>
       <div className="product-options" key={option.name}>
         <h5 className="font-semibold">{option.name}</h5>
         <div className="product-options-grid items-center">
-          {option.values.map(({value, isAvailable, isActive, to}) => {
-            //console.log("to ::",to)
+          {option.values.map(({value, isAvailable, isActive, to},index) => {
             return (
               <Link
                 ref={closeRef}
                 className="product-options-item"
                 key={option.name + value}
-                prefetch="intent"
-                preventScrollReset
+                prefetch="intent" 
                 replace
+                
+                preventScrollReset
                 to={to}
                 style={{
-                  border: isActive
+                  border: selectedVar[index]
                     ? '1px solid #d0715f'
                     : '1px solid transparent',
-                  //opacity: isAvailable ? 1 : 0.3,
                   borderRadius: '5px',
                 }}
-                onClick={() =>  setImg() }
+                onClick={() =>  setImg(index) }
               >
               <div dangerouslySetInnerHTML={{__html: value}} />
               </Link>
@@ -609,20 +607,6 @@ function ProductOptions({option, activeImg,closeRef,setActiveImage,selectedVaria
       </div>
     </>
   );
-}
-
-const Offers = ()=>{
-  return(
-    <div>
-      {/* <div className='bg-[#f7f7f7]'>
-      <h2 className="text-[16px]">AVAILABLE OFFERS!!</h2>
-      <ul className="text-[#757575] list-disc">
-        <li>FREE Mivi Play Bluetooth Speakers on a spend of Rs.2199</li>
-        <li>Holographic Pouch + Liquid Lipstick on a spend of Rs.599</li>
-      </ul>
-      </div> */}
-  </div>
-  )
 }
 
 function AddToCartButton({analytics, children, disabled, lines, onClick}) {

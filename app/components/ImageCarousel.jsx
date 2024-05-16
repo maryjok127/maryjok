@@ -12,7 +12,7 @@ const ImageCarousel = () => {
   var imageSrc = []
   if(!isSmall){
     imageSrc = [{
-      url:"/collections/cult-makeup",
+      url:"/collections/cult-accessories",
       img:'https://cdn.shopify.com/s/files/1/0809/4253/0882/files/desktop_banner_1.jpg?v=1715767477'
     },
     {
@@ -29,7 +29,7 @@ const ImageCarousel = () => {
     }];
   }else{
     imageSrc = [{
-      url:"/collections/cult-makeup",
+      url:"/collections/cult-accessories",
       img:'https://cdn.shopify.com/s/files/1/0809/4253/0882/files/mobile_Hero_Banners_1.jpg?v=1715767503'
     },
     {
@@ -49,7 +49,7 @@ const ImageCarousel = () => {
     const { onClick } = props;
     return (
       <button 
-        className="absolute top-1/2 z-40 transform -translate-y-1/2  bg-opacity-75 rounded-full p-2 ml-4 hover:bg-opacity-100 text-white"
+        className="absolute top-1/2 z-10 transform -translate-y-1/2  bg-opacity-75 rounded-full p-2 ml-4 hover:bg-opacity-100 text-white"
         onClick={onClick}>
         <MdChevronLeft
           className="opacity-50 cursor-pointer hover:opacity-100 mst-arrow"

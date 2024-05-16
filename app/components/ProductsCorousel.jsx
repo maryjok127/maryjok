@@ -23,7 +23,6 @@ const ProductsCorousel = ({products}) => {
     window.location.href = url_path
   }
 
-
   products.edges.map((product) => {
     product.node.variants.edges.map((line) => {
       if(line.node.availableForSale){

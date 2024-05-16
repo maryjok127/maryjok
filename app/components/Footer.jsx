@@ -42,11 +42,11 @@ export function Footer({menu}) {
             <div className="sm:flex gap-4">
               <div className="sm:w-[75%] w-[100%] grid grid-cols-4 gap-4 border-b-mobile footer_shop_brand">
                 {
-                menu.items.length && menu.items.map((cat)=>{
+                menu.items.length && menu.items.map((cat,indexx)=>{
                   return(
                     <>
                     { cat.items.length && viewLinksArr.indexOf(cat.title) >= 0  ?
-                    <div>
+                    <div key={`wrapper_sub_menu_${indexx}`}>
                       <div className='footer_link_title'>{ cat.title }</div>
                       <div>
                         { cat.items.map((subMenu,index)=>{ 

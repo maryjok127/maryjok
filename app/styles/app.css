@@ -796,12 +796,6 @@ footer{
     position: absolute;
     right: 40px;
   }
-  .home-product {
-    /* width: 100px !important; */
-  }
-  .collectionContent {
-    padding-bottom: 0;
-  }
 }
 
 @media only screen and (max-width: 450px) {

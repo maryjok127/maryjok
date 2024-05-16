@@ -107,7 +107,6 @@ export default function Collection() {
   collectionArray = sortArr.length ? sortArr[0]?.items : [];
   //console.log("all_collections:",collectionArray);
   const sortColl = collectionArray.map((coll)=> collections.edges.filter((item)=> item.node.title === coll.title))
-  console.log("sortColl::",sortColl)
   const [mobileFiltersOpen, setMobileFiltersOpen] = useState(false);
   var productsToShow1 = [];
   const lines = [];
@@ -131,7 +130,6 @@ export default function Collection() {
     }
   },[])
  
-   console.log("productsToShow ::",JSON.stringify(productsToShow));
   collection.products.nodes.map((product) => {
     product.variants.nodes.map((line) => {
         lines.push({
@@ -143,7 +141,6 @@ export default function Collection() {
   
   const sortCollectionProducts= (sort_by)=> {
     var data = collection.products.nodes;
-    console.log("sortCollectionProducts::",data)
     switch(sort_by){
       case 'lh':  sortArray(data,"ascending"); 
                   break;
@@ -159,7 +156,6 @@ export default function Collection() {
   }
 
   const sortArray = (data,sortOrder="ascending") => {
-    console.log("sortArray::",data)
     const sortedData = [...data].sort((a, b) => {
         var nodeA =a,nodeB=b;
         if (sortOrder === 'ascending') {
@@ -172,7 +168,6 @@ export default function Collection() {
   }
   
   const sortByDate = (data,sortOrder="ascending") => {
-    console.log("sortByDate::",data)
     const sortedData = [...data].sort((a, b) => {
       var nodeA = a, nodeB = b;
       if (sortOrder === 'ascending') {
@@ -217,9 +212,6 @@ export default function Collection() {
     }
     setImgUrl(img)
   },[collection])
-
-
-  console.log("productsToShow ::",JSON.stringify(productsToShow));
 
   return (
     <>
@@ -359,13 +351,11 @@ export default function Collection() {
           </Transition.Root>
 
           <section className="collectionContent sm:mt-4 overflow-auto">
-            <div className="inline-flex gap-4">
             { sortArr.length ?
              <CollectionCarousel collections={collection} handle={handle} sortArr={sortColl} />
              :
              null
             } 
-            </div>
           </section>
           <main className="mx-auto max-w-8xl px-0 sm:px-4 sm:px-6 lg:px-8">
             <div className="flex gap-1 items-center">

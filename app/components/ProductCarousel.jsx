@@ -18,7 +18,14 @@ const ProductCarousel = ({products}) => {
   const eIndex = isLargeScreen ? len < 4 ? len : 4 : 2;
   productsToShow = products;
 
- 
+  
+  const calculatePer = (original_price, disc_price)=>{
+    let price = Math.trunc(original_price);
+    let compareAtPrice = Math.trunc(disc_price);
+    let per = (compareAtPrice - price) / (price) * 100;
+    return Math.trunc(per);
+  }
+
   products.edges.map((product) => {
     product.node.variants.edges.map((line) => {
       if(line.node.availableForSale){
@@ -40,7 +47,7 @@ const ProductCarousel = ({products}) => {
     const { onClick } = props;
     return (
       <button 
-        className="absolute lg:left-[-90px] top-1/2 transform -translate-y-1/2  bg-white bg-opacity-75 rounded-full p-2 ml-4 hover:bg-opacity-100 z-40 text-white"
+        className="absolute z-10 lg:left-[-90px] top-1/2 transform -translate-y-1/2  bg-white bg-opacity-75 rounded-full p-2 ml-4 hover:bg-opacity-100 z-4 text-white"
         onClick={onClick}>
         <MdChevronLeft
           className="opacity-50 cursor-pointer hover:opacity-100 mst-arrow"
@@ -116,23 +123,24 @@ const ProductCarousel = ({products}) => {
                       className="w-full h-auto"
                     />
                     <div className='product_info'>
-                      <h2 className="text-lg font-semibold mt-2 text-center min-h-[85px] sm:min-h-[50px]">
+                      <h2 className="text-lg font-semibold mt-2 text-center min-h-[50px] xs:min-h-[85px] sm:min-h-[50px] ">
                         {product.node.title}
                       </h2>
-                      <div>
-                        <h1 className="text-center font-bold h-full w-full m-auto">
-                        &#x20b9;{Math.trunc(product.node.priceRange.minVariantPrice.amount)} 
-                        &nbsp;&nbsp;
-                        { product.node.variants.edges[0].node.compareAtPrice?.amount ?
-                          <s className="opacity-50 text-xl">
-                          &#x20b9;{Math.trunc(product.node.variants.edges[0].node.compareAtPrice?.amount)} 
-                          </s>
-                          :
-                          <s className="opacity-50 text-xl">
+                      <div className='flex flex-row justify-center gap-1 items-center'>
+                        <div className='flex items-center justify-center'>
+                          <div className="font-bold m-auto flex  text-center text-sm xs:text-sm sm:text-xl"> 
                           &#x20b9;{Math.trunc(product.node.priceRange.minVariantPrice.amount)} 
-                          </s>
+                          </div>
+                        </div>
+                        { product.node.variants.edges[0].node.compareAtPrice?.amount &&
+                          <div className='flex items-center justify-center'>
+                            <div className="ml-2 line-through opacity-50 text-sm xs:text-sm sm:text-xl">
+                            &#x20b9;{Math.trunc(product.node.variants.edges[0].node.compareAtPrice?.amount)} 
+                            </div>
+                            <b className='ml-2 text-red-500 text-sm xs:text-sm sm:text-xl'> ({ calculatePer(product.node.priceRange.minVariantPrice.amount,product.node.variants.edges[0].node.compareAtPrice?.amount) } % Off) </b>
+                          </div>
                         }
-                        </h1>
+                       
                       </div>
                     </div>
                     </div>
