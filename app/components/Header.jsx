@@ -29,13 +29,13 @@ export function Header({header, isLoggedIn, cart}) {
         <div className='w-full grid grid-rows-2 items-center sm:grid-rows-1 grid-flow-col gap-0 sm:gap-4'>
         {/* {isLargeScreen && ( */}
           <div className="m-auto sm:flex">
-            <div className="relative flex w-full justify-end">
-            <div className="logo flex">
-              <NavLink className="flex items-center" prefetch="intent" to="/" style={activeLinkStyle} end>
-                <img className="w-[16rem] sm:mb-0 h-[20px] sm:h-[100%] mst_mobile_img" src="https://cdn.shopify.com/s/files/1/0809/4253/0882/files/New_MJK_Logo_png.png?v=1714388036" />
-              </NavLink>
-            </div>
-              <div className="rounded w-full">
+            <div className="relative flex w-full">
+              <div className="logo flex w-1/3">
+                <NavLink className="flex items-center" prefetch="intent" to="/" style={activeLinkStyle} end>
+                  <img className="w-[16rem] sm:mb-0 h-[20px] sm:h-[100%] mst_mobile_img" src="https://cdn.shopify.com/s/files/1/0809/4253/0882/files/New_MJK_Logo_png.png?v=1714388036" />
+                </NavLink>
+              </div>
+              <div className="rounded w-full w-2/3 ml-2 sm:ml-4">
                 <PredictiveSearchForm>
                   {({fetchResults, inputRef}) => (
                     <div className=" ">

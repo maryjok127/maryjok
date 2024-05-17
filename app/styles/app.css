@@ -176,7 +176,7 @@ aside li {
 .header {
   align-items: center;
   background: #000;
-  height: 85px;
+  height: 75px;
   display: flex;
   padding: 0 7%;
   position: sticky;
@@ -786,7 +786,7 @@ footer{
   }
 }
 @media only screen and (max-width: 640px) {
-  .logo { width: 75px;}
+  .logo { width: 100%;}
   .header-ctas{ margin-left: 100px;}
   .p-2{ padding: 0;}
   .mst_search_btn{ line-height: 0 !important;}
