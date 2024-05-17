@@ -20,7 +20,7 @@ const ImageCarousel = () => {
       url:"/collections/way-2-slay-mjk",
     },
     {
-      img:'https://cdn.shopify.com/s/files/1/0809/4253/0882/files/desktop_banner_2.jpg?v=1713342905',
+      img:'https://cdn.shopify.com/s/files/1/0809/4253/0882/files/desktop_banner_2.jpg?v=1715944709',
       url:"/collections/rizz-roll-mjk"
     },
     {
@@ -37,11 +37,11 @@ const ImageCarousel = () => {
       url:"/collections/way-2-slay-mjk",
     },
     {
-      img:'https://cdn.shopify.com/s/files/1/0809/4253/0882/files/mobile_Hero_Banners_4.jpg?v=1713353171',
+      img:'https://cdn.shopify.com/s/files/1/0809/4253/0882/files/mobile_Hero_Banners_4.jpg?v=1715944487',
       url:"/collections/rizz-roll-mjk"
     },
     {
-      img:'https://cdn.shopify.com/s/files/1/0809/4253/0882/files/pro_studio_mobile_banner_3_700_x_470.jpg?v=1714388254',
+      img:'https://cdn.shopify.com/s/files/1/0809/4253/0882/files/pro_studio_mobile_banner_3_700_x_470.jpg?v=1715944382',
       url:'collections/pro-studio-mjk'
     }];
   }
