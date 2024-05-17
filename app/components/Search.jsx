@@ -167,7 +167,7 @@ function SearchResultArticleGrid({articles}) {
 }
 
 export function NoSearchResults() {
-  return <p>No results, try a different search.</p>;
+  return <div>No results, try a different search.</div>;
 }
 
 /**
@@ -233,10 +233,10 @@ export function PredictiveSearchResults() {
   }
 
   if (!totalResults) {
-    return <NoPredictiveSearchResults searchTerm={searchTerm} />;
+    return <></> //<NoPredictiveSearchResults searchTerm={searchTerm} />;
   }
   return (
-    <div className="predictive-search-results w-[270px] lg:w-[470px] absolute">
+    <div className="predictive-search-results w-[270px] lg:w-[470px] absolute right-0">
       <div>
         {results.map(({type, items}) => (
           <PredictiveSearchResult
@@ -251,10 +251,10 @@ export function PredictiveSearchResults() {
       {/* view all results /search?q=term */}
       {searchTerm.current && (
         <Link onClick={goToSearchResult} to={`/search?q=${searchTerm.current}`}>
-          <p>
+          <div>
             View all results for <q>{searchTerm.current}</q>
             &nbsp; →
-          </p>
+          </div>
         </Link>
       )}
     </div>
@@ -266,9 +266,9 @@ function NoPredictiveSearchResults({searchTerm}) {
     return null;
   }
   return (
-    <p>
+    <div>
       No results found for <q>{searchTerm.current}</q>
-    </p>
+    </div>
   );
 }
 

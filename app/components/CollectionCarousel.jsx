@@ -1,27 +1,17 @@
-import React, {useState} from 'react';
 import {MdChevronLeft, MdChevronRight} from 'react-icons/md';
 import {useMediaQuery} from 'react-responsive';
-import {
-  VariantSelector,
-  getSelectedProductOptions,
-  CartForm,
-} from '@shopify/hydrogen';
 import Slider from "react-slick";
-//import collections from './collections';
 
 
 const CollectionCarousel = ({collection , handle , sortArr,all_collections}) => {
   const noImg = "https://cdn.shopify.com/s/files/1/0809/4253/0882/files/No-image-found.jpg?v=1708942129"
-  
   var filtered = sortArr.filter(col=> {
-    console.log("col", col)
     return col.length != 0;
   });
   let collectionsToShow = filtered;
-  console.log("collectionsToShow::",collectionsToShow)
+  var len = collectionsToShow?.length;
+  console.log("collectionsToShow::",collectionsToShow.length)
   const isLargeScreen = useMediaQuery({minWidth: 1024});
-  const eIndex = isLargeScreen ? len < 4 ? len : 4 : 2;
-  var len = sortArr?.length;
 
   function PrevArrow(props) {
     const { onClick } = props;
@@ -53,12 +43,10 @@ const CollectionCarousel = ({collection , handle , sortArr,all_collections}) => 
   }
   
   const settings = {
-    infinite: true,
     dots: false,
-    speed: 500,
-    slidesToShow: 4,
+    infinite:len < 4 ? false : true,
+    slidesToShow: len < 4 ? len : len,
     slidesToScroll: 1,
-    cssEase: "linear",
     nextArrow: <NextArrow />,
     prevArrow: <PrevArrow />,
     responsive: [
@@ -66,34 +54,26 @@ const CollectionCarousel = ({collection , handle , sortArr,all_collections}) => 
         breakpoint: 1024,
         settings: {
           slidesToShow: 4,
-          slidesToScroll: 3,
-          infinite: true,
-          
+          slidesToScroll: 1
         }
       },
       {
         breakpoint: 600,
         settings: {
-          slidesToShow: 4,
-          slidesToScroll: 1,
-          initialSlide: 1,
-          
+          slidesToShow: 3,
+          slidesToScroll: 1
         }
       },
       {
         breakpoint: 520,
         settings: {
           slidesToShow: 2,
-          slidesToScroll: 1,
-          
+          slidesToScroll: 1
         }
       }
     ]
   }
-  // if (sortArr != null || sortArr != undefined) {
-  //   collectionsToShow = sortArr.slice(startIndex, endIndex);
-  // }
-
+  console.log("settings::",settings)
 
   function goToCollection(url_path){
     let url = `/collections/${url_path}` //getPath(url_path);
@@ -103,7 +83,7 @@ const CollectionCarousel = ({collection , handle , sortArr,all_collections}) => 
 
   return (
     <div className="recommended_section w-full max-w-screen-xl mx-auto lg:px-52 sm:px-32 md:px-32">
-      <div>
+  
       <Slider {...settings}>
           {collectionsToShow.map((coll, index) => (
             <>
@@ -127,7 +107,7 @@ const CollectionCarousel = ({collection , handle , sortArr,all_collections}) => 
          
         
         </Slider>
-        </div>
+  
      
       {/* <div className="relative">
         <div className="flex grid-row-1 grid-cols-2 gap-4">

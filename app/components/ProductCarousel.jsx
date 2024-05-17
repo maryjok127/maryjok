@@ -123,7 +123,7 @@ const ProductCarousel = ({products}) => {
                       className="w-full h-auto"
                     />
                     <div className='product_info'>
-                      <h2 className="text-lg font-semibold mt-2 text-center min-h-[50px] xs:min-h-[85px] sm:min-h-[50px] ">
+                      <h2 className="text-lg font-semibold mt-2 text-center min-h-[50px] xs:min-h-[85px] sm:min-h-[50px]">
                         {product.node.title}
                       </h2>
                       <div className='flex flex-row justify-center gap-1 items-center'>

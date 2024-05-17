@@ -122,9 +122,7 @@ export default function Collection() {
 
   useEffect(()=>{
     if (collection.products != null || collection.products != undefined) {
-      //console.log("collection::",collection);
       productsToShow1 = collection.products.nodes;
-      //console.log(productsToShow);
       setProductToShow(productsToShow1)
       setProductToShowDump(productsToShow1)
     }
@@ -438,8 +436,6 @@ export default function Collection() {
               </h2>
 
               <div className="grid grid-cols-1 gap-x-8 gap-y-10 lg:grid-cols-4">
-                {/* Filters */}
-                
                 <div className="shadow-md px-4 py-2 sm:mst-card">
                   <form className="hidden lg:block lg:sticky lg:top-[120px]">
                     <h3 className="sr-only">Categories</h3>
@@ -521,7 +517,6 @@ export default function Collection() {
                   </form>
                 </div>
                 
-
                 {/* Product grid */}
                 <div className="lg:col-span-3">
                   <div className="w-full max-w-screen-xl">
@@ -529,7 +524,7 @@ export default function Collection() {
                       {productsToShow.map((product, index) => (
                         <div className="cursor mst-card-md"  key={product.id}>
                           <div
-                            className="bg-white rounded-lg shadow-lg p-2 px-2 sm:px-4"
+                            className="bg-white rounded-lg shadow-lg p-2 px-2 sm:px-2"
                             style={{
                               boxShadow:
                                 'rgba(149, 157, 165, 0.2) 0px 8px 24px',
@@ -539,14 +534,14 @@ export default function Collection() {
                             <img
                               src={product.images.edges[0]?.node?.url}
                               alt={product.title}
-                              className="w-full h-auto"
+                              className="w-full h-auto rounded"
                             />
                             <div className='product_info'>
-                              <h2 className="sm:text-lg text-[17px] font-semibold mt-2 text-center">
+                              <div className="sm:text-lg text-[17px] xs:text-[14px] font-semibold mt-2 text-center min-h-[50px] xs:min-h-[65px] sm:min-h-[55px]">
                                 {product.title}
-                              </h2>
-                              <div className="h-8">
-                                <h1 className="text-center sm:text-[26px] text-[21px] font-bold m-auto w-full">
+                              </div>
+                              <div>
+                                <div className="text-center sm:text-[26px] text-[21px] xs:text-[19px] font-bold m-auto w-full">
                                 &#x20b9;{Math.trunc(product.priceRange.maxVariantPrice.amount)} &nbsp; 
                                
                                 &nbsp;&nbsp;
@@ -559,10 +554,10 @@ export default function Collection() {
                                   &#x20b9;{Math.trunc(product.priceRange?.maxVariantPrice.amount)} 
                                   </s>
                                 }
-                                 </h1>
+                                 </div>
                               </div>
                             </div>
-                            <div className='flex justify-center py-2'>
+                            <div className='flex justify-center pt-1'>
                             <OkendoStarRating
                               productId={product.id}
                               okendoStarRatingSnippet={product.OkendoStarRatingSnippet}

@@ -49,6 +49,12 @@ margin: 0 5px;}
   max-width: 200px;
   height: auto;
 }
+input.search::placeholder {
+  color: #fff;
+}
+input.search:-moz-placeholder {  
+  color: #fff;  
+} 
 aside {
   background: var(--color-light);
   box-shadow: 0 0 50px rgba(0, 0, 0, 0.3);
@@ -600,7 +606,6 @@ footer{
 .collection_desc{ border-top: 5px solid #d87558; padding: 10px 0;}
 .product_info{
   padding: 0 5px;
-  min-height: 120px;
   border-bottom-left-radius: 15px;
   border-bottom-right-radius: 15px;
   position: relative;
@@ -616,9 +621,6 @@ footer{
   background-repeat: no-repeat;
   padding: 12px 20px 12px 40px;
 } */
-.search::placeholder {
-  color: #f48580;
-}
 .container-testimonials {
 	display: flex;
 	padding: 0 35px;
