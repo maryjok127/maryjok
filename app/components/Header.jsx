@@ -42,7 +42,7 @@ export function Header({header, isLoggedIn, cart}) {
                       <div style={{backgroundColor:"#000"}} className="relative flex w-full items-center justify-end">
                         <input
                           type="search"
-                          className="search relative w-48 sm:h-[50px] h-[40px] sm:w-[320px] md:w-[400px] lg:w-[470px] m-0 py-[10px] px-[15px] block rounded-bl-lg rounded-tl-lg border bg-transparent bg-clip-padding  text-base font-normal leading-[1.6] outline-none transition duration-200 ease-in-out focus:z-[3] focus:border-primary focus:text-white text-white focus:outline-none  placeholder:text-white dark:focus:border-primary mst-card"
+                          className="search relative w-48 sm:h-[50px] h-[40px] sm:w-[320px] md:w-[400px] lg:w-[470px] m-0 py-[10px] px-[15px] block rounded-bl-lg rounded-tl-lg border bg-transparent bg-clip-padding  text-base font-normal leading-[1.6] outline-none transition duration-200 ease-in-out focus:z-[3] focus:border-primary focus:text-white mst-color focus:outline-none dark:focus:border-primary mst-card"
                           aria-label="Search"
                           aria-describedby="button-addon3"
                           name="q"

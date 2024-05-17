@@ -50,10 +50,10 @@ margin: 0 5px;}
   height: auto;
 }
 input.search::placeholder {
-  color: #fff;
+  color: #CB7060;
 }
 input.search:-moz-placeholder {  
-  color: #fff;  
+  color: #CB7060;  
 } 
 aside {
   background: var(--color-light);
