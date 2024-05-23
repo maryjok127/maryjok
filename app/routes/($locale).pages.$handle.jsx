@@ -29,12 +29,6 @@ export default function Page() {
       <header>
         <h1>{page.title}</h1>
       </header>
-      { page.handle === 'lookbook' &&
-        <>
-          <div class="ShopTheLook-section" data-product-id="9005019693378"></div>
-        
-        </>
-      }
       <main dangerouslySetInnerHTML={{__html: page.body}} />
       
     </div>
@@ -51,7 +45,6 @@ const PAGE_QUERY = `#graphql
     page(handle: $handle) {
       id
       title
-      handle
       body
       seo {
         description

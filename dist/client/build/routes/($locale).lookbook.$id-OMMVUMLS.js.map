@@ -1,0 +1,7 @@
+{
+  "version": 3,
+  "sources": ["../../../../app/routes/($locale).lookbook.$id.jsx"],
+  "sourcesContent": ["import {json} from '@shopify/remix-oxygen';\nimport {useLoaderData} from '@remix-run/react';\nimport { useEffect, useState } from 'react';\n\n\nexport async function loader({params, context}) {\n    if (!params.id) {\n        return redirect('/');\n    }\n  return json({lookbook_id:params.id});\n}\n\nexport default function LookBook() {\n    const { lookbook_id } = useLoaderData();\n    const [p_id, setId] = useState()\n    useEffect(()=>{\n        setId(lookbook_id);\n    },[])\n    return (\n      <div className=\"page m-12\">\n        <script src={`https://shopify.shopthelook.app/shopthelook.js?shop=15f63f.myshopify.com&widget=1&mainProductId=${lookbook_id}`}></script>\n        <script src=\"../lookbook.js\"></script>\n        <div class=\"ShopTheLook-section\" data-product-id={p_id}></div>\n      </div>\n    );\n  }"],
+  "mappings": ";;;;;;;;;;AAEA,IAAAA,gBAAoC;AAkB5B;AARO,SAAR,WAA4B;AAC/B,QAAM,EAAE,YAAY,IAAI,cAAc;AACtC,QAAM,CAAC,MAAM,KAAK,QAAI,wBAAS;AAC/B,+BAAU,MAAI;AACV,UAAM,WAAW;AAAA,EACrB,GAAE,CAAC,CAAC;AACJ,SACE,mDAAC,SAAI,WAAU,aACb;AAAA,uDAAC,YAAO,KAAK,mGAAmG,iBAAhH;AAAA;AAAA;AAAA;AAAA,WAA+H;AAAA,IAC/H,mDAAC,YAAO,KAAI,oBAAZ;AAAA;AAAA;AAAA;AAAA,WAA6B;AAAA,IAC7B,mDAAC,SAAI,OAAM,uBAAsB,mBAAiB,QAAlD;AAAA;AAAA;AAAA;AAAA,WAAwD;AAAA,OAH1D;AAAA;AAAA;AAAA;AAAA,SAIA;AAEJ;",
+  "names": ["import_react"]
+}

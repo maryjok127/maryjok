@@ -753,7 +753,7 @@ See https://reactjs.org/link/invalid-hook-call for tips about how to debug and f
         }
         return dispatcher.useContext(Context);
       }
-      function useState18(initialState) {
+      function useState19(initialState) {
         var dispatcher = resolveDispatcher();
         return dispatcher.useState(initialState);
       }
@@ -765,7 +765,7 @@ See https://reactjs.org/link/invalid-hook-call for tips about how to debug and f
         var dispatcher = resolveDispatcher();
         return dispatcher.useRef(initialValue);
       }
-      function useEffect10(create, deps) {
+      function useEffect11(create, deps) {
         var dispatcher = resolveDispatcher();
         return dispatcher.useEffect(create, deps);
       }
@@ -1294,7 +1294,7 @@ Check the top-level render call using <` + parentName + ">.");
         toArray,
         only: onlyChild
       };
-      exports.Children = Children2, exports.Component = Component2, exports.Fragment = REACT_FRAGMENT_TYPE, exports.Profiler = REACT_PROFILER_TYPE, exports.PureComponent = PureComponent, exports.StrictMode = REACT_STRICT_MODE_TYPE, exports.Suspense = REACT_SUSPENSE_TYPE, exports.__SECRET_INTERNALS_DO_NOT_USE_OR_YOU_WILL_BE_FIRED = ReactSharedInternals, exports.cloneElement = cloneElement$1, exports.createContext = createContext5, exports.createElement = createElement$1, exports.createFactory = createFactory, exports.createRef = createRef, exports.forwardRef = forwardRef15, exports.isValidElement = isValidElement2, exports.lazy = lazy2, exports.memo = memo, exports.startTransition = startTransition, exports.unstable_act = act, exports.useCallback = useCallback4, exports.useContext = useContext7, exports.useDebugValue = useDebugValue, exports.useDeferredValue = useDeferredValue, exports.useEffect = useEffect10, exports.useId = useId, exports.useImperativeHandle = useImperativeHandle, exports.useInsertionEffect = useInsertionEffect, exports.useLayoutEffect = useLayoutEffect3, exports.useMemo = useMemo10, exports.useReducer = useReducer, exports.useRef = useRef8, exports.useState = useState18, exports.useSyncExternalStore = useSyncExternalStore, exports.useTransition = useTransition2, exports.version = ReactVersion, typeof __REACT_DEVTOOLS_GLOBAL_HOOK__ < "u" && typeof __REACT_DEVTOOLS_GLOBAL_HOOK__.registerInternalModuleStop == "function" && __REACT_DEVTOOLS_GLOBAL_HOOK__.registerInternalModuleStop(new Error());
+      exports.Children = Children2, exports.Component = Component2, exports.Fragment = REACT_FRAGMENT_TYPE, exports.Profiler = REACT_PROFILER_TYPE, exports.PureComponent = PureComponent, exports.StrictMode = REACT_STRICT_MODE_TYPE, exports.Suspense = REACT_SUSPENSE_TYPE, exports.__SECRET_INTERNALS_DO_NOT_USE_OR_YOU_WILL_BE_FIRED = ReactSharedInternals, exports.cloneElement = cloneElement$1, exports.createContext = createContext5, exports.createElement = createElement$1, exports.createFactory = createFactory, exports.createRef = createRef, exports.forwardRef = forwardRef15, exports.isValidElement = isValidElement2, exports.lazy = lazy2, exports.memo = memo, exports.startTransition = startTransition, exports.unstable_act = act, exports.useCallback = useCallback4, exports.useContext = useContext7, exports.useDebugValue = useDebugValue, exports.useDeferredValue = useDeferredValue, exports.useEffect = useEffect11, exports.useId = useId, exports.useImperativeHandle = useImperativeHandle, exports.useInsertionEffect = useInsertionEffect, exports.useLayoutEffect = useLayoutEffect3, exports.useMemo = useMemo10, exports.useReducer = useReducer, exports.useRef = useRef8, exports.useState = useState19, exports.useSyncExternalStore = useSyncExternalStore, exports.useTransition = useTransition2, exports.version = ReactVersion, typeof __REACT_DEVTOOLS_GLOBAL_HOOK__ < "u" && typeof __REACT_DEVTOOLS_GLOBAL_HOOK__.registerInternalModuleStop == "function" && __REACT_DEVTOOLS_GLOBAL_HOOK__.registerInternalModuleStop(new Error());
     })();
   }
 });
@@ -1340,7 +1340,7 @@ __export(router_exports, {
   matchRoutes: () => matchRoutes,
   normalizePathname: () => normalizePathname,
   parsePath: () => parsePath,
-  redirect: () => redirect,
+  redirect: () => redirect2,
   resolvePath: () => resolvePath,
   resolveTo: () => resolveTo,
   stripBasename: () => stripBasename
@@ -2224,13 +2224,13 @@ function createRouter(init) {
         shortCircuited: !0
       };
     pendingNavigationController && pendingNavigationController.signal.removeEventListener("abort", abortPendingFetchRevalidations), revalidatingFetchers.forEach((rf) => fetchControllers.delete(rf.key));
-    let redirect5 = findRedirect(results2);
-    if (redirect5) {
-      if (redirect5.idx >= matchesToLoad.length) {
-        let fetcherKey = revalidatingFetchers[redirect5.idx - matchesToLoad.length].key;
+    let redirect6 = findRedirect(results2);
+    if (redirect6) {
+      if (redirect6.idx >= matchesToLoad.length) {
+        let fetcherKey = revalidatingFetchers[redirect6.idx - matchesToLoad.length].key;
         fetchRedirectIds.add(fetcherKey);
       }
-      return await startRedirectNavigation(state, redirect5.result, {
+      return await startRedirectNavigation(state, redirect6.result, {
         replace
       }), {
         shortCircuited: !0
@@ -2373,13 +2373,13 @@ function createRouter(init) {
     if (abortController.signal.aborted)
       return;
     abortController.signal.removeEventListener("abort", abortPendingFetchRevalidations), fetchReloadIds.delete(key), fetchControllers.delete(key), revalidatingFetchers.forEach((r9) => fetchControllers.delete(r9.key));
-    let redirect5 = findRedirect(results2);
-    if (redirect5) {
-      if (redirect5.idx >= matchesToLoad.length) {
-        let fetcherKey = revalidatingFetchers[redirect5.idx - matchesToLoad.length].key;
+    let redirect6 = findRedirect(results2);
+    if (redirect6) {
+      if (redirect6.idx >= matchesToLoad.length) {
+        let fetcherKey = revalidatingFetchers[redirect6.idx - matchesToLoad.length].key;
         fetchRedirectIds.add(fetcherKey);
       }
-      return startRedirectNavigation(state, redirect5.result);
+      return startRedirectNavigation(state, redirect6.result);
     }
     let {
       loaderData,
@@ -2439,16 +2439,16 @@ function createRouter(init) {
       fetchers: new Map(state.fetchers)
     });
   }
-  async function startRedirectNavigation(state2, redirect5, _temp) {
+  async function startRedirectNavigation(state2, redirect6, _temp) {
     let {
       submission,
       replace,
       isFetchActionRedirect
     } = _temp === void 0 ? {} : _temp;
-    redirect5.revalidate && (isRevalidationRequired = !0);
+    redirect6.revalidate && (isRevalidationRequired = !0);
     let redirectLocation = createLocation(
       state2.location,
-      redirect5.location,
+      redirect6.location,
       // TODO: This can be removed once we get rid of useTransition in Remix v2
       _extends({
         _isRedirect: !0
@@ -2456,19 +2456,19 @@ function createRouter(init) {
         _isFetchActionRedirect: !0
       } : {})
     );
-    if (invariant(redirectLocation, "Expected a location on the redirect navigation"), ABSOLUTE_URL_REGEX.test(redirect5.location) && isBrowser3) {
-      let url = init.history.createURL(redirect5.location), isDifferentBasename = stripBasename(url.pathname, basename) == null;
+    if (invariant(redirectLocation, "Expected a location on the redirect navigation"), ABSOLUTE_URL_REGEX.test(redirect6.location) && isBrowser3) {
+      let url = init.history.createURL(redirect6.location), isDifferentBasename = stripBasename(url.pathname, basename) == null;
       if (routerWindow.location.origin !== url.origin || isDifferentBasename) {
-        replace ? routerWindow.location.replace(redirect5.location) : routerWindow.location.assign(redirect5.location);
+        replace ? routerWindow.location.replace(redirect6.location) : routerWindow.location.assign(redirect6.location);
         return;
       }
     }
     pendingNavigationController = null;
     let redirectHistoryAction = replace === !0 ? Action.Replace : Action.Push, activeSubmission = submission || getSubmissionFromNavigation(state2.navigation);
-    if (redirectPreserveMethodStatusCodes.has(redirect5.status) && activeSubmission && isMutationMethod(activeSubmission.formMethod))
+    if (redirectPreserveMethodStatusCodes.has(redirect6.status) && activeSubmission && isMutationMethod(activeSubmission.formMethod))
       await startNavigation(redirectHistoryAction, redirectLocation, {
         submission: _extends({}, activeSubmission, {
-          formAction: redirect5.location
+          formAction: redirect6.location
         }),
         // Preserve this flag across redirects
         preventScrollReset: pendingPreventScrollReset
@@ -3573,7 +3573,7 @@ function getDoneFetcher(data2) {
     " _hasFetcherDoneAnything ": !0
   };
 }
-var Action, PopStateEventType, ResultType, immutableRouteKeys, paramRe, dynamicSegmentValue, indexRouteValue, emptySegmentValue, staticSegmentValue, splatPenalty, isSplat, joinPaths, normalizePathname, normalizeSearch, normalizeHash, json, AbortedDeferredError, DeferredData, defer, redirect, ErrorResponse, validMutationMethodsArr, validMutationMethods, validRequestMethodsArr, validRequestMethods, redirectStatusCodes, redirectPreserveMethodStatusCodes, IDLE_NAVIGATION, IDLE_FETCHER, IDLE_BLOCKER, ABSOLUTE_URL_REGEX, defaultMapRouteProperties, UNSAFE_DEFERRED_SYMBOL, init_router = __esm({
+var Action, PopStateEventType, ResultType, immutableRouteKeys, paramRe, dynamicSegmentValue, indexRouteValue, emptySegmentValue, staticSegmentValue, splatPenalty, isSplat, joinPaths, normalizePathname, normalizeSearch, normalizeHash, json, AbortedDeferredError, DeferredData, defer, redirect2, ErrorResponse, validMutationMethodsArr, validMutationMethods, validRequestMethodsArr, validRequestMethods, redirectStatusCodes, redirectPreserveMethodStatusCodes, IDLE_NAVIGATION, IDLE_FETCHER, IDLE_BLOCKER, ABSOLUTE_URL_REGEX, defaultMapRouteProperties, UNSAFE_DEFERRED_SYMBOL, init_router = __esm({
   "node_modules/@remix-run/router/dist/router.js"() {
     (function(Action2) {
       Action2.Pop = "POP", Action2.Push = "PUSH", Action2.Replace = "REPLACE";
@@ -3675,7 +3675,7 @@ var Action, PopStateEventType, ResultType, immutableRouteKeys, paramRe, dynamicS
         status: init
       } : init;
       return new DeferredData(data2, responseInit);
-    }, redirect = function(url, init) {
+    }, redirect2 = function(url, init) {
       init === void 0 && (init = 302);
       let responseInit = init;
       typeof responseInit == "number" ? responseInit = {
@@ -3752,7 +3752,7 @@ __export(dist_exports, {
   matchPath: () => matchPath,
   matchRoutes: () => matchRoutes,
   parsePath: () => parsePath,
-  redirect: () => redirect,
+  redirect: () => redirect2,
   renderMatches: () => renderMatches,
   resolvePath: () => resolvePath,
   unstable_useBlocker: () => useBlocker,
@@ -4573,7 +4573,7 @@ __export(dist_exports2, {
   matchPath: () => matchPath,
   matchRoutes: () => matchRoutes,
   parsePath: () => parsePath,
-  redirect: () => redirect,
+  redirect: () => redirect2,
   renderMatches: () => renderMatches,
   resolvePath: () => resolvePath,
   unstable_HistoryRouter: () => HistoryRouter,
@@ -8138,7 +8138,7 @@ Incoming: %s`, currentHookNameInDev, "[" + nextDeps.join(", ") + "]", "[" + prev
       function basicStateReducer(state, action11) {
         return typeof action11 == "function" ? action11(state) : action11;
       }
-      function useState18(initialState) {
+      function useState19(initialState) {
         return currentHookNameInDev = "useState", useReducer(
           basicStateReducer,
           // useReducer has a special case to support lazy useState initializers
@@ -8258,7 +8258,7 @@ Incoming: %s`, currentHookNameInDev, "[" + nextDeps.join(", ") + "]", "[" + prev
         useMemo: useMemo10,
         useReducer,
         useRef: useRef8,
-        useState: useState18,
+        useState: useState19,
         useInsertionEffect: noop2,
         useLayoutEffect: useLayoutEffect3,
         useCallback: useCallback4,
@@ -11690,7 +11690,7 @@ Incoming: %s`, currentHookNameInDev, "[" + nextDeps.join(", ") + "]", "[" + prev
       function basicStateReducer(state, action11) {
         return typeof action11 == "function" ? action11(state) : action11;
       }
-      function useState18(initialState) {
+      function useState19(initialState) {
         return currentHookNameInDev = "useState", useReducer(
           basicStateReducer,
           // useReducer has a special case to support lazy useState initializers
@@ -11810,7 +11810,7 @@ Incoming: %s`, currentHookNameInDev, "[" + nextDeps.join(", ") + "]", "[" + prev
         useMemo: useMemo10,
         useReducer,
         useRef: useRef8,
-        useState: useState18,
+        useState: useState19,
         useInsertionEffect: noop2,
         useLayoutEffect: useLayoutEffect3,
         useCallback: useCallback4,
@@ -13057,7 +13057,7 @@ var require_react_jsx_dev_runtime_development = __commonJS({
           value: source
         }), Object.freeze && (Object.freeze(element.props), Object.freeze(element)), element;
       };
-      function jsxDEV55(type, config, maybeKey, source, self2) {
+      function jsxDEV56(type, config, maybeKey, source, self2) {
         {
           var propName, props = {}, key = null, ref = null;
           maybeKey !== void 0 && (checkKeyStringCoercion(maybeKey), key = "" + maybeKey), hasValidKey(config) && (checkKeyStringCoercion(config.key), key = "" + config.key), hasValidRef(config) && (ref = config.ref, warnIfStringRefCannotBeAutoConverted(config, self2));
@@ -13204,7 +13204,7 @@ Check the top-level render call using <` + parentName + ">.");
             var typeString;
             type === null ? typeString = "null" : isArray(type) ? typeString = "array" : type !== void 0 && type.$$typeof === REACT_ELEMENT_TYPE ? (typeString = "<" + (getComponentNameFromType(type.type) || "Unknown") + " />", info = " Did you accidentally export a JSX literal instead of a component?") : typeString = typeof type, error("React.jsx: type is invalid -- expected a string (for built-in components) or a class/function (for composite components) but got: %s.%s", typeString, info);
           }
-          var element = jsxDEV55(type, props, key, source, self2);
+          var element = jsxDEV56(type, props, key, source, self2);
           if (element == null)
             return element;
           if (validType) {
@@ -13831,7 +13831,7 @@ var require_react_jsx_runtime_development = __commonJS({
           value: source
         }), Object.freeze && (Object.freeze(element.props), Object.freeze(element)), element;
       };
-      function jsxDEV55(type, config, maybeKey, source, self2) {
+      function jsxDEV56(type, config, maybeKey, source, self2) {
         {
           var propName, props = {}, key = null, ref = null;
           maybeKey !== void 0 && (checkKeyStringCoercion(maybeKey), key = "" + maybeKey), hasValidKey(config) && (checkKeyStringCoercion(config.key), key = "" + config.key), hasValidRef(config) && (ref = config.ref, warnIfStringRefCannotBeAutoConverted(config, self2));
@@ -13978,7 +13978,7 @@ Check the top-level render call using <` + parentName + ">.");
             var typeString;
             type === null ? typeString = "null" : isArray(type) ? typeString = "array" : type !== void 0 && type.$$typeof === REACT_ELEMENT_TYPE ? (typeString = "<" + (getComponentNameFromType(type.type) || "Unknown") + " />", info = " Did you accidentally export a JSX literal instead of a component?") : typeString = typeof type, error("React.jsx: type is invalid -- expected a string (for built-in components) or a class/function (for composite components) but got: %s.%s", typeString, info);
           }
-          var element = jsxDEV55(type, props, key, source, self2);
+          var element = jsxDEV56(type, props, key, source, self2);
           if (element == null)
             return element;
           if (validType) {
@@ -14336,7 +14336,7 @@ var require_react_dom_development = __commonJS({
           argsWithFormat.unshift("Warning: " + format), Function.prototype.apply.call(console[level], console, argsWithFormat);
         }
       }
-      var FunctionComponent = 0, ClassComponent = 1, IndeterminateComponent = 2, HostRoot = 3, HostPortal = 4, HostComponent = 5, HostText = 6, Fragment30 = 7, Mode = 8, ContextConsumer = 9, ContextProvider = 10, ForwardRef10 = 11, Profiler = 12, SuspenseComponent = 13, MemoComponent = 14, SimpleMemoComponent = 15, LazyComponent = 16, IncompleteClassComponent = 17, DehydratedFragment = 18, SuspenseListComponent = 19, ScopeComponent = 21, OffscreenComponent = 22, LegacyHiddenComponent = 23, CacheComponent = 24, TracingMarkerComponent = 25, enableClientRenderFallbackOnTextMismatch = !0, enableNewReconciler = !1, enableLazyContextPropagation = !1, enableLegacyHidden = !1, enableSuspenseAvoidThisFallback = !1, disableCommentsAsDOMContainers = !0, enableCustomElementPropertySupport = !1, warnAboutStringRefs = !1, enableSchedulingProfiler = !0, enableProfilerTimer = !0, enableProfilerCommitHooks = !0, allNativeEvents = /* @__PURE__ */ new Set(), registrationNameDependencies = {}, possibleRegistrationNames = {};
+      var FunctionComponent = 0, ClassComponent = 1, IndeterminateComponent = 2, HostRoot = 3, HostPortal = 4, HostComponent = 5, HostText = 6, Fragment29 = 7, Mode = 8, ContextConsumer = 9, ContextProvider = 10, ForwardRef10 = 11, Profiler = 12, SuspenseComponent = 13, MemoComponent = 14, SimpleMemoComponent = 15, LazyComponent = 16, IncompleteClassComponent = 17, DehydratedFragment = 18, SuspenseListComponent = 19, ScopeComponent = 21, OffscreenComponent = 22, LegacyHiddenComponent = 23, CacheComponent = 24, TracingMarkerComponent = 25, enableClientRenderFallbackOnTextMismatch = !0, enableNewReconciler = !1, enableLazyContextPropagation = !1, enableLegacyHidden = !1, enableSuspenseAvoidThisFallback = !1, disableCommentsAsDOMContainers = !0, enableCustomElementPropertySupport = !1, warnAboutStringRefs = !1, enableSchedulingProfiler = !0, enableProfilerTimer = !0, enableProfilerCommitHooks = !0, allNativeEvents = /* @__PURE__ */ new Set(), registrationNameDependencies = {}, possibleRegistrationNames = {};
       function registerTwoPhaseEvent(registrationName, dependencies) {
         registerDirectEvent(registrationName, dependencies), registerDirectEvent(registrationName + "Capture", dependencies);
       }
@@ -15186,7 +15186,7 @@ Error generating stack: ` + x5.message + `
             return "DehydratedFragment";
           case ForwardRef10:
             return getWrappedName$1(type, type.render, "ForwardRef");
-          case Fragment30:
+          case Fragment29:
             return "Fragment";
           case HostComponent:
             return type;
@@ -21515,7 +21515,7 @@ See https://reactjs.org/link/refs-must-have-owner for more information.`);
           }
         }
         function updateFragment2(returnFiber, current2, fragment, lanes, key) {
-          if (current2 === null || current2.tag !== Fragment30) {
+          if (current2 === null || current2.tag !== Fragment29) {
             var created = createFiberFromFragment(fragment, returnFiber.mode, lanes, key);
             return created.return = returnFiber, created;
           } else {
@@ -21743,7 +21743,7 @@ See https://reactjs.org/link/refs-must-have-owner for more information.`);
             if (child.key === key) {
               var elementType = element.type;
               if (elementType === REACT_FRAGMENT_TYPE) {
-                if (child.tag === Fragment30) {
+                if (child.tag === Fragment29) {
                   deleteRemainingChildren(returnFiber, child.sibling);
                   var existing = useFiber(child, element.props.children);
                   return existing.return = returnFiber, existing._debugSource = element._source, existing._debugOwner = element._owner, existing;
@@ -24333,7 +24333,7 @@ Check the render method of \`` + ownerName + "`.");
             var type = workInProgress2.type, _unresolvedProps2 = workInProgress2.pendingProps, _resolvedProps2 = workInProgress2.elementType === type ? _unresolvedProps2 : resolveDefaultProps(type, _unresolvedProps2);
             return updateForwardRef(current2, workInProgress2, type, _resolvedProps2, renderLanes2);
           }
-          case Fragment30:
+          case Fragment29:
             return updateFragment(current2, workInProgress2, renderLanes2);
           case Mode:
             return updateMode(current2, workInProgress2, renderLanes2);
@@ -24485,7 +24485,7 @@ Check the render method of \`` + ownerName + "`.");
           case SimpleMemoComponent:
           case FunctionComponent:
           case ForwardRef10:
-          case Fragment30:
+          case Fragment29:
           case Mode:
           case Profiler:
           case ContextConsumer:
@@ -27042,7 +27042,7 @@ Check the render method of \`` + ownerName + "`.");
         return fiber._debugSource = element._source, fiber._debugOwner = element._owner, fiber;
       }
       function createFiberFromFragment(elements, mode, lanes, key) {
-        var fiber = createFiber(Fragment30, elements, key, mode);
+        var fiber = createFiber(Fragment29, elements, key, mode);
         return fiber.lanes = lanes, fiber;
       }
       function createFiberFromProfiler(pendingProps, mode, lanes, key) {
@@ -28407,7 +28407,7 @@ Valid keys: ` + JSON.stringify(Object.keys(shapeTypes), null, "  ")
                     }
                   }
                 }
-                var AsyncMode = REACT_ASYNC_MODE_TYPE, ConcurrentMode = REACT_CONCURRENT_MODE_TYPE, ContextConsumer = REACT_CONTEXT_TYPE, ContextProvider = REACT_PROVIDER_TYPE, Element2 = REACT_ELEMENT_TYPE, ForwardRef10 = REACT_FORWARD_REF_TYPE, Fragment30 = REACT_FRAGMENT_TYPE, Lazy = REACT_LAZY_TYPE, Memo = REACT_MEMO_TYPE, Portal = REACT_PORTAL_TYPE, Profiler = REACT_PROFILER_TYPE, StrictMode = REACT_STRICT_MODE_TYPE, Suspense8 = REACT_SUSPENSE_TYPE, hasWarnedAboutDeprecatedIsAsyncMode = !1;
+                var AsyncMode = REACT_ASYNC_MODE_TYPE, ConcurrentMode = REACT_CONCURRENT_MODE_TYPE, ContextConsumer = REACT_CONTEXT_TYPE, ContextProvider = REACT_PROVIDER_TYPE, Element2 = REACT_ELEMENT_TYPE, ForwardRef10 = REACT_FORWARD_REF_TYPE, Fragment29 = REACT_FRAGMENT_TYPE, Lazy = REACT_LAZY_TYPE, Memo = REACT_MEMO_TYPE, Portal = REACT_PORTAL_TYPE, Profiler = REACT_PROFILER_TYPE, StrictMode = REACT_STRICT_MODE_TYPE, Suspense8 = REACT_SUSPENSE_TYPE, hasWarnedAboutDeprecatedIsAsyncMode = !1;
                 function isAsyncMode(object) {
                   return hasWarnedAboutDeprecatedIsAsyncMode || (hasWarnedAboutDeprecatedIsAsyncMode = !0, console.warn("The ReactIs.isAsyncMode() alias has been deprecated, and will be removed in React 17+. Update your code to use ReactIs.isConcurrentMode() instead. It has the exact same API.")), isConcurrentMode(object) || typeOf(object) === REACT_ASYNC_MODE_TYPE;
                 }
@@ -28447,7 +28447,7 @@ Valid keys: ` + JSON.stringify(Object.keys(shapeTypes), null, "  ")
                 function isSuspense(object) {
                   return typeOf(object) === REACT_SUSPENSE_TYPE;
                 }
-                exports2.AsyncMode = AsyncMode, exports2.ConcurrentMode = ConcurrentMode, exports2.ContextConsumer = ContextConsumer, exports2.ContextProvider = ContextProvider, exports2.Element = Element2, exports2.ForwardRef = ForwardRef10, exports2.Fragment = Fragment30, exports2.Lazy = Lazy, exports2.Memo = Memo, exports2.Portal = Portal, exports2.Profiler = Profiler, exports2.StrictMode = StrictMode, exports2.Suspense = Suspense8, exports2.isAsyncMode = isAsyncMode, exports2.isConcurrentMode = isConcurrentMode, exports2.isContextConsumer = isContextConsumer, exports2.isContextProvider = isContextProvider, exports2.isElement = isElement, exports2.isForwardRef = isForwardRef, exports2.isFragment = isFragment, exports2.isLazy = isLazy, exports2.isMemo = isMemo, exports2.isPortal = isPortal, exports2.isProfiler = isProfiler, exports2.isStrictMode = isStrictMode, exports2.isSuspense = isSuspense, exports2.isValidElementType = isValidElementType, exports2.typeOf = typeOf;
+                exports2.AsyncMode = AsyncMode, exports2.ConcurrentMode = ConcurrentMode, exports2.ContextConsumer = ContextConsumer, exports2.ContextProvider = ContextProvider, exports2.Element = Element2, exports2.ForwardRef = ForwardRef10, exports2.Fragment = Fragment29, exports2.Lazy = Lazy, exports2.Memo = Memo, exports2.Portal = Portal, exports2.Profiler = Profiler, exports2.StrictMode = StrictMode, exports2.Suspense = Suspense8, exports2.isAsyncMode = isAsyncMode, exports2.isConcurrentMode = isConcurrentMode, exports2.isContextConsumer = isContextConsumer, exports2.isContextProvider = isContextProvider, exports2.isElement = isElement, exports2.isForwardRef = isForwardRef, exports2.isFragment = isFragment, exports2.isLazy = isLazy, exports2.isMemo = isMemo, exports2.isPortal = isPortal, exports2.isProfiler = isProfiler, exports2.isStrictMode = isStrictMode, exports2.isSuspense = isSuspense, exports2.isValidElementType = isValidElementType, exports2.typeOf = typeOf;
               })();
             }
           ),
@@ -31148,7 +31148,7 @@ var require_react_is_development = __commonJS({
           }
         }
       }
-      var AsyncMode = REACT_ASYNC_MODE_TYPE, ConcurrentMode = REACT_CONCURRENT_MODE_TYPE, ContextConsumer = REACT_CONTEXT_TYPE, ContextProvider = REACT_PROVIDER_TYPE, Element2 = REACT_ELEMENT_TYPE, ForwardRef10 = REACT_FORWARD_REF_TYPE, Fragment30 = REACT_FRAGMENT_TYPE, Lazy = REACT_LAZY_TYPE, Memo = REACT_MEMO_TYPE, Portal = REACT_PORTAL_TYPE, Profiler = REACT_PROFILER_TYPE, StrictMode = REACT_STRICT_MODE_TYPE, Suspense8 = REACT_SUSPENSE_TYPE, hasWarnedAboutDeprecatedIsAsyncMode = !1;
+      var AsyncMode = REACT_ASYNC_MODE_TYPE, ConcurrentMode = REACT_CONCURRENT_MODE_TYPE, ContextConsumer = REACT_CONTEXT_TYPE, ContextProvider = REACT_PROVIDER_TYPE, Element2 = REACT_ELEMENT_TYPE, ForwardRef10 = REACT_FORWARD_REF_TYPE, Fragment29 = REACT_FRAGMENT_TYPE, Lazy = REACT_LAZY_TYPE, Memo = REACT_MEMO_TYPE, Portal = REACT_PORTAL_TYPE, Profiler = REACT_PROFILER_TYPE, StrictMode = REACT_STRICT_MODE_TYPE, Suspense8 = REACT_SUSPENSE_TYPE, hasWarnedAboutDeprecatedIsAsyncMode = !1;
       function isAsyncMode(object) {
         return hasWarnedAboutDeprecatedIsAsyncMode || (hasWarnedAboutDeprecatedIsAsyncMode = !0, console.warn("The ReactIs.isAsyncMode() alias has been deprecated, and will be removed in React 17+. Update your code to use ReactIs.isConcurrentMode() instead. It has the exact same API.")), isConcurrentMode(object) || typeOf(object) === REACT_ASYNC_MODE_TYPE;
       }
@@ -31188,7 +31188,7 @@ var require_react_is_development = __commonJS({
       function isSuspense(object) {
         return typeOf(object) === REACT_SUSPENSE_TYPE;
       }
-      exports.AsyncMode = AsyncMode, exports.ConcurrentMode = ConcurrentMode, exports.ContextConsumer = ContextConsumer, exports.ContextProvider = ContextProvider, exports.Element = Element2, exports.ForwardRef = ForwardRef10, exports.Fragment = Fragment30, exports.Lazy = Lazy, exports.Memo = Memo, exports.Portal = Portal, exports.Profiler = Profiler, exports.StrictMode = StrictMode, exports.Suspense = Suspense8, exports.isAsyncMode = isAsyncMode, exports.isConcurrentMode = isConcurrentMode, exports.isContextConsumer = isContextConsumer, exports.isContextProvider = isContextProvider, exports.isElement = isElement, exports.isForwardRef = isForwardRef, exports.isFragment = isFragment, exports.isLazy = isLazy, exports.isMemo = isMemo, exports.isPortal = isPortal, exports.isProfiler = isProfiler, exports.isStrictMode = isStrictMode, exports.isSuspense = isSuspense, exports.isValidElementType = isValidElementType, exports.typeOf = typeOf;
+      exports.AsyncMode = AsyncMode, exports.ConcurrentMode = ConcurrentMode, exports.ContextConsumer = ContextConsumer, exports.ContextProvider = ContextProvider, exports.Element = Element2, exports.ForwardRef = ForwardRef10, exports.Fragment = Fragment29, exports.Lazy = Lazy, exports.Memo = Memo, exports.Portal = Portal, exports.Profiler = Profiler, exports.StrictMode = StrictMode, exports.Suspense = Suspense8, exports.isAsyncMode = isAsyncMode, exports.isConcurrentMode = isConcurrentMode, exports.isContextConsumer = isContextConsumer, exports.isContextProvider = isContextProvider, exports.isElement = isElement, exports.isForwardRef = isForwardRef, exports.isFragment = isFragment, exports.isLazy = isLazy, exports.isMemo = isMemo, exports.isPortal = isPortal, exports.isProfiler = isProfiler, exports.isStrictMode = isStrictMode, exports.isSuspense = isSuspense, exports.isValidElementType = isValidElementType, exports.typeOf = typeOf;
     })();
   }
 });
@@ -55974,7 +55974,7 @@ function serializeErrors(errors, serverMode) {
 }
 
 // node_modules/@remix-run/server-runtime/dist/esm/responses.js
-var json3 = (data2, init = {}) => json(data2, init), defer3 = (data2, init = {}) => defer(data2, init), redirect3 = (url, init = 302) => redirect(url, init);
+var json3 = (data2, init = {}) => json(data2, init), defer3 = (data2, init = {}) => defer(data2, init), redirect4 = (url, init = 302) => redirect2(url, init);
 function isDeferredData2(value) {
   let deferred = value;
   return deferred && typeof deferred == "object" && typeof deferred.data == "object" && typeof deferred.subscribe == "function" && typeof deferred.cancel == "function" && typeof deferred.resolveData == "function";
@@ -56108,19 +56108,19 @@ async function callRouteActionRR({
 }
 async function callRouteLoaderRR({
   loadContext,
-  loader: loader31,
+  loader: loader32,
   params,
   request,
   routeId
 }) {
-  let result = await loader31({
+  let result = await loader32({
     request: stripDataParam(stripIndexParam(request)),
     context: loadContext,
     params
   });
   if (result === void 0)
     throw new Error(`You defined a loader for route "${routeId}" but didn't return anything from your \`loader\` function. Please return a value or \`null\`.`);
-  return isDeferredData2(result) ? result.init && isRedirectStatusCode(result.init.status || 200) ? redirect3(new Headers(result.init.headers).get("Location"), result.init) : result : isResponse2(result) ? result : json3(result);
+  return isDeferredData2(result) ? result.init && isRedirectStatusCode(result.init.status || 200) ? redirect4(new Headers(result.init.headers).get("Location"), result.init) : result : isResponse2(result) ? result : json3(result);
 }
 function stripIndexParam(request) {
   let url = new URL(request.url), indexValues = url.searchParams.getAll("index");
@@ -56555,7 +56555,7 @@ var favicon_default = "/build/_assets/favicon-IN6DMKSS.svg";
 var reset_default = "/build/_assets/reset-FEGHSTUV.css";
 
 // app/styles/app.css
-var app_default = "/build/_assets/app-LB6FEM6D.css";
+var app_default = "/build/_assets/app-VLKZBL2W.css";
 
 // app/components/Layout.jsx
 var import_react26 = __toESM(require_react());
@@ -57704,7 +57704,7 @@ var Image = React7.forwardRef(
     data: data2,
     decoding = "async",
     height = "auto",
-    loader: loader31 = shopifyLoader,
+    loader: loader32 = shopifyLoader,
     loading = "lazy",
     sizes,
     src,
@@ -57770,7 +57770,7 @@ var Image = React7.forwardRef(
         decoding,
         height,
         imageWidths,
-        loader: loader31,
+        loader: loader32,
         loading,
         normalizedProps,
         passthroughProps,
@@ -57784,7 +57784,7 @@ var Image = React7.forwardRef(
         crop,
         decoding,
         imageWidths,
-        loader: loader31,
+        loader: loader32,
         loading,
         normalizedProps,
         passthroughProps,
@@ -57801,14 +57801,14 @@ var Image = React7.forwardRef(
     decoding,
     height,
     imageWidths,
-    loader: loader31 = shopifyLoader,
+    loader: loader32 = shopifyLoader,
     loading,
     normalizedProps,
     passthroughProps,
     width
   }, ref) => {
     let fixed = React7.useMemo(() => {
-      let intWidth = getNormalizedFixedUnit(width), intHeight = getNormalizedFixedUnit(height), fixedAspectRatio = aspectRatio || (unitsMatch(normalizedProps.width, normalizedProps.height) ? [intWidth, intHeight].join("/") : normalizedProps.aspectRatio ? normalizedProps.aspectRatio : void 0), sizesArray = imageWidths === void 0 ? void 0 : generateSizes(imageWidths, fixedAspectRatio, crop), fixedHeight = intHeight || (fixedAspectRatio && intWidth ? intWidth * (parseAspectRatio(fixedAspectRatio) ?? 1) : void 0), srcSet = generateSrcSet(normalizedProps.src, sizesArray, loader31), src = loader31({
+      let intWidth = getNormalizedFixedUnit(width), intHeight = getNormalizedFixedUnit(height), fixedAspectRatio = aspectRatio || (unitsMatch(normalizedProps.width, normalizedProps.height) ? [intWidth, intHeight].join("/") : normalizedProps.aspectRatio ? normalizedProps.aspectRatio : void 0), sizesArray = imageWidths === void 0 ? void 0 : generateSizes(imageWidths, fixedAspectRatio, crop), fixedHeight = intHeight || (fixedAspectRatio && intWidth ? intWidth * (parseAspectRatio(fixedAspectRatio) ?? 1) : void 0), srcSet = generateSrcSet(normalizedProps.src, sizesArray, loader32), src = loader32({
         src: normalizedProps.src,
         width: intWidth,
         height: fixedHeight,
@@ -57826,7 +57826,7 @@ var Image = React7.forwardRef(
       crop,
       height,
       imageWidths,
-      loader31,
+      loader32,
       normalizedProps,
       width
     ]);
@@ -57854,7 +57854,7 @@ var Image = React7.forwardRef(
     crop,
     decoding,
     imageWidths,
-    loader: loader31 = shopifyLoader,
+    loader: loader32 = shopifyLoader,
     loading,
     normalizedProps,
     passthroughProps,
@@ -57862,7 +57862,7 @@ var Image = React7.forwardRef(
     sizes
   }, ref) => {
     let fluid = React7.useMemo(() => {
-      let sizesArray = imageWidths === void 0 ? void 0 : generateSizes(imageWidths, normalizedProps.aspectRatio, crop), placeholderHeight = normalizedProps.aspectRatio && placeholderWidth ? placeholderWidth * (parseAspectRatio(normalizedProps.aspectRatio) ?? 1) : void 0, srcSet = generateSrcSet(normalizedProps.src, sizesArray, loader31), src = loader31({
+      let sizesArray = imageWidths === void 0 ? void 0 : generateSizes(imageWidths, normalizedProps.aspectRatio, crop), placeholderHeight = normalizedProps.aspectRatio && placeholderWidth ? placeholderWidth * (parseAspectRatio(normalizedProps.aspectRatio) ?? 1) : void 0, srcSet = generateSrcSet(normalizedProps.src, sizesArray, loader32), src = loader32({
         src: normalizedProps.src,
         width: placeholderWidth,
         height: placeholderHeight,
@@ -57873,7 +57873,7 @@ var Image = React7.forwardRef(
         srcSet,
         src
       };
-    }, [crop, imageWidths, loader31, normalizedProps, placeholderWidth]);
+    }, [crop, imageWidths, loader32, normalizedProps, placeholderWidth]);
     return /* @__PURE__ */ (0, import_jsx_runtime4.jsx)(
       "img",
       {
@@ -57932,9 +57932,9 @@ function getNormalizedFixedUnit(value) {
 function isFixedWidth(width) {
   return typeof width == "number" || typeof width == "string" && /\d(px|em|rem)$/.test(width);
 }
-function generateSrcSet(src, sizesArray, loader31 = shopifyLoader) {
+function generateSrcSet(src, sizesArray, loader32 = shopifyLoader) {
   return src ? (sizesArray == null ? void 0 : sizesArray.length) === 0 || !sizesArray ? src : sizesArray.map(
-    (size, i7) => `${loader31({
+    (size, i7) => `${loader32({
       src,
       width: size.width,
       height: size.height,
@@ -58517,7 +58517,7 @@ async function storefrontRedirect(options) {
     response = new Response("Not Found", { status: 404 })
   } = options, { pathname, search } = new URL(request.url), redirectFrom = pathname + search;
   if (pathname === "/admin" && !noAdminRedirect)
-    return redirect3(`${storefront.getShopifyDomain()}/admin`);
+    return redirect4(`${storefront.getShopifyDomain()}/admin`);
   try {
     let { urlRedirects } = await storefront.query(REDIRECT_QUERY, {
       variables: { query: "path:" + redirectFrom }
@@ -58527,7 +58527,7 @@ async function storefrontRedirect(options) {
     let searchParams = new URLSearchParams(search), redirectTo = searchParams.get("return_to") || searchParams.get("redirect");
     if (redirectTo) {
       if (isLocalPath(redirectTo))
-        return redirect3(redirectTo);
+        return redirect4(redirectTo);
       console.warn(
         `Cross-domain redirects are not supported. Tried to redirect from ${redirectFrom} to ${redirectTo}`
       );
@@ -62091,7 +62091,7 @@ function MobileMenuAside({ menu }) {
 }
 
 // app/styles/tailwind.css
-var tailwind_default = "/build/_assets/tailwind-FQEFORBB.css";
+var tailwind_default = "/build/_assets/tailwind-AHK2ECLB.css";
 
 // node_modules/@okendo/shopify-hydrogen/dist/esm/index.js
 var import_react27 = __toESM(require_react()), r = async ({ context: t18, subscriberId: e5, apiDomain: n7, cdnDomain: r9 }) => {
@@ -62280,11 +62280,6 @@ function App() {
       /* @__PURE__ */ (0, import_jsx_dev_runtime13.jsxDEV)(Links, {}, void 0, !1, {
         fileName: "app/root.jsx",
         lineNumber: 110,
-        columnNumber: 9
-      }, this),
-      /* @__PURE__ */ (0, import_jsx_dev_runtime13.jsxDEV)("script", { src: "../lookbook.js" }, void 0, !1, {
-        fileName: "app/root.jsx",
-        lineNumber: 111,
         columnNumber: 9
       }, this)
     ] }, void 0, !0, {
@@ -62487,7 +62482,7 @@ __export(locale_account_activate_id_activationToken_exports, {
 });
 var import_jsx_dev_runtime14 = __toESM(require_jsx_dev_runtime()), meta = () => [{ title: "Activate Account" }];
 async function loader2({ context }) {
-  return await context.session.get("customerAccessToken") ? redirect3("/account") : json3({});
+  return await context.session.get("customerAccessToken") ? redirect4("/account") : json3({});
 }
 async function action({ request, context, params }) {
   var _a2;
@@ -62517,7 +62512,7 @@ async function action({ request, context, params }) {
     let { customerAccessToken } = customerActivate ?? {};
     if (!customerAccessToken)
       throw new Error("Could not activate account.");
-    return session.set("customerAccessToken", customerAccessToken), redirect3("/account", {
+    return session.set("customerAccessToken", customerAccessToken), redirect4("/account", {
       headers: {
         "Set-Cookie": await session.commit()
       }
@@ -62794,7 +62789,7 @@ async function action2({ request, context, params }) {
       throw new Error(customerReset == null ? void 0 : customerReset.customerUserErrors[0].message);
     if (!(customerReset != null && customerReset.customerAccessToken))
       throw new Error("Access token not found. Please try again.");
-    return session.set("customerAccessToken", customerReset.customerAccessToken), redirect3("/account", {
+    return session.set("customerAccessToken", customerReset.customerAccessToken), redirect4("/account", {
       headers: {
         "Set-Cookie": await session.commit()
       }
@@ -63247,7 +63242,7 @@ var import_react34 = __toESM(require_react2()), import_jsx_dev_runtime18 = __toE
 async function loader5({ request, context }) {
   let { session, storefront } = context, customerAccessToken = await session.get("customerAccessToken");
   if (!(customerAccessToken != null && customerAccessToken.accessToken))
-    return redirect3("/account/login");
+    return redirect4("/account/login");
   try {
     let paginationVariables = getPaginationVariables(request, {
       pageBy: 20
@@ -65965,7 +65960,7 @@ async function loader6({ request, params, context }) {
     cache: storefront.CacheNone()
   });
   if (!handle)
-    return redirect3("/collections");
+    return redirect4("/collections");
   let { collections } = all_collections, { collection } = await storefront.query(COLLECTION_QUERY, {
     variables: { handle, ...paginationVariables }
   });
@@ -67178,10 +67173,10 @@ async function loader7({ params, context }) {
   var _a2;
   let { session, storefront } = context;
   if (!params.id)
-    return redirect3("/account/orders");
+    return redirect4("/account/orders");
   let orderId = atob(params.id);
   if (!await session.get("customerAccessToken"))
-    return redirect3("/account/login");
+    return redirect4("/account/login");
   let { order: order2 } = await storefront.query(CUSTOMER_ORDER_QUERY, {
     variables: { orderId }
   });
@@ -67851,7 +67846,7 @@ __export(locale_account_addresses_exports, {
 var import_jsx_dev_runtime23 = __toESM(require_jsx_dev_runtime()), meta8 = () => [{ title: "Addresses" }];
 async function loader9({ context }) {
   let { session } = context;
-  return await session.get("customerAccessToken") ? json3({}) : redirect3("/account/login");
+  return await session.get("customerAccessToken") ? json3({}) : redirect4("/account/login");
 }
 async function action4({ request, context }) {
   var _a2, _b, _c, _d, _e3;
@@ -68578,7 +68573,7 @@ __export(locale_account_register_exports, {
 });
 var import_jsx_dev_runtime24 = __toESM(require_jsx_dev_runtime());
 async function loader10({ context }) {
-  return await context.session.get("customerAccessToken") ? redirect3("/account") : json3({});
+  return await context.session.get("customerAccessToken") ? redirect4("/account") : json3({});
 }
 var action5 = async ({ request, context }) => {
   var _a2, _b;
@@ -68852,7 +68847,7 @@ __export(locale_account_recover_exports, {
 });
 var import_jsx_dev_runtime25 = __toESM(require_jsx_dev_runtime());
 async function loader11({ context }) {
-  return await context.session.get("customerAccessToken") ? redirect3("/account") : json3({});
+  return await context.session.get("customerAccessToken") ? redirect4("/account") : json3({});
 }
 async function action6({ request, context }) {
   let { storefront } = context, form = await request.formData(), email = form.has("email") ? String(form.get("email")) : null;
@@ -70213,7 +70208,7 @@ async function loader13({ params, request, context }) {
 }
 function redirectToFirstVariant({ product, request }) {
   let url = new URL(request.url), firstVariant = product.variants.nodes[0];
-  throw redirect3(
+  throw redirect4(
     getVariantUrl({
       pathname: url.pathname,
       handle: product.handle,
@@ -71495,7 +71490,7 @@ __export(locale_account_profile_exports, {
 var import_react83 = __toESM(require_react());
 var import_jsx_dev_runtime29 = __toESM(require_jsx_dev_runtime()), meta11 = () => [{ title: "Profile" }];
 async function loader14({ context }) {
-  return await context.session.get("customerAccessToken") ? json3({}) : redirect3("/account/login");
+  return await context.session.get("customerAccessToken") ? json3({}) : redirect4("/account/login");
 }
 async function action7({ request, context }) {
   var _a2, _b, _c, _d, _e3, _f, _g;
@@ -71842,11 +71837,11 @@ __export(locale_account_logout_exports, {
 });
 var meta12 = () => [{ title: "Logout" }];
 async function loader15() {
-  return redirect3("/account/login");
+  return redirect4("/account/login");
 }
 async function action8({ request, context }) {
   let { session } = context;
-  return session.unset("customerAccessToken"), request.method !== "POST" ? json3({ error: "Method not allowed" }, { status: 405 }) : redirect3("/", {
+  return session.unset("customerAccessToken"), request.method !== "POST" ? json3({ error: "Method not allowed" }, { status: 405 }) : redirect4("/", {
     headers: {
       "Set-Cookie": await session.commit()
     }
@@ -71937,7 +71932,7 @@ __export(locale_account_login_exports, {
 var import_react87 = __toESM(require_react2());
 var import_jsx_dev_runtime31 = __toESM(require_jsx_dev_runtime()), meta13 = () => [{ title: "Login" }];
 async function loader17({ context }) {
-  return await context.session.get("customerAccessToken") ? redirect3("/account") : json3({});
+  return await context.session.get("customerAccessToken") ? redirect4("/account") : json3({});
 }
 async function action9({ request, context }) {
   var _a2;
@@ -71959,7 +71954,7 @@ async function action9({ request, context }) {
     if (!((_a2 = customerAccessTokenCreate == null ? void 0 : customerAccessTokenCreate.customerAccessToken) != null && _a2.accessToken))
       throw new Error(customerAccessTokenCreate == null ? void 0 : customerAccessTokenCreate.customerUserErrors[0].message);
     let { customerAccessToken } = customerAccessTokenCreate;
-    return session.set("customerAccessToken", customerAccessToken), redirect3("/account", {
+    return session.set("customerAccessToken", customerAccessToken), redirect4("/account", {
       headers: {
         "Set-Cookie": await session.commit()
       }
@@ -72272,18 +72267,9 @@ function Page() {
       lineNumber: 29,
       columnNumber: 7
     }, this),
-    page.handle === "lookbook" && /* @__PURE__ */ (0, import_jsx_dev_runtime32.jsxDEV)(import_jsx_dev_runtime32.Fragment, { children: /* @__PURE__ */ (0, import_jsx_dev_runtime32.jsxDEV)("div", { class: "ShopTheLook-section", "data-product-id": "9005019693378" }, void 0, !1, {
-      fileName: "app/routes/($locale).pages.$handle.jsx",
-      lineNumber: 34,
-      columnNumber: 11
-    }, this) }, void 0, !1, {
-      fileName: "app/routes/($locale).pages.$handle.jsx",
-      lineNumber: 33,
-      columnNumber: 9
-    }, this),
     /* @__PURE__ */ (0, import_jsx_dev_runtime32.jsxDEV)("main", { dangerouslySetInnerHTML: { __html: page.body } }, void 0, !1, {
       fileName: "app/routes/($locale).pages.$handle.jsx",
-      lineNumber: 38,
+      lineNumber: 32,
       columnNumber: 7
     }, this)
   ] }, void 0, !0, {
@@ -72302,7 +72288,6 @@ var PAGE_QUERY = `#graphql
     page(handle: $handle) {
       id
       title
-      handle
       body
       seo {
         description
@@ -72429,13 +72414,50 @@ var BLOGS_QUERY2 = `#graphql
   }
 `;
 
+// app/routes/($locale).lookbook.$id.jsx
+var locale_lookbook_id_exports = {};
+__export(locale_lookbook_id_exports, {
+  default: () => LookBook,
+  loader: () => loader21
+});
+var import_react91 = __toESM(require_react()), import_jsx_dev_runtime34 = __toESM(require_jsx_dev_runtime());
+async function loader21({ params, context }) {
+  return params.id ? json3({ lookbook_id: params.id }) : redirect("/");
+}
+function LookBook() {
+  let { lookbook_id } = useLoaderData2(), [p_id, setId] = (0, import_react91.useState)();
+  return (0, import_react91.useEffect)(() => {
+    setId(lookbook_id);
+  }, []), /* @__PURE__ */ (0, import_jsx_dev_runtime34.jsxDEV)("div", { className: "page m-12", children: [
+    /* @__PURE__ */ (0, import_jsx_dev_runtime34.jsxDEV)("script", { src: `https://shopify.shopthelook.app/shopthelook.js?shop=15f63f.myshopify.com&widget=1&mainProductId=${lookbook_id}` }, void 0, !1, {
+      fileName: "app/routes/($locale).lookbook.$id.jsx",
+      lineNumber: 21,
+      columnNumber: 9
+    }, this),
+    /* @__PURE__ */ (0, import_jsx_dev_runtime34.jsxDEV)("script", { src: "../lookbook.js" }, void 0, !1, {
+      fileName: "app/routes/($locale).lookbook.$id.jsx",
+      lineNumber: 22,
+      columnNumber: 9
+    }, this),
+    /* @__PURE__ */ (0, import_jsx_dev_runtime34.jsxDEV)("div", { class: "ShopTheLook-section", "data-product-id": p_id }, void 0, !1, {
+      fileName: "app/routes/($locale).lookbook.$id.jsx",
+      lineNumber: 23,
+      columnNumber: 9
+    }, this)
+  ] }, void 0, !0, {
+    fileName: "app/routes/($locale).lookbook.$id.jsx",
+    lineNumber: 20,
+    columnNumber: 7
+  }, this);
+}
+
 // app/routes/($locale).account.$.jsx
 var locale_account_exports = {};
 __export(locale_account_exports, {
-  loader: () => loader21
+  loader: () => loader22
 });
-async function loader21({ context }) {
-  return await context.session.get("customerAccessToken") ? redirect3("/account") : redirect3("/account/login");
+async function loader22({ context }) {
+  return await context.session.get("customerAccessToken") ? redirect4("/account") : redirect4("/account/login");
 }
 
 // app/routes/($locale).account.jsx
@@ -72443,27 +72465,27 @@ var locale_account_exports2 = {};
 __export(locale_account_exports2, {
   CUSTOMER_FRAGMENT: () => CUSTOMER_FRAGMENT2,
   default: () => Acccount,
-  loader: () => loader22,
+  loader: () => loader23,
   shouldRevalidate: () => shouldRevalidate
 });
 
 // app/components/DefaultSidebar.jsx
-var import_react90 = __toESM(require_react2());
-var import_jsx_dev_runtime34 = __toESM(require_jsx_dev_runtime());
+var import_react92 = __toESM(require_react2());
+var import_jsx_dev_runtime35 = __toESM(require_jsx_dev_runtime());
 function DefaultSidebar({ heading }) {
-  return /* @__PURE__ */ (0, import_jsx_dev_runtime34.jsxDEV)(import_jsx_dev_runtime34.Fragment, { children: /* @__PURE__ */ (0, import_jsx_dev_runtime34.jsxDEV)("div", { children: [
-    /* @__PURE__ */ (0, import_jsx_dev_runtime34.jsxDEV)("div", { className: "pt-0 pr-0 pb-0 pl-0 mt-0 mr-0 mb-0 ml-0" }, void 0, !1, {
+  return /* @__PURE__ */ (0, import_jsx_dev_runtime35.jsxDEV)(import_jsx_dev_runtime35.Fragment, { children: /* @__PURE__ */ (0, import_jsx_dev_runtime35.jsxDEV)("div", { children: [
+    /* @__PURE__ */ (0, import_jsx_dev_runtime35.jsxDEV)("div", { className: "pt-0 pr-0 pb-0 pl-0 mt-0 mr-0 mb-0 ml-0" }, void 0, !1, {
       fileName: "app/components/DefaultSidebar.jsx",
       lineNumber: 61,
       columnNumber: 13
     }, this),
-    /* @__PURE__ */ (0, import_jsx_dev_runtime34.jsxDEV)("div", { className: "bg-white" }, void 0, !1, {
+    /* @__PURE__ */ (0, import_jsx_dev_runtime35.jsxDEV)("div", { className: "bg-white" }, void 0, !1, {
       fileName: "app/components/DefaultSidebar.jsx",
       lineNumber: 64,
       columnNumber: 13
     }, this),
-    /* @__PURE__ */ (0, import_jsx_dev_runtime34.jsxDEV)("div", { className: "bg-white", children: /* @__PURE__ */ (0, import_jsx_dev_runtime34.jsxDEV)("div", { className: "flex-col flex", children: /* @__PURE__ */ (0, import_jsx_dev_runtime34.jsxDEV)("div", { className: "flex bg-gray-100  overflow-x-hidden", children: /* @__PURE__ */ (0, import_jsx_dev_runtime34.jsxDEV)("div", { className: "bg-white lg:flex md:w-60 md:flex-col hidden", children: /* @__PURE__ */ (0, import_jsx_dev_runtime34.jsxDEV)("div", { className: "flex-col p-2 flex overflow-y-auto", children: /* @__PURE__ */ (0, import_jsx_dev_runtime34.jsxDEV)("div", { className: "h-full justify-between flex", children: /* @__PURE__ */ (0, import_jsx_dev_runtime34.jsxDEV)("div", { className: "space-y-4", children: /* @__PURE__ */ (0, import_jsx_dev_runtime34.jsxDEV)("div", { className: "bg-top bg-cover space-y-1", children: [
-      /* @__PURE__ */ (0, import_jsx_dev_runtime34.jsxDEV)("section", { className: "w-40 mx-auto bg-[#20354b] rounded-2xl shadow-lg", children: /* @__PURE__ */ (0, import_jsx_dev_runtime34.jsxDEV)("div", { className: "w-fit mx-auto", children: /* @__PURE__ */ (0, import_jsx_dev_runtime34.jsxDEV)("img", { src: "https://api.lorem.space/image/face?w=120&h=120&hash=bart89fe", className: "rounded-full w-20 ", alt: "profile picture", srcset: "" }, void 0, !1, {
+    /* @__PURE__ */ (0, import_jsx_dev_runtime35.jsxDEV)("div", { className: "bg-white", children: /* @__PURE__ */ (0, import_jsx_dev_runtime35.jsxDEV)("div", { className: "flex-col flex", children: /* @__PURE__ */ (0, import_jsx_dev_runtime35.jsxDEV)("div", { className: "flex bg-gray-100  overflow-x-hidden", children: /* @__PURE__ */ (0, import_jsx_dev_runtime35.jsxDEV)("div", { className: "bg-white lg:flex md:w-60 md:flex-col hidden", children: /* @__PURE__ */ (0, import_jsx_dev_runtime35.jsxDEV)("div", { className: "flex-col p-2 flex overflow-y-auto", children: /* @__PURE__ */ (0, import_jsx_dev_runtime35.jsxDEV)("div", { className: "h-full justify-between flex", children: /* @__PURE__ */ (0, import_jsx_dev_runtime35.jsxDEV)("div", { className: "space-y-4", children: /* @__PURE__ */ (0, import_jsx_dev_runtime35.jsxDEV)("div", { className: "bg-top bg-cover space-y-1", children: [
+      /* @__PURE__ */ (0, import_jsx_dev_runtime35.jsxDEV)("section", { className: "w-40 mx-auto bg-[#20354b] rounded-2xl shadow-lg", children: /* @__PURE__ */ (0, import_jsx_dev_runtime35.jsxDEV)("div", { className: "w-fit mx-auto", children: /* @__PURE__ */ (0, import_jsx_dev_runtime35.jsxDEV)("img", { src: "https://api.lorem.space/image/face?w=120&h=120&hash=bart89fe", className: "rounded-full w-20 ", alt: "profile picture", srcset: "" }, void 0, !1, {
         fileName: "app/components/DefaultSidebar.jsx",
         lineNumber: 84,
         columnNumber: 13
@@ -72476,9 +72498,9 @@ function DefaultSidebar({ heading }) {
         lineNumber: 75,
         columnNumber: 41
       }, this),
-      /* @__PURE__ */ (0, import_jsx_dev_runtime34.jsxDEV)("a", { href: "/account/order", className: `font-medium text-sm items-center rounded-lg text-gray-900 px-4 py-2.5 flex
+      /* @__PURE__ */ (0, import_jsx_dev_runtime35.jsxDEV)("a", { href: "/account/order", className: `font-medium text-sm items-center rounded-lg text-gray-900 px-4 py-2.5 flex
                     transition-all duration-200 hover:bg-gray-200 group cursor-pointer`, children: [
-        /* @__PURE__ */ (0, import_jsx_dev_runtime34.jsxDEV)("span", { className: "justify-center items-center flex", children: /* @__PURE__ */ (0, import_jsx_dev_runtime34.jsxDEV)("span", { className: "justify-center items-center flex", children: /* @__PURE__ */ (0, import_jsx_dev_runtime34.jsxDEV)("span", { className: "justify-center items-center flex", children: /* @__PURE__ */ (0, import_jsx_dev_runtime34.jsxDEV)("span", { className: "items-center justify-center flex", children: /* @__PURE__ */ (0, import_jsx_dev_runtime34.jsxDEV)(import_react90.ListItemPrefix, { children: /* @__PURE__ */ (0, import_jsx_dev_runtime34.jsxDEV)(ShoppingBagIcon_default, { className: "h-5 w-5" }, void 0, !1, {
+        /* @__PURE__ */ (0, import_jsx_dev_runtime35.jsxDEV)("span", { className: "justify-center items-center flex", children: /* @__PURE__ */ (0, import_jsx_dev_runtime35.jsxDEV)("span", { className: "justify-center items-center flex", children: /* @__PURE__ */ (0, import_jsx_dev_runtime35.jsxDEV)("span", { className: "justify-center items-center flex", children: /* @__PURE__ */ (0, import_jsx_dev_runtime35.jsxDEV)("span", { className: "items-center justify-center flex", children: /* @__PURE__ */ (0, import_jsx_dev_runtime35.jsxDEV)(import_react92.ListItemPrefix, { children: /* @__PURE__ */ (0, import_jsx_dev_runtime35.jsxDEV)(ShoppingBagIcon_default, { className: "h-5 w-5" }, void 0, !1, {
           fileName: "app/components/DefaultSidebar.jsx",
           lineNumber: 97,
           columnNumber: 13
@@ -72503,7 +72525,7 @@ function DefaultSidebar({ heading }) {
           lineNumber: 92,
           columnNumber: 49
         }, this),
-        /* @__PURE__ */ (0, import_jsx_dev_runtime34.jsxDEV)("span", { children: "Order" }, void 0, !1, {
+        /* @__PURE__ */ (0, import_jsx_dev_runtime35.jsxDEV)("span", { children: "Order" }, void 0, !1, {
           fileName: "app/components/DefaultSidebar.jsx",
           lineNumber: 103,
           columnNumber: 49
@@ -72513,9 +72535,9 @@ function DefaultSidebar({ heading }) {
         lineNumber: 90,
         columnNumber: 45
       }, this),
-      /* @__PURE__ */ (0, import_jsx_dev_runtime34.jsxDEV)("a", { href: "/account/profile", className: `font-medium text-sm items-center rounded-lg text-gray-900 px-4 py-2.5 flex
+      /* @__PURE__ */ (0, import_jsx_dev_runtime35.jsxDEV)("a", { href: "/account/profile", className: `font-medium text-sm items-center rounded-lg text-gray-900 px-4 py-2.5 flex
                     transition-all duration-200 hover:bg-gray-200 group cursor-pointer`, children: [
-        /* @__PURE__ */ (0, import_jsx_dev_runtime34.jsxDEV)("span", { className: "justify-center items-center flex", children: /* @__PURE__ */ (0, import_jsx_dev_runtime34.jsxDEV)("span", { className: "justify-center items-center flex", children: /* @__PURE__ */ (0, import_jsx_dev_runtime34.jsxDEV)("span", { className: "justify-center items-center flex", children: /* @__PURE__ */ (0, import_jsx_dev_runtime34.jsxDEV)("span", { className: "items-center justify-center flex", children: /* @__PURE__ */ (0, import_jsx_dev_runtime34.jsxDEV)(import_react90.ListItemPrefix, { children: /* @__PURE__ */ (0, import_jsx_dev_runtime34.jsxDEV)(UserCircleIcon_default, { className: "h-5 w-5" }, void 0, !1, {
+        /* @__PURE__ */ (0, import_jsx_dev_runtime35.jsxDEV)("span", { className: "justify-center items-center flex", children: /* @__PURE__ */ (0, import_jsx_dev_runtime35.jsxDEV)("span", { className: "justify-center items-center flex", children: /* @__PURE__ */ (0, import_jsx_dev_runtime35.jsxDEV)("span", { className: "justify-center items-center flex", children: /* @__PURE__ */ (0, import_jsx_dev_runtime35.jsxDEV)("span", { className: "items-center justify-center flex", children: /* @__PURE__ */ (0, import_jsx_dev_runtime35.jsxDEV)(import_react92.ListItemPrefix, { children: /* @__PURE__ */ (0, import_jsx_dev_runtime35.jsxDEV)(UserCircleIcon_default, { className: "h-5 w-5" }, void 0, !1, {
           fileName: "app/components/DefaultSidebar.jsx",
           lineNumber: 112,
           columnNumber: 13
@@ -72540,7 +72562,7 @@ function DefaultSidebar({ heading }) {
           lineNumber: 107,
           columnNumber: 49
         }, this),
-        /* @__PURE__ */ (0, import_jsx_dev_runtime34.jsxDEV)("span", { children: "Profile" }, void 0, !1, {
+        /* @__PURE__ */ (0, import_jsx_dev_runtime35.jsxDEV)("span", { children: "Profile" }, void 0, !1, {
           fileName: "app/components/DefaultSidebar.jsx",
           lineNumber: 118,
           columnNumber: 49
@@ -72550,9 +72572,9 @@ function DefaultSidebar({ heading }) {
         lineNumber: 105,
         columnNumber: 45
       }, this),
-      /* @__PURE__ */ (0, import_jsx_dev_runtime34.jsxDEV)("a", { href: "/account/addresses", className: `font-medium text-sm items-center rounded-lg text-gray-900 px-4 py-2.5 flex
+      /* @__PURE__ */ (0, import_jsx_dev_runtime35.jsxDEV)("a", { href: "/account/addresses", className: `font-medium text-sm items-center rounded-lg text-gray-900 px-4 py-2.5 flex
                     transition-all duration-200 hover:bg-gray-200 group cursor-pointer`, children: [
-        /* @__PURE__ */ (0, import_jsx_dev_runtime34.jsxDEV)("span", { className: "justify-center items-center flex", children: /* @__PURE__ */ (0, import_jsx_dev_runtime34.jsxDEV)("span", { className: "justify-center items-center flex", children: /* @__PURE__ */ (0, import_jsx_dev_runtime34.jsxDEV)("span", { className: "justify-center items-center flex", children: /* @__PURE__ */ (0, import_jsx_dev_runtime34.jsxDEV)("span", { className: "items-center justify-center flex", children: /* @__PURE__ */ (0, import_jsx_dev_runtime34.jsxDEV)(import_react90.ListItemPrefix, { children: /* @__PURE__ */ (0, import_jsx_dev_runtime34.jsxDEV)(UserCircleIcon_default, { className: "h-5 w-5" }, void 0, !1, {
+        /* @__PURE__ */ (0, import_jsx_dev_runtime35.jsxDEV)("span", { className: "justify-center items-center flex", children: /* @__PURE__ */ (0, import_jsx_dev_runtime35.jsxDEV)("span", { className: "justify-center items-center flex", children: /* @__PURE__ */ (0, import_jsx_dev_runtime35.jsxDEV)("span", { className: "justify-center items-center flex", children: /* @__PURE__ */ (0, import_jsx_dev_runtime35.jsxDEV)("span", { className: "items-center justify-center flex", children: /* @__PURE__ */ (0, import_jsx_dev_runtime35.jsxDEV)(import_react92.ListItemPrefix, { children: /* @__PURE__ */ (0, import_jsx_dev_runtime35.jsxDEV)(UserCircleIcon_default, { className: "h-5 w-5" }, void 0, !1, {
           fileName: "app/components/DefaultSidebar.jsx",
           lineNumber: 127,
           columnNumber: 13
@@ -72577,7 +72599,7 @@ function DefaultSidebar({ heading }) {
           lineNumber: 122,
           columnNumber: 49
         }, this),
-        /* @__PURE__ */ (0, import_jsx_dev_runtime34.jsxDEV)("span", { children: "Address" }, void 0, !1, {
+        /* @__PURE__ */ (0, import_jsx_dev_runtime35.jsxDEV)("span", { children: "Address" }, void 0, !1, {
           fileName: "app/components/DefaultSidebar.jsx",
           lineNumber: 133,
           columnNumber: 49
@@ -72587,7 +72609,7 @@ function DefaultSidebar({ heading }) {
         lineNumber: 120,
         columnNumber: 45
       }, this),
-      /* @__PURE__ */ (0, import_jsx_dev_runtime34.jsxDEV)(Logout2, {}, void 0, !1, {
+      /* @__PURE__ */ (0, import_jsx_dev_runtime35.jsxDEV)(Logout2, {}, void 0, !1, {
         fileName: "app/components/DefaultSidebar.jsx",
         lineNumber: 135,
         columnNumber: 45
@@ -72636,9 +72658,9 @@ function DefaultSidebar({ heading }) {
   }, this);
 }
 function Logout2() {
-  return /* @__PURE__ */ (0, import_jsx_dev_runtime34.jsxDEV)("a", { href: "#", className: `font-medium text-sm items-center rounded-lg text-gray-900 px-4 py-2.5 flex
+  return /* @__PURE__ */ (0, import_jsx_dev_runtime35.jsxDEV)("a", { href: "#", className: `font-medium text-sm items-center rounded-lg text-gray-900 px-4 py-2.5 flex
                     transition-all duration-200 hover:bg-gray-200 group cursor-pointer`, children: [
-    /* @__PURE__ */ (0, import_jsx_dev_runtime34.jsxDEV)("span", { className: "justify-center items-center flex", children: /* @__PURE__ */ (0, import_jsx_dev_runtime34.jsxDEV)("span", { className: "justify-center items-center flex", children: /* @__PURE__ */ (0, import_jsx_dev_runtime34.jsxDEV)("span", { className: "justify-center items-center flex", children: /* @__PURE__ */ (0, import_jsx_dev_runtime34.jsxDEV)("span", { className: "items-center justify-center flex", children: /* @__PURE__ */ (0, import_jsx_dev_runtime34.jsxDEV)(import_react90.ListItemPrefix, { children: /* @__PURE__ */ (0, import_jsx_dev_runtime34.jsxDEV)(PowerIcon_default, { className: "h-5 w-5" }, void 0, !1, {
+    /* @__PURE__ */ (0, import_jsx_dev_runtime35.jsxDEV)("span", { className: "justify-center items-center flex", children: /* @__PURE__ */ (0, import_jsx_dev_runtime35.jsxDEV)("span", { className: "justify-center items-center flex", children: /* @__PURE__ */ (0, import_jsx_dev_runtime35.jsxDEV)("span", { className: "justify-center items-center flex", children: /* @__PURE__ */ (0, import_jsx_dev_runtime35.jsxDEV)("span", { className: "items-center justify-center flex", children: /* @__PURE__ */ (0, import_jsx_dev_runtime35.jsxDEV)(import_react92.ListItemPrefix, { children: /* @__PURE__ */ (0, import_jsx_dev_runtime35.jsxDEV)(PowerIcon_default, { className: "h-5 w-5" }, void 0, !1, {
       fileName: "app/components/DefaultSidebar.jsx",
       lineNumber: 158,
       columnNumber: 7
@@ -72663,7 +72685,7 @@ function Logout2() {
       lineNumber: 153,
       columnNumber: 49
     }, this),
-    /* @__PURE__ */ (0, import_jsx_dev_runtime34.jsxDEV)(Form, { method: "POST", action: "/account/logout", children: /* @__PURE__ */ (0, import_jsx_dev_runtime34.jsxDEV)("button", { type: "submit", children: "Sign out" }, void 0, !1, {
+    /* @__PURE__ */ (0, import_jsx_dev_runtime35.jsxDEV)(Form, { method: "POST", action: "/account/logout", children: /* @__PURE__ */ (0, import_jsx_dev_runtime35.jsxDEV)("button", { type: "submit", children: "Sign out" }, void 0, !1, {
       fileName: "app/components/DefaultSidebar.jsx",
       lineNumber: 165,
       columnNumber: 5
@@ -72680,19 +72702,19 @@ function Logout2() {
 }
 
 // app/routes/($locale).account.jsx
-var import_jsx_dev_runtime35 = __toESM(require_jsx_dev_runtime());
+var import_jsx_dev_runtime36 = __toESM(require_jsx_dev_runtime());
 function shouldRevalidate() {
   return !0;
 }
-async function loader22({ request, context }) {
+async function loader23({ request, context }) {
   let { session, storefront } = context, { pathname } = new URL(request.url), customerAccessToken = await session.get("customerAccessToken"), isLoggedIn = Boolean(customerAccessToken == null ? void 0 : customerAccessToken.accessToken), isAccountHome = pathname === "/account" || pathname === "/account/", isPrivateRoute = /^\/account\/(orders|orders\/.*|profile|addresses|addresses\/.*)$/.test(
     pathname
   );
   if (isLoggedIn) {
     if (isAccountHome)
-      return redirect3("/account/orders");
+      return redirect4("/account/orders");
   } else
-    return isPrivateRoute || isAccountHome ? (session.unset("customerAccessToken"), redirect3("/account/login", {
+    return isPrivateRoute || isAccountHome ? (session.unset("customerAccessToken"), redirect4("/account/login", {
       headers: {
         "Set-Cookie": await session.commit()
       }
@@ -72722,7 +72744,7 @@ async function loader22({ request, context }) {
       }
     );
   } catch (error) {
-    return console.error("There was a problem loading account", error), session.unset("customerAccessToken"), redirect3("/account/login", {
+    return console.error("There was a problem loading account", error), session.unset("customerAccessToken"), redirect4("/account/login", {
       headers: {
         "Set-Cookie": await session.commit()
       }
@@ -72731,22 +72753,22 @@ async function loader22({ request, context }) {
 }
 function Acccount() {
   let { customer, isPrivateRoute, isAccountHome } = useLoaderData2();
-  return !isPrivateRoute && !isAccountHome ? /* @__PURE__ */ (0, import_jsx_dev_runtime35.jsxDEV)(Outlet, { context: { customer } }, void 0, !1, {
+  return !isPrivateRoute && !isAccountHome ? /* @__PURE__ */ (0, import_jsx_dev_runtime36.jsxDEV)(Outlet, { context: { customer } }, void 0, !1, {
     fileName: "app/routes/($locale).account.jsx",
     lineNumber: 82,
     columnNumber: 12
-  }, this) : /* @__PURE__ */ (0, import_jsx_dev_runtime35.jsxDEV)(AccountLayout, { customer, children: [
-    /* @__PURE__ */ (0, import_jsx_dev_runtime35.jsxDEV)("br", {}, void 0, !1, {
+  }, this) : /* @__PURE__ */ (0, import_jsx_dev_runtime36.jsxDEV)(AccountLayout, { customer, children: [
+    /* @__PURE__ */ (0, import_jsx_dev_runtime36.jsxDEV)("br", {}, void 0, !1, {
       fileName: "app/routes/($locale).account.jsx",
       lineNumber: 87,
       columnNumber: 7
     }, this),
-    /* @__PURE__ */ (0, import_jsx_dev_runtime35.jsxDEV)("br", {}, void 0, !1, {
+    /* @__PURE__ */ (0, import_jsx_dev_runtime36.jsxDEV)("br", {}, void 0, !1, {
       fileName: "app/routes/($locale).account.jsx",
       lineNumber: 88,
       columnNumber: 7
     }, this),
-    /* @__PURE__ */ (0, import_jsx_dev_runtime35.jsxDEV)(Outlet, { context: { customer } }, void 0, !1, {
+    /* @__PURE__ */ (0, import_jsx_dev_runtime36.jsxDEV)(Outlet, { context: { customer } }, void 0, !1, {
       fileName: "app/routes/($locale).account.jsx",
       lineNumber: 89,
       columnNumber: 7
@@ -72759,8 +72781,8 @@ function Acccount() {
 }
 function AccountLayout({ customer, children }) {
   let heading = customer ? customer.firstName ? customer.firstName : customer.lastName : "Account Details";
-  return /* @__PURE__ */ (0, import_jsx_dev_runtime35.jsxDEV)("div", { className: "flex", children: [
-    /* @__PURE__ */ (0, import_jsx_dev_runtime35.jsxDEV)(AcccountMenu, { heading }, void 0, !1, {
+  return /* @__PURE__ */ (0, import_jsx_dev_runtime36.jsxDEV)("div", { className: "flex", children: [
+    /* @__PURE__ */ (0, import_jsx_dev_runtime36.jsxDEV)(AcccountMenu, { heading }, void 0, !1, {
       fileName: "app/routes/($locale).account.jsx",
       lineNumber: 105,
       columnNumber: 7
@@ -72779,7 +72801,7 @@ function AcccountMenu({ heading }) {
       color: isPending ? "grey" : "black"
     };
   }
-  return /* @__PURE__ */ (0, import_jsx_dev_runtime35.jsxDEV)(DefaultSidebar, { heading }, void 0, !1, {
+  return /* @__PURE__ */ (0, import_jsx_dev_runtime36.jsxDEV)(DefaultSidebar, { heading }, void 0, !1, {
     fileName: "app/routes/($locale).account.jsx",
     lineNumber: 119,
     columnNumber: 3
@@ -72833,14 +72855,14 @@ var CUSTOMER_FRAGMENT2 = `#graphql
 var locale_index_exports = {};
 __export(locale_index_exports, {
   default: () => Homepage,
-  loader: () => loader23,
+  loader: () => loader24,
   meta: () => meta16
 });
-var import_react96 = __toESM(require_react());
+var import_react99 = __toESM(require_react());
 
 // app/components/GiftingCollection.jsx
-var import_react93 = __toESM(require_react()), import_react_responsive8 = __toESM(require_react_responsive()), import_react_slick4 = __toESM(require_lib()), import_jsx_dev_runtime36 = __toESM(require_jsx_dev_runtime()), GiftingCollection = ({ collections, title }) => {
-  let productsToShow = [], [startIndex, setStartIndex] = (0, import_react93.useState)(0), isLargeScreen = (0, import_react_responsive8.useMediaQuery)({ minWidth: 1024 }), goToCollection = (url_path) => {
+var import_react95 = __toESM(require_react()), import_react_responsive8 = __toESM(require_react_responsive()), import_react_slick4 = __toESM(require_lib()), import_jsx_dev_runtime37 = __toESM(require_jsx_dev_runtime()), GiftingCollection = ({ collections, title }) => {
+  let productsToShow = [], [startIndex, setStartIndex] = (0, import_react95.useState)(0), isLargeScreen = (0, import_react_responsive8.useMediaQuery)({ minWidth: 1024 }), goToCollection = (url_path) => {
     window.location.href = url_path;
   };
   console.log("isLarge ::", isLargeScreen);
@@ -72881,10 +72903,10 @@ var import_react93 = __toESM(require_react()), import_react_responsive8 = __toES
       }
     ]
   };
-  return /* @__PURE__ */ (0, import_jsx_dev_runtime36.jsxDEV)("div", { className: "recommended_section w-full max-w-screen-xl mx-auto lg:px-24 sm:px-4 md:px-6", children: [
-    /* @__PURE__ */ (0, import_jsx_dev_runtime36.jsxDEV)("h1", { className: "text-center font-semibold mb-[15px]", children: [
+  return /* @__PURE__ */ (0, import_jsx_dev_runtime37.jsxDEV)("div", { className: "recommended_section w-full max-w-screen-xl mx-auto lg:px-24 sm:px-4 md:px-6", children: [
+    /* @__PURE__ */ (0, import_jsx_dev_runtime37.jsxDEV)("h1", { className: "text-center font-semibold mb-[15px]", children: [
       title,
-      /* @__PURE__ */ (0, import_jsx_dev_runtime36.jsxDEV)("p", { className: "text-center font-light", children: " Perfect for Any Occasion " }, void 0, !1, {
+      /* @__PURE__ */ (0, import_jsx_dev_runtime37.jsxDEV)("p", { className: "text-center font-light", children: " Perfect for Any Occasion " }, void 0, !1, {
         fileName: "app/components/GiftingCollection.jsx",
         lineNumber: 56,
         columnNumber: 3
@@ -72894,7 +72916,7 @@ var import_react93 = __toESM(require_react()), import_react_responsive8 = __toES
       lineNumber: 54,
       columnNumber: 1
     }, this),
-    /* @__PURE__ */ (0, import_jsx_dev_runtime36.jsxDEV)("div", { className: "relative mb-8", children: /* @__PURE__ */ (0, import_jsx_dev_runtime36.jsxDEV)(import_react_slick4.default, { ...settings, children: collections.map((coll, index3) => /* @__PURE__ */ (0, import_jsx_dev_runtime36.jsxDEV)("div", { className: "w-full", children: /* @__PURE__ */ (0, import_jsx_dev_runtime36.jsxDEV)("div", { children: /* @__PURE__ */ (0, import_jsx_dev_runtime36.jsxDEV)(
+    /* @__PURE__ */ (0, import_jsx_dev_runtime37.jsxDEV)("div", { className: "relative mb-8", children: /* @__PURE__ */ (0, import_jsx_dev_runtime37.jsxDEV)(import_react_slick4.default, { ...settings, children: collections.map((coll, index3) => /* @__PURE__ */ (0, import_jsx_dev_runtime37.jsxDEV)("div", { className: "w-full", children: /* @__PURE__ */ (0, import_jsx_dev_runtime37.jsxDEV)("div", { children: /* @__PURE__ */ (0, import_jsx_dev_runtime37.jsxDEV)(
       "img",
       {
         onClick: () => goToCollection(`/collections/${coll.handle}`),
@@ -72939,15 +72961,15 @@ var GiftingCollection_default = GiftingCollection;
 var import_react_responsive10 = __toESM(require_react_responsive());
 
 // app/components/BlogCorousel.jsx
-var import_react94 = __toESM(require_react()), import_react_responsive9 = __toESM(require_react_responsive()), import_react_slick5 = __toESM(require_lib()), import_jsx_dev_runtime37 = __toESM(require_jsx_dev_runtime()), MobileProductCorousel = ({ products: products2, title, settings }) => {
-  let [startIndex, setStartIndex] = (0, import_react94.useState)(0);
-  return /* @__PURE__ */ (0, import_jsx_dev_runtime37.jsxDEV)("div", { className: "w-full max-w-screen-2xl mx-auto px-1", children: /* @__PURE__ */ (0, import_jsx_dev_runtime37.jsxDEV)("div", { className: "relative", children: [
-    /* @__PURE__ */ (0, import_jsx_dev_runtime37.jsxDEV)("h1", { className: "text-center lg:text-[28px] my-4 text-[20px]", children: title }, void 0, !1, {
+var import_react96 = __toESM(require_react()), import_react_responsive9 = __toESM(require_react_responsive()), import_react_slick5 = __toESM(require_lib()), import_jsx_dev_runtime38 = __toESM(require_jsx_dev_runtime()), MobileProductCorousel = ({ products: products2, title, settings }) => {
+  let [startIndex, setStartIndex] = (0, import_react96.useState)(0);
+  return /* @__PURE__ */ (0, import_jsx_dev_runtime38.jsxDEV)("div", { className: "w-full max-w-screen-2xl mx-auto px-1", children: /* @__PURE__ */ (0, import_jsx_dev_runtime38.jsxDEV)("div", { className: "relative", children: [
+    /* @__PURE__ */ (0, import_jsx_dev_runtime38.jsxDEV)("h1", { className: "text-center lg:text-[28px] my-4 text-[20px]", children: title }, void 0, !1, {
       fileName: "app/components/BlogCorousel.jsx",
       lineNumber: 12,
       columnNumber: 9
     }, this),
-    /* @__PURE__ */ (0, import_jsx_dev_runtime37.jsxDEV)(import_react_slick5.default, { ...settings, children: products2.nodes.map((product, index3) => /* @__PURE__ */ (0, import_jsx_dev_runtime37.jsxDEV)("div", { className: "px-2 bg-white", children: /* @__PURE__ */ (0, import_jsx_dev_runtime37.jsxDEV)("a", { href: `/blogs/${product.handle}`, children: /* @__PURE__ */ (0, import_jsx_dev_runtime37.jsxDEV)(
+    /* @__PURE__ */ (0, import_jsx_dev_runtime38.jsxDEV)(import_react_slick5.default, { ...settings, children: products2.nodes.map((product, index3) => /* @__PURE__ */ (0, import_jsx_dev_runtime38.jsxDEV)("div", { className: "px-2 bg-white", children: /* @__PURE__ */ (0, import_jsx_dev_runtime38.jsxDEV)("a", { href: `/blogs/${product.handle}`, children: /* @__PURE__ */ (0, import_jsx_dev_runtime38.jsxDEV)(
       "img",
       {
         src: `${product.articles.edges[0].node.image.url}`,
@@ -72985,7 +73007,7 @@ var import_react94 = __toESM(require_react()), import_react_responsive9 = __toES
     columnNumber: 5
   }, this);
 }, DesktopCorousel2 = ({ products: products2, title, settings }) => {
-  let [startIndex, setStartIndex] = (0, import_react94.useState)(0), productsToShow = products2.nodes.slice(startIndex, startIndex + 3), isMobile = (0, import_react_responsive9.useMediaQuery)({ maxWidth: 640 }), nextProducts = () => {
+  let [startIndex, setStartIndex] = (0, import_react96.useState)(0), productsToShow = products2.nodes.slice(startIndex, startIndex + 3), isMobile = (0, import_react_responsive9.useMediaQuery)({ maxWidth: 640 }), nextProducts = () => {
     setStartIndex((prevIndex) => (prevIndex + 3) % products2.length);
   };
   settings.infinite = !1;
@@ -72994,13 +73016,13 @@ var import_react94 = __toESM(require_react()), import_react_responsive9 = __toES
       (prevIndex) => prevIndex === 0 ? products2.length - products2.length % 3 : prevIndex - 1
     );
   };
-  return /* @__PURE__ */ (0, import_jsx_dev_runtime37.jsxDEV)("div", { children: /* @__PURE__ */ (0, import_jsx_dev_runtime37.jsxDEV)("div", { className: "w-full max-w-screen-2xl mx-auto px-1", children: /* @__PURE__ */ (0, import_jsx_dev_runtime37.jsxDEV)("div", { className: "relative", children: [
-    /* @__PURE__ */ (0, import_jsx_dev_runtime37.jsxDEV)("h1", { className: "text-center", children: title }, void 0, !1, {
+  return /* @__PURE__ */ (0, import_jsx_dev_runtime38.jsxDEV)("div", { children: /* @__PURE__ */ (0, import_jsx_dev_runtime38.jsxDEV)("div", { className: "w-full max-w-screen-2xl mx-auto px-1", children: /* @__PURE__ */ (0, import_jsx_dev_runtime38.jsxDEV)("div", { className: "relative", children: [
+    /* @__PURE__ */ (0, import_jsx_dev_runtime38.jsxDEV)("h1", { className: "text-center", children: title }, void 0, !1, {
       fileName: "app/components/BlogCorousel.jsx",
       lineNumber: 53,
       columnNumber: 11
     }, this),
-    /* @__PURE__ */ (0, import_jsx_dev_runtime37.jsxDEV)(import_react_slick5.default, { ...settings, children: products2.nodes.map((product, index3) => /* @__PURE__ */ (0, import_jsx_dev_runtime37.jsxDEV)("div", { className: "px-2 bg-white", children: /* @__PURE__ */ (0, import_jsx_dev_runtime37.jsxDEV)("a", { href: `/blogs/${product.handle}`, children: /* @__PURE__ */ (0, import_jsx_dev_runtime37.jsxDEV)(
+    /* @__PURE__ */ (0, import_jsx_dev_runtime38.jsxDEV)(import_react_slick5.default, { ...settings, children: products2.nodes.map((product, index3) => /* @__PURE__ */ (0, import_jsx_dev_runtime38.jsxDEV)("div", { className: "px-2 bg-white", children: /* @__PURE__ */ (0, import_jsx_dev_runtime38.jsxDEV)("a", { href: `/blogs/${product.handle}`, children: /* @__PURE__ */ (0, import_jsx_dev_runtime38.jsxDEV)(
       "img",
       {
         src: `${product.articles.edges[0].node.image.url}`,
@@ -73080,11 +73102,11 @@ var import_react94 = __toESM(require_react()), import_react_responsive9 = __toES
       }
     ]
   };
-  return /* @__PURE__ */ (0, import_jsx_dev_runtime37.jsxDEV)("div", { children: isSmall ? /* @__PURE__ */ (0, import_jsx_dev_runtime37.jsxDEV)(MobileProductCorousel, { products: collections, settings, title }, void 0, !1, {
+  return /* @__PURE__ */ (0, import_jsx_dev_runtime38.jsxDEV)("div", { children: isSmall ? /* @__PURE__ */ (0, import_jsx_dev_runtime38.jsxDEV)(MobileProductCorousel, { products: collections, settings, title }, void 0, !1, {
     fileName: "app/components/BlogCorousel.jsx",
     lineNumber: 118,
     columnNumber: 9
-  }, this) : /* @__PURE__ */ (0, import_jsx_dev_runtime37.jsxDEV)(DesktopCorousel2, { products: collections, settings, title }, void 0, !1, {
+  }, this) : /* @__PURE__ */ (0, import_jsx_dev_runtime38.jsxDEV)(DesktopCorousel2, { products: collections, settings, title }, void 0, !1, {
     fileName: "app/components/BlogCorousel.jsx",
     lineNumber: 122,
     columnNumber: 9
@@ -73096,7 +73118,7 @@ var import_react94 = __toESM(require_react()), import_react_responsive9 = __toES
 }, BlogCorousel_default = BlogCorousel;
 
 // app/components/Testimonials.jsx
-var import_react_slick6 = __toESM(require_lib()), import_jsx_dev_runtime38 = __toESM(require_jsx_dev_runtime()), Testimonials = ({ page, isSmall }) => {
+var import_react_slick6 = __toESM(require_lib()), import_jsx_dev_runtime39 = __toESM(require_jsx_dev_runtime()), Testimonials = ({ page, isSmall }) => {
   let context = page.body.split("<p>split_code</p>"), totalLen = context.length, settings = {
     centerMode: !!isSmall,
     dots: totalLen > 3,
@@ -73134,13 +73156,13 @@ var import_react_slick6 = __toESM(require_lib()), import_jsx_dev_runtime38 = __t
       }
     ]
   };
-  return /* @__PURE__ */ (0, import_jsx_dev_runtime38.jsxDEV)("div", { className: "wrapper w-full text-center mb-8", children: [
-    /* @__PURE__ */ (0, import_jsx_dev_runtime38.jsxDEV)("h1", { children: " Testimonials " }, void 0, !1, {
+  return /* @__PURE__ */ (0, import_jsx_dev_runtime39.jsxDEV)("div", { className: "wrapper w-full text-center mb-8", children: [
+    /* @__PURE__ */ (0, import_jsx_dev_runtime39.jsxDEV)("h1", { children: " Testimonials " }, void 0, !1, {
       fileName: "app/components/Testimonials.jsx",
       lineNumber: 46,
       columnNumber: 9
     }, this),
-    /* @__PURE__ */ (0, import_jsx_dev_runtime38.jsxDEV)("ul", { children: /* @__PURE__ */ (0, import_jsx_dev_runtime38.jsxDEV)(import_react_slick6.default, { ...settings, children: context.map((content, index3) => /* @__PURE__ */ (0, import_jsx_dev_runtime38.jsxDEV)("li", { className: "flex gap-4 justify-center", children: /* @__PURE__ */ (0, import_jsx_dev_runtime38.jsxDEV)("div", { className: "shadow-xl p-4 xs:min-h-[345px] sm:min-h-[230px]  min-h-[280px]", dangerouslySetInnerHTML: { __html: content } }, void 0, !1, {
+    /* @__PURE__ */ (0, import_jsx_dev_runtime39.jsxDEV)("ul", { children: /* @__PURE__ */ (0, import_jsx_dev_runtime39.jsxDEV)(import_react_slick6.default, { ...settings, children: context.map((content, index3) => /* @__PURE__ */ (0, import_jsx_dev_runtime39.jsxDEV)("li", { className: "flex gap-4 justify-center", children: /* @__PURE__ */ (0, import_jsx_dev_runtime39.jsxDEV)("div", { className: "shadow-xl p-4 xs:min-h-[345px] sm:min-h-[230px]  min-h-[280px]", dangerouslySetInnerHTML: { __html: content } }, void 0, !1, {
       fileName: "app/components/Testimonials.jsx",
       lineNumber: 51,
       columnNumber: 21
@@ -73165,48 +73187,56 @@ var import_react_slick6 = __toESM(require_lib()), import_jsx_dev_runtime38 = __t
 }, Testimonials_default = Testimonials;
 
 // app/components/LooksComp.jsx
-var import_jsx_dev_runtime39 = __toESM(require_jsx_dev_runtime()), LooksComp = ({ looks }) => {
+var import_jsx_dev_runtime40 = __toESM(require_jsx_dev_runtime()), LooksComp = ({ looks }) => {
+  let getProductId = (gid) => {
+    let split = gid.split("/");
+    return split[split.length - 1];
+  };
   var products2 = looks.length ? looks[0].products.edges : [];
-  return /* @__PURE__ */ (0, import_jsx_dev_runtime39.jsxDEV)("div", { className: "looks", children: [
-    /* @__PURE__ */ (0, import_jsx_dev_runtime39.jsxDEV)("h1", { className: "uppercase text-center font-semibold my-[15px]", children: " L.I.T : Looks In Trend " }, void 0, !1, {
+  return /* @__PURE__ */ (0, import_jsx_dev_runtime40.jsxDEV)("div", { className: "looks", children: [
+    /* @__PURE__ */ (0, import_jsx_dev_runtime40.jsxDEV)("h1", { className: "uppercase text-center font-semibold my-[15px]", children: " L.I.T : Looks In Trend " }, void 0, !1, {
       fileName: "app/components/LooksComp.jsx",
-      lineNumber: 5,
+      lineNumber: 12,
       columnNumber: 13
     }, this),
-    /* @__PURE__ */ (0, import_jsx_dev_runtime39.jsxDEV)("div", { className: "grid grid-cols-2 sm:grid-cols-4 gap-4 sm:grid-cols-4 md:px-4 lg:px-24", children: products2.map((product) => /* @__PURE__ */ (0, import_jsx_dev_runtime39.jsxDEV)("div", { className: "relative", children: [
-      /* @__PURE__ */ (0, import_jsx_dev_runtime39.jsxDEV)("img", { src: product == null ? void 0 : product.node.images.edges[0].node.url }, void 0, !1, {
+    /* @__PURE__ */ (0, import_jsx_dev_runtime40.jsxDEV)("div", { className: "grid grid-cols-2 sm:grid-cols-4 gap-4 sm:grid-cols-4 md:px-4 pb-4 lg:px-24", children: products2.map((product) => /* @__PURE__ */ (0, import_jsx_dev_runtime40.jsxDEV)("div", { className: "relative", children: [
+      /* @__PURE__ */ (0, import_jsx_dev_runtime40.jsxDEV)(Link2, { reloadDocument: !0, to: `/lookbook/${getProductId(product.node.id)}`, children: /* @__PURE__ */ (0, import_jsx_dev_runtime40.jsxDEV)("img", { src: product == null ? void 0 : product.node.images.edges[0].node.url }, void 0, !1, {
         fileName: "app/components/LooksComp.jsx",
-        lineNumber: 11,
+        lineNumber: 18,
+        columnNumber: 101
+      }, this) }, void 0, !1, {
+        fileName: "app/components/LooksComp.jsx",
+        lineNumber: 18,
         columnNumber: 29
       }, this),
-      /* @__PURE__ */ (0, import_jsx_dev_runtime39.jsxDEV)("p", { className: "looks_tittle absolute bottom-2 text-center", children: [
+      /* @__PURE__ */ (0, import_jsx_dev_runtime40.jsxDEV)("p", { className: "looks_tittle absolute bottom-2 text-center", children: [
         " ",
         product == null ? void 0 : product.node.title,
         " "
       ] }, void 0, !0, {
         fileName: "app/components/LooksComp.jsx",
-        lineNumber: 12,
+        lineNumber: 19,
         columnNumber: 29
       }, this)
     ] }, void 0, !0, {
       fileName: "app/components/LooksComp.jsx",
-      lineNumber: 10,
+      lineNumber: 17,
       columnNumber: 29
     }, this)) }, void 0, !1, {
       fileName: "app/components/LooksComp.jsx",
-      lineNumber: 6,
+      lineNumber: 13,
       columnNumber: 13
     }, this)
   ] }, void 0, !0, {
     fileName: "app/components/LooksComp.jsx",
-    lineNumber: 4,
+    lineNumber: 11,
     columnNumber: 9
   }, this);
 }, LooksComp_default = LooksComp;
 
 // app/routes/($locale)._index.jsx
-var import_react_slick7 = __toESM(require_lib()), import_jsx_dev_runtime40 = __toESM(require_jsx_dev_runtime()), meta16 = () => [{ title: "Hydrogen | Home" }];
-async function loader23({ context }) {
+var import_react_slick7 = __toESM(require_lib()), import_jsx_dev_runtime41 = __toESM(require_jsx_dev_runtime()), meta16 = () => [{ title: "Hydrogen | Home" }];
+async function loader24({ context }) {
   let { storefront } = context, { collections } = await storefront.query(FEATURED_COLLECTION_QUERY2), collectionProducts = collections, featuredCollection = collections.nodes, recommendedProducts = storefront.query(RECOMMENDED_PRODUCTS_QUERY), { products: products2 } = await storefront.query(RECOMMENDED_PRODUCTS_QUERY), { blogs } = await storefront.query(BLOGS_QUERY3), { page } = await storefront.query(PAGE_QUERY2, {
     variables: {
       handle: "testimonials"
@@ -73292,13 +73322,13 @@ function Homepage() {
       }
     ]
   };
-  return /* @__PURE__ */ (0, import_jsx_dev_runtime40.jsxDEV)("div", { className: "home", children: [
-    isSmall ? /* @__PURE__ */ (0, import_jsx_dev_runtime40.jsxDEV)("section", { className: "collectionContent lg:hidden block sm:mt-4 overflow-auto ", children: /* @__PURE__ */ (0, import_jsx_dev_runtime40.jsxDEV)("div", { className: "inline-flex gap-4", children: collectionArrayStatic == null ? void 0 : collectionArrayStatic.map((item, index3) => /* @__PURE__ */ (0, import_jsx_dev_runtime40.jsxDEV)(
+  return /* @__PURE__ */ (0, import_jsx_dev_runtime41.jsxDEV)("div", { className: "home", children: [
+    isSmall ? /* @__PURE__ */ (0, import_jsx_dev_runtime41.jsxDEV)("section", { className: "collectionContent lg:hidden block sm:mt-4 overflow-auto ", children: /* @__PURE__ */ (0, import_jsx_dev_runtime41.jsxDEV)("div", { className: "inline-flex gap-4", children: collectionArrayStatic == null ? void 0 : collectionArrayStatic.map((item, index3) => /* @__PURE__ */ (0, import_jsx_dev_runtime41.jsxDEV)(
       "div",
       {
         className: "col-item sm:w-auto  rounded-lg hover:shadow-md cursor-pointer",
         children: [
-          /* @__PURE__ */ (0, import_jsx_dev_runtime40.jsxDEV)("div", { className: "image", children: /* @__PURE__ */ (0, import_jsx_dev_runtime40.jsxDEV)(NavLink2, { to: `/collections/${item.url}`, children: /* @__PURE__ */ (0, import_jsx_dev_runtime40.jsxDEV)(
+          /* @__PURE__ */ (0, import_jsx_dev_runtime41.jsxDEV)("div", { className: "image", children: /* @__PURE__ */ (0, import_jsx_dev_runtime41.jsxDEV)(NavLink2, { to: `/collections/${item.url}`, children: /* @__PURE__ */ (0, import_jsx_dev_runtime41.jsxDEV)(
             "img",
             {
               width: 80,
@@ -73323,7 +73353,7 @@ function Homepage() {
             lineNumber: 164,
             columnNumber: 15
           }, this),
-          /* @__PURE__ */ (0, import_jsx_dev_runtime40.jsxDEV)("div", { className: "collectionname  sm:text-lg text-[12px] font-semibold  text-center px-[15px] pb-[12px]  pt-[5px]", children: item.collectionname }, void 0, !1, {
+          /* @__PURE__ */ (0, import_jsx_dev_runtime41.jsxDEV)("div", { className: "collectionname  sm:text-lg text-[12px] font-semibold  text-center px-[15px] pb-[12px]  pt-[5px]", children: item.collectionname }, void 0, !1, {
             fileName: "app/routes/($locale)._index.jsx",
             lineNumber: 175,
             columnNumber: 15
@@ -73347,7 +73377,7 @@ function Homepage() {
       lineNumber: 157,
       columnNumber: 9
     }, this) : null,
-    /* @__PURE__ */ (0, import_jsx_dev_runtime40.jsxDEV)("div", { children: /* @__PURE__ */ (0, import_jsx_dev_runtime40.jsxDEV)(ImageCarousel_default, {}, void 0, !1, {
+    /* @__PURE__ */ (0, import_jsx_dev_runtime41.jsxDEV)("div", { children: /* @__PURE__ */ (0, import_jsx_dev_runtime41.jsxDEV)(ImageCarousel_default, {}, void 0, !1, {
       fileName: "app/routes/($locale)._index.jsx",
       lineNumber: 187,
       columnNumber: 9
@@ -73356,7 +73386,7 @@ function Homepage() {
       lineNumber: 186,
       columnNumber: 7
     }, this),
-    /* @__PURE__ */ (0, import_jsx_dev_runtime40.jsxDEV)(
+    /* @__PURE__ */ (0, import_jsx_dev_runtime41.jsxDEV)(
       RecommendedProducts2,
       {
         products: data2.collectionProducts.nodes[0].products,
@@ -73371,13 +73401,13 @@ function Homepage() {
       },
       this
     ),
-    /* @__PURE__ */ (0, import_jsx_dev_runtime40.jsxDEV)("div", { className: "slider-container mb-8 max-w-screen-xl mx-auto lg:px-16 sm:px-4 md:px-6", children: [
-      /* @__PURE__ */ (0, import_jsx_dev_runtime40.jsxDEV)("h1", { className: "text-center lg:text=[28px] text-[20px]", children: "CHOOSE YOUR CULT" }, void 0, !1, {
+    /* @__PURE__ */ (0, import_jsx_dev_runtime41.jsxDEV)("div", { className: "slider-container mb-8 max-w-screen-xl mx-auto lg:px-16 sm:px-4 md:px-6", children: [
+      /* @__PURE__ */ (0, import_jsx_dev_runtime41.jsxDEV)("h1", { className: "text-center lg:text=[28px] text-[20px]", children: "CHOOSE YOUR CULT" }, void 0, !1, {
         fileName: "app/routes/($locale)._index.jsx",
         lineNumber: 195,
         columnNumber: 9
       }, this),
-      /* @__PURE__ */ (0, import_jsx_dev_runtime40.jsxDEV)(import_react_slick7.default, { ...settings, children: collectionCult.map((coll, index3) => /* @__PURE__ */ (0, import_jsx_dev_runtime40.jsxDEV)("div", { className: "px-2", children: /* @__PURE__ */ (0, import_jsx_dev_runtime40.jsxDEV)("div", { className: "bg-white", children: /* @__PURE__ */ (0, import_jsx_dev_runtime40.jsxDEV)(
+      /* @__PURE__ */ (0, import_jsx_dev_runtime41.jsxDEV)(import_react_slick7.default, { ...settings, children: collectionCult.map((coll, index3) => /* @__PURE__ */ (0, import_jsx_dev_runtime41.jsxDEV)("div", { className: "px-2", children: /* @__PURE__ */ (0, import_jsx_dev_runtime41.jsxDEV)("div", { className: "bg-white", children: /* @__PURE__ */ (0, import_jsx_dev_runtime41.jsxDEV)(
         "img",
         {
           onClick: () => goToCollection(`/collections/${coll.handle}`),
@@ -73411,7 +73441,7 @@ function Homepage() {
       lineNumber: 194,
       columnNumber: 7
     }, this),
-    isLargeScreen && /* @__PURE__ */ (0, import_jsx_dev_runtime40.jsxDEV)("a", { href: "/collections/daily-essentials", children: /* @__PURE__ */ (0, import_jsx_dev_runtime40.jsxDEV)("div", { className: "my-[15px]", children: /* @__PURE__ */ (0, import_jsx_dev_runtime40.jsxDEV)(
+    isLargeScreen && /* @__PURE__ */ (0, import_jsx_dev_runtime41.jsxDEV)("a", { href: "/collections/daily-essentials", children: /* @__PURE__ */ (0, import_jsx_dev_runtime41.jsxDEV)("div", { className: "my-[15px]", children: /* @__PURE__ */ (0, import_jsx_dev_runtime41.jsxDEV)(
       "img",
       {
         src: "https://cdn.shopify.com/s/files/1/0809/4253/0882/files/Daily_Essentials_banner.jpg?v=1709971600",
@@ -73434,7 +73464,7 @@ function Homepage() {
       lineNumber: 217,
       columnNumber: 10
     }, this),
-    isSmall && /* @__PURE__ */ (0, import_jsx_dev_runtime40.jsxDEV)("a", { href: "/collections/daily-essentials", children: /* @__PURE__ */ (0, import_jsx_dev_runtime40.jsxDEV)("div", { className: "my-[15px]", children: /* @__PURE__ */ (0, import_jsx_dev_runtime40.jsxDEV)(
+    isSmall && /* @__PURE__ */ (0, import_jsx_dev_runtime41.jsxDEV)("a", { href: "/collections/daily-essentials", children: /* @__PURE__ */ (0, import_jsx_dev_runtime41.jsxDEV)("div", { className: "my-[15px]", children: /* @__PURE__ */ (0, import_jsx_dev_runtime41.jsxDEV)(
       "img",
       {
         src: "https://cdn.shopify.com/s/files/1/0809/4253/0882/files/mobile_everyday_style.jpg?v=1712816125",
@@ -73457,7 +73487,7 @@ function Homepage() {
       lineNumber: 227,
       columnNumber: 9
     }, this),
-    /* @__PURE__ */ (0, import_jsx_dev_runtime40.jsxDEV)(
+    /* @__PURE__ */ (0, import_jsx_dev_runtime41.jsxDEV)(
       RecommendedProducts2,
       {
         products: ThirdHeroCollection,
@@ -73472,17 +73502,17 @@ function Homepage() {
       },
       this
     ),
-    /* @__PURE__ */ (0, import_jsx_dev_runtime40.jsxDEV)(GiftingCollection_default, { collections: GiftCollections, title: "Glamorous Gift Picks" }, void 0, !1, {
+    /* @__PURE__ */ (0, import_jsx_dev_runtime41.jsxDEV)(GiftingCollection_default, { collections: GiftCollections, title: "Glamorous Gift Picks" }, void 0, !1, {
       fileName: "app/routes/($locale)._index.jsx",
       lineNumber: 242,
       columnNumber: 7
     }, this),
-    /* @__PURE__ */ (0, import_jsx_dev_runtime40.jsxDEV)(YouTubeVideo_default, {}, void 0, !1, {
+    /* @__PURE__ */ (0, import_jsx_dev_runtime41.jsxDEV)(YouTubeVideo_default, {}, void 0, !1, {
       fileName: "app/routes/($locale)._index.jsx",
       lineNumber: 244,
       columnNumber: 7
     }, this),
-    isLargeScreen && /* @__PURE__ */ (0, import_jsx_dev_runtime40.jsxDEV)("a", { children: /* @__PURE__ */ (0, import_jsx_dev_runtime40.jsxDEV)("div", { className: "my-[15px]", children: /* @__PURE__ */ (0, import_jsx_dev_runtime40.jsxDEV)(
+    isLargeScreen && /* @__PURE__ */ (0, import_jsx_dev_runtime41.jsxDEV)("a", { children: /* @__PURE__ */ (0, import_jsx_dev_runtime41.jsxDEV)("div", { className: "my-[15px]", children: /* @__PURE__ */ (0, import_jsx_dev_runtime41.jsxDEV)(
       "img",
       {
         src: "https://cdn.shopify.com/s/files/1/0809/4253/0882/files/Lookbook_Banner.jpg?v=1709971241",
@@ -73505,7 +73535,7 @@ function Homepage() {
       lineNumber: 247,
       columnNumber: 10
     }, this),
-    isSmall && /* @__PURE__ */ (0, import_jsx_dev_runtime40.jsxDEV)("a", { children: /* @__PURE__ */ (0, import_jsx_dev_runtime40.jsxDEV)("div", { className: "my-[15px]", children: /* @__PURE__ */ (0, import_jsx_dev_runtime40.jsxDEV)(
+    isSmall && /* @__PURE__ */ (0, import_jsx_dev_runtime41.jsxDEV)("a", { children: /* @__PURE__ */ (0, import_jsx_dev_runtime41.jsxDEV)("div", { className: "my-[15px]", children: /* @__PURE__ */ (0, import_jsx_dev_runtime41.jsxDEV)(
       "img",
       {
         src: "https://cdn.shopify.com/s/files/1/0809/4253/0882/files/mobile_look_book.jpg?v=1712816125",
@@ -73528,12 +73558,12 @@ function Homepage() {
       lineNumber: 257,
       columnNumber: 9
     }, this),
-    /* @__PURE__ */ (0, import_jsx_dev_runtime40.jsxDEV)(LooksComp_default, { looks }, void 0, !1, {
+    /* @__PURE__ */ (0, import_jsx_dev_runtime41.jsxDEV)(LooksComp_default, { looks }, void 0, !1, {
       fileName: "app/routes/($locale)._index.jsx",
       lineNumber: 267,
       columnNumber: 5
     }, this),
-    /* @__PURE__ */ (0, import_jsx_dev_runtime40.jsxDEV)("div", { children: /* @__PURE__ */ (0, import_jsx_dev_runtime40.jsxDEV)("a", { href: "/pages/about-us", children: /* @__PURE__ */ (0, import_jsx_dev_runtime40.jsxDEV)("div", { children: isSmall ? /* @__PURE__ */ (0, import_jsx_dev_runtime40.jsxDEV)(
+    /* @__PURE__ */ (0, import_jsx_dev_runtime41.jsxDEV)("div", { children: /* @__PURE__ */ (0, import_jsx_dev_runtime41.jsxDEV)("a", { href: "/pages/about-us", children: /* @__PURE__ */ (0, import_jsx_dev_runtime41.jsxDEV)("div", { children: isSmall ? /* @__PURE__ */ (0, import_jsx_dev_runtime41.jsxDEV)(
       "img",
       {
         src: "https://cdn.shopify.com/s/files/1/0809/4253/0882/files/mobile_about_us.jpg?v=1713353871",
@@ -73547,7 +73577,7 @@ function Homepage() {
         columnNumber: 11
       },
       this
-    ) : /* @__PURE__ */ (0, import_jsx_dev_runtime40.jsxDEV)(
+    ) : /* @__PURE__ */ (0, import_jsx_dev_runtime41.jsxDEV)(
       "img",
       {
         src: "https://cdn.shopify.com/s/files/1/0809/4253/0882/files/About_US.jpg?v=1712993514",
@@ -73574,7 +73604,7 @@ function Homepage() {
       lineNumber: 268,
       columnNumber: 5
     }, this),
-    /* @__PURE__ */ (0, import_jsx_dev_runtime40.jsxDEV)("div", { className: "mx-8", children: /* @__PURE__ */ (0, import_jsx_dev_runtime40.jsxDEV)(BlogCorousel_default, { isSmall, collections: data2.blogs, title: "CULT CHAPTERS" }, void 0, !1, {
+    /* @__PURE__ */ (0, import_jsx_dev_runtime41.jsxDEV)("div", { className: "mx-8", children: /* @__PURE__ */ (0, import_jsx_dev_runtime41.jsxDEV)(BlogCorousel_default, { isSmall, collections: data2.blogs, title: "CULT CHAPTERS" }, void 0, !1, {
       fileName: "app/routes/($locale)._index.jsx",
       lineNumber: 289,
       columnNumber: 7
@@ -73583,7 +73613,7 @@ function Homepage() {
       lineNumber: 288,
       columnNumber: 7
     }, this),
-    /* @__PURE__ */ (0, import_jsx_dev_runtime40.jsxDEV)(Testimonials_default, { page: testimonialPage, isSmall }, void 0, !1, {
+    /* @__PURE__ */ (0, import_jsx_dev_runtime41.jsxDEV)(Testimonials_default, { page: testimonialPage, isSmall }, void 0, !1, {
       fileName: "app/routes/($locale)._index.jsx",
       lineNumber: 292,
       columnNumber: 7
@@ -73595,8 +73625,8 @@ function Homepage() {
   }, this);
 }
 function RecommendedProducts2({ products: products2, title }) {
-  return /* @__PURE__ */ (0, import_jsx_dev_runtime40.jsxDEV)(import_jsx_dev_runtime40.Fragment, { children: [
-    /* @__PURE__ */ (0, import_jsx_dev_runtime40.jsxDEV)("h1", { className: "text-center font-semibold my-[15px]", children: [
+  return /* @__PURE__ */ (0, import_jsx_dev_runtime41.jsxDEV)(import_jsx_dev_runtime41.Fragment, { children: [
+    /* @__PURE__ */ (0, import_jsx_dev_runtime41.jsxDEV)("h1", { className: "text-center font-semibold my-[15px]", children: [
       title,
       " "
     ] }, void 0, !0, {
@@ -73604,12 +73634,12 @@ function RecommendedProducts2({ products: products2, title }) {
       lineNumber: 317,
       columnNumber: 7
     }, this),
-    /* @__PURE__ */ (0, import_jsx_dev_runtime40.jsxDEV)("div", { children: [
-      /* @__PURE__ */ (0, import_jsx_dev_runtime40.jsxDEV)(import_react96.Suspense, { fallback: /* @__PURE__ */ (0, import_jsx_dev_runtime40.jsxDEV)("div", { children: "Loading..." }, void 0, !1, {
+    /* @__PURE__ */ (0, import_jsx_dev_runtime41.jsxDEV)("div", { children: [
+      /* @__PURE__ */ (0, import_jsx_dev_runtime41.jsxDEV)(import_react99.Suspense, { fallback: /* @__PURE__ */ (0, import_jsx_dev_runtime41.jsxDEV)("div", { children: "Loading..." }, void 0, !1, {
         fileName: "app/routes/($locale)._index.jsx",
         lineNumber: 319,
         columnNumber: 29
-      }, this), children: /* @__PURE__ */ (0, import_jsx_dev_runtime40.jsxDEV)(Await2, { resolve: products2, children: /* @__PURE__ */ (0, import_jsx_dev_runtime40.jsxDEV)(ProductCarousel_default, { products: products2 }, void 0, !1, {
+      }, this), children: /* @__PURE__ */ (0, import_jsx_dev_runtime41.jsxDEV)(Await2, { resolve: products2, children: /* @__PURE__ */ (0, import_jsx_dev_runtime41.jsxDEV)(ProductCarousel_default, { products: products2 }, void 0, !1, {
         fileName: "app/routes/($locale)._index.jsx",
         lineNumber: 322,
         columnNumber: 14
@@ -73622,7 +73652,7 @@ function RecommendedProducts2({ products: products2, title }) {
         lineNumber: 319,
         columnNumber: 9
       }, this),
-      /* @__PURE__ */ (0, import_jsx_dev_runtime40.jsxDEV)("br", {}, void 0, !1, {
+      /* @__PURE__ */ (0, import_jsx_dev_runtime41.jsxDEV)("br", {}, void 0, !1, {
         fileName: "app/routes/($locale)._index.jsx",
         lineNumber: 325,
         columnNumber: 9
@@ -73895,11 +73925,11 @@ var BLOGS_QUERY3 = `#graphql
 var locale_offers_exports = {};
 __export(locale_offers_exports, {
   default: () => Offers,
-  loader: () => loader24,
+  loader: () => loader25,
   meta: () => meta17
 });
-var import_jsx_dev_runtime41 = __toESM(require_jsx_dev_runtime()), meta17 = () => [{ title: "Login" }];
-async function loader24({ context }) {
+var import_jsx_dev_runtime42 = __toESM(require_jsx_dev_runtime()), meta17 = () => [{ title: "Login" }];
+async function loader25({ context }) {
   let { storefront } = context, { collections } = await storefront.query(FEATURED_COLLECTION_QUERY3);
   return defer3({
     collectionProducts: collections
@@ -73910,7 +73940,7 @@ function Offers() {
   var GiftCollections = [];
   return data2.collectionProducts.nodes.forEach((col) => {
     (col.title == "Gift Under 500" || col.title == "Gift Under 1000" || col.title == "Gifts Under 2000") && GiftCollections.push(col);
-  }), GiftCollections = GiftCollections, /* @__PURE__ */ (0, import_jsx_dev_runtime41.jsxDEV)(import_jsx_dev_runtime41.Fragment, { children: /* @__PURE__ */ (0, import_jsx_dev_runtime41.jsxDEV)("div", { className: "page", children: /* @__PURE__ */ (0, import_jsx_dev_runtime41.jsxDEV)(OfferCarousel_default, { collections: GiftCollections, title: "Gifting Offers" }, void 0, !1, {
+  }), GiftCollections = GiftCollections, /* @__PURE__ */ (0, import_jsx_dev_runtime42.jsxDEV)(import_jsx_dev_runtime42.Fragment, { children: /* @__PURE__ */ (0, import_jsx_dev_runtime42.jsxDEV)("div", { className: "page", children: /* @__PURE__ */ (0, import_jsx_dev_runtime42.jsxDEV)(OfferCarousel_default, { collections: GiftCollections, title: "Gifting Offers" }, void 0, !1, {
     fileName: "app/routes/($locale).offers.jsx",
     lineNumber: 32,
     columnNumber: 9
@@ -73986,11 +74016,11 @@ var FEATURED_COLLECTION_QUERY3 = `#graphql
 var locale_search_exports = {};
 __export(locale_search_exports, {
   default: () => SearchPage,
-  loader: () => loader25,
+  loader: () => loader26,
   meta: () => meta18
 });
-var import_jsx_dev_runtime42 = __toESM(require_jsx_dev_runtime()), meta18 = () => [{ title: "Hydrogen | Search" }];
-async function loader25({ request, context }) {
+var import_jsx_dev_runtime43 = __toESM(require_jsx_dev_runtime()), meta18 = () => [{ title: "Hydrogen | Search" }];
+async function loader26({ request, context }) {
   let url = new URL(request.url), searchParams = new URLSearchParams(url.search), variables = getPaginationVariables(request, { pageBy: 8 }), searchTerm = String(searchParams.get("q") || "");
   if (!searchTerm)
     return {
@@ -74013,22 +74043,22 @@ async function loader25({ request, context }) {
 }
 function SearchPage() {
   let { searchTerm, searchResults } = useLoaderData2();
-  return /* @__PURE__ */ (0, import_jsx_dev_runtime42.jsxDEV)("div", { className: "search", children: [
-    /* @__PURE__ */ (0, import_jsx_dev_runtime42.jsxDEV)("h1", { children: "Search" }, void 0, !1, {
+  return /* @__PURE__ */ (0, import_jsx_dev_runtime43.jsxDEV)("div", { className: "search", children: [
+    /* @__PURE__ */ (0, import_jsx_dev_runtime43.jsxDEV)("h1", { children: "Search" }, void 0, !1, {
       fileName: "app/routes/($locale).search.jsx",
       lineNumber: 51,
       columnNumber: 7
     }, this),
-    /* @__PURE__ */ (0, import_jsx_dev_runtime42.jsxDEV)(SearchForm, { searchTerm }, void 0, !1, {
+    /* @__PURE__ */ (0, import_jsx_dev_runtime43.jsxDEV)(SearchForm, { searchTerm }, void 0, !1, {
       fileName: "app/routes/($locale).search.jsx",
       lineNumber: 52,
       columnNumber: 7
     }, this),
-    !searchTerm || !searchResults.totalResults ? /* @__PURE__ */ (0, import_jsx_dev_runtime42.jsxDEV)(NoSearchResults, {}, void 0, !1, {
+    !searchTerm || !searchResults.totalResults ? /* @__PURE__ */ (0, import_jsx_dev_runtime43.jsxDEV)(NoSearchResults, {}, void 0, !1, {
       fileName: "app/routes/($locale).search.jsx",
       lineNumber: 54,
       columnNumber: 9
-    }, this) : /* @__PURE__ */ (0, import_jsx_dev_runtime42.jsxDEV)(SearchResults, { results: searchResults.results }, void 0, !1, {
+    }, this) : /* @__PURE__ */ (0, import_jsx_dev_runtime43.jsxDEV)(SearchResults, { results: searchResults.results }, void 0, !1, {
       fileName: "app/routes/($locale).search.jsx",
       lineNumber: 56,
       columnNumber: 9
@@ -74151,12 +74181,12 @@ var locale_cart_exports = {};
 __export(locale_cart_exports, {
   action: () => action10,
   default: () => Cart,
-  loader: () => loader26,
+  loader: () => loader27,
   meta: () => meta19
 });
-var import_react100 = __toESM(require_react());
-var import_jsx_dev_runtime43 = __toESM(require_jsx_dev_runtime()), meta19 = () => [{ title: "Hydrogen | Cart" }];
-async function loader26({ params, request, context }) {
+var import_react103 = __toESM(require_react());
+var import_jsx_dev_runtime44 = __toESM(require_jsx_dev_runtime()), meta19 = () => [{ title: "Hydrogen | Cart" }];
+async function loader27({ params, request, context }) {
   let { handle } = params, { storefront } = context, { collections } = await storefront.query(FEATURED_COLLECTION_QUERY4);
   return defer3({ recommendedProducts: collections });
 }
@@ -74208,22 +74238,22 @@ async function action10({ request, context }) {
 function Cart() {
   var _a2;
   let { recommendedProducts } = useLoaderData2(), [root] = useMatches2(), cart = (_a2 = root.data) == null ? void 0 : _a2.cart;
-  return /* @__PURE__ */ (0, import_jsx_dev_runtime43.jsxDEV)("div", { className: "cart px-4", children: [
-    /* @__PURE__ */ (0, import_jsx_dev_runtime43.jsxDEV)("h1", { children: "Cart" }, void 0, !1, {
+  return /* @__PURE__ */ (0, import_jsx_dev_runtime44.jsxDEV)("div", { className: "cart px-4", children: [
+    /* @__PURE__ */ (0, import_jsx_dev_runtime44.jsxDEV)("h1", { children: "Cart" }, void 0, !1, {
       fileName: "app/routes/($locale).cart.jsx",
       lineNumber: 99,
       columnNumber: 7
     }, this),
-    /* @__PURE__ */ (0, import_jsx_dev_runtime43.jsxDEV)(import_react100.Suspense, { fallback: /* @__PURE__ */ (0, import_jsx_dev_runtime43.jsxDEV)("p", { children: "Loading cart ..." }, void 0, !1, {
+    /* @__PURE__ */ (0, import_jsx_dev_runtime44.jsxDEV)(import_react103.Suspense, { fallback: /* @__PURE__ */ (0, import_jsx_dev_runtime44.jsxDEV)("p", { children: "Loading cart ..." }, void 0, !1, {
       fileName: "app/routes/($locale).cart.jsx",
       lineNumber: 100,
       columnNumber: 27
     }, this), children: [
-      /* @__PURE__ */ (0, import_jsx_dev_runtime43.jsxDEV)(Await2, { errorElement: /* @__PURE__ */ (0, import_jsx_dev_runtime43.jsxDEV)("div", { children: "An error occurred" }, void 0, !1, {
+      /* @__PURE__ */ (0, import_jsx_dev_runtime44.jsxDEV)(Await2, { errorElement: /* @__PURE__ */ (0, import_jsx_dev_runtime44.jsxDEV)("div", { children: "An error occurred" }, void 0, !1, {
         fileName: "app/routes/($locale).cart.jsx",
         lineNumber: 101,
         columnNumber: 30
-      }, this), resolve: cart, children: (cart2) => /* @__PURE__ */ (0, import_jsx_dev_runtime43.jsxDEV)(CartMain, { layout: "page", cart: cart2 }, void 0, !1, {
+      }, this), resolve: cart, children: (cart2) => /* @__PURE__ */ (0, import_jsx_dev_runtime44.jsxDEV)(CartMain, { layout: "page", cart: cart2 }, void 0, !1, {
         fileName: "app/routes/($locale).cart.jsx",
         lineNumber: 103,
         columnNumber: 20
@@ -74232,7 +74262,7 @@ function Cart() {
         lineNumber: 101,
         columnNumber: 9
       }, this),
-      /* @__PURE__ */ (0, import_jsx_dev_runtime43.jsxDEV)(
+      /* @__PURE__ */ (0, import_jsx_dev_runtime44.jsxDEV)(
         RecommendedProducts3,
         {
           products: recommendedProducts.nodes[0].products,
@@ -74259,8 +74289,8 @@ function Cart() {
   }, this);
 }
 function RecommendedProducts3({ products: products2, title }) {
-  return /* @__PURE__ */ (0, import_jsx_dev_runtime43.jsxDEV)(import_jsx_dev_runtime43.Fragment, { children: [
-    /* @__PURE__ */ (0, import_jsx_dev_runtime43.jsxDEV)("h1", { className: "text-center font-semibold my-[15px]", children: [
+  return /* @__PURE__ */ (0, import_jsx_dev_runtime44.jsxDEV)(import_jsx_dev_runtime44.Fragment, { children: [
+    /* @__PURE__ */ (0, import_jsx_dev_runtime44.jsxDEV)("h1", { className: "text-center font-semibold my-[15px]", children: [
       title,
       " "
     ] }, void 0, !0, {
@@ -74268,12 +74298,12 @@ function RecommendedProducts3({ products: products2, title }) {
       lineNumber: 119,
       columnNumber: 7
     }, this),
-    /* @__PURE__ */ (0, import_jsx_dev_runtime43.jsxDEV)("div", { children: [
-      /* @__PURE__ */ (0, import_jsx_dev_runtime43.jsxDEV)(import_react100.Suspense, { fallback: /* @__PURE__ */ (0, import_jsx_dev_runtime43.jsxDEV)("div", { children: "Loading..." }, void 0, !1, {
+    /* @__PURE__ */ (0, import_jsx_dev_runtime44.jsxDEV)("div", { children: [
+      /* @__PURE__ */ (0, import_jsx_dev_runtime44.jsxDEV)(import_react103.Suspense, { fallback: /* @__PURE__ */ (0, import_jsx_dev_runtime44.jsxDEV)("div", { children: "Loading..." }, void 0, !1, {
         fileName: "app/routes/($locale).cart.jsx",
         lineNumber: 121,
         columnNumber: 29
-      }, this), children: /* @__PURE__ */ (0, import_jsx_dev_runtime43.jsxDEV)(Await2, { resolve: products2, children: /* @__PURE__ */ (0, import_jsx_dev_runtime43.jsxDEV)(ProductsCorousel_default, { products: products2 }, void 0, !1, {
+      }, this), children: /* @__PURE__ */ (0, import_jsx_dev_runtime44.jsxDEV)(Await2, { resolve: products2, children: /* @__PURE__ */ (0, import_jsx_dev_runtime44.jsxDEV)(ProductsCorousel_default, { products: products2 }, void 0, !1, {
         fileName: "app/routes/($locale).cart.jsx",
         lineNumber: 124,
         columnNumber: 14
@@ -74286,7 +74316,7 @@ function RecommendedProducts3({ products: products2, title }) {
         lineNumber: 121,
         columnNumber: 9
       }, this),
-      /* @__PURE__ */ (0, import_jsx_dev_runtime43.jsxDEV)("br", {}, void 0, !1, {
+      /* @__PURE__ */ (0, import_jsx_dev_runtime44.jsxDEV)("br", {}, void 0, !1, {
         fileName: "app/routes/($locale).cart.jsx",
         lineNumber: 127,
         columnNumber: 9
@@ -74368,10 +74398,10 @@ var FEATURED_COLLECTION_QUERY4 = `#graphql
 var robots_txt_exports = {};
 __export(robots_txt_exports, {
   ErrorBoundary: () => ErrorBoundary2,
-  loader: () => loader27
+  loader: () => loader28
 });
-var import_jsx_dev_runtime44 = __toESM(require_jsx_dev_runtime());
-async function loader27({ request, context }) {
+var import_jsx_dev_runtime45 = __toESM(require_jsx_dev_runtime());
+async function loader28({ request, context }) {
   let url = new URL(request.url), { shop } = await context.storefront.query(ROBOTS_QUERY), shopId = parseGid(shop.id).id, body = robotsTxtData({ url: url.origin, shopId });
   return new Response(body, {
     status: 200,
@@ -74384,13 +74414,13 @@ async function loader27({ request, context }) {
 function ErrorBoundary2() {
   let error = useRouteError();
   if (isRouteErrorResponse(error))
-    return /* @__PURE__ */ (0, import_jsx_dev_runtime44.jsxDEV)("div", { children: [
-      /* @__PURE__ */ (0, import_jsx_dev_runtime44.jsxDEV)("h1", { children: "Oops" }, void 0, !1, {
+    return /* @__PURE__ */ (0, import_jsx_dev_runtime45.jsxDEV)("div", { children: [
+      /* @__PURE__ */ (0, import_jsx_dev_runtime45.jsxDEV)("h1", { children: "Oops" }, void 0, !1, {
         fileName: "app/routes/[robots.txt].jsx",
         lineNumber: 28,
         columnNumber: 9
       }, this),
-      /* @__PURE__ */ (0, import_jsx_dev_runtime44.jsxDEV)("p", { children: [
+      /* @__PURE__ */ (0, import_jsx_dev_runtime45.jsxDEV)("p", { children: [
         "Status: ",
         error.status
       ] }, void 0, !0, {
@@ -74398,7 +74428,7 @@ function ErrorBoundary2() {
         lineNumber: 29,
         columnNumber: 9
       }, this),
-      /* @__PURE__ */ (0, import_jsx_dev_runtime44.jsxDEV)("p", { children: error.data.message }, void 0, !1, {
+      /* @__PURE__ */ (0, import_jsx_dev_runtime45.jsxDEV)("p", { children: error.data.message }, void 0, !1, {
         fileName: "app/routes/[robots.txt].jsx",
         lineNumber: 30,
         columnNumber: 9
@@ -74409,18 +74439,18 @@ function ErrorBoundary2() {
       columnNumber: 7
     }, this);
   let errorMessage = "Unknown error";
-  return error instanceof Error && (errorMessage = error.message), /* @__PURE__ */ (0, import_jsx_dev_runtime44.jsxDEV)("div", { children: [
-    /* @__PURE__ */ (0, import_jsx_dev_runtime44.jsxDEV)("h1", { children: "Uh oh ..." }, void 0, !1, {
+  return error instanceof Error && (errorMessage = error.message), /* @__PURE__ */ (0, import_jsx_dev_runtime45.jsxDEV)("div", { children: [
+    /* @__PURE__ */ (0, import_jsx_dev_runtime45.jsxDEV)("h1", { children: "Uh oh ..." }, void 0, !1, {
       fileName: "app/routes/[robots.txt].jsx",
       lineNumber: 42,
       columnNumber: 7
     }, this),
-    /* @__PURE__ */ (0, import_jsx_dev_runtime44.jsxDEV)("p", { children: "Something went wrong." }, void 0, !1, {
+    /* @__PURE__ */ (0, import_jsx_dev_runtime45.jsxDEV)("p", { children: "Something went wrong." }, void 0, !1, {
       fileName: "app/routes/[robots.txt].jsx",
       lineNumber: 43,
       columnNumber: 7
     }, this),
-    /* @__PURE__ */ (0, import_jsx_dev_runtime44.jsxDEV)("pre", { children: errorMessage }, void 0, !1, {
+    /* @__PURE__ */ (0, import_jsx_dev_runtime45.jsxDEV)("pre", { children: errorMessage }, void 0, !1, {
       fileName: "app/routes/[robots.txt].jsx",
       lineNumber: 44,
       columnNumber: 7
@@ -74518,9 +74548,9 @@ var ROBOTS_QUERY = `#graphql
 // app/routes/($locale).$.jsx
 var locale_exports = {};
 __export(locale_exports, {
-  loader: () => loader28
+  loader: () => loader29
 });
-async function loader28({ request }) {
+async function loader29({ request }) {
   throw new Response(`${new URL(request.url).pathname} not found`, {
     status: 404
   });
@@ -74529,9 +74559,9 @@ async function loader28({ request }) {
 // node_modules/@shopify/cli-hydrogen/dist/virtual-routes/routes/graphiql.jsx
 var graphiql_exports = {};
 __export(graphiql_exports, {
-  loader: () => loader29
+  loader: () => loader30
 });
-var loader29 = graphiqlLoader;
+var loader30 = graphiqlLoader;
 
 // node_modules/@shopify/cli-hydrogen/dist/virtual-routes/virtual-root.jsx
 var virtual_root_exports = {};
@@ -74547,9 +74577,9 @@ var styles_default = "/build/_assets/styles-G72WKIIU.css";
 var favicon_default2 = "/build/_assets/favicon-5FIZBM2K.svg";
 
 // node_modules/@shopify/cli-hydrogen/dist/virtual-routes/components/Layout.jsx
-var import_jsx_dev_runtime45 = __toESM(require_jsx_dev_runtime(), 1);
+var import_jsx_dev_runtime46 = __toESM(require_jsx_dev_runtime(), 1);
 function Layout2(props) {
-  return /* @__PURE__ */ (0, import_jsx_dev_runtime45.jsxDEV)("div", { className: "hydrogen-virtual-route", children: props.children }, void 0, !1, {
+  return /* @__PURE__ */ (0, import_jsx_dev_runtime46.jsxDEV)("div", { className: "hydrogen-virtual-route", children: props.children }, void 0, !1, {
     fileName: "node_modules/@shopify/cli-hydrogen/dist/virtual-routes/components/Layout.jsx",
     lineNumber: 2,
     columnNumber: 10
@@ -74557,39 +74587,39 @@ function Layout2(props) {
 }
 
 // node_modules/@shopify/cli-hydrogen/dist/virtual-routes/virtual-root.jsx
-var import_jsx_dev_runtime46 = __toESM(require_jsx_dev_runtime(), 1), links2 = () => [
+var import_jsx_dev_runtime47 = __toESM(require_jsx_dev_runtime(), 1), links2 = () => [
   { rel: "stylesheet", href: styles_default },
   { rel: "icon", type: "image/svg+xml", href: favicon_default2 }
 ];
 function App2() {
-  return /* @__PURE__ */ (0, import_jsx_dev_runtime46.jsxDEV)("html", { lang: "en", children: [
-    /* @__PURE__ */ (0, import_jsx_dev_runtime46.jsxDEV)("head", { children: [
-      /* @__PURE__ */ (0, import_jsx_dev_runtime46.jsxDEV)("meta", { charSet: "utf-8" }, void 0, !1, {
+  return /* @__PURE__ */ (0, import_jsx_dev_runtime47.jsxDEV)("html", { lang: "en", children: [
+    /* @__PURE__ */ (0, import_jsx_dev_runtime47.jsxDEV)("head", { children: [
+      /* @__PURE__ */ (0, import_jsx_dev_runtime47.jsxDEV)("meta", { charSet: "utf-8" }, void 0, !1, {
         fileName: "node_modules/@shopify/cli-hydrogen/dist/virtual-routes/virtual-root.jsx",
         lineNumber: 20,
         columnNumber: 7
       }, this),
-      /* @__PURE__ */ (0, import_jsx_dev_runtime46.jsxDEV)("meta", { name: "viewport", content: "width=device-width,initial-scale=1" }, void 0, !1, {
+      /* @__PURE__ */ (0, import_jsx_dev_runtime47.jsxDEV)("meta", { name: "viewport", content: "width=device-width,initial-scale=1" }, void 0, !1, {
         fileName: "node_modules/@shopify/cli-hydrogen/dist/virtual-routes/virtual-root.jsx",
         lineNumber: 21,
         columnNumber: 7
       }, this),
-      /* @__PURE__ */ (0, import_jsx_dev_runtime46.jsxDEV)("title", { children: "Hydrogen" }, void 0, !1, {
+      /* @__PURE__ */ (0, import_jsx_dev_runtime47.jsxDEV)("title", { children: "Hydrogen" }, void 0, !1, {
         fileName: "node_modules/@shopify/cli-hydrogen/dist/virtual-routes/virtual-root.jsx",
         lineNumber: 22,
         columnNumber: 7
       }, this),
-      /* @__PURE__ */ (0, import_jsx_dev_runtime46.jsxDEV)("meta", { name: "description", content: "A custom storefront powered by Hydrogen" }, void 0, !1, {
+      /* @__PURE__ */ (0, import_jsx_dev_runtime47.jsxDEV)("meta", { name: "description", content: "A custom storefront powered by Hydrogen" }, void 0, !1, {
         fileName: "node_modules/@shopify/cli-hydrogen/dist/virtual-routes/virtual-root.jsx",
         lineNumber: 23,
         columnNumber: 7
       }, this),
-      /* @__PURE__ */ (0, import_jsx_dev_runtime46.jsxDEV)(Meta, {}, void 0, !1, {
+      /* @__PURE__ */ (0, import_jsx_dev_runtime47.jsxDEV)(Meta, {}, void 0, !1, {
         fileName: "node_modules/@shopify/cli-hydrogen/dist/virtual-routes/virtual-root.jsx",
         lineNumber: 24,
         columnNumber: 7
       }, this),
-      /* @__PURE__ */ (0, import_jsx_dev_runtime46.jsxDEV)(Links, {}, void 0, !1, {
+      /* @__PURE__ */ (0, import_jsx_dev_runtime47.jsxDEV)(Links, {}, void 0, !1, {
         fileName: "node_modules/@shopify/cli-hydrogen/dist/virtual-routes/virtual-root.jsx",
         lineNumber: 25,
         columnNumber: 7
@@ -74599,8 +74629,8 @@ function App2() {
       lineNumber: 19,
       columnNumber: 5
     }, this),
-    /* @__PURE__ */ (0, import_jsx_dev_runtime46.jsxDEV)("body", { children: [
-      /* @__PURE__ */ (0, import_jsx_dev_runtime46.jsxDEV)(Layout2, { children: /* @__PURE__ */ (0, import_jsx_dev_runtime46.jsxDEV)(Outlet, {}, void 0, !1, {
+    /* @__PURE__ */ (0, import_jsx_dev_runtime47.jsxDEV)("body", { children: [
+      /* @__PURE__ */ (0, import_jsx_dev_runtime47.jsxDEV)(Layout2, { children: /* @__PURE__ */ (0, import_jsx_dev_runtime47.jsxDEV)(Outlet, {}, void 0, !1, {
         fileName: "node_modules/@shopify/cli-hydrogen/dist/virtual-routes/virtual-root.jsx",
         lineNumber: 28,
         columnNumber: 15
@@ -74609,12 +74639,12 @@ function App2() {
         lineNumber: 28,
         columnNumber: 7
       }, this),
-      /* @__PURE__ */ (0, import_jsx_dev_runtime46.jsxDEV)(ScrollRestoration2, {}, void 0, !1, {
+      /* @__PURE__ */ (0, import_jsx_dev_runtime47.jsxDEV)(ScrollRestoration2, {}, void 0, !1, {
         fileName: "node_modules/@shopify/cli-hydrogen/dist/virtual-routes/virtual-root.jsx",
         lineNumber: 29,
         columnNumber: 7
       }, this),
-      /* @__PURE__ */ (0, import_jsx_dev_runtime46.jsxDEV)(Scripts, {}, void 0, !1, {
+      /* @__PURE__ */ (0, import_jsx_dev_runtime47.jsxDEV)(Scripts, {}, void 0, !1, {
         fileName: "node_modules/@shopify/cli-hydrogen/dist/virtual-routes/virtual-root.jsx",
         lineNumber: 30,
         columnNumber: 7
@@ -74638,17 +74668,17 @@ __export(routes_exports, {
   HYDROGEN_SHOP_ID: () => HYDROGEN_SHOP_ID,
   default: () => Index,
   links: () => links3,
-  loader: () => loader30
+  loader: () => loader31
 });
 
 // node_modules/@shopify/cli-hydrogen/dist/virtual-routes/components/HydrogenLogoBaseBW.jsx
-var import_jsx_dev_runtime47 = __toESM(require_jsx_dev_runtime(), 1), HydrogenLogoBaseBW = (props) => /* @__PURE__ */ (0, import_jsx_dev_runtime47.jsxDEV)("svg", { width: 81, height: 82, fill: "none", xmlns: "http://www.w3.org/2000/svg", ...props, children: [
-  /* @__PURE__ */ (0, import_jsx_dev_runtime47.jsxDEV)("path", { d: "M39.955 81.28 2.138 61.19l12.933-6.818 14.562 7.733 12.218-6.441L27.29 47.93l12.933-6.833L78.04 61.189l-12.934 6.817L51.35 60.7l-12.236 6.457 13.774 7.308-12.933 6.817Z", fill: "#000" }, void 0, !1, {
+var import_jsx_dev_runtime48 = __toESM(require_jsx_dev_runtime(), 1), HydrogenLogoBaseBW = (props) => /* @__PURE__ */ (0, import_jsx_dev_runtime48.jsxDEV)("svg", { width: 81, height: 82, fill: "none", xmlns: "http://www.w3.org/2000/svg", ...props, children: [
+  /* @__PURE__ */ (0, import_jsx_dev_runtime48.jsxDEV)("path", { d: "M39.955 81.28 2.138 61.19l12.933-6.818 14.562 7.733 12.218-6.441L27.29 47.93l12.933-6.833L78.04 61.189l-12.934 6.817L51.35 60.7l-12.236 6.457 13.774 7.308-12.933 6.817Z", fill: "#000" }, void 0, !1, {
     fileName: "node_modules/@shopify/cli-hydrogen/dist/virtual-routes/components/HydrogenLogoBaseBW.jsx",
     lineNumber: 2,
     columnNumber: 3
   }, this),
-  /* @__PURE__ */ (0, import_jsx_dev_runtime47.jsxDEV)("path", { fillRule: "evenodd", clipRule: "evenodd", d: "m40.225 0 39.953 21.227-15.073 7.945-13.756-7.308-10.096 5.328 13.775 7.309-15.075 7.945L0 21.22l15.073-7.945 14.562 7.732 10.078-5.313-14.56-7.731L40.225 0ZM29.426 7.967l14.564 7.734L29.63 23.27 15.07 15.537l-10.794 5.69 35.68 18.956 10.793-5.688-13.773-7.307L51.352 19.6l13.757 7.308 10.794-5.69-35.68-18.956-10.797 5.704Z", fill: "#000" }, void 0, !1, {
+  /* @__PURE__ */ (0, import_jsx_dev_runtime48.jsxDEV)("path", { fillRule: "evenodd", clipRule: "evenodd", d: "m40.225 0 39.953 21.227-15.073 7.945-13.756-7.308-10.096 5.328 13.775 7.309-15.075 7.945L0 21.22l15.073-7.945 14.562 7.732 10.078-5.313-14.56-7.731L40.225 0ZM29.426 7.967l14.564 7.734L29.63 23.27 15.07 15.537l-10.794 5.69 35.68 18.956 10.793-5.688-13.773-7.307L51.352 19.6l13.757 7.308 10.794-5.69-35.68-18.956-10.797 5.704Z", fill: "#000" }, void 0, !1, {
     fileName: "node_modules/@shopify/cli-hydrogen/dist/virtual-routes/components/HydrogenLogoBaseBW.jsx",
     lineNumber: 3,
     columnNumber: 3
@@ -74660,34 +74690,34 @@ var import_jsx_dev_runtime47 = __toESM(require_jsx_dev_runtime(), 1), HydrogenLo
 }, this);
 
 // node_modules/@shopify/cli-hydrogen/dist/virtual-routes/components/HydrogenLogoBaseColor.jsx
-var import_jsx_dev_runtime48 = __toESM(require_jsx_dev_runtime(), 1), HydrogenLogoBaseColor = (props) => /* @__PURE__ */ (0, import_jsx_dev_runtime48.jsxDEV)("svg", { width: 76, height: 81, fill: "none", xmlns: "http://www.w3.org/2000/svg", ...props, children: [
-  /* @__PURE__ */ (0, import_jsx_dev_runtime48.jsxDEV)("path", { d: "M37.817 80.149 0 60.057l12.934-6.817 14.561 7.733 12.218-6.441-14.561-7.733 12.933-6.833 37.818 20.091-12.934 6.817-13.757-7.307-12.236 6.457 13.775 7.308-12.934 6.817Z", fill: "#000" }, void 0, !1, {
+var import_jsx_dev_runtime49 = __toESM(require_jsx_dev_runtime(), 1), HydrogenLogoBaseColor = (props) => /* @__PURE__ */ (0, import_jsx_dev_runtime49.jsxDEV)("svg", { width: 76, height: 81, fill: "none", xmlns: "http://www.w3.org/2000/svg", ...props, children: [
+  /* @__PURE__ */ (0, import_jsx_dev_runtime49.jsxDEV)("path", { d: "M37.817 80.149 0 60.057l12.934-6.817 14.561 7.733 12.218-6.441-14.561-7.733 12.933-6.833 37.818 20.091-12.934 6.817-13.757-7.307-12.236 6.457 13.775 7.308-12.934 6.817Z", fill: "#000" }, void 0, !1, {
     fileName: "node_modules/@shopify/cli-hydrogen/dist/virtual-routes/components/HydrogenLogoBaseColor.jsx",
     lineNumber: 2,
     columnNumber: 3
   }, this),
-  /* @__PURE__ */ (0, import_jsx_dev_runtime48.jsxDEV)("path", { d: "M37.818 40.183 0 20.092l12.934-6.818 14.562 7.733 12.218-6.441-14.562-7.733L38.086 0l37.817 20.091-12.934 6.817-13.756-7.307-12.236 6.457 13.774 7.308-12.933 6.817Z", fill: "url(#a)" }, void 0, !1, {
+  /* @__PURE__ */ (0, import_jsx_dev_runtime49.jsxDEV)("path", { d: "M37.818 40.183 0 20.092l12.934-6.818 14.562 7.733 12.218-6.441-14.562-7.733L38.086 0l37.817 20.091-12.934 6.817-13.756-7.307-12.236 6.457 13.774 7.308-12.933 6.817Z", fill: "url(#a)" }, void 0, !1, {
     fileName: "node_modules/@shopify/cli-hydrogen/dist/virtual-routes/components/HydrogenLogoBaseColor.jsx",
     lineNumber: 3,
     columnNumber: 3
   }, this),
-  /* @__PURE__ */ (0, import_jsx_dev_runtime48.jsxDEV)("defs", { children: /* @__PURE__ */ (0, import_jsx_dev_runtime48.jsxDEV)("linearGradient", { id: "a", x1: 74.48, y1: 21.654, x2: 18.735, y2: 51.694, gradientUnits: "userSpaceOnUse", children: [
-    /* @__PURE__ */ (0, import_jsx_dev_runtime48.jsxDEV)("stop", { offset: 2e-3, stopColor: "#430470" }, void 0, !1, {
+  /* @__PURE__ */ (0, import_jsx_dev_runtime49.jsxDEV)("defs", { children: /* @__PURE__ */ (0, import_jsx_dev_runtime49.jsxDEV)("linearGradient", { id: "a", x1: 74.48, y1: 21.654, x2: 18.735, y2: 51.694, gradientUnits: "userSpaceOnUse", children: [
+    /* @__PURE__ */ (0, import_jsx_dev_runtime49.jsxDEV)("stop", { offset: 2e-3, stopColor: "#430470" }, void 0, !1, {
       fileName: "node_modules/@shopify/cli-hydrogen/dist/virtual-routes/components/HydrogenLogoBaseColor.jsx",
       lineNumber: 5,
       columnNumber: 5
     }, this),
-    /* @__PURE__ */ (0, import_jsx_dev_runtime48.jsxDEV)("stop", { offset: 0.385, stopColor: "#8E01F0" }, void 0, !1, {
+    /* @__PURE__ */ (0, import_jsx_dev_runtime49.jsxDEV)("stop", { offset: 0.385, stopColor: "#8E01F0" }, void 0, !1, {
       fileName: "node_modules/@shopify/cli-hydrogen/dist/virtual-routes/components/HydrogenLogoBaseColor.jsx",
       lineNumber: 6,
       columnNumber: 5
     }, this),
-    /* @__PURE__ */ (0, import_jsx_dev_runtime48.jsxDEV)("stop", { offset: 0.635, stopColor: "#354CF6" }, void 0, !1, {
+    /* @__PURE__ */ (0, import_jsx_dev_runtime49.jsxDEV)("stop", { offset: 0.635, stopColor: "#354CF6" }, void 0, !1, {
       fileName: "node_modules/@shopify/cli-hydrogen/dist/virtual-routes/components/HydrogenLogoBaseColor.jsx",
       lineNumber: 7,
       columnNumber: 5
     }, this),
-    /* @__PURE__ */ (0, import_jsx_dev_runtime48.jsxDEV)("stop", { offset: 1, stopColor: "#01FFFF" }, void 0, !1, {
+    /* @__PURE__ */ (0, import_jsx_dev_runtime49.jsxDEV)("stop", { offset: 1, stopColor: "#01FFFF" }, void 0, !1, {
       fileName: "node_modules/@shopify/cli-hydrogen/dist/virtual-routes/components/HydrogenLogoBaseColor.jsx",
       lineNumber: 8,
       columnNumber: 5
@@ -74708,7 +74738,7 @@ var import_jsx_dev_runtime48 = __toESM(require_jsx_dev_runtime(), 1), HydrogenLo
 }, this);
 
 // node_modules/@shopify/cli-hydrogen/dist/virtual-routes/components/IconDiscord.jsx
-var import_jsx_dev_runtime49 = __toESM(require_jsx_dev_runtime(), 1), IconDiscord = (props) => /* @__PURE__ */ (0, import_jsx_dev_runtime49.jsxDEV)("svg", { width: 26, height: 20, fill: "none", xmlns: "http://www.w3.org/2000/svg", ...props, children: /* @__PURE__ */ (0, import_jsx_dev_runtime49.jsxDEV)("path", { d: "M21.19 1.675A19.91 19.91 0 0 0 16.03 0c-.223.415-.482.973-.661 1.418a18.355 18.355 0 0 0-5.72 0A15.367 15.367 0 0 0 8.98 0a19.844 19.844 0 0 0-5.165 1.68C.55 6.776-.336 11.747.106 16.647c2.167 1.67 4.266 2.686 6.33 3.35.51-.724.964-1.495 1.356-2.306a13.149 13.149 0 0 1-2.135-1.073c.179-.137.354-.28.523-.428 4.116 1.989 8.588 1.989 12.655 0 .172.148.347.291.524.428a13.12 13.12 0 0 1-2.139 1.075c.392.81.844 1.582 1.356 2.306 2.066-.664 4.167-1.68 6.333-3.352.52-5.68-.887-10.606-3.718-14.973ZM8.353 13.635c-1.235 0-2.249-1.192-2.249-2.643 0-1.45.992-2.644 2.25-2.644 1.257 0 2.27 1.191 2.248 2.644.002 1.45-.991 2.642-2.249 2.642Zm8.311 0c-1.235 0-2.249-1.192-2.249-2.643 0-1.45.992-2.644 2.25-2.644 1.257 0 2.27 1.191 2.248 2.644 0 1.45-.991 2.642-2.249 2.642Z", fill: "#5C5F62" }, void 0, !1, {
+var import_jsx_dev_runtime50 = __toESM(require_jsx_dev_runtime(), 1), IconDiscord = (props) => /* @__PURE__ */ (0, import_jsx_dev_runtime50.jsxDEV)("svg", { width: 26, height: 20, fill: "none", xmlns: "http://www.w3.org/2000/svg", ...props, children: /* @__PURE__ */ (0, import_jsx_dev_runtime50.jsxDEV)("path", { d: "M21.19 1.675A19.91 19.91 0 0 0 16.03 0c-.223.415-.482.973-.661 1.418a18.355 18.355 0 0 0-5.72 0A15.367 15.367 0 0 0 8.98 0a19.844 19.844 0 0 0-5.165 1.68C.55 6.776-.336 11.747.106 16.647c2.167 1.67 4.266 2.686 6.33 3.35.51-.724.964-1.495 1.356-2.306a13.149 13.149 0 0 1-2.135-1.073c.179-.137.354-.28.523-.428 4.116 1.989 8.588 1.989 12.655 0 .172.148.347.291.524.428a13.12 13.12 0 0 1-2.139 1.075c.392.81.844 1.582 1.356 2.306 2.066-.664 4.167-1.68 6.333-3.352.52-5.68-.887-10.606-3.718-14.973ZM8.353 13.635c-1.235 0-2.249-1.192-2.249-2.643 0-1.45.992-2.644 2.25-2.644 1.257 0 2.27 1.191 2.248 2.644.002 1.45-.991 2.642-2.249 2.642Zm8.311 0c-1.235 0-2.249-1.192-2.249-2.643 0-1.45.992-2.644 2.25-2.644 1.257 0 2.27 1.191 2.248 2.644 0 1.45-.991 2.642-2.249 2.642Z", fill: "#5C5F62" }, void 0, !1, {
   fileName: "node_modules/@shopify/cli-hydrogen/dist/virtual-routes/components/IconDiscord.jsx",
   lineNumber: 1,
   columnNumber: 118
@@ -74719,7 +74749,7 @@ var import_jsx_dev_runtime49 = __toESM(require_jsx_dev_runtime(), 1), IconDiscor
 }, this);
 
 // node_modules/@shopify/cli-hydrogen/dist/virtual-routes/components/IconGithub.jsx
-var import_jsx_dev_runtime50 = __toESM(require_jsx_dev_runtime(), 1), IconGithub = (props) => /* @__PURE__ */ (0, import_jsx_dev_runtime50.jsxDEV)("svg", { width: 20, height: 20, fill: "none", xmlns: "http://www.w3.org/2000/svg", ...props, children: /* @__PURE__ */ (0, import_jsx_dev_runtime50.jsxDEV)("path", { fillRule: "evenodd", clipRule: "evenodd", d: "M9.997 0C4.473 0 0 4.588 0 10.253c0 4.537 2.862 8.369 6.835 9.727.5.09.687-.218.687-.487 0-.243-.012-1.05-.012-1.91-2.512.475-3.161-.627-3.361-1.204-.113-.295-.6-1.205-1.025-1.448-.35-.192-.85-.667-.013-.68.788-.012 1.35.744 1.537 1.052.9 1.55 2.337 1.114 2.912.845.087-.666.35-1.115.637-1.371-2.224-.256-4.548-1.14-4.548-5.062 0-1.115.387-2.038 1.024-2.756-.1-.256-.45-1.307.1-2.717 0 0 .838-.269 2.75 1.051.8-.23 1.649-.346 2.499-.346.85 0 1.699.115 2.499.346 1.912-1.333 2.749-1.05 2.749-1.05.55 1.409.2 2.46.1 2.716.637.718 1.025 1.628 1.025 2.756 0 3.934-2.337 4.806-4.561 5.062.362.32.674.936.674 1.897 0 1.371-.012 2.473-.012 2.82 0 .268.187.589.687.486a10.036 10.036 0 0 0 4.93-3.74 10.45 10.45 0 0 0 1.88-5.987C19.993 4.588 15.52 0 9.997 0Z", fill: "#5C5F62" }, void 0, !1, {
+var import_jsx_dev_runtime51 = __toESM(require_jsx_dev_runtime(), 1), IconGithub = (props) => /* @__PURE__ */ (0, import_jsx_dev_runtime51.jsxDEV)("svg", { width: 20, height: 20, fill: "none", xmlns: "http://www.w3.org/2000/svg", ...props, children: /* @__PURE__ */ (0, import_jsx_dev_runtime51.jsxDEV)("path", { fillRule: "evenodd", clipRule: "evenodd", d: "M9.997 0C4.473 0 0 4.588 0 10.253c0 4.537 2.862 8.369 6.835 9.727.5.09.687-.218.687-.487 0-.243-.012-1.05-.012-1.91-2.512.475-3.161-.627-3.361-1.204-.113-.295-.6-1.205-1.025-1.448-.35-.192-.85-.667-.013-.68.788-.012 1.35.744 1.537 1.052.9 1.55 2.337 1.114 2.912.845.087-.666.35-1.115.637-1.371-2.224-.256-4.548-1.14-4.548-5.062 0-1.115.387-2.038 1.024-2.756-.1-.256-.45-1.307.1-2.717 0 0 .838-.269 2.75 1.051.8-.23 1.649-.346 2.499-.346.85 0 1.699.115 2.499.346 1.912-1.333 2.749-1.05 2.749-1.05.55 1.409.2 2.46.1 2.716.637.718 1.025 1.628 1.025 2.756 0 3.934-2.337 4.806-4.561 5.062.362.32.674.936.674 1.897 0 1.371-.012 2.473-.012 2.82 0 .268.187.589.687.486a10.036 10.036 0 0 0 4.93-3.74 10.45 10.45 0 0 0 1.88-5.987C19.993 4.588 15.52 0 9.997 0Z", fill: "#5C5F62" }, void 0, !1, {
   fileName: "node_modules/@shopify/cli-hydrogen/dist/virtual-routes/components/IconGithub.jsx",
   lineNumber: 1,
   columnNumber: 117
@@ -74730,7 +74760,7 @@ var import_jsx_dev_runtime50 = __toESM(require_jsx_dev_runtime(), 1), IconGithub
 }, this);
 
 // node_modules/@shopify/cli-hydrogen/dist/virtual-routes/components/IconTwitter.jsx
-var import_jsx_dev_runtime51 = __toESM(require_jsx_dev_runtime(), 1), IconTwitter = (props) => /* @__PURE__ */ (0, import_jsx_dev_runtime51.jsxDEV)("svg", { width: 23, height: 20, fill: "none", xmlns: "http://www.w3.org/2000/svg", ...props, children: /* @__PURE__ */ (0, import_jsx_dev_runtime51.jsxDEV)("path", { d: "M20.53 4.979c.014.217.014.434.014.653C20.544 12.305 15.824 20 7.193 20v-.004C4.643 20 2.146 19.214 0 17.732c.37.048.743.072 1.117.073 2.113.002 4.165-.76 5.828-2.166-2.008-.04-3.77-1.45-4.384-3.506a4.356 4.356 0 0 0 2.118-.087C2.49 11.57.915 9.5.915 7.096v-.064a4.414 4.414 0 0 0 2.13.632C.983 6.18.348 3.229 1.593.92c2.382 3.155 5.897 5.073 9.67 5.276-.378-1.754.139-3.592 1.358-4.825 1.89-1.912 4.862-1.814 6.639.22A9.023 9.023 0 0 0 22.24.364c-.35 1.17-1.084 2.162-2.063 2.793a8.822 8.822 0 0 0 2.694-.795A9.97 9.97 0 0 1 20.53 4.98Z", fill: "#5C5F62" }, void 0, !1, {
+var import_jsx_dev_runtime52 = __toESM(require_jsx_dev_runtime(), 1), IconTwitter = (props) => /* @__PURE__ */ (0, import_jsx_dev_runtime52.jsxDEV)("svg", { width: 23, height: 20, fill: "none", xmlns: "http://www.w3.org/2000/svg", ...props, children: /* @__PURE__ */ (0, import_jsx_dev_runtime52.jsxDEV)("path", { d: "M20.53 4.979c.014.217.014.434.014.653C20.544 12.305 15.824 20 7.193 20v-.004C4.643 20 2.146 19.214 0 17.732c.37.048.743.072 1.117.073 2.113.002 4.165-.76 5.828-2.166-2.008-.04-3.77-1.45-4.384-3.506a4.356 4.356 0 0 0 2.118-.087C2.49 11.57.915 9.5.915 7.096v-.064a4.414 4.414 0 0 0 2.13.632C.983 6.18.348 3.229 1.593.92c2.382 3.155 5.897 5.073 9.67 5.276-.378-1.754.139-3.592 1.358-4.825 1.89-1.912 4.862-1.814 6.639.22A9.023 9.023 0 0 0 22.24.364c-.35 1.17-1.084 2.162-2.063 2.793a8.822 8.822 0 0 0 2.694-.795A9.97 9.97 0 0 1 20.53 4.98Z", fill: "#5C5F62" }, void 0, !1, {
   fileName: "node_modules/@shopify/cli-hydrogen/dist/virtual-routes/components/IconTwitter.jsx",
   lineNumber: 1,
   columnNumber: 118
@@ -74741,213 +74771,213 @@ var import_jsx_dev_runtime51 = __toESM(require_jsx_dev_runtime(), 1), IconTwitte
 }, this);
 
 // node_modules/@shopify/cli-hydrogen/dist/virtual-routes/components/IconBanner.jsx
-var import_jsx_dev_runtime52 = __toESM(require_jsx_dev_runtime(), 1), IconBanner = (props) => /* @__PURE__ */ (0, import_jsx_dev_runtime52.jsxDEV)("svg", { width: 32, height: 36, fill: "none", xmlns: "http://www.w3.org/2000/svg", ...props, children: [
-  /* @__PURE__ */ (0, import_jsx_dev_runtime52.jsxDEV)("path", { fill: "#000", d: "M0 9.726h1.455v1.455H0z" }, void 0, !1, {
+var import_jsx_dev_runtime53 = __toESM(require_jsx_dev_runtime(), 1), IconBanner = (props) => /* @__PURE__ */ (0, import_jsx_dev_runtime53.jsxDEV)("svg", { width: 32, height: 36, fill: "none", xmlns: "http://www.w3.org/2000/svg", ...props, children: [
+  /* @__PURE__ */ (0, import_jsx_dev_runtime53.jsxDEV)("path", { fill: "#000", d: "M0 9.726h1.455v1.455H0z" }, void 0, !1, {
     fileName: "node_modules/@shopify/cli-hydrogen/dist/virtual-routes/components/IconBanner.jsx",
     lineNumber: 2,
     columnNumber: 3
   }, this),
-  /* @__PURE__ */ (0, import_jsx_dev_runtime52.jsxDEV)("path", { fill: "#E172AC", d: "M1.454 9.726h1.455v1.455H1.454zM13.091 3.907h1.455v1.455h-1.455zM24.727 9.726h1.455v1.455h-1.455zM24.727 24.271h1.455v1.455h-1.455zM13.091 30.09h1.455v1.455h-1.455zM1.454 24.271h1.455v1.455H1.454z" }, void 0, !1, {
+  /* @__PURE__ */ (0, import_jsx_dev_runtime53.jsxDEV)("path", { fill: "#E172AC", d: "M1.454 9.726h1.455v1.455H1.454zM13.091 3.907h1.455v1.455h-1.455zM24.727 9.726h1.455v1.455h-1.455zM24.727 24.271h1.455v1.455h-1.455zM13.091 30.09h1.455v1.455h-1.455zM1.454 24.271h1.455v1.455H1.454z" }, void 0, !1, {
     fileName: "node_modules/@shopify/cli-hydrogen/dist/virtual-routes/components/IconBanner.jsx",
     lineNumber: 3,
     columnNumber: 3
   }, this),
-  /* @__PURE__ */ (0, import_jsx_dev_runtime52.jsxDEV)("path", { fill: "#AC217D", d: "M5.818 9.726h1.455v1.455H5.818zM17.454 3.907h1.455v1.455h-1.455zM29.091 9.726h1.455v1.455h-1.455zM21.818 16.998h1.455v1.455h-1.455zM21.818 18.454h1.455v1.455h-1.455zM20.363 24.271h1.455v1.455h-1.455zM20.363 11.181h1.455v1.455h-1.455zM29.091 24.271h1.455v1.455h-1.455zM17.455 30.09h1.455v1.455h-1.455zM5.818 24.271h1.455v1.455H5.818z" }, void 0, !1, {
+  /* @__PURE__ */ (0, import_jsx_dev_runtime53.jsxDEV)("path", { fill: "#AC217D", d: "M5.818 9.726h1.455v1.455H5.818zM17.454 3.907h1.455v1.455h-1.455zM29.091 9.726h1.455v1.455h-1.455zM21.818 16.998h1.455v1.455h-1.455zM21.818 18.454h1.455v1.455h-1.455zM20.363 24.271h1.455v1.455h-1.455zM20.363 11.181h1.455v1.455h-1.455zM29.091 24.271h1.455v1.455h-1.455zM17.455 30.09h1.455v1.455h-1.455zM5.818 24.271h1.455v1.455H5.818z" }, void 0, !1, {
     fileName: "node_modules/@shopify/cli-hydrogen/dist/virtual-routes/components/IconBanner.jsx",
     lineNumber: 4,
     columnNumber: 3
   }, this),
-  /* @__PURE__ */ (0, import_jsx_dev_runtime52.jsxDEV)("path", { fill: "#000", d: "M7.273 9.726h1.455v1.455H7.273zM1.454 8.271h1.455v1.455H1.454zM5.818 8.271h1.455v1.455H5.818zM2.909 6.817h1.455v1.455H2.909z" }, void 0, !1, {
+  /* @__PURE__ */ (0, import_jsx_dev_runtime53.jsxDEV)("path", { fill: "#000", d: "M7.273 9.726h1.455v1.455H7.273zM1.454 8.271h1.455v1.455H1.454zM5.818 8.271h1.455v1.455H5.818zM2.909 6.817h1.455v1.455H2.909z" }, void 0, !1, {
     fileName: "node_modules/@shopify/cli-hydrogen/dist/virtual-routes/components/IconBanner.jsx",
     lineNumber: 5,
     columnNumber: 3
   }, this),
-  /* @__PURE__ */ (0, import_jsx_dev_runtime52.jsxDEV)("path", { fill: "#D43694", d: "M2.909 9.726h1.455v1.455H2.909zM14.546 3.907h1.455v1.455h-1.455zM26.182 9.726h1.455v1.455h-1.455zM18.909 11.181h1.455v1.455h-1.455z" }, void 0, !1, {
+  /* @__PURE__ */ (0, import_jsx_dev_runtime53.jsxDEV)("path", { fill: "#D43694", d: "M2.909 9.726h1.455v1.455H2.909zM14.546 3.907h1.455v1.455h-1.455zM26.182 9.726h1.455v1.455h-1.455zM18.909 11.181h1.455v1.455h-1.455z" }, void 0, !1, {
     fileName: "node_modules/@shopify/cli-hydrogen/dist/virtual-routes/components/IconBanner.jsx",
     lineNumber: 6,
     columnNumber: 3
   }, this),
-  /* @__PURE__ */ (0, import_jsx_dev_runtime52.jsxDEV)("path", { fill: "#D43694", d: "M20.363 12.635h1.455v1.455h-1.455zM20.363 14.09h1.455v1.455h-1.455z" }, void 0, !1, {
+  /* @__PURE__ */ (0, import_jsx_dev_runtime53.jsxDEV)("path", { fill: "#D43694", d: "M20.363 12.635h1.455v1.455h-1.455zM20.363 14.09h1.455v1.455h-1.455z" }, void 0, !1, {
     fileName: "node_modules/@shopify/cli-hydrogen/dist/virtual-routes/components/IconBanner.jsx",
     lineNumber: 7,
     columnNumber: 3
   }, this),
-  /* @__PURE__ */ (0, import_jsx_dev_runtime52.jsxDEV)("path", { fill: "#D43694", d: "M20.363 15.544h1.455v1.455h-1.455zM11.636 11.181h1.455v1.455h-1.455z" }, void 0, !1, {
+  /* @__PURE__ */ (0, import_jsx_dev_runtime53.jsxDEV)("path", { fill: "#D43694", d: "M20.363 15.544h1.455v1.455h-1.455zM11.636 11.181h1.455v1.455h-1.455z" }, void 0, !1, {
     fileName: "node_modules/@shopify/cli-hydrogen/dist/virtual-routes/components/IconBanner.jsx",
     lineNumber: 8,
     columnNumber: 3
   }, this),
-  /* @__PURE__ */ (0, import_jsx_dev_runtime52.jsxDEV)("path", { fill: "#D43694", d: "M10.182 12.635h1.455v1.455h-1.455zM10.182 14.09h1.455v1.455h-1.455z" }, void 0, !1, {
+  /* @__PURE__ */ (0, import_jsx_dev_runtime53.jsxDEV)("path", { fill: "#D43694", d: "M10.182 12.635h1.455v1.455h-1.455zM10.182 14.09h1.455v1.455h-1.455z" }, void 0, !1, {
     fileName: "node_modules/@shopify/cli-hydrogen/dist/virtual-routes/components/IconBanner.jsx",
     lineNumber: 9,
     columnNumber: 3
   }, this),
-  /* @__PURE__ */ (0, import_jsx_dev_runtime52.jsxDEV)("path", { fill: "#D43694", d: "M10.182 15.544h1.455v1.455h-1.455zM10.182 19.908h1.455v1.455h-1.455z" }, void 0, !1, {
+  /* @__PURE__ */ (0, import_jsx_dev_runtime53.jsxDEV)("path", { fill: "#D43694", d: "M10.182 15.544h1.455v1.455h-1.455zM10.182 19.908h1.455v1.455h-1.455z" }, void 0, !1, {
     fileName: "node_modules/@shopify/cli-hydrogen/dist/virtual-routes/components/IconBanner.jsx",
     lineNumber: 10,
     columnNumber: 3
   }, this),
-  /* @__PURE__ */ (0, import_jsx_dev_runtime52.jsxDEV)("path", { fill: "#D43694", d: "M10.182 21.362h1.455v1.455h-1.455zM10.182 22.817h1.455v1.455h-1.455z" }, void 0, !1, {
+  /* @__PURE__ */ (0, import_jsx_dev_runtime53.jsxDEV)("path", { fill: "#D43694", d: "M10.182 21.362h1.455v1.455h-1.455zM10.182 22.817h1.455v1.455h-1.455z" }, void 0, !1, {
     fileName: "node_modules/@shopify/cli-hydrogen/dist/virtual-routes/components/IconBanner.jsx",
     lineNumber: 11,
     columnNumber: 3
   }, this),
-  /* @__PURE__ */ (0, import_jsx_dev_runtime52.jsxDEV)("path", { fill: "#D43694", d: "M11.636 24.271h1.455v1.455h-1.455zM20.363 19.908h1.455v1.455h-1.455z" }, void 0, !1, {
+  /* @__PURE__ */ (0, import_jsx_dev_runtime53.jsxDEV)("path", { fill: "#D43694", d: "M11.636 24.271h1.455v1.455h-1.455zM20.363 19.908h1.455v1.455h-1.455z" }, void 0, !1, {
     fileName: "node_modules/@shopify/cli-hydrogen/dist/virtual-routes/components/IconBanner.jsx",
     lineNumber: 12,
     columnNumber: 3
   }, this),
-  /* @__PURE__ */ (0, import_jsx_dev_runtime52.jsxDEV)("path", { fill: "#D43694", d: "M20.363 21.362h1.455v1.455h-1.455zM20.363 22.817h1.455v1.455h-1.455z" }, void 0, !1, {
+  /* @__PURE__ */ (0, import_jsx_dev_runtime53.jsxDEV)("path", { fill: "#D43694", d: "M20.363 21.362h1.455v1.455h-1.455zM20.363 22.817h1.455v1.455h-1.455z" }, void 0, !1, {
     fileName: "node_modules/@shopify/cli-hydrogen/dist/virtual-routes/components/IconBanner.jsx",
     lineNumber: 13,
     columnNumber: 3
   }, this),
-  /* @__PURE__ */ (0, import_jsx_dev_runtime52.jsxDEV)("path", { fill: "#D43694", d: "M18.909 24.271h1.455v1.455h-1.455zM26.182 24.271h1.455v1.455h-1.455zM14.545 30.09H16v1.455h-1.455zM2.909 24.271h1.455v1.455H2.909zM2.909 11.181h1.455v1.455H2.909zM14.546 5.361h1.455v1.455h-1.455zM26.182 11.181h1.455v1.455h-1.455zM26.182 25.726h1.455v1.455h-1.455z" }, void 0, !1, {
+  /* @__PURE__ */ (0, import_jsx_dev_runtime53.jsxDEV)("path", { fill: "#D43694", d: "M18.909 24.271h1.455v1.455h-1.455zM26.182 24.271h1.455v1.455h-1.455zM14.545 30.09H16v1.455h-1.455zM2.909 24.271h1.455v1.455H2.909zM2.909 11.181h1.455v1.455H2.909zM14.546 5.361h1.455v1.455h-1.455zM26.182 11.181h1.455v1.455h-1.455zM26.182 25.726h1.455v1.455h-1.455z" }, void 0, !1, {
     fileName: "node_modules/@shopify/cli-hydrogen/dist/virtual-routes/components/IconBanner.jsx",
     lineNumber: 14,
     columnNumber: 3
   }, this),
-  /* @__PURE__ */ (0, import_jsx_dev_runtime52.jsxDEV)("path", { fill: "#D43694", d: "M14.546 31.544h1.455v1.455h-1.455zM2.909 25.726h1.455v1.455H2.909z" }, void 0, !1, {
+  /* @__PURE__ */ (0, import_jsx_dev_runtime53.jsxDEV)("path", { fill: "#D43694", d: "M14.546 31.544h1.455v1.455h-1.455zM2.909 25.726h1.455v1.455H2.909z" }, void 0, !1, {
     fileName: "node_modules/@shopify/cli-hydrogen/dist/virtual-routes/components/IconBanner.jsx",
     lineNumber: 15,
     columnNumber: 3
   }, this),
-  /* @__PURE__ */ (0, import_jsx_dev_runtime52.jsxDEV)("path", { fill: "#000", d: "M4.364 6.817h1.455v1.455H4.364z" }, void 0, !1, {
+  /* @__PURE__ */ (0, import_jsx_dev_runtime53.jsxDEV)("path", { fill: "#000", d: "M4.364 6.817h1.455v1.455H4.364z" }, void 0, !1, {
     fileName: "node_modules/@shopify/cli-hydrogen/dist/virtual-routes/components/IconBanner.jsx",
     lineNumber: 16,
     columnNumber: 3
   }, this),
-  /* @__PURE__ */ (0, import_jsx_dev_runtime52.jsxDEV)("path", { fill: "#D43694", d: "M4.364 9.726h1.455v1.455H4.364zM16 3.907h1.455v1.455H16zM27.637 9.726h1.455v1.455h-1.455zM27.637 24.271h1.455v1.455h-1.455zM16 30.09h1.455v1.455H16zM4.364 24.271h1.455v1.455H4.364z" }, void 0, !1, {
+  /* @__PURE__ */ (0, import_jsx_dev_runtime53.jsxDEV)("path", { fill: "#D43694", d: "M4.364 9.726h1.455v1.455H4.364zM16 3.907h1.455v1.455H16zM27.637 9.726h1.455v1.455h-1.455zM27.637 24.271h1.455v1.455h-1.455zM16 30.09h1.455v1.455H16zM4.364 24.271h1.455v1.455H4.364z" }, void 0, !1, {
     fileName: "node_modules/@shopify/cli-hydrogen/dist/virtual-routes/components/IconBanner.jsx",
     lineNumber: 17,
     columnNumber: 3
   }, this),
-  /* @__PURE__ */ (0, import_jsx_dev_runtime52.jsxDEV)("path", { fill: "#D43694", d: "M4.364 11.181h1.455v1.455H4.364zM16 5.361h1.455v1.455H16zM27.637 11.181h1.455v1.455h-1.455zM27.637 25.726h1.455v1.455h-1.455zM16 31.544h1.455v1.455H16zM4.364 25.726h1.455v1.455H4.364z" }, void 0, !1, {
+  /* @__PURE__ */ (0, import_jsx_dev_runtime53.jsxDEV)("path", { fill: "#D43694", d: "M4.364 11.181h1.455v1.455H4.364zM16 5.361h1.455v1.455H16zM27.637 11.181h1.455v1.455h-1.455zM27.637 25.726h1.455v1.455h-1.455zM16 31.544h1.455v1.455H16zM4.364 25.726h1.455v1.455H4.364z" }, void 0, !1, {
     fileName: "node_modules/@shopify/cli-hydrogen/dist/virtual-routes/components/IconBanner.jsx",
     lineNumber: 18,
     columnNumber: 3
   }, this),
-  /* @__PURE__ */ (0, import_jsx_dev_runtime52.jsxDEV)("path", { fill: "#E172AC", d: "M2.909 8.271h1.455v1.455H2.909zM14.545 2.453H16v1.455h-1.455zM26.182 8.271h1.455v1.455h-1.455zM26.182 22.817h1.455v1.455h-1.455zM14.546 28.635h1.455v1.455h-1.455zM2.909 22.817h1.455v1.455H2.909z" }, void 0, !1, {
+  /* @__PURE__ */ (0, import_jsx_dev_runtime53.jsxDEV)("path", { fill: "#E172AC", d: "M2.909 8.271h1.455v1.455H2.909zM14.545 2.453H16v1.455h-1.455zM26.182 8.271h1.455v1.455h-1.455zM26.182 22.817h1.455v1.455h-1.455zM14.546 28.635h1.455v1.455h-1.455zM2.909 22.817h1.455v1.455H2.909z" }, void 0, !1, {
     fileName: "node_modules/@shopify/cli-hydrogen/dist/virtual-routes/components/IconBanner.jsx",
     lineNumber: 19,
     columnNumber: 3
   }, this),
-  /* @__PURE__ */ (0, import_jsx_dev_runtime52.jsxDEV)("path", { fill: "#AC217D", d: "M2.909 12.635h1.455v1.455H2.909zM14.545 6.817H16v1.455h-1.455zM26.182 12.635h1.455v1.455h-1.455zM26.182 27.181h1.455v1.455h-1.455zM14.546 32.998h1.455v1.455h-1.455zM2.909 27.181h1.455v1.455H2.909z" }, void 0, !1, {
+  /* @__PURE__ */ (0, import_jsx_dev_runtime53.jsxDEV)("path", { fill: "#AC217D", d: "M2.909 12.635h1.455v1.455H2.909zM14.545 6.817H16v1.455h-1.455zM26.182 12.635h1.455v1.455h-1.455zM26.182 27.181h1.455v1.455h-1.455zM14.546 32.998h1.455v1.455h-1.455zM2.909 27.181h1.455v1.455H2.909z" }, void 0, !1, {
     fileName: "node_modules/@shopify/cli-hydrogen/dist/virtual-routes/components/IconBanner.jsx",
     lineNumber: 20,
     columnNumber: 3
   }, this),
-  /* @__PURE__ */ (0, import_jsx_dev_runtime52.jsxDEV)("path", { fill: "#E172AC", d: "M4.364 8.271h1.455v1.455H4.364zM16 2.453h1.455v1.455H16zM27.637 8.271h1.455v1.455h-1.455zM27.637 22.817h1.455v1.455h-1.455zM16 28.635h1.455v1.455H16zM4.364 22.817h1.455v1.455H4.364z" }, void 0, !1, {
+  /* @__PURE__ */ (0, import_jsx_dev_runtime53.jsxDEV)("path", { fill: "#E172AC", d: "M4.364 8.271h1.455v1.455H4.364zM16 2.453h1.455v1.455H16zM27.637 8.271h1.455v1.455h-1.455zM27.637 22.817h1.455v1.455h-1.455zM16 28.635h1.455v1.455H16zM4.364 22.817h1.455v1.455H4.364z" }, void 0, !1, {
     fileName: "node_modules/@shopify/cli-hydrogen/dist/virtual-routes/components/IconBanner.jsx",
     lineNumber: 21,
     columnNumber: 3
   }, this),
-  /* @__PURE__ */ (0, import_jsx_dev_runtime52.jsxDEV)("path", { fill: "#AC217D", d: "M4.364 12.635h1.455v1.455H4.364zM16 6.817h1.455v1.455H16zM27.637 12.635h1.455v1.455h-1.455zM27.637 27.181h1.455v1.455h-1.455zM16 32.998h1.455v1.455H16zM4.364 27.181h1.455v1.455H4.364z" }, void 0, !1, {
+  /* @__PURE__ */ (0, import_jsx_dev_runtime53.jsxDEV)("path", { fill: "#AC217D", d: "M4.364 12.635h1.455v1.455H4.364zM16 6.817h1.455v1.455H16zM27.637 12.635h1.455v1.455h-1.455zM27.637 27.181h1.455v1.455h-1.455zM16 32.998h1.455v1.455H16zM4.364 27.181h1.455v1.455H4.364z" }, void 0, !1, {
     fileName: "node_modules/@shopify/cli-hydrogen/dist/virtual-routes/components/IconBanner.jsx",
     lineNumber: 22,
     columnNumber: 3
   }, this),
-  /* @__PURE__ */ (0, import_jsx_dev_runtime52.jsxDEV)("path", { fill: "#000", d: "M2.909 14.09h1.455v1.455H2.909zM4.364 14.09h1.455v1.455H4.364zM0 11.181h1.455v1.455H0z" }, void 0, !1, {
+  /* @__PURE__ */ (0, import_jsx_dev_runtime53.jsxDEV)("path", { fill: "#000", d: "M2.909 14.09h1.455v1.455H2.909zM4.364 14.09h1.455v1.455H4.364zM0 11.181h1.455v1.455H0z" }, void 0, !1, {
     fileName: "node_modules/@shopify/cli-hydrogen/dist/virtual-routes/components/IconBanner.jsx",
     lineNumber: 23,
     columnNumber: 3
   }, this),
-  /* @__PURE__ */ (0, import_jsx_dev_runtime52.jsxDEV)("path", { fill: "#000", d: "M1.454 12.635h1.455v1.455H1.454z" }, void 0, !1, {
+  /* @__PURE__ */ (0, import_jsx_dev_runtime53.jsxDEV)("path", { fill: "#000", d: "M1.454 12.635h1.455v1.455H1.454z" }, void 0, !1, {
     fileName: "node_modules/@shopify/cli-hydrogen/dist/virtual-routes/components/IconBanner.jsx",
     lineNumber: 24,
     columnNumber: 3
   }, this),
-  /* @__PURE__ */ (0, import_jsx_dev_runtime52.jsxDEV)("path", { fill: "#E172AC", d: "M1.454 11.181h1.455v1.455H1.454zM8.727 16.998h1.455v1.455H8.727zM10.182 11.181h1.455v1.455h-1.455zM10.182 24.271h1.455v1.455h-1.455zM8.727 18.454h1.455v1.455H8.727zM13.091 5.361h1.455v1.455h-1.455zM24.727 11.181h1.455v1.455h-1.455zM24.727 25.726h1.455v1.455h-1.455zM13.091 31.544h1.455v1.455h-1.455zM1.454 25.726h1.455v1.455H1.454z" }, void 0, !1, {
+  /* @__PURE__ */ (0, import_jsx_dev_runtime53.jsxDEV)("path", { fill: "#E172AC", d: "M1.454 11.181h1.455v1.455H1.454zM8.727 16.998h1.455v1.455H8.727zM10.182 11.181h1.455v1.455h-1.455zM10.182 24.271h1.455v1.455h-1.455zM8.727 18.454h1.455v1.455H8.727zM13.091 5.361h1.455v1.455h-1.455zM24.727 11.181h1.455v1.455h-1.455zM24.727 25.726h1.455v1.455h-1.455zM13.091 31.544h1.455v1.455h-1.455zM1.454 25.726h1.455v1.455H1.454z" }, void 0, !1, {
     fileName: "node_modules/@shopify/cli-hydrogen/dist/virtual-routes/components/IconBanner.jsx",
     lineNumber: 25,
     columnNumber: 3
   }, this),
-  /* @__PURE__ */ (0, import_jsx_dev_runtime52.jsxDEV)("path", { fill: "#AC217D", d: "M5.818 11.181h1.455v1.455H5.818zM17.454 5.361h1.455v1.455h-1.455zM29.091 11.181h1.455v1.455h-1.455zM29.091 25.726h1.455v1.455h-1.455zM17.454 31.544h1.455v1.455h-1.455zM5.818 25.726h1.455v1.455H5.818z" }, void 0, !1, {
+  /* @__PURE__ */ (0, import_jsx_dev_runtime53.jsxDEV)("path", { fill: "#AC217D", d: "M5.818 11.181h1.455v1.455H5.818zM17.454 5.361h1.455v1.455h-1.455zM29.091 11.181h1.455v1.455h-1.455zM29.091 25.726h1.455v1.455h-1.455zM17.454 31.544h1.455v1.455h-1.455zM5.818 25.726h1.455v1.455H5.818z" }, void 0, !1, {
     fileName: "node_modules/@shopify/cli-hydrogen/dist/virtual-routes/components/IconBanner.jsx",
     lineNumber: 26,
     columnNumber: 3
   }, this),
-  /* @__PURE__ */ (0, import_jsx_dev_runtime52.jsxDEV)("path", { fill: "#000", d: "M5.818 12.635h1.455v1.455H5.818zM7.273 11.181h1.455v1.455H7.273zM0 24.271h1.455v1.455H0zM23.273 9.726h1.455v1.455h-1.455zM7.273 24.271h1.455v1.455H7.273zM30.546 9.726h1.455v1.455h-1.455zM1.455 22.817H2.91v1.455H1.455zM24.727 8.271h1.455v1.455h-1.455zM5.818 22.817h1.455v1.455H5.818zM29.091 8.271h1.455v1.455h-1.455zM2.909 21.362h1.455v1.455H2.909z" }, void 0, !1, {
+  /* @__PURE__ */ (0, import_jsx_dev_runtime53.jsxDEV)("path", { fill: "#000", d: "M5.818 12.635h1.455v1.455H5.818zM7.273 11.181h1.455v1.455H7.273zM0 24.271h1.455v1.455H0zM23.273 9.726h1.455v1.455h-1.455zM7.273 24.271h1.455v1.455H7.273zM30.546 9.726h1.455v1.455h-1.455zM1.455 22.817H2.91v1.455H1.455zM24.727 8.271h1.455v1.455h-1.455zM5.818 22.817h1.455v1.455H5.818zM29.091 8.271h1.455v1.455h-1.455zM2.909 21.362h1.455v1.455H2.909z" }, void 0, !1, {
     fileName: "node_modules/@shopify/cli-hydrogen/dist/virtual-routes/components/IconBanner.jsx",
     lineNumber: 27,
     columnNumber: 3
   }, this),
-  /* @__PURE__ */ (0, import_jsx_dev_runtime52.jsxDEV)("path", { fill: "#000", d: "M26.182 6.817h1.455v1.455h-1.455zM4.364 21.362h1.455v1.455H4.364zM27.637 6.817h1.455v1.455h-1.455zM2.909 28.635h1.455v1.455H2.909zM26.182 14.09h1.455v1.455h-1.455zM4.364 28.635h1.455v1.455H4.364zM27.637 14.09h1.455v1.455h-1.455zM1.454 27.181h1.455v1.455H1.454zM24.727 12.635h1.455v1.455h-1.455zM0 25.726h1.455v1.455H0z" }, void 0, !1, {
+  /* @__PURE__ */ (0, import_jsx_dev_runtime53.jsxDEV)("path", { fill: "#000", d: "M26.182 6.817h1.455v1.455h-1.455zM4.364 21.362h1.455v1.455H4.364zM27.637 6.817h1.455v1.455h-1.455zM2.909 28.635h1.455v1.455H2.909zM26.182 14.09h1.455v1.455h-1.455zM4.364 28.635h1.455v1.455H4.364zM27.637 14.09h1.455v1.455h-1.455zM1.454 27.181h1.455v1.455H1.454zM24.727 12.635h1.455v1.455h-1.455zM0 25.726h1.455v1.455H0z" }, void 0, !1, {
     fileName: "node_modules/@shopify/cli-hydrogen/dist/virtual-routes/components/IconBanner.jsx",
     lineNumber: 28,
     columnNumber: 3
   }, this),
-  /* @__PURE__ */ (0, import_jsx_dev_runtime52.jsxDEV)("path", { fill: "#000", d: "M23.273 11.181h1.455v1.455h-1.455zM5.818 27.181h1.455v1.455H5.818zM29.091 12.635h1.455v1.455h-1.455zM7.273 25.726h1.455v1.455H7.273zM30.546 11.181h1.455v1.455h-1.455zM23.273 24.271h1.455v1.455h-1.455zM11.636 30.09h1.455v1.455h-1.455zM11.636 3.907h1.455v1.455h-1.455zM18.909 30.09h1.455v1.455h-1.455zM30.546 24.271h1.455v1.455h-1.455zM13.091 28.635h1.455v1.455h-1.455zM18.909 3.907h1.455v1.455h-1.455zM17.454 28.635h1.455v1.455h-1.455z" }, void 0, !1, {
+  /* @__PURE__ */ (0, import_jsx_dev_runtime53.jsxDEV)("path", { fill: "#000", d: "M23.273 11.181h1.455v1.455h-1.455zM5.818 27.181h1.455v1.455H5.818zM29.091 12.635h1.455v1.455h-1.455zM7.273 25.726h1.455v1.455H7.273zM30.546 11.181h1.455v1.455h-1.455zM23.273 24.271h1.455v1.455h-1.455zM11.636 30.09h1.455v1.455h-1.455zM11.636 3.907h1.455v1.455h-1.455zM18.909 30.09h1.455v1.455h-1.455zM30.546 24.271h1.455v1.455h-1.455zM13.091 28.635h1.455v1.455h-1.455zM18.909 3.907h1.455v1.455h-1.455zM17.454 28.635h1.455v1.455h-1.455z" }, void 0, !1, {
     fileName: "node_modules/@shopify/cli-hydrogen/dist/virtual-routes/components/IconBanner.jsx",
     lineNumber: 29,
     columnNumber: 3
   }, this),
-  /* @__PURE__ */ (0, import_jsx_dev_runtime52.jsxDEV)("path", { fill: "#000", d: "M24.727 22.817h1.455v1.455h-1.455zM14.546 27.181h1.455v1.455h-1.455zM13.091 2.453h1.455v1.455h-1.455z" }, void 0, !1, {
+  /* @__PURE__ */ (0, import_jsx_dev_runtime53.jsxDEV)("path", { fill: "#000", d: "M24.727 22.817h1.455v1.455h-1.455zM14.546 27.181h1.455v1.455h-1.455zM13.091 2.453h1.455v1.455h-1.455z" }, void 0, !1, {
     fileName: "node_modules/@shopify/cli-hydrogen/dist/virtual-routes/components/IconBanner.jsx",
     lineNumber: 30,
     columnNumber: 3
   }, this),
-  /* @__PURE__ */ (0, import_jsx_dev_runtime52.jsxDEV)("path", { fill: "#000", d: "M16 27.181h1.455v1.455H16zM29.091 22.817h1.455v1.455h-1.455zM14.545 34.454H16v1.455h-1.455zM17.455 2.453h1.455v1.455h-1.455zM16 34.454h1.455v1.455H16zM26.182 21.362h1.455v1.455h-1.455zM13.091 32.998h1.455v1.455h-1.455zM14.546.998h1.455v1.455h-1.455zM11.636 31.544h1.455v1.455h-1.455zM27.637 21.362h1.455v1.455h-1.455zM17.454 32.998h1.455v1.455h-1.455z" }, void 0, !1, {
+  /* @__PURE__ */ (0, import_jsx_dev_runtime53.jsxDEV)("path", { fill: "#000", d: "M16 27.181h1.455v1.455H16zM29.091 22.817h1.455v1.455h-1.455zM14.545 34.454H16v1.455h-1.455zM17.455 2.453h1.455v1.455h-1.455zM16 34.454h1.455v1.455H16zM26.182 21.362h1.455v1.455h-1.455zM13.091 32.998h1.455v1.455h-1.455zM14.546.998h1.455v1.455h-1.455zM11.636 31.544h1.455v1.455h-1.455zM27.637 21.362h1.455v1.455h-1.455zM17.454 32.998h1.455v1.455h-1.455z" }, void 0, !1, {
     fileName: "node_modules/@shopify/cli-hydrogen/dist/virtual-routes/components/IconBanner.jsx",
     lineNumber: 31,
     columnNumber: 3
   }, this),
-  /* @__PURE__ */ (0, import_jsx_dev_runtime52.jsxDEV)("path", { fill: "#000", d: "M16 .998h1.455v1.455H16zM18.909 31.544h1.455v1.455h-1.455zM26.182 28.635h1.455v1.455h-1.455zM14.546 8.271h1.455v1.455h-1.455zM27.637 28.635h1.455v1.455h-1.455z" }, void 0, !1, {
+  /* @__PURE__ */ (0, import_jsx_dev_runtime53.jsxDEV)("path", { fill: "#000", d: "M16 .998h1.455v1.455H16zM18.909 31.544h1.455v1.455h-1.455zM26.182 28.635h1.455v1.455h-1.455zM14.546 8.271h1.455v1.455h-1.455zM27.637 28.635h1.455v1.455h-1.455z" }, void 0, !1, {
     fileName: "node_modules/@shopify/cli-hydrogen/dist/virtual-routes/components/IconBanner.jsx",
     lineNumber: 32,
     columnNumber: 3
   }, this),
-  /* @__PURE__ */ (0, import_jsx_dev_runtime52.jsxDEV)("path", { fill: "#000", d: "M16 8.271h1.455v1.455H16zM24.727 27.181h1.455v1.455h-1.455zM13.091 6.817h1.455v1.455h-1.455zM23.273 25.726h1.455v1.455h-1.455zM11.636 5.361h1.455v1.455h-1.455zM29.091 27.181h1.455v1.455h-1.455zM17.455 6.817h1.455v1.455h-1.455zM30.546 25.726h1.455v1.455h-1.455zM18.909 5.361h1.455v1.455h-1.455zM8.727 11.181h1.455v1.455H8.727z" }, void 0, !1, {
+  /* @__PURE__ */ (0, import_jsx_dev_runtime53.jsxDEV)("path", { fill: "#000", d: "M16 8.271h1.455v1.455H16zM24.727 27.181h1.455v1.455h-1.455zM13.091 6.817h1.455v1.455h-1.455zM23.273 25.726h1.455v1.455h-1.455zM11.636 5.361h1.455v1.455h-1.455zM29.091 27.181h1.455v1.455h-1.455zM17.455 6.817h1.455v1.455h-1.455zM30.546 25.726h1.455v1.455h-1.455zM18.909 5.361h1.455v1.455h-1.455zM8.727 11.181h1.455v1.455H8.727z" }, void 0, !1, {
     fileName: "node_modules/@shopify/cli-hydrogen/dist/virtual-routes/components/IconBanner.jsx",
     lineNumber: 33,
     columnNumber: 3
   }, this),
-  /* @__PURE__ */ (0, import_jsx_dev_runtime52.jsxDEV)("path", { fill: "#000", d: "M8.727 12.635h1.455v1.455H8.727zM8.727 19.908h1.455v1.455H8.727zM21.818 19.908h1.455v1.455h-1.455zM21.818 11.181h1.455v1.455h-1.455z" }, void 0, !1, {
+  /* @__PURE__ */ (0, import_jsx_dev_runtime53.jsxDEV)("path", { fill: "#000", d: "M8.727 12.635h1.455v1.455H8.727zM8.727 19.908h1.455v1.455H8.727zM21.818 19.908h1.455v1.455h-1.455zM21.818 11.181h1.455v1.455h-1.455z" }, void 0, !1, {
     fileName: "node_modules/@shopify/cli-hydrogen/dist/virtual-routes/components/IconBanner.jsx",
     lineNumber: 34,
     columnNumber: 3
   }, this),
-  /* @__PURE__ */ (0, import_jsx_dev_runtime52.jsxDEV)("path", { fill: "#000", d: "M8.727 21.362h1.455v1.455H8.727zM21.818 21.362h1.455v1.455h-1.455zM8.727 14.09h1.455v1.455H8.727zM21.818 12.635h1.455v1.455h-1.455zM8.727 22.817h1.455v1.455H8.727z" }, void 0, !1, {
+  /* @__PURE__ */ (0, import_jsx_dev_runtime53.jsxDEV)("path", { fill: "#000", d: "M8.727 21.362h1.455v1.455H8.727zM21.818 21.362h1.455v1.455h-1.455zM8.727 14.09h1.455v1.455H8.727zM21.818 12.635h1.455v1.455h-1.455zM8.727 22.817h1.455v1.455H8.727z" }, void 0, !1, {
     fileName: "node_modules/@shopify/cli-hydrogen/dist/virtual-routes/components/IconBanner.jsx",
     lineNumber: 35,
     columnNumber: 3
   }, this),
-  /* @__PURE__ */ (0, import_jsx_dev_runtime52.jsxDEV)("path", { fill: "#000", d: "M8.727 24.271h1.455v1.455H8.727zM7.273 16.998h1.455v1.455H7.273zM21.818 22.817h1.455v1.455h-1.455zM23.273 16.998h1.455v1.455h-1.455z" }, void 0, !1, {
+  /* @__PURE__ */ (0, import_jsx_dev_runtime53.jsxDEV)("path", { fill: "#000", d: "M8.727 24.271h1.455v1.455H8.727zM7.273 16.998h1.455v1.455H7.273zM21.818 22.817h1.455v1.455h-1.455zM23.273 16.998h1.455v1.455h-1.455z" }, void 0, !1, {
     fileName: "node_modules/@shopify/cli-hydrogen/dist/virtual-routes/components/IconBanner.jsx",
     lineNumber: 36,
     columnNumber: 3
   }, this),
-  /* @__PURE__ */ (0, import_jsx_dev_runtime52.jsxDEV)("path", { fill: "#000", d: "M21.818 24.271h1.455v1.455h-1.455zM8.727 15.544h1.455v1.455H8.727zM21.818 14.09h1.455v1.455h-1.455zM7.273 18.454h1.455v1.455H7.273z" }, void 0, !1, {
+  /* @__PURE__ */ (0, import_jsx_dev_runtime53.jsxDEV)("path", { fill: "#000", d: "M21.818 24.271h1.455v1.455h-1.455zM8.727 15.544h1.455v1.455H8.727zM21.818 14.09h1.455v1.455h-1.455zM7.273 18.454h1.455v1.455H7.273z" }, void 0, !1, {
     fileName: "node_modules/@shopify/cli-hydrogen/dist/virtual-routes/components/IconBanner.jsx",
     lineNumber: 37,
     columnNumber: 3
   }, this),
-  /* @__PURE__ */ (0, import_jsx_dev_runtime52.jsxDEV)("path", { fill: "#000", d: "M21.818 15.544h1.455v1.455h-1.455zM23.273 18.454h1.455v1.455h-1.455zM11.636 12.635h1.455v1.455h-1.455zM11.636 19.908h1.455v1.455h-1.455zM18.909 19.908h1.455v1.455h-1.455zM18.909 12.635h1.455v1.455h-1.455zM11.636 14.09h1.455v1.455h-1.455z" }, void 0, !1, {
+  /* @__PURE__ */ (0, import_jsx_dev_runtime53.jsxDEV)("path", { fill: "#000", d: "M21.818 15.544h1.455v1.455h-1.455zM23.273 18.454h1.455v1.455h-1.455zM11.636 12.635h1.455v1.455h-1.455zM11.636 19.908h1.455v1.455h-1.455zM18.909 19.908h1.455v1.455h-1.455zM18.909 12.635h1.455v1.455h-1.455zM11.636 14.09h1.455v1.455h-1.455z" }, void 0, !1, {
     fileName: "node_modules/@shopify/cli-hydrogen/dist/virtual-routes/components/IconBanner.jsx",
     lineNumber: 38,
     columnNumber: 3
   }, this),
-  /* @__PURE__ */ (0, import_jsx_dev_runtime52.jsxDEV)("path", { fill: "#000", d: "M11.636 21.362h1.455v1.455h-1.455zM18.909 21.362h1.455v1.455h-1.455zM18.909 14.09h1.455v1.455h-1.455zM10.182 16.998h1.455v1.455h-1.455zM20.363 16.998h1.455v1.455h-1.455z" }, void 0, !1, {
+  /* @__PURE__ */ (0, import_jsx_dev_runtime53.jsxDEV)("path", { fill: "#000", d: "M11.636 21.362h1.455v1.455h-1.455zM18.909 21.362h1.455v1.455h-1.455zM18.909 14.09h1.455v1.455h-1.455zM10.182 16.998h1.455v1.455h-1.455zM20.363 16.998h1.455v1.455h-1.455z" }, void 0, !1, {
     fileName: "node_modules/@shopify/cli-hydrogen/dist/virtual-routes/components/IconBanner.jsx",
     lineNumber: 39,
     columnNumber: 3
   }, this),
-  /* @__PURE__ */ (0, import_jsx_dev_runtime52.jsxDEV)("path", { fill: "#000", d: "M11.636 15.544h1.455v1.455h-1.455zM11.636 22.817h1.455v1.455h-1.455zM18.909 22.817h1.455v1.455h-1.455zM18.909 15.544h1.455v1.455h-1.455zM13.091 24.271h1.455v1.455h-1.455zM17.454 24.271h1.455v1.455h-1.455zM13.091 25.726h1.455v1.455h-1.455zM17.454 25.726h1.455v1.455h-1.455zM11.636 25.726h1.455v1.455h-1.455zM20.363 25.726h1.455v1.455h-1.455z" }, void 0, !1, {
+  /* @__PURE__ */ (0, import_jsx_dev_runtime53.jsxDEV)("path", { fill: "#000", d: "M11.636 15.544h1.455v1.455h-1.455zM11.636 22.817h1.455v1.455h-1.455zM18.909 22.817h1.455v1.455h-1.455zM18.909 15.544h1.455v1.455h-1.455zM13.091 24.271h1.455v1.455h-1.455zM17.454 24.271h1.455v1.455h-1.455zM13.091 25.726h1.455v1.455h-1.455zM17.454 25.726h1.455v1.455h-1.455zM11.636 25.726h1.455v1.455h-1.455zM20.363 25.726h1.455v1.455h-1.455z" }, void 0, !1, {
     fileName: "node_modules/@shopify/cli-hydrogen/dist/virtual-routes/components/IconBanner.jsx",
     lineNumber: 40,
     columnNumber: 3
   }, this),
-  /* @__PURE__ */ (0, import_jsx_dev_runtime52.jsxDEV)("path", { fill: "#000", d: "M10.182 25.726h1.455v1.455h-1.455zM18.909 25.726h1.455v1.455h-1.455zM10.182 18.454h1.455v1.455h-1.455zM20.363 18.454h1.455v1.455h-1.455zM10.182 9.726h1.455v1.455h-1.455zM18.909 9.726h1.455v1.455h-1.455z" }, void 0, !1, {
+  /* @__PURE__ */ (0, import_jsx_dev_runtime53.jsxDEV)("path", { fill: "#000", d: "M10.182 25.726h1.455v1.455h-1.455zM18.909 25.726h1.455v1.455h-1.455zM10.182 18.454h1.455v1.455h-1.455zM20.363 18.454h1.455v1.455h-1.455zM10.182 9.726h1.455v1.455h-1.455zM18.909 9.726h1.455v1.455h-1.455z" }, void 0, !1, {
     fileName: "node_modules/@shopify/cli-hydrogen/dist/virtual-routes/components/IconBanner.jsx",
     lineNumber: 41,
     columnNumber: 3
   }, this),
-  /* @__PURE__ */ (0, import_jsx_dev_runtime52.jsxDEV)("path", { fill: "#000", d: "M11.636 9.726h1.455v1.455h-1.455zM20.363 9.726h1.455v1.455h-1.455zM13.091 9.726h1.455v1.455h-1.455zM17.454 9.726h1.455v1.455h-1.455z" }, void 0, !1, {
+  /* @__PURE__ */ (0, import_jsx_dev_runtime53.jsxDEV)("path", { fill: "#000", d: "M11.636 9.726h1.455v1.455h-1.455zM20.363 9.726h1.455v1.455h-1.455zM13.091 9.726h1.455v1.455h-1.455zM17.454 9.726h1.455v1.455h-1.455z" }, void 0, !1, {
     fileName: "node_modules/@shopify/cli-hydrogen/dist/virtual-routes/components/IconBanner.jsx",
     lineNumber: 42,
     columnNumber: 3
   }, this),
-  /* @__PURE__ */ (0, import_jsx_dev_runtime52.jsxDEV)("path", { fill: "#000", d: "M13.091 11.181h1.455v1.455h-1.455zM17.454 11.181h1.455v1.455h-1.455z" }, void 0, !1, {
+  /* @__PURE__ */ (0, import_jsx_dev_runtime53.jsxDEV)("path", { fill: "#000", d: "M13.091 11.181h1.455v1.455h-1.455zM17.454 11.181h1.455v1.455h-1.455z" }, void 0, !1, {
     fileName: "node_modules/@shopify/cli-hydrogen/dist/virtual-routes/components/IconBanner.jsx",
     lineNumber: 43,
     columnNumber: 3
@@ -74959,78 +74989,78 @@ var import_jsx_dev_runtime52 = __toESM(require_jsx_dev_runtime(), 1), IconBanner
 }, this);
 
 // node_modules/@shopify/cli-hydrogen/dist/virtual-routes/components/IconError.jsx
-var import_jsx_dev_runtime53 = __toESM(require_jsx_dev_runtime(), 1), IconError = (props) => /* @__PURE__ */ (0, import_jsx_dev_runtime53.jsxDEV)("svg", { width: 32, height: 32, fill: "none", xmlns: "http://www.w3.org/2000/svg", ...props, children: [
-  /* @__PURE__ */ (0, import_jsx_dev_runtime53.jsxDEV)("path", { fill: "#000", d: "M6 18h20v2H6zM30 8h2v16h-2zM0 8h2v16H0z" }, void 0, !1, {
+var import_jsx_dev_runtime54 = __toESM(require_jsx_dev_runtime(), 1), IconError = (props) => /* @__PURE__ */ (0, import_jsx_dev_runtime54.jsxDEV)("svg", { width: 32, height: 32, fill: "none", xmlns: "http://www.w3.org/2000/svg", ...props, children: [
+  /* @__PURE__ */ (0, import_jsx_dev_runtime54.jsxDEV)("path", { fill: "#000", d: "M6 18h20v2H6zM30 8h2v16h-2zM0 8h2v16H0z" }, void 0, !1, {
     fileName: "node_modules/@shopify/cli-hydrogen/dist/virtual-routes/components/IconError.jsx",
     lineNumber: 2,
     columnNumber: 3
   }, this),
-  /* @__PURE__ */ (0, import_jsx_dev_runtime53.jsxDEV)("path", { fill: "#F63310", d: "M2 8h2v16H2zM4 6h2v4H4zM6 4h2v4H6zM8 2h2v4H8zM24 4h2v2h-2zM26 6h2v2h-2z" }, void 0, !1, {
+  /* @__PURE__ */ (0, import_jsx_dev_runtime54.jsxDEV)("path", { fill: "#F63310", d: "M2 8h2v16H2zM4 6h2v4H4zM6 4h2v4H6zM8 2h2v4H8zM24 4h2v2h-2zM26 6h2v2h-2z" }, void 0, !1, {
     fileName: "node_modules/@shopify/cli-hydrogen/dist/virtual-routes/components/IconError.jsx",
     lineNumber: 3,
     columnNumber: 3
   }, this),
-  /* @__PURE__ */ (0, import_jsx_dev_runtime53.jsxDEV)("path", { fill: "#74170B", d: "M26 24h2v2h-2zM28 22h2v2h-2zM24 26h2v2h-2zM22 28h2v2h-2z" }, void 0, !1, {
+  /* @__PURE__ */ (0, import_jsx_dev_runtime54.jsxDEV)("path", { fill: "#74170B", d: "M26 24h2v2h-2zM28 22h2v2h-2zM24 26h2v2h-2zM22 28h2v2h-2z" }, void 0, !1, {
     fileName: "node_modules/@shopify/cli-hydrogen/dist/virtual-routes/components/IconError.jsx",
     lineNumber: 4,
     columnNumber: 3
   }, this),
-  /* @__PURE__ */ (0, import_jsx_dev_runtime53.jsxDEV)("path", { fill: "#971C06", d: "M6 26h2v2H6zM4 24h2v2H4zM4 18h2v2H4zM26 18h2v2h-2zM26 12h2v2h-2z" }, void 0, !1, {
+  /* @__PURE__ */ (0, import_jsx_dev_runtime54.jsxDEV)("path", { fill: "#971C06", d: "M6 26h2v2H6zM4 24h2v2H4zM4 18h2v2H4zM26 18h2v2h-2zM26 12h2v2h-2z" }, void 0, !1, {
     fileName: "node_modules/@shopify/cli-hydrogen/dist/virtual-routes/components/IconError.jsx",
     lineNumber: 5,
     columnNumber: 3
   }, this),
-  /* @__PURE__ */ (0, import_jsx_dev_runtime53.jsxDEV)("path", { fill: "#D62C0D", d: "M26 8h2v4h-2zM4 10h2v2H4zM8 6h18v2H8zM10 4h14v2H10zM6 8h20v2H6z" }, void 0, !1, {
+  /* @__PURE__ */ (0, import_jsx_dev_runtime54.jsxDEV)("path", { fill: "#D62C0D", d: "M26 8h2v4h-2zM4 10h2v2H4zM8 6h18v2H8zM10 4h14v2H10zM6 8h20v2H6z" }, void 0, !1, {
     fileName: "node_modules/@shopify/cli-hydrogen/dist/virtual-routes/components/IconError.jsx",
     lineNumber: 6,
     columnNumber: 3
   }, this),
-  /* @__PURE__ */ (0, import_jsx_dev_runtime53.jsxDEV)("path", { fill: "#971C06", d: "M28 10h2v12h-2zM8 28h14v2H8z" }, void 0, !1, {
+  /* @__PURE__ */ (0, import_jsx_dev_runtime54.jsxDEV)("path", { fill: "#971C06", d: "M28 10h2v12h-2zM8 28h14v2H8z" }, void 0, !1, {
     fileName: "node_modules/@shopify/cli-hydrogen/dist/virtual-routes/components/IconError.jsx",
     lineNumber: 7,
     columnNumber: 3
   }, this),
-  /* @__PURE__ */ (0, import_jsx_dev_runtime53.jsxDEV)("path", { fill: "#D62C0D", d: "M26 20h2v2h-2zM4 20h2v2H4z" }, void 0, !1, {
+  /* @__PURE__ */ (0, import_jsx_dev_runtime54.jsxDEV)("path", { fill: "#D62C0D", d: "M26 20h2v2h-2zM4 20h2v2H4z" }, void 0, !1, {
     fileName: "node_modules/@shopify/cli-hydrogen/dist/virtual-routes/components/IconError.jsx",
     lineNumber: 8,
     columnNumber: 3
   }, this),
-  /* @__PURE__ */ (0, import_jsx_dev_runtime53.jsxDEV)("path", { fill: "#F63310", d: "M4 12h2v2H4z" }, void 0, !1, {
+  /* @__PURE__ */ (0, import_jsx_dev_runtime54.jsxDEV)("path", { fill: "#F63310", d: "M4 12h2v2H4z" }, void 0, !1, {
     fileName: "node_modules/@shopify/cli-hydrogen/dist/virtual-routes/components/IconError.jsx",
     lineNumber: 9,
     columnNumber: 3
   }, this),
-  /* @__PURE__ */ (0, import_jsx_dev_runtime53.jsxDEV)("path", { fill: "#971C06", d: "M6 20h20v2H6z" }, void 0, !1, {
+  /* @__PURE__ */ (0, import_jsx_dev_runtime54.jsxDEV)("path", { fill: "#971C06", d: "M6 20h20v2H6z" }, void 0, !1, {
     fileName: "node_modules/@shopify/cli-hydrogen/dist/virtual-routes/components/IconError.jsx",
     lineNumber: 10,
     columnNumber: 3
   }, this),
-  /* @__PURE__ */ (0, import_jsx_dev_runtime53.jsxDEV)("path", { fill: "#F63310", d: "M28 8h2v2h-2zM10 2h14v2H10zM6 10h20v2H6z" }, void 0, !1, {
+  /* @__PURE__ */ (0, import_jsx_dev_runtime54.jsxDEV)("path", { fill: "#F63310", d: "M28 8h2v2h-2zM10 2h14v2H10zM6 10h20v2H6z" }, void 0, !1, {
     fileName: "node_modules/@shopify/cli-hydrogen/dist/virtual-routes/components/IconError.jsx",
     lineNumber: 11,
     columnNumber: 3
   }, this),
-  /* @__PURE__ */ (0, import_jsx_dev_runtime53.jsxDEV)("path", { fill: "#D62C0D", d: "M4 22h24v2H4zM6 24h20v2H6zM8 26h16v2H8z" }, void 0, !1, {
+  /* @__PURE__ */ (0, import_jsx_dev_runtime54.jsxDEV)("path", { fill: "#D62C0D", d: "M4 22h24v2H4zM6 24h20v2H6zM8 26h16v2H8z" }, void 0, !1, {
     fileName: "node_modules/@shopify/cli-hydrogen/dist/virtual-routes/components/IconError.jsx",
     lineNumber: 12,
     columnNumber: 3
   }, this),
-  /* @__PURE__ */ (0, import_jsx_dev_runtime53.jsxDEV)("path", { fill: "#000", d: "M6 12h20v2H6z" }, void 0, !1, {
+  /* @__PURE__ */ (0, import_jsx_dev_runtime54.jsxDEV)("path", { fill: "#000", d: "M6 12h20v2H6z" }, void 0, !1, {
     fileName: "node_modules/@shopify/cli-hydrogen/dist/virtual-routes/components/IconError.jsx",
     lineNumber: 13,
     columnNumber: 3
   }, this),
-  /* @__PURE__ */ (0, import_jsx_dev_runtime53.jsxDEV)("path", { fill: "#fff", d: "M6 14h20v2H6zM6 16h2v2H6z" }, void 0, !1, {
+  /* @__PURE__ */ (0, import_jsx_dev_runtime54.jsxDEV)("path", { fill: "#fff", d: "M6 14h20v2H6zM6 16h2v2H6z" }, void 0, !1, {
     fileName: "node_modules/@shopify/cli-hydrogen/dist/virtual-routes/components/IconError.jsx",
     lineNumber: 14,
     columnNumber: 3
   }, this),
-  /* @__PURE__ */ (0, import_jsx_dev_runtime53.jsxDEV)("path", { fill: "#ECEDEE", d: "M8 16h18v2H8z" }, void 0, !1, {
+  /* @__PURE__ */ (0, import_jsx_dev_runtime54.jsxDEV)("path", { fill: "#ECEDEE", d: "M8 16h18v2H8z" }, void 0, !1, {
     fileName: "node_modules/@shopify/cli-hydrogen/dist/virtual-routes/components/IconError.jsx",
     lineNumber: 15,
     columnNumber: 3
   }, this),
-  /* @__PURE__ */ (0, import_jsx_dev_runtime53.jsxDEV)("path", { fill: "#000", d: "M4 14h2v4H4zM26 14h2v4h-2zM2 6h2v2H2zM4 4h2v2H4zM6 2h2v2H6zM24 2h2v2h-2zM26 4h2v2h-2zM26 26h2v2h-2zM24 28h2v2h-2zM6 28h2v2H6zM4 26h2v2H4zM2 24h2v2H2zM8 30h16v2H8zM28 6h2v2h-2zM28 24h2v2h-2zM8 0h16v2H8z" }, void 0, !1, {
+  /* @__PURE__ */ (0, import_jsx_dev_runtime54.jsxDEV)("path", { fill: "#000", d: "M4 14h2v4H4zM26 14h2v4h-2zM2 6h2v2H2zM4 4h2v2H4zM6 2h2v2H6zM24 2h2v2h-2zM26 4h2v2h-2zM26 26h2v2h-2zM24 28h2v2h-2zM6 28h2v2H6zM4 26h2v2H4zM2 24h2v2H2zM8 30h16v2H8zM28 6h2v2h-2zM28 24h2v2h-2zM8 0h16v2H8z" }, void 0, !1, {
     fileName: "node_modules/@shopify/cli-hydrogen/dist/virtual-routes/components/IconError.jsx",
     lineNumber: 16,
     columnNumber: 3
@@ -75048,7 +75078,7 @@ var inter_variable_font_default = "/build/_assets/inter-variable-font-PIM5FCLG.w
 var jetbrainsmono_variable_font_default = "/build/_assets/jetbrainsmono-variable-font-QJMIHK5L.woff2";
 
 // node_modules/@shopify/cli-hydrogen/dist/virtual-routes/routes/index.jsx
-var import_jsx_dev_runtime54 = __toESM(require_jsx_dev_runtime(), 1), links3 = () => [
+var import_jsx_dev_runtime55 = __toESM(require_jsx_dev_runtime(), 1), links3 = () => [
   {
     rel: "icon",
     type: "image/svg+xml",
@@ -75069,14 +75099,14 @@ var import_jsx_dev_runtime54 = __toESM(require_jsx_dev_runtime(), 1), links3 = (
     crossOrigin: "anonymous"
   }
 ];
-async function loader30({
+async function loader31({
   context: { storefront }
 }) {
   return { layout: await storefront.query(LAYOUT_QUERY), isMockShop: storefront.getApiUrl().includes("mock.shop") };
 }
 var HYDROGEN_SHOP_ID = "gid://shopify/Shop/55145660472";
 function ErrorBoundary3() {
-  return /* @__PURE__ */ (0, import_jsx_dev_runtime54.jsxDEV)(ErrorPage, {}, void 0, !1, {
+  return /* @__PURE__ */ (0, import_jsx_dev_runtime55.jsxDEV)(ErrorPage, {}, void 0, !1, {
     fileName: "node_modules/@shopify/cli-hydrogen/dist/virtual-routes/routes/index.jsx",
     lineNumber: 41,
     columnNumber: 10
@@ -75087,17 +75117,17 @@ function Index() {
     isMockShop: isMockShop2,
     layout: { shop }
   } = useLoaderData2(), { name: shopName, id: shopId } = shop, configDone = shopId !== HYDROGEN_SHOP_ID && !isMockShop2;
-  return (isMockShop2 || !shopName) && (shopName = "Hydrogen"), /* @__PURE__ */ (0, import_jsx_dev_runtime54.jsxDEV)(import_jsx_dev_runtime54.Fragment, { children: /* @__PURE__ */ (0, import_jsx_dev_runtime54.jsxDEV)(Layout3, { shopName, children: [
-    configDone ? /* @__PURE__ */ (0, import_jsx_dev_runtime54.jsxDEV)(HydrogenLogoBaseColor, {}, void 0, !1, {
+  return (isMockShop2 || !shopName) && (shopName = "Hydrogen"), /* @__PURE__ */ (0, import_jsx_dev_runtime55.jsxDEV)(import_jsx_dev_runtime55.Fragment, { children: /* @__PURE__ */ (0, import_jsx_dev_runtime55.jsxDEV)(Layout3, { shopName, children: [
+    configDone ? /* @__PURE__ */ (0, import_jsx_dev_runtime55.jsxDEV)(HydrogenLogoBaseColor, {}, void 0, !1, {
       fileName: "node_modules/@shopify/cli-hydrogen/dist/virtual-routes/routes/index.jsx",
       lineNumber: 53,
       columnNumber: 19
-    }, this) : /* @__PURE__ */ (0, import_jsx_dev_runtime54.jsxDEV)(HydrogenLogoBaseBW, {}, void 0, !1, {
+    }, this) : /* @__PURE__ */ (0, import_jsx_dev_runtime55.jsxDEV)(HydrogenLogoBaseBW, {}, void 0, !1, {
       fileName: "node_modules/@shopify/cli-hydrogen/dist/virtual-routes/routes/index.jsx",
       lineNumber: 53,
       columnNumber: 47
     }, this),
-    /* @__PURE__ */ (0, import_jsx_dev_runtime54.jsxDEV)("h1", { children: [
+    /* @__PURE__ */ (0, import_jsx_dev_runtime55.jsxDEV)("h1", { children: [
       "Hello, ",
       shopName
     ] }, void 0, !0, {
@@ -75105,19 +75135,19 @@ function Index() {
       lineNumber: 54,
       columnNumber: 5
     }, this),
-    /* @__PURE__ */ (0, import_jsx_dev_runtime54.jsxDEV)("p", { children: "Welcome to your new custom storefront" }, void 0, !1, {
+    /* @__PURE__ */ (0, import_jsx_dev_runtime55.jsxDEV)("p", { children: "Welcome to your new custom storefront" }, void 0, !1, {
       fileName: "node_modules/@shopify/cli-hydrogen/dist/virtual-routes/routes/index.jsx",
       lineNumber: 58,
       columnNumber: 5
     }, this),
-    /* @__PURE__ */ (0, import_jsx_dev_runtime54.jsxDEV)("section", { className: "Banner", children: [
-      /* @__PURE__ */ (0, import_jsx_dev_runtime54.jsxDEV)("div", { children: [
-        /* @__PURE__ */ (0, import_jsx_dev_runtime54.jsxDEV)(IconBanner, {}, void 0, !1, {
+    /* @__PURE__ */ (0, import_jsx_dev_runtime55.jsxDEV)("section", { className: "Banner", children: [
+      /* @__PURE__ */ (0, import_jsx_dev_runtime55.jsxDEV)("div", { children: [
+        /* @__PURE__ */ (0, import_jsx_dev_runtime55.jsxDEV)(IconBanner, {}, void 0, !1, {
           fileName: "node_modules/@shopify/cli-hydrogen/dist/virtual-routes/routes/index.jsx",
           lineNumber: 61,
           columnNumber: 9
         }, this),
-        /* @__PURE__ */ (0, import_jsx_dev_runtime54.jsxDEV)("h2", { children: configDone ? "Create your first route" : "Configure storefront token" }, void 0, !1, {
+        /* @__PURE__ */ (0, import_jsx_dev_runtime55.jsxDEV)("h2", { children: configDone ? "Create your first route" : "Configure storefront token" }, void 0, !1, {
           fileName: "node_modules/@shopify/cli-hydrogen/dist/virtual-routes/routes/index.jsx",
           lineNumber: 62,
           columnNumber: 9
@@ -75127,22 +75157,22 @@ function Index() {
         lineNumber: 60,
         columnNumber: 7
       }, this),
-      configDone ? /* @__PURE__ */ (0, import_jsx_dev_runtime54.jsxDEV)("p", { children: [
+      configDone ? /* @__PURE__ */ (0, import_jsx_dev_runtime55.jsxDEV)("p", { children: [
         "You\u2019re seeing this because you don\u2019t have a home route in your project yet. ",
-        /* @__PURE__ */ (0, import_jsx_dev_runtime54.jsxDEV)("br", {}, void 0, !1, {
+        /* @__PURE__ */ (0, import_jsx_dev_runtime55.jsxDEV)("br", {}, void 0, !1, {
           fileName: "node_modules/@shopify/cli-hydrogen/dist/virtual-routes/routes/index.jsx",
           lineNumber: 66,
           columnNumber: 9
         }, this),
         "Run ",
-        /* @__PURE__ */ (0, import_jsx_dev_runtime54.jsxDEV)("code", { children: "h2 generate route home" }, void 0, !1, {
+        /* @__PURE__ */ (0, import_jsx_dev_runtime55.jsxDEV)("code", { children: "h2 generate route home" }, void 0, !1, {
           fileName: "node_modules/@shopify/cli-hydrogen/dist/virtual-routes/routes/index.jsx",
           lineNumber: 68,
           columnNumber: 9
         }, this),
         " to create your home route. Learn more about",
         " ",
-        /* @__PURE__ */ (0, import_jsx_dev_runtime54.jsxDEV)(CreateRoutesLink, {}, void 0, !1, {
+        /* @__PURE__ */ (0, import_jsx_dev_runtime55.jsxDEV)(CreateRoutesLink, {}, void 0, !1, {
           fileName: "node_modules/@shopify/cli-hydrogen/dist/virtual-routes/routes/index.jsx",
           lineNumber: 71,
           columnNumber: 9
@@ -75151,14 +75181,14 @@ function Index() {
         fileName: "node_modules/@shopify/cli-hydrogen/dist/virtual-routes/routes/index.jsx",
         lineNumber: 64,
         columnNumber: 21
-      }, this) : /* @__PURE__ */ (0, import_jsx_dev_runtime54.jsxDEV)("p", { children: [
+      }, this) : /* @__PURE__ */ (0, import_jsx_dev_runtime55.jsxDEV)("p", { children: [
         "You\u2019re seeing this because you have not yet configured your storefront token. ",
-        /* @__PURE__ */ (0, import_jsx_dev_runtime54.jsxDEV)("br", {}, void 0, !1, {
+        /* @__PURE__ */ (0, import_jsx_dev_runtime55.jsxDEV)("br", {}, void 0, !1, {
           fileName: "node_modules/@shopify/cli-hydrogen/dist/virtual-routes/routes/index.jsx",
           lineNumber: 74,
           columnNumber: 9
         }, this),
-        /* @__PURE__ */ (0, import_jsx_dev_runtime54.jsxDEV)("br", {}, void 0, !1, {
+        /* @__PURE__ */ (0, import_jsx_dev_runtime55.jsxDEV)("br", {}, void 0, !1, {
           fileName: "node_modules/@shopify/cli-hydrogen/dist/virtual-routes/routes/index.jsx",
           lineNumber: 75,
           columnNumber: 9
@@ -75166,27 +75196,27 @@ function Index() {
         " To link your store,",
         " ",
         "run ",
-        /* @__PURE__ */ (0, import_jsx_dev_runtime54.jsxDEV)("code", { children: "h2 link && h2 env pull" }, void 0, !1, {
+        /* @__PURE__ */ (0, import_jsx_dev_runtime55.jsxDEV)("code", { children: "h2 link && h2 env pull" }, void 0, !1, {
           fileName: "node_modules/@shopify/cli-hydrogen/dist/virtual-routes/routes/index.jsx",
           lineNumber: 79,
           columnNumber: 9
         }, this),
         ". Then, run",
         " ",
-        /* @__PURE__ */ (0, import_jsx_dev_runtime54.jsxDEV)("code", { children: "h2 generate route home" }, void 0, !1, {
+        /* @__PURE__ */ (0, import_jsx_dev_runtime55.jsxDEV)("code", { children: "h2 generate route home" }, void 0, !1, {
           fileName: "node_modules/@shopify/cli-hydrogen/dist/virtual-routes/routes/index.jsx",
           lineNumber: 82,
           columnNumber: 9
         }, this),
         " to create your first route.",
-        /* @__PURE__ */ (0, import_jsx_dev_runtime54.jsxDEV)("br", {}, void 0, !1, {
+        /* @__PURE__ */ (0, import_jsx_dev_runtime55.jsxDEV)("br", {}, void 0, !1, {
           fileName: "node_modules/@shopify/cli-hydrogen/dist/virtual-routes/routes/index.jsx",
           lineNumber: 84,
           columnNumber: 9
         }, this),
         "Learn more about",
         " ",
-        /* @__PURE__ */ (0, import_jsx_dev_runtime54.jsxDEV)("a", { target: "_blank", rel: "norefferer noopener", href: "https://shopify.dev/docs/custom-storefronts/hydrogen/environment-variables", children: "editing environment variables" }, void 0, !1, {
+        /* @__PURE__ */ (0, import_jsx_dev_runtime55.jsxDEV)("a", { target: "_blank", rel: "norefferer noopener", href: "https://shopify.dev/docs/custom-storefronts/hydrogen/environment-variables", children: "editing environment variables" }, void 0, !1, {
           fileName: "node_modules/@shopify/cli-hydrogen/dist/virtual-routes/routes/index.jsx",
           lineNumber: 87,
           columnNumber: 9
@@ -75194,7 +75224,7 @@ function Index() {
         " ",
         "and",
         " ",
-        /* @__PURE__ */ (0, import_jsx_dev_runtime54.jsxDEV)(CreateRoutesLink, {}, void 0, !1, {
+        /* @__PURE__ */ (0, import_jsx_dev_runtime55.jsxDEV)(CreateRoutesLink, {}, void 0, !1, {
           fileName: "node_modules/@shopify/cli-hydrogen/dist/virtual-routes/routes/index.jsx",
           lineNumber: 91,
           columnNumber: 9
@@ -75210,7 +75240,7 @@ function Index() {
       lineNumber: 59,
       columnNumber: 5
     }, this),
-    /* @__PURE__ */ (0, import_jsx_dev_runtime54.jsxDEV)(ResourcesLinks, {}, void 0, !1, {
+    /* @__PURE__ */ (0, import_jsx_dev_runtime55.jsxDEV)(ResourcesLinks, {}, void 0, !1, {
       fileName: "node_modules/@shopify/cli-hydrogen/dist/virtual-routes/routes/index.jsx",
       lineNumber: 95,
       columnNumber: 5
@@ -75226,37 +75256,37 @@ function Index() {
   }, this);
 }
 function CreateRoutesLink() {
-  return /* @__PURE__ */ (0, import_jsx_dev_runtime54.jsxDEV)("a", { target: "_blank", rel: "norefferer noopener", href: "https://shopify.dev/docs/custom-storefronts/hydrogen/building/begin-development#step-4-create-a-route", children: "creating routes" }, void 0, !1, {
+  return /* @__PURE__ */ (0, import_jsx_dev_runtime55.jsxDEV)("a", { target: "_blank", rel: "norefferer noopener", href: "https://shopify.dev/docs/custom-storefronts/hydrogen/building/begin-development#step-4-create-a-route", children: "creating routes" }, void 0, !1, {
     fileName: "node_modules/@shopify/cli-hydrogen/dist/virtual-routes/routes/index.jsx",
     lineNumber: 99,
     columnNumber: 10
   }, this);
 }
 function ErrorPage() {
-  return /* @__PURE__ */ (0, import_jsx_dev_runtime54.jsxDEV)(import_jsx_dev_runtime54.Fragment, { children: /* @__PURE__ */ (0, import_jsx_dev_runtime54.jsxDEV)(Layout3, { shopName: "Hydrogen", children: [
-    /* @__PURE__ */ (0, import_jsx_dev_runtime54.jsxDEV)(HydrogenLogoBaseBW, {}, void 0, !1, {
+  return /* @__PURE__ */ (0, import_jsx_dev_runtime55.jsxDEV)(import_jsx_dev_runtime55.Fragment, { children: /* @__PURE__ */ (0, import_jsx_dev_runtime55.jsxDEV)(Layout3, { shopName: "Hydrogen", children: [
+    /* @__PURE__ */ (0, import_jsx_dev_runtime55.jsxDEV)(HydrogenLogoBaseBW, {}, void 0, !1, {
       fileName: "node_modules/@shopify/cli-hydrogen/dist/virtual-routes/routes/index.jsx",
       lineNumber: 103,
       columnNumber: 5
     }, this),
-    /* @__PURE__ */ (0, import_jsx_dev_runtime54.jsxDEV)("h1", { children: "Hello, Hydrogen" }, void 0, !1, {
+    /* @__PURE__ */ (0, import_jsx_dev_runtime55.jsxDEV)("h1", { children: "Hello, Hydrogen" }, void 0, !1, {
       fileName: "node_modules/@shopify/cli-hydrogen/dist/virtual-routes/routes/index.jsx",
       lineNumber: 104,
       columnNumber: 5
     }, this),
-    /* @__PURE__ */ (0, import_jsx_dev_runtime54.jsxDEV)("p", { children: "Welcome to your new custom storefront" }, void 0, !1, {
+    /* @__PURE__ */ (0, import_jsx_dev_runtime55.jsxDEV)("p", { children: "Welcome to your new custom storefront" }, void 0, !1, {
       fileName: "node_modules/@shopify/cli-hydrogen/dist/virtual-routes/routes/index.jsx",
       lineNumber: 105,
       columnNumber: 5
     }, this),
-    /* @__PURE__ */ (0, import_jsx_dev_runtime54.jsxDEV)("section", { className: "Banner ErrorBanner", children: [
-      /* @__PURE__ */ (0, import_jsx_dev_runtime54.jsxDEV)("div", { children: [
-        /* @__PURE__ */ (0, import_jsx_dev_runtime54.jsxDEV)(IconError, {}, void 0, !1, {
+    /* @__PURE__ */ (0, import_jsx_dev_runtime55.jsxDEV)("section", { className: "Banner ErrorBanner", children: [
+      /* @__PURE__ */ (0, import_jsx_dev_runtime55.jsxDEV)("div", { children: [
+        /* @__PURE__ */ (0, import_jsx_dev_runtime55.jsxDEV)(IconError, {}, void 0, !1, {
           fileName: "node_modules/@shopify/cli-hydrogen/dist/virtual-routes/routes/index.jsx",
           lineNumber: 108,
           columnNumber: 9
         }, this),
-        /* @__PURE__ */ (0, import_jsx_dev_runtime54.jsxDEV)("h2", { children: "There\u2019s a problem with your storefront" }, void 0, !1, {
+        /* @__PURE__ */ (0, import_jsx_dev_runtime55.jsxDEV)("h2", { children: "There\u2019s a problem with your storefront" }, void 0, !1, {
           fileName: "node_modules/@shopify/cli-hydrogen/dist/virtual-routes/routes/index.jsx",
           lineNumber: 109,
           columnNumber: 9
@@ -75266,16 +75296,16 @@ function ErrorPage() {
         lineNumber: 107,
         columnNumber: 7
       }, this),
-      /* @__PURE__ */ (0, import_jsx_dev_runtime54.jsxDEV)("p", { children: [
+      /* @__PURE__ */ (0, import_jsx_dev_runtime55.jsxDEV)("p", { children: [
         "Check your domain and API token in your ",
-        /* @__PURE__ */ (0, import_jsx_dev_runtime54.jsxDEV)("code", { children: ".env" }, void 0, !1, {
+        /* @__PURE__ */ (0, import_jsx_dev_runtime55.jsxDEV)("code", { children: ".env" }, void 0, !1, {
           fileName: "node_modules/@shopify/cli-hydrogen/dist/virtual-routes/routes/index.jsx",
           lineNumber: 113,
           columnNumber: 9
         }, this),
         " file. Learn more about",
         " ",
-        /* @__PURE__ */ (0, import_jsx_dev_runtime54.jsxDEV)("a", { target: "_blank", rel: "norefferer noopener", href: "https://shopify.dev/docs/custom-storefronts/hydrogen/environment-variables", children: "editing environment variables" }, void 0, !1, {
+        /* @__PURE__ */ (0, import_jsx_dev_runtime55.jsxDEV)("a", { target: "_blank", rel: "norefferer noopener", href: "https://shopify.dev/docs/custom-storefronts/hydrogen/environment-variables", children: "editing environment variables" }, void 0, !1, {
           fileName: "node_modules/@shopify/cli-hydrogen/dist/virtual-routes/routes/index.jsx",
           lineNumber: 116,
           columnNumber: 9
@@ -75291,7 +75321,7 @@ function ErrorPage() {
       lineNumber: 106,
       columnNumber: 5
     }, this),
-    /* @__PURE__ */ (0, import_jsx_dev_runtime54.jsxDEV)(ResourcesLinks, {}, void 0, !1, {
+    /* @__PURE__ */ (0, import_jsx_dev_runtime55.jsxDEV)(ResourcesLinks, {}, void 0, !1, {
       fileName: "node_modules/@shopify/cli-hydrogen/dist/virtual-routes/routes/index.jsx",
       lineNumber: 120,
       columnNumber: 5
@@ -75307,14 +75337,14 @@ function ErrorPage() {
   }, this);
 }
 function ResourcesLinks() {
-  return /* @__PURE__ */ (0, import_jsx_dev_runtime54.jsxDEV)(import_jsx_dev_runtime54.Fragment, { children: /* @__PURE__ */ (0, import_jsx_dev_runtime54.jsxDEV)("section", { className: "Links", children: [
-    /* @__PURE__ */ (0, import_jsx_dev_runtime54.jsxDEV)("h2", { children: "Start building" }, void 0, !1, {
+  return /* @__PURE__ */ (0, import_jsx_dev_runtime55.jsxDEV)(import_jsx_dev_runtime55.Fragment, { children: /* @__PURE__ */ (0, import_jsx_dev_runtime55.jsxDEV)("section", { className: "Links", children: [
+    /* @__PURE__ */ (0, import_jsx_dev_runtime55.jsxDEV)("h2", { children: "Start building" }, void 0, !1, {
       fileName: "node_modules/@shopify/cli-hydrogen/dist/virtual-routes/routes/index.jsx",
       lineNumber: 125,
       columnNumber: 5
     }, this),
-    /* @__PURE__ */ (0, import_jsx_dev_runtime54.jsxDEV)("ul", { children: [
-      /* @__PURE__ */ (0, import_jsx_dev_runtime54.jsxDEV)("li", { children: /* @__PURE__ */ (0, import_jsx_dev_runtime54.jsxDEV)("a", { target: "_blank", rel: "norefferer noopener", href: "https://shopify.dev/custom-storefronts/hydrogen/building/collection-page", children: "Collection template" }, void 0, !1, {
+    /* @__PURE__ */ (0, import_jsx_dev_runtime55.jsxDEV)("ul", { children: [
+      /* @__PURE__ */ (0, import_jsx_dev_runtime55.jsxDEV)("li", { children: /* @__PURE__ */ (0, import_jsx_dev_runtime55.jsxDEV)("a", { target: "_blank", rel: "norefferer noopener", href: "https://shopify.dev/custom-storefronts/hydrogen/building/collection-page", children: "Collection template" }, void 0, !1, {
         fileName: "node_modules/@shopify/cli-hydrogen/dist/virtual-routes/routes/index.jsx",
         lineNumber: 127,
         columnNumber: 11
@@ -75323,7 +75353,7 @@ function ResourcesLinks() {
         lineNumber: 127,
         columnNumber: 7
       }, this),
-      /* @__PURE__ */ (0, import_jsx_dev_runtime54.jsxDEV)("li", { children: /* @__PURE__ */ (0, import_jsx_dev_runtime54.jsxDEV)("a", { target: "_blank", rel: "norefferer noopener", href: "https://shopify.dev/custom-storefronts/hydrogen/building/product-details-page", children: "Product template" }, void 0, !1, {
+      /* @__PURE__ */ (0, import_jsx_dev_runtime55.jsxDEV)("li", { children: /* @__PURE__ */ (0, import_jsx_dev_runtime55.jsxDEV)("a", { target: "_blank", rel: "norefferer noopener", href: "https://shopify.dev/custom-storefronts/hydrogen/building/product-details-page", children: "Product template" }, void 0, !1, {
         fileName: "node_modules/@shopify/cli-hydrogen/dist/virtual-routes/routes/index.jsx",
         lineNumber: 128,
         columnNumber: 11
@@ -75332,7 +75362,7 @@ function ResourcesLinks() {
         lineNumber: 128,
         columnNumber: 7
       }, this),
-      /* @__PURE__ */ (0, import_jsx_dev_runtime54.jsxDEV)("li", { children: /* @__PURE__ */ (0, import_jsx_dev_runtime54.jsxDEV)("a", { target: "_blank", rel: "norefferer noopener", href: "https://shopify.dev/custom-storefronts/hydrogen/building/cart", children: "Cart" }, void 0, !1, {
+      /* @__PURE__ */ (0, import_jsx_dev_runtime55.jsxDEV)("li", { children: /* @__PURE__ */ (0, import_jsx_dev_runtime55.jsxDEV)("a", { target: "_blank", rel: "norefferer noopener", href: "https://shopify.dev/custom-storefronts/hydrogen/building/cart", children: "Cart" }, void 0, !1, {
         fileName: "node_modules/@shopify/cli-hydrogen/dist/virtual-routes/routes/index.jsx",
         lineNumber: 129,
         columnNumber: 11
@@ -75346,13 +75376,13 @@ function ResourcesLinks() {
       lineNumber: 126,
       columnNumber: 5
     }, this),
-    /* @__PURE__ */ (0, import_jsx_dev_runtime54.jsxDEV)("h2", { children: "Resources" }, void 0, !1, {
+    /* @__PURE__ */ (0, import_jsx_dev_runtime55.jsxDEV)("h2", { children: "Resources" }, void 0, !1, {
       fileName: "node_modules/@shopify/cli-hydrogen/dist/virtual-routes/routes/index.jsx",
       lineNumber: 131,
       columnNumber: 5
     }, this),
-    /* @__PURE__ */ (0, import_jsx_dev_runtime54.jsxDEV)("ul", { children: [
-      /* @__PURE__ */ (0, import_jsx_dev_runtime54.jsxDEV)("li", { children: /* @__PURE__ */ (0, import_jsx_dev_runtime54.jsxDEV)("a", { target: "_blank", rel: "norefferer noopener", href: "https://shopify.dev/custom-storefronts/hydrogen", children: "Hydrogen docs" }, void 0, !1, {
+    /* @__PURE__ */ (0, import_jsx_dev_runtime55.jsxDEV)("ul", { children: [
+      /* @__PURE__ */ (0, import_jsx_dev_runtime55.jsxDEV)("li", { children: /* @__PURE__ */ (0, import_jsx_dev_runtime55.jsxDEV)("a", { target: "_blank", rel: "norefferer noopener", href: "https://shopify.dev/custom-storefronts/hydrogen", children: "Hydrogen docs" }, void 0, !1, {
         fileName: "node_modules/@shopify/cli-hydrogen/dist/virtual-routes/routes/index.jsx",
         lineNumber: 133,
         columnNumber: 11
@@ -75361,7 +75391,7 @@ function ResourcesLinks() {
         lineNumber: 133,
         columnNumber: 7
       }, this),
-      /* @__PURE__ */ (0, import_jsx_dev_runtime54.jsxDEV)("li", { children: /* @__PURE__ */ (0, import_jsx_dev_runtime54.jsxDEV)("a", { target: "_blank", rel: "norefferer noopener", href: "https://shopify.dev/custom-storefronts/hydrogen/project-structure", children: "Remix and project structure" }, void 0, !1, {
+      /* @__PURE__ */ (0, import_jsx_dev_runtime55.jsxDEV)("li", { children: /* @__PURE__ */ (0, import_jsx_dev_runtime55.jsxDEV)("a", { target: "_blank", rel: "norefferer noopener", href: "https://shopify.dev/custom-storefronts/hydrogen/project-structure", children: "Remix and project structure" }, void 0, !1, {
         fileName: "node_modules/@shopify/cli-hydrogen/dist/virtual-routes/routes/index.jsx",
         lineNumber: 134,
         columnNumber: 11
@@ -75370,7 +75400,7 @@ function ResourcesLinks() {
         lineNumber: 134,
         columnNumber: 7
       }, this),
-      /* @__PURE__ */ (0, import_jsx_dev_runtime54.jsxDEV)("li", { children: /* @__PURE__ */ (0, import_jsx_dev_runtime54.jsxDEV)("a", { target: "_blank", rel: "norefferer noopener", href: "https://shopify.dev/custom-storefronts/hydrogen/data-fetching/fetch-data", children: "Data queries and fetching" }, void 0, !1, {
+      /* @__PURE__ */ (0, import_jsx_dev_runtime55.jsxDEV)("li", { children: /* @__PURE__ */ (0, import_jsx_dev_runtime55.jsxDEV)("a", { target: "_blank", rel: "norefferer noopener", href: "https://shopify.dev/custom-storefronts/hydrogen/data-fetching/fetch-data", children: "Data queries and fetching" }, void 0, !1, {
         fileName: "node_modules/@shopify/cli-hydrogen/dist/virtual-routes/routes/index.jsx",
         lineNumber: 135,
         columnNumber: 11
@@ -75398,20 +75428,20 @@ function Layout3({
   shopName,
   children
 }) {
-  return /* @__PURE__ */ (0, import_jsx_dev_runtime54.jsxDEV)(import_jsx_dev_runtime54.Fragment, { children: [
-    /* @__PURE__ */ (0, import_jsx_dev_runtime54.jsxDEV)("header", { children: [
-      /* @__PURE__ */ (0, import_jsx_dev_runtime54.jsxDEV)("h1", { children: shopName == null ? void 0 : shopName.toUpperCase() }, void 0, !1, {
+  return /* @__PURE__ */ (0, import_jsx_dev_runtime55.jsxDEV)(import_jsx_dev_runtime55.Fragment, { children: [
+    /* @__PURE__ */ (0, import_jsx_dev_runtime55.jsxDEV)("header", { children: [
+      /* @__PURE__ */ (0, import_jsx_dev_runtime55.jsxDEV)("h1", { children: shopName == null ? void 0 : shopName.toUpperCase() }, void 0, !1, {
         fileName: "node_modules/@shopify/cli-hydrogen/dist/virtual-routes/routes/index.jsx",
         lineNumber: 145,
         columnNumber: 7
       }, this),
-      /* @__PURE__ */ (0, import_jsx_dev_runtime54.jsxDEV)("p", { children: "\xA0Dev Mode\xA0" }, void 0, !1, {
+      /* @__PURE__ */ (0, import_jsx_dev_runtime55.jsxDEV)("p", { children: "\xA0Dev Mode\xA0" }, void 0, !1, {
         fileName: "node_modules/@shopify/cli-hydrogen/dist/virtual-routes/routes/index.jsx",
         lineNumber: 146,
         columnNumber: 7
       }, this),
-      /* @__PURE__ */ (0, import_jsx_dev_runtime54.jsxDEV)("nav", { children: [
-        /* @__PURE__ */ (0, import_jsx_dev_runtime54.jsxDEV)("a", { target: "_blank", rel: "norefferer noopener", href: "https://discord.com/invite/shopifydevs", children: /* @__PURE__ */ (0, import_jsx_dev_runtime54.jsxDEV)(IconDiscord, {}, void 0, !1, {
+      /* @__PURE__ */ (0, import_jsx_dev_runtime55.jsxDEV)("nav", { children: [
+        /* @__PURE__ */ (0, import_jsx_dev_runtime55.jsxDEV)("a", { target: "_blank", rel: "norefferer noopener", href: "https://discord.com/invite/shopifydevs", children: /* @__PURE__ */ (0, import_jsx_dev_runtime55.jsxDEV)(IconDiscord, {}, void 0, !1, {
           fileName: "node_modules/@shopify/cli-hydrogen/dist/virtual-routes/routes/index.jsx",
           lineNumber: 148,
           columnNumber: 100
@@ -75420,7 +75450,7 @@ function Layout3({
           lineNumber: 148,
           columnNumber: 9
         }, this),
-        /* @__PURE__ */ (0, import_jsx_dev_runtime54.jsxDEV)("a", { target: "_blank", rel: "norefferer noopener", href: "https://github.com/Shopify/hydrogen", children: /* @__PURE__ */ (0, import_jsx_dev_runtime54.jsxDEV)(IconGithub, {}, void 0, !1, {
+        /* @__PURE__ */ (0, import_jsx_dev_runtime55.jsxDEV)("a", { target: "_blank", rel: "norefferer noopener", href: "https://github.com/Shopify/hydrogen", children: /* @__PURE__ */ (0, import_jsx_dev_runtime55.jsxDEV)(IconGithub, {}, void 0, !1, {
           fileName: "node_modules/@shopify/cli-hydrogen/dist/virtual-routes/routes/index.jsx",
           lineNumber: 149,
           columnNumber: 97
@@ -75429,7 +75459,7 @@ function Layout3({
           lineNumber: 149,
           columnNumber: 9
         }, this),
-        /* @__PURE__ */ (0, import_jsx_dev_runtime54.jsxDEV)("a", { target: "_blank", rel: "norefferer noopener", href: "https://twitter.com/shopifydevs?lang=en", children: /* @__PURE__ */ (0, import_jsx_dev_runtime54.jsxDEV)(IconTwitter, {}, void 0, !1, {
+        /* @__PURE__ */ (0, import_jsx_dev_runtime55.jsxDEV)("a", { target: "_blank", rel: "norefferer noopener", href: "https://twitter.com/shopifydevs?lang=en", children: /* @__PURE__ */ (0, import_jsx_dev_runtime55.jsxDEV)(IconTwitter, {}, void 0, !1, {
           fileName: "node_modules/@shopify/cli-hydrogen/dist/virtual-routes/routes/index.jsx",
           lineNumber: 150,
           columnNumber: 101
@@ -75448,12 +75478,12 @@ function Layout3({
       lineNumber: 144,
       columnNumber: 5
     }, this),
-    /* @__PURE__ */ (0, import_jsx_dev_runtime54.jsxDEV)("main", { children }, void 0, !1, {
+    /* @__PURE__ */ (0, import_jsx_dev_runtime55.jsxDEV)("main", { children }, void 0, !1, {
       fileName: "node_modules/@shopify/cli-hydrogen/dist/virtual-routes/routes/index.jsx",
       lineNumber: 153,
       columnNumber: 5
     }, this),
-    /* @__PURE__ */ (0, import_jsx_dev_runtime54.jsxDEV)("footer", { children: /* @__PURE__ */ (0, import_jsx_dev_runtime54.jsxDEV)("div", { children: /* @__PURE__ */ (0, import_jsx_dev_runtime54.jsxDEV)("a", { href: "https://shopify.com", target: "_blank", rel: "noreferrer noopener", children: "Powered by Shopify" }, void 0, !1, {
+    /* @__PURE__ */ (0, import_jsx_dev_runtime55.jsxDEV)("footer", { children: /* @__PURE__ */ (0, import_jsx_dev_runtime55.jsxDEV)("div", { children: /* @__PURE__ */ (0, import_jsx_dev_runtime55.jsxDEV)("a", { href: "https://shopify.com", target: "_blank", rel: "noreferrer noopener", children: "Powered by Shopify" }, void 0, !1, {
       fileName: "node_modules/@shopify/cli-hydrogen/dist/virtual-routes/routes/index.jsx",
       lineNumber: 154,
       columnNumber: 18
@@ -75482,7 +75512,7 @@ var LAYOUT_QUERY = `#graphql
 `;
 
 // server-assets-manifest:@remix-run/dev/assets-manifest
-var assets_manifest_default = { entry: { module: "/build/entry.client-HWXT6HWF.js", imports: ["/build/_shared/chunk-FM7TTYIF.js", "/build/_shared/chunk-CFXHHO4K.js", "/build/_shared/chunk-PNG5AS42.js"] }, routes: { root: { id: "root", parentId: void 0, path: "", index: void 0, caseSensitive: void 0, module: "/build/root-AAEYPWVT.js", imports: ["/build/_shared/chunk-IHE2A5ON.js", "/build/_shared/chunk-BGS7F2B5.js", "/build/_shared/chunk-X7MQYMRI.js", "/build/_shared/chunk-2KXI7LON.js", "/build/_shared/chunk-5O7KSPRK.js", "/build/_shared/chunk-DGST5VAI.js", "/build/_shared/chunk-6I5S762C.js", "/build/_shared/chunk-AQMJZ442.js", "/build/_shared/chunk-NNH77UO3.js", "/build/_shared/chunk-D3AIAV2V.js", "/build/_shared/chunk-3G62A2VJ.js", "/build/_shared/chunk-BSZVYZCA.js", "/build/_shared/chunk-VY5OJHMS.js"], hasAction: !1, hasLoader: !0, hasCatchBoundary: !1, hasErrorBoundary: !0 }, "routes/($locale).$": { id: "routes/($locale).$", parentId: "root", path: ":locale?/*", index: void 0, caseSensitive: void 0, module: "/build/routes/($locale).$-DDDRNU3P.js", imports: void 0, hasAction: !1, hasLoader: !0, hasCatchBoundary: !1, hasErrorBoundary: !1 }, "routes/($locale).[sitemap.xml]": { id: "routes/($locale).[sitemap.xml]", parentId: "root", path: ":locale?/sitemap.xml", index: void 0, caseSensitive: void 0, module: "/build/routes/($locale).[sitemap.xml]-H6EIDNVM.js", imports: void 0, hasAction: !1, hasLoader: !0, hasCatchBoundary: !1, hasErrorBoundary: !1 }, "routes/($locale)._index": { id: "routes/($locale)._index", parentId: "root", path: ":locale?", index: !0, caseSensitive: void 0, module: "/build/routes/($locale)._index-FL56BXPN.js", imports: void 0, hasAction: !1, hasLoader: !0, hasCatchBoundary: !1, hasErrorBoundary: !1 }, "routes/($locale).account": { id: "routes/($locale).account", parentId: "root", path: ":locale?/account", index: void 0, caseSensitive: void 0, module: "/build/routes/($locale).account-LSSFFJZI.js", imports: ["/build/_shared/chunk-7M6P6K7X.js"], hasAction: !1, hasLoader: !0, hasCatchBoundary: !1, hasErrorBoundary: !1 }, "routes/($locale).account.$": { id: "routes/($locale).account.$", parentId: "routes/($locale).account", path: "*", index: void 0, caseSensitive: void 0, module: "/build/routes/($locale).account.$-IDA7PP7J.js", imports: void 0, hasAction: !1, hasLoader: !0, hasCatchBoundary: !1, hasErrorBoundary: !1 }, "routes/($locale).account.addresses": { id: "routes/($locale).account.addresses", parentId: "routes/($locale).account", path: "addresses", index: void 0, caseSensitive: void 0, module: "/build/routes/($locale).account.addresses-UW56T35F.js", imports: void 0, hasAction: !0, hasLoader: !0, hasCatchBoundary: !1, hasErrorBoundary: !1 }, "routes/($locale).account.orders.$id": { id: "routes/($locale).account.orders.$id", parentId: "routes/($locale).account", path: "orders/:id", index: void 0, caseSensitive: void 0, module: "/build/routes/($locale).account.orders.$id-P4I3QDMF.js", imports: ["/build/_shared/chunk-VY5OJHMS.js"], hasAction: !1, hasLoader: !0, hasCatchBoundary: !1, hasErrorBoundary: !1 }, "routes/($locale).account.orders._index": { id: "routes/($locale).account.orders._index", parentId: "routes/($locale).account", path: "orders", index: !0, caseSensitive: void 0, module: "/build/routes/($locale).account.orders._index-IBSE6E62.js", imports: ["/build/_shared/chunk-ZPBXTGWZ.js", "/build/_shared/chunk-3G62A2VJ.js", "/build/_shared/chunk-BSZVYZCA.js", "/build/_shared/chunk-VY5OJHMS.js"], hasAction: !1, hasLoader: !0, hasCatchBoundary: !1, hasErrorBoundary: !1 }, "routes/($locale).account.profile": { id: "routes/($locale).account.profile", parentId: "routes/($locale).account", path: "profile", index: void 0, caseSensitive: void 0, module: "/build/routes/($locale).account.profile-NXUTGPGB.js", imports: void 0, hasAction: !0, hasLoader: !0, hasCatchBoundary: !1, hasErrorBoundary: !1 }, "routes/($locale).account_.activate.$id.$activationToken": { id: "routes/($locale).account_.activate.$id.$activationToken", parentId: "root", path: ":locale?/account/activate/:id/:activationToken", index: void 0, caseSensitive: void 0, module: "/build/routes/($locale).account_.activate.$id.$activationToken-TWBKTJHT.js", imports: void 0, hasAction: !0, hasLoader: !0, hasCatchBoundary: !1, hasErrorBoundary: !1 }, "routes/($locale).account_.login": { id: "routes/($locale).account_.login", parentId: "root", path: ":locale?/account/login", index: void 0, caseSensitive: void 0, module: "/build/routes/($locale).account_.login-BCCBUGMG.js", imports: void 0, hasAction: !0, hasLoader: !0, hasCatchBoundary: !1, hasErrorBoundary: !1 }, "routes/($locale).account_.logout": { id: "routes/($locale).account_.logout", parentId: "root", path: ":locale?/account/logout", index: void 0, caseSensitive: void 0, module: "/build/routes/($locale).account_.logout-H6PFS4O4.js", imports: void 0, hasAction: !0, hasLoader: !0, hasCatchBoundary: !1, hasErrorBoundary: !1 }, "routes/($locale).account_.recover": { id: "routes/($locale).account_.recover", parentId: "root", path: ":locale?/account/recover", index: void 0, caseSensitive: void 0, module: "/build/routes/($locale).account_.recover-WPHFFVHS.js", imports: void 0, hasAction: !0, hasLoader: !0, hasCatchBoundary: !1, hasErrorBoundary: !1 }, "routes/($locale).account_.register": { id: "routes/($locale).account_.register", parentId: "root", path: ":locale?/account/register", index: void 0, caseSensitive: void 0, module: "/build/routes/($locale).account_.register-FCZOOCU5.js", imports: void 0, hasAction: !0, hasLoader: !0, hasCatchBoundary: !1, hasErrorBoundary: !1 }, "routes/($locale).account_.reset.$id.$resetToken": { id: "routes/($locale).account_.reset.$id.$resetToken", parentId: "root", path: ":locale?/account/reset/:id/:resetToken", index: void 0, caseSensitive: void 0, module: "/build/routes/($locale).account_.reset.$id.$resetToken-QJ3G3N7V.js", imports: void 0, hasAction: !0, hasLoader: !1, hasCatchBoundary: !1, hasErrorBoundary: !1 }, "routes/($locale).api.predictive-search": { id: "routes/($locale).api.predictive-search", parentId: "root", path: ":locale?/api/predictive-search", index: void 0, caseSensitive: void 0, module: "/build/routes/($locale).api.predictive-search-6SBFKV26.js", imports: void 0, hasAction: !0, hasLoader: !1, hasCatchBoundary: !1, hasErrorBoundary: !1 }, "routes/($locale).blogs.$blogHandle.$articleHandle": { id: "routes/($locale).blogs.$blogHandle.$articleHandle", parentId: "root", path: ":locale?/blogs/:blogHandle/:articleHandle", index: void 0, caseSensitive: void 0, module: "/build/routes/($locale).blogs.$blogHandle.$articleHandle-IIRQXA7S.js", imports: void 0, hasAction: !1, hasLoader: !0, hasCatchBoundary: !1, hasErrorBoundary: !1 }, "routes/($locale).blogs.$blogHandle._index": { id: "routes/($locale).blogs.$blogHandle._index", parentId: "root", path: ":locale?/blogs/:blogHandle", index: !0, caseSensitive: void 0, module: "/build/routes/($locale).blogs.$blogHandle._index-U4FIVITR.js", imports: void 0, hasAction: !1, hasLoader: !0, hasCatchBoundary: !1, hasErrorBoundary: !1 }, "routes/($locale).blogs._index": { id: "routes/($locale).blogs._index", parentId: "root", path: ":locale?/blogs", index: !0, caseSensitive: void 0, module: "/build/routes/($locale).blogs._index-6FNJVY6E.js", imports: void 0, hasAction: !1, hasLoader: !0, hasCatchBoundary: !1, hasErrorBoundary: !1 }, "routes/($locale).cart": { id: "routes/($locale).cart", parentId: "root", path: ":locale?/cart", index: void 0, caseSensitive: void 0, module: "/build/routes/($locale).cart-V6PV73LE.js", imports: ["/build/_shared/chunk-H7TBV3YY.js"], hasAction: !0, hasLoader: !0, hasCatchBoundary: !1, hasErrorBoundary: !1 }, "routes/($locale).collections.$handle": { id: "routes/($locale).collections.$handle", parentId: "root", path: ":locale?/collections/:handle", index: void 0, caseSensitive: void 0, module: "/build/routes/($locale).collections.$handle-NGQIHFEC.js", imports: ["/build/_shared/chunk-ZPBXTGWZ.js"], hasAction: !1, hasLoader: !0, hasCatchBoundary: !1, hasErrorBoundary: !1 }, "routes/($locale).collections._index": { id: "routes/($locale).collections._index", parentId: "root", path: ":locale?/collections", index: !0, caseSensitive: void 0, module: "/build/routes/($locale).collections._index-3INPTDT3.js", imports: void 0, hasAction: !1, hasLoader: !0, hasCatchBoundary: !1, hasErrorBoundary: !1 }, "routes/($locale).offers": { id: "routes/($locale).offers", parentId: "root", path: ":locale?/offers", index: void 0, caseSensitive: void 0, module: "/build/routes/($locale).offers-PNLK3VAV.js", imports: void 0, hasAction: !1, hasLoader: !0, hasCatchBoundary: !1, hasErrorBoundary: !1 }, "routes/($locale).pages.$handle": { id: "routes/($locale).pages.$handle", parentId: "root", path: ":locale?/pages/:handle", index: void 0, caseSensitive: void 0, module: "/build/routes/($locale).pages.$handle-3ZFF5BDI.js", imports: void 0, hasAction: !1, hasLoader: !0, hasCatchBoundary: !1, hasErrorBoundary: !1 }, "routes/($locale).policies.$handle": { id: "routes/($locale).policies.$handle", parentId: "root", path: ":locale?/policies/:handle", index: void 0, caseSensitive: void 0, module: "/build/routes/($locale).policies.$handle-XO72JGCK.js", imports: void 0, hasAction: !1, hasLoader: !0, hasCatchBoundary: !1, hasErrorBoundary: !1 }, "routes/($locale).policies._index": { id: "routes/($locale).policies._index", parentId: "root", path: ":locale?/policies", index: !0, caseSensitive: void 0, module: "/build/routes/($locale).policies._index-C4O43EB5.js", imports: void 0, hasAction: !1, hasLoader: !0, hasCatchBoundary: !1, hasErrorBoundary: !1 }, "routes/($locale).products.$handle": { id: "routes/($locale).products.$handle", parentId: "root", path: ":locale?/products/:handle", index: void 0, caseSensitive: void 0, module: "/build/routes/($locale).products.$handle-RJK3WWRS.js", imports: ["/build/_shared/chunk-H7TBV3YY.js"], hasAction: !1, hasLoader: !0, hasCatchBoundary: !1, hasErrorBoundary: !1 }, "routes/($locale).search": { id: "routes/($locale).search", parentId: "root", path: ":locale?/search", index: void 0, caseSensitive: void 0, module: "/build/routes/($locale).search-7IV5RXRF.js", imports: void 0, hasAction: !1, hasLoader: !0, hasCatchBoundary: !1, hasErrorBoundary: !1 }, "routes/[robots.txt]": { id: "routes/[robots.txt]", parentId: "root", path: "robots.txt", index: void 0, caseSensitive: void 0, module: "/build/routes/[robots.txt]-OU6DB2IP.js", imports: void 0, hasAction: !1, hasLoader: !0, hasCatchBoundary: !1, hasErrorBoundary: !0 }, "virtual-routes/routes/graphiql": { id: "virtual-routes/routes/graphiql", parentId: "virtual-routes/virtual-root", path: "graphiql", index: void 0, caseSensitive: void 0, module: "/build/virtual-routes/routes/graphiql-IUV5DDHT.js", imports: void 0, hasAction: !1, hasLoader: !0, hasCatchBoundary: !1, hasErrorBoundary: !1 }, "virtual-routes/routes/index": { id: "virtual-routes/routes/index", parentId: "virtual-routes/virtual-root", path: void 0, index: !0, caseSensitive: void 0, module: "/build/virtual-routes/routes/index-53PT7KYB.js", imports: void 0, hasAction: !1, hasLoader: !0, hasCatchBoundary: !1, hasErrorBoundary: !0 }, "virtual-routes/virtual-root": { id: "virtual-routes/virtual-root", parentId: void 0, path: "", index: void 0, caseSensitive: void 0, module: "/build/virtual-routes/virtual-root-OBQMRAOA.js", imports: ["/build/_shared/chunk-Z7RIBLB2.js"], hasAction: !1, hasLoader: !1, hasCatchBoundary: !1, hasErrorBoundary: !1 } }, version: "4228975a", hmr: void 0, url: "/build/manifest-4228975A.js" };
+var assets_manifest_default = { entry: { module: "/build/entry.client-HWXT6HWF.js", imports: ["/build/_shared/chunk-FM7TTYIF.js", "/build/_shared/chunk-CFXHHO4K.js", "/build/_shared/chunk-PNG5AS42.js"] }, routes: { root: { id: "root", parentId: void 0, path: "", index: void 0, caseSensitive: void 0, module: "/build/root-CLOBM2VJ.js", imports: ["/build/_shared/chunk-IHE2A5ON.js", "/build/_shared/chunk-BGS7F2B5.js", "/build/_shared/chunk-X7MQYMRI.js", "/build/_shared/chunk-2KXI7LON.js", "/build/_shared/chunk-5O7KSPRK.js", "/build/_shared/chunk-DGST5VAI.js", "/build/_shared/chunk-6I5S762C.js", "/build/_shared/chunk-AQMJZ442.js", "/build/_shared/chunk-NNH77UO3.js", "/build/_shared/chunk-D3AIAV2V.js", "/build/_shared/chunk-3G62A2VJ.js", "/build/_shared/chunk-BSZVYZCA.js", "/build/_shared/chunk-VY5OJHMS.js"], hasAction: !1, hasLoader: !0, hasCatchBoundary: !1, hasErrorBoundary: !0 }, "routes/($locale).$": { id: "routes/($locale).$", parentId: "root", path: ":locale?/*", index: void 0, caseSensitive: void 0, module: "/build/routes/($locale).$-DDDRNU3P.js", imports: void 0, hasAction: !1, hasLoader: !0, hasCatchBoundary: !1, hasErrorBoundary: !1 }, "routes/($locale).[sitemap.xml]": { id: "routes/($locale).[sitemap.xml]", parentId: "root", path: ":locale?/sitemap.xml", index: void 0, caseSensitive: void 0, module: "/build/routes/($locale).[sitemap.xml]-H6EIDNVM.js", imports: void 0, hasAction: !1, hasLoader: !0, hasCatchBoundary: !1, hasErrorBoundary: !1 }, "routes/($locale)._index": { id: "routes/($locale)._index", parentId: "root", path: ":locale?", index: !0, caseSensitive: void 0, module: "/build/routes/($locale)._index-RSILCK2W.js", imports: void 0, hasAction: !1, hasLoader: !0, hasCatchBoundary: !1, hasErrorBoundary: !1 }, "routes/($locale).account": { id: "routes/($locale).account", parentId: "root", path: ":locale?/account", index: void 0, caseSensitive: void 0, module: "/build/routes/($locale).account-LSSFFJZI.js", imports: ["/build/_shared/chunk-7M6P6K7X.js"], hasAction: !1, hasLoader: !0, hasCatchBoundary: !1, hasErrorBoundary: !1 }, "routes/($locale).account.$": { id: "routes/($locale).account.$", parentId: "routes/($locale).account", path: "*", index: void 0, caseSensitive: void 0, module: "/build/routes/($locale).account.$-IDA7PP7J.js", imports: void 0, hasAction: !1, hasLoader: !0, hasCatchBoundary: !1, hasErrorBoundary: !1 }, "routes/($locale).account.addresses": { id: "routes/($locale).account.addresses", parentId: "routes/($locale).account", path: "addresses", index: void 0, caseSensitive: void 0, module: "/build/routes/($locale).account.addresses-UW56T35F.js", imports: void 0, hasAction: !0, hasLoader: !0, hasCatchBoundary: !1, hasErrorBoundary: !1 }, "routes/($locale).account.orders.$id": { id: "routes/($locale).account.orders.$id", parentId: "routes/($locale).account", path: "orders/:id", index: void 0, caseSensitive: void 0, module: "/build/routes/($locale).account.orders.$id-P4I3QDMF.js", imports: ["/build/_shared/chunk-VY5OJHMS.js"], hasAction: !1, hasLoader: !0, hasCatchBoundary: !1, hasErrorBoundary: !1 }, "routes/($locale).account.orders._index": { id: "routes/($locale).account.orders._index", parentId: "routes/($locale).account", path: "orders", index: !0, caseSensitive: void 0, module: "/build/routes/($locale).account.orders._index-IBSE6E62.js", imports: ["/build/_shared/chunk-ZPBXTGWZ.js", "/build/_shared/chunk-3G62A2VJ.js", "/build/_shared/chunk-BSZVYZCA.js", "/build/_shared/chunk-VY5OJHMS.js"], hasAction: !1, hasLoader: !0, hasCatchBoundary: !1, hasErrorBoundary: !1 }, "routes/($locale).account.profile": { id: "routes/($locale).account.profile", parentId: "routes/($locale).account", path: "profile", index: void 0, caseSensitive: void 0, module: "/build/routes/($locale).account.profile-NXUTGPGB.js", imports: void 0, hasAction: !0, hasLoader: !0, hasCatchBoundary: !1, hasErrorBoundary: !1 }, "routes/($locale).account_.activate.$id.$activationToken": { id: "routes/($locale).account_.activate.$id.$activationToken", parentId: "root", path: ":locale?/account/activate/:id/:activationToken", index: void 0, caseSensitive: void 0, module: "/build/routes/($locale).account_.activate.$id.$activationToken-TWBKTJHT.js", imports: void 0, hasAction: !0, hasLoader: !0, hasCatchBoundary: !1, hasErrorBoundary: !1 }, "routes/($locale).account_.login": { id: "routes/($locale).account_.login", parentId: "root", path: ":locale?/account/login", index: void 0, caseSensitive: void 0, module: "/build/routes/($locale).account_.login-BCCBUGMG.js", imports: void 0, hasAction: !0, hasLoader: !0, hasCatchBoundary: !1, hasErrorBoundary: !1 }, "routes/($locale).account_.logout": { id: "routes/($locale).account_.logout", parentId: "root", path: ":locale?/account/logout", index: void 0, caseSensitive: void 0, module: "/build/routes/($locale).account_.logout-H6PFS4O4.js", imports: void 0, hasAction: !0, hasLoader: !0, hasCatchBoundary: !1, hasErrorBoundary: !1 }, "routes/($locale).account_.recover": { id: "routes/($locale).account_.recover", parentId: "root", path: ":locale?/account/recover", index: void 0, caseSensitive: void 0, module: "/build/routes/($locale).account_.recover-WPHFFVHS.js", imports: void 0, hasAction: !0, hasLoader: !0, hasCatchBoundary: !1, hasErrorBoundary: !1 }, "routes/($locale).account_.register": { id: "routes/($locale).account_.register", parentId: "root", path: ":locale?/account/register", index: void 0, caseSensitive: void 0, module: "/build/routes/($locale).account_.register-FCZOOCU5.js", imports: void 0, hasAction: !0, hasLoader: !0, hasCatchBoundary: !1, hasErrorBoundary: !1 }, "routes/($locale).account_.reset.$id.$resetToken": { id: "routes/($locale).account_.reset.$id.$resetToken", parentId: "root", path: ":locale?/account/reset/:id/:resetToken", index: void 0, caseSensitive: void 0, module: "/build/routes/($locale).account_.reset.$id.$resetToken-QJ3G3N7V.js", imports: void 0, hasAction: !0, hasLoader: !1, hasCatchBoundary: !1, hasErrorBoundary: !1 }, "routes/($locale).api.predictive-search": { id: "routes/($locale).api.predictive-search", parentId: "root", path: ":locale?/api/predictive-search", index: void 0, caseSensitive: void 0, module: "/build/routes/($locale).api.predictive-search-6SBFKV26.js", imports: void 0, hasAction: !0, hasLoader: !1, hasCatchBoundary: !1, hasErrorBoundary: !1 }, "routes/($locale).blogs.$blogHandle.$articleHandle": { id: "routes/($locale).blogs.$blogHandle.$articleHandle", parentId: "root", path: ":locale?/blogs/:blogHandle/:articleHandle", index: void 0, caseSensitive: void 0, module: "/build/routes/($locale).blogs.$blogHandle.$articleHandle-IIRQXA7S.js", imports: void 0, hasAction: !1, hasLoader: !0, hasCatchBoundary: !1, hasErrorBoundary: !1 }, "routes/($locale).blogs.$blogHandle._index": { id: "routes/($locale).blogs.$blogHandle._index", parentId: "root", path: ":locale?/blogs/:blogHandle", index: !0, caseSensitive: void 0, module: "/build/routes/($locale).blogs.$blogHandle._index-U4FIVITR.js", imports: void 0, hasAction: !1, hasLoader: !0, hasCatchBoundary: !1, hasErrorBoundary: !1 }, "routes/($locale).blogs._index": { id: "routes/($locale).blogs._index", parentId: "root", path: ":locale?/blogs", index: !0, caseSensitive: void 0, module: "/build/routes/($locale).blogs._index-6FNJVY6E.js", imports: void 0, hasAction: !1, hasLoader: !0, hasCatchBoundary: !1, hasErrorBoundary: !1 }, "routes/($locale).cart": { id: "routes/($locale).cart", parentId: "root", path: ":locale?/cart", index: void 0, caseSensitive: void 0, module: "/build/routes/($locale).cart-V6PV73LE.js", imports: ["/build/_shared/chunk-H7TBV3YY.js"], hasAction: !0, hasLoader: !0, hasCatchBoundary: !1, hasErrorBoundary: !1 }, "routes/($locale).collections.$handle": { id: "routes/($locale).collections.$handle", parentId: "root", path: ":locale?/collections/:handle", index: void 0, caseSensitive: void 0, module: "/build/routes/($locale).collections.$handle-NGQIHFEC.js", imports: ["/build/_shared/chunk-ZPBXTGWZ.js"], hasAction: !1, hasLoader: !0, hasCatchBoundary: !1, hasErrorBoundary: !1 }, "routes/($locale).collections._index": { id: "routes/($locale).collections._index", parentId: "root", path: ":locale?/collections", index: !0, caseSensitive: void 0, module: "/build/routes/($locale).collections._index-3INPTDT3.js", imports: void 0, hasAction: !1, hasLoader: !0, hasCatchBoundary: !1, hasErrorBoundary: !1 }, "routes/($locale).lookbook.$id": { id: "routes/($locale).lookbook.$id", parentId: "root", path: ":locale?/lookbook/:id", index: void 0, caseSensitive: void 0, module: "/build/routes/($locale).lookbook.$id-OMMVUMLS.js", imports: void 0, hasAction: !1, hasLoader: !0, hasCatchBoundary: !1, hasErrorBoundary: !1 }, "routes/($locale).offers": { id: "routes/($locale).offers", parentId: "root", path: ":locale?/offers", index: void 0, caseSensitive: void 0, module: "/build/routes/($locale).offers-PNLK3VAV.js", imports: void 0, hasAction: !1, hasLoader: !0, hasCatchBoundary: !1, hasErrorBoundary: !1 }, "routes/($locale).pages.$handle": { id: "routes/($locale).pages.$handle", parentId: "root", path: ":locale?/pages/:handle", index: void 0, caseSensitive: void 0, module: "/build/routes/($locale).pages.$handle-C7HM3UTA.js", imports: void 0, hasAction: !1, hasLoader: !0, hasCatchBoundary: !1, hasErrorBoundary: !1 }, "routes/($locale).policies.$handle": { id: "routes/($locale).policies.$handle", parentId: "root", path: ":locale?/policies/:handle", index: void 0, caseSensitive: void 0, module: "/build/routes/($locale).policies.$handle-XO72JGCK.js", imports: void 0, hasAction: !1, hasLoader: !0, hasCatchBoundary: !1, hasErrorBoundary: !1 }, "routes/($locale).policies._index": { id: "routes/($locale).policies._index", parentId: "root", path: ":locale?/policies", index: !0, caseSensitive: void 0, module: "/build/routes/($locale).policies._index-C4O43EB5.js", imports: void 0, hasAction: !1, hasLoader: !0, hasCatchBoundary: !1, hasErrorBoundary: !1 }, "routes/($locale).products.$handle": { id: "routes/($locale).products.$handle", parentId: "root", path: ":locale?/products/:handle", index: void 0, caseSensitive: void 0, module: "/build/routes/($locale).products.$handle-RJK3WWRS.js", imports: ["/build/_shared/chunk-H7TBV3YY.js"], hasAction: !1, hasLoader: !0, hasCatchBoundary: !1, hasErrorBoundary: !1 }, "routes/($locale).search": { id: "routes/($locale).search", parentId: "root", path: ":locale?/search", index: void 0, caseSensitive: void 0, module: "/build/routes/($locale).search-7IV5RXRF.js", imports: void 0, hasAction: !1, hasLoader: !0, hasCatchBoundary: !1, hasErrorBoundary: !1 }, "routes/[robots.txt]": { id: "routes/[robots.txt]", parentId: "root", path: "robots.txt", index: void 0, caseSensitive: void 0, module: "/build/routes/[robots.txt]-OU6DB2IP.js", imports: void 0, hasAction: !1, hasLoader: !0, hasCatchBoundary: !1, hasErrorBoundary: !0 }, "virtual-routes/routes/graphiql": { id: "virtual-routes/routes/graphiql", parentId: "virtual-routes/virtual-root", path: "graphiql", index: void 0, caseSensitive: void 0, module: "/build/virtual-routes/routes/graphiql-IUV5DDHT.js", imports: void 0, hasAction: !1, hasLoader: !0, hasCatchBoundary: !1, hasErrorBoundary: !1 }, "virtual-routes/routes/index": { id: "virtual-routes/routes/index", parentId: "virtual-routes/virtual-root", path: void 0, index: !0, caseSensitive: void 0, module: "/build/virtual-routes/routes/index-53PT7KYB.js", imports: void 0, hasAction: !1, hasLoader: !0, hasCatchBoundary: !1, hasErrorBoundary: !0 }, "virtual-routes/virtual-root": { id: "virtual-routes/virtual-root", parentId: void 0, path: "", index: void 0, caseSensitive: void 0, module: "/build/virtual-routes/virtual-root-OBQMRAOA.js", imports: ["/build/_shared/chunk-Z7RIBLB2.js"], hasAction: !1, hasLoader: !1, hasCatchBoundary: !1, hasErrorBoundary: !1 } }, version: "745a08a0", hmr: void 0, url: "/build/manifest-745A08A0.js" };
 
 // server-entry-module:@remix-run/dev/server-build
 var assetsBuildDirectory = "dist/client/build", future = { v2_dev: !1, unstable_postcss: !1, unstable_tailwind: !1, v2_errorBoundary: !0, v2_headers: !0, v2_meta: !0, v2_normalizeFormMethod: !0, v2_routeConvention: !0 }, publicPath = "/build/", entry = { module: entry_server_exports }, routes = {
@@ -75661,6 +75691,14 @@ var assetsBuildDirectory = "dist/client/build", future = { v2_dev: !1, unstable_
     index: !0,
     caseSensitive: void 0,
     module: locale_blogs_index_exports
+  },
+  "routes/($locale).lookbook.$id": {
+    id: "routes/($locale).lookbook.$id",
+    parentId: "root",
+    path: ":locale?/lookbook/:id",
+    index: void 0,
+    caseSensitive: void 0,
+    module: locale_lookbook_id_exports
   },
   "routes/($locale).account.$": {
     id: "routes/($locale).account.$",

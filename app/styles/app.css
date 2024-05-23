@@ -17,6 +17,7 @@
 * components/Aside
 * --------------------------------------------------
 */
+.js-stl__product__add-to-cart{ display: none !important;}
 .slider-container {
   max-width: 100vw;
   width: 100%;

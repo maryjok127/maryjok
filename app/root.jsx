@@ -108,7 +108,7 @@ export default function App() {
         />
         <Meta />
         <Links />
-        <script src="../lookbook.js"></script>
+        {/* <script src="../lookbook.js"></script> */}
       </head>
       <body>
         <OkendoProvider
