@@ -96,30 +96,29 @@ export default function App() {
         <title>Mary Jo K</title>
         <link rel="icon" type="image/x-icon" href="/favicon.png" />
         <link
-  rel="stylesheet"
-  type="text/css"
-  charset="UTF-8"
-  href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.6.0/slick.min.css"
-/>
-<link
-  rel="stylesheet"
-  type="text/css"
-  href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.6.0/slick-theme.min.css"
-/>
+          rel="stylesheet"
+          type="text/css"
+          charset="UTF-8"
+          href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.6.0/slick.min.css"
+        />
+        <link
+          rel="stylesheet"
+          type="text/css"
+          href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.6.0/slick-theme.min.css"
+        />
         <Meta />
         <Links />
+        <script src="../lookbook.js"></script>
       </head>
       <body>
         <OkendoProvider
           okendoProviderData={data.okendoProviderData}
         />
         <Layout {...data}>
-          <Outlet />
-          
+        <Outlet />
         </Layout>
         <ScrollRestoration />
-
-  <Scripts />
+        <Scripts />
       {/*
       <Navbar />
       <Example></Example>
