@@ -17,6 +17,9 @@
 * components/Aside
 * --------------------------------------------------
 */
+.ctl-cell-wrapper.is-sticky-bottom .ctl-cell-asset{
+  align-self: flex-start !important;
+}
 .ctl-title{
   padding: 10px 0;
   margin-bottom: 0;
