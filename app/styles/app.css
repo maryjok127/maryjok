@@ -17,6 +17,7 @@
 * components/Aside
 * --------------------------------------------------
 */
+.ctl-product-component{ min-width: unset !important;}
 .ctl-cell-wrapper.is-sticky-bottom .ctl-cell-asset{
   align-self: flex-start !important;
 }
