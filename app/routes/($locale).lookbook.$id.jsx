@@ -17,7 +17,7 @@ export default function LookBook() {
         setId(lookbook_id);
     },[])
     return (
-      <div className="page m-12">
+      <div className="page">
         <script src={`https://shopify.shopthelook.app/shopthelook.js?shop=15f63f.myshopify.com&widget=1&mainProductId=${lookbook_id}`}></script>
         <script src="../lookbook.js"></script>
         <div class="ShopTheLook-section" data-product-id={p_id}></div>

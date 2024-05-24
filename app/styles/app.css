@@ -17,6 +17,10 @@
 * components/Aside
 * --------------------------------------------------
 */
+.ctl-title{
+  padding: 10px 0;
+  margin-bottom: 0;
+}
 .js-stl__product__add-to-cart{ display: none !important;}
 .slider-container {
   max-width: 100vw;
