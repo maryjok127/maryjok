@@ -610,8 +610,8 @@ function ProductOptions({option,activeImg,closeRef,setActiveImage,selectedVarian
 }
 
 function AddToCartButton({analytics, children, disabled, lines, onClick}) {
-  const [amount, setAmount] = useState(1);
-  lines[0].quantity = amount;
+  const [qty, setQty] = useState(1);
+  lines[0].quantity = qty;
   //console.log("AddToCartButton variant_id::",lines);
   return (
     <>
@@ -632,23 +632,23 @@ function AddToCartButton({analytics, children, disabled, lines, onClick}) {
                 className="flex flex-row items-center py-[6px] px-[8px] rounded-xl"
                 style={{border: '1px solid #000', background: 'white'}}
               >
-                <button
+                <a
                   className=" text-xl"
                   onClick={() => {
-                    if (amount != 0) {
-                      setAmount((prev) => prev - 1);
+                    if (qty != 0) {
+                      setQty((prev) => prev - 1);
                     }
                   }}
                 >
                   -
-                </button>
-                <span className="px-4">{amount}</span>
-                <button
+                </a>
+                <span className="px-4">{qty}</span>
+                <a
                   className=" text-xl"
-                  onClick={() => setAmount((prev) => prev + 1)}
+                  onClick={() => setQty((prev) => prev + 1)}
                 >
                   +
-                </button>
+                </a>
               </div>
               <button
                 className="w-[150px] h-11 bg-black hover:bg-blue-700 text-white font-bold py-1 px-4 rounded-lg product-cart-btn"
@@ -660,42 +660,12 @@ function AddToCartButton({analytics, children, disabled, lines, onClick}) {
               </button>
             </div>
           </>
-        )}
+        )} 
       </CartForm>
-      {/* <p
-        className="lg:mt-6"
-        style={{width: '100%', borderBottom: '1px dashed #bdbdbd'}}
-      ></p> */}
-      {/* <div className="mt-2">
-        <img src="/BrandBand.svg" alt="brand" />
-      </div>
-      <p
-        className="mt-2"
-        style={{width: '100%', borderBottom: '1px dashed #bdbdbd'}}
-      ></p> */}
     </>
   );
 }
 
-function ProductVariantColrousel(product) {
-  return (
-    <div>
-      <ul className="space-y-2">
-        <li>
-          <a href="#" className="text-blue-500 hover:underline">
-            {/* {product.product.images.edges.map((url)=>(
-            <img src={url.node.url} ></img>
-          ))}*/}
-            {/*console.log(product.product.images)*/}
-            {product.product.variants.nodes.map((url) => (
-              <img src={url.image.url}></img>
-            ))}
-          </a>
-        </li>
-      </ul>
-    </div>
-  );
-}
 function RecommendedProducts({products, title}) {
   return (
     <>

@@ -52,7 +52,7 @@ function CartLineItem({layout, line}) {
   const {id, merchandise} = line;
   const {product, title, image, selectedOptions} = merchandise;
   const lineItemUrl = useVariantUrl(product.handle, selectedOptions);
-  //console.log('sahil data', {selectedOptions});
+  console.log('CartLineItem ::', {line});
 
   return (
     <li key={id} className="cart-line">
