@@ -1,19 +1,7 @@
 import {Await, NavLink, useMatches} from '@remix-run/react';
-import React, {useState} from 'react';
 import {TERipple} from 'tw-elements-react';
 import {Suspense} from 'react';
 import {useMediaQuery} from 'react-responsive';
-//import Navbar from "./Navbar/Navbar";
-//import {PredictiveSearchForm, SearchForm} from '~/components/Search'
-import {
-  Navbar,
-  MobileNav,
-  Typography,
-  Button,
-  IconButton,
-  Input,
-} from '@material-tailwind/react';
-import SearchComponent from '~/components/SearchComponent';
 import {
   PredictiveSearchForm,
   PredictiveSearchResults,
@@ -21,7 +9,6 @@ import {
 
 export function Header({header, isLoggedIn, cart}) {
   const {shop, menu} = header;
-  //console.log(header.menu)
   const isLargeScreen = useMediaQuery({minWidth: 1024});
   return (
     <>
@@ -171,9 +158,9 @@ export function HeaderMenu({menu, viewport}) {
             {item.items.length > 0 && (
               <div className="absolute left-16 z-20 sm:left-0 sm:z-20 md:left-0 hidden w-48 bg-white border border-gray-300 divide-y divide-gray-200 rounded-lg shadow-lg group-hover:block">
                 <div className="py-1 group-hover:block">
-                  {item.items.map((it) => (
+                  {item.items.map((it,index) => (
                     <a
-                      href={getPath(it.url)}
+                      key={`menu_${index}`} href={getPath(it.url)}
                       className="menu block px-4 py-2 text-gray-800 hover:bg-gray-100 group-hover:block hover:opacity-100"
                     >
                     {it.title}

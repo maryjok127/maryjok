@@ -118,9 +118,9 @@ const ImageCarousel = () => {
     <div className="relative">
       <Slider {...settings}>
         {
-          imageSrc.map((item)=>(
+          imageSrc.map((item,index)=>(
             <>
-              <img
+              <img key={`img_crsl_${index}`}
               onClick={()=> goToCollection(item.url) }
               className={`lg:w-full md:w-full cursor-pointer sm:w-full object-cover ${isSmall ? 'rounded-2xl' : '' } w-[100%]`}
               src={item.img}

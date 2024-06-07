@@ -25,7 +25,9 @@
   padding: 10px 0;
   margin-bottom: 0;
 }
-.js-stl__product__add-to-cart{ display: none !important;}
+.shopthelook_variants { display: none !important; }
+.js-stl__product__add-to-cart{ display: none !important;} 
+.mst_cart_btn{ padding: 10px; margin: 10px 0; border:1px solid; font-size: 14px;}
 .slider-container {
   max-width: 100vw;
   width: 100%;
@@ -275,7 +277,7 @@ footer{
 */
 .cart-main {
   height: 100%;
-  max-height: calc(100vh - var(--cart-aside-summary-height));
+  
   overflow: auto;
   width: auto;
   padding-bottom: 20px;

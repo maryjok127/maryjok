@@ -159,7 +159,7 @@ export default function Homepage() {
           {collectionArrayStatic?.map((item, index) => (
             <div
               className="col-item sm:w-auto  rounded-lg hover:shadow-md cursor-pointer"
-              key={index}
+              key={`coll_crsl_${index}`}
             >
               <div className="image">
                 <NavLink to={`/collections/${item.url}`}>

@@ -44,9 +44,9 @@ export function Footer({menu}) {
                 {
                 menu.items.length && menu.items.map((cat,indexx)=>{
                   return(
-                    <>
-                    { cat.items.length && viewLinksArr.indexOf(cat.title) >= 0  ?
                     <div key={`wrapper_sub_menu_${indexx}`}>
+                    { cat.items.length && viewLinksArr.indexOf(cat.title) >= 0  ?
+                    <div>
                       <div className='footer_link_title'>{ cat.title }</div>
                       <div>
                         { cat.items.map((subMenu,index)=>{ 
@@ -59,7 +59,7 @@ export function Footer({menu}) {
                     </div>
                     : null
                     }
-                  </>
+                  </div>
                 )
               })
             }

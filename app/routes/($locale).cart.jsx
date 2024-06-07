@@ -46,13 +46,10 @@ export async function action({request, context}) {
       break;
     case CartForm.ACTIONS.DiscountCodesUpdate: {
       const formDiscountCode = inputs.discountCode;
-
       // User inputted discount code
       const discountCodes = formDiscountCode ? [formDiscountCode] : [];
-
       // Combine discount codes already applied on cart
       discountCodes.push(...inputs.discountCodes);
-
       result = await cart.updateDiscountCodes(discountCodes);
       break;
     }
