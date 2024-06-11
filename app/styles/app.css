@@ -270,6 +270,10 @@ footer{
   color: var(--color-light);
 }
 
+.footer-contact div:empty{
+  display: none;
+}
+
 /*
 * --------------------------------------------------
 * components/Cart
