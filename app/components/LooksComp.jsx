@@ -8,8 +8,11 @@ const LooksComp = ({looks})=>{
     }
     var products = looks.length ?looks[0].products.edges : [];
     return(
-        <div className="looks">
-            <h1 className="uppercase text-center font-semibold my-[15px]"> L.I.T : Looks In Trend </h1>
+        <div className="md:px-4 pb-4 lg:px-24">
+             <h1 className="uppercase text-center font-semibold my-[15px]"> L.I.T : Looks In Trend </h1>
+             <div  className="mst-slider"></div>
+             <div id="sg-app" className="mst-gallery-root"></div>
+            {/* 
             <div className="grid grid-cols-2 sm:grid-cols-4 gap-4 sm:grid-cols-4 md:px-4 pb-4 lg:px-24">
                 {
                     products.map((product,index)=>{
@@ -21,7 +24,7 @@ const LooksComp = ({looks})=>{
                         )
                     })
                 }
-            </div>
+            </div> */}
         </div>
     )
 }

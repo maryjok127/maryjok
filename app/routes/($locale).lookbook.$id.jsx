@@ -4,11 +4,18 @@ import { useEffect, useState } from 'react';
 
 
 export async function loader({params, context}) {
-    const {storefront} = context;
+    const {storefront,cart} = context;
+    const cartPromise = cart.get();
+    
     if (!params.id) {
         return redirect('/');
     }
   return json({lookbook_id:params.id , context});
+}
+
+export async function action({request, context}) {
+  const {session, cart} = context;
+  console.log("cartPromise POST::",cart)
 }
 
 
@@ -39,11 +46,11 @@ export default function LookBook() {
     
     
     return (
-      <>
-        <div  class="mst-slider"></div>
-        <div data-context={JSON.stringify(context)} id="sg-app" class="mst-gallery-root"></div>
+      <div>
+        <div  className="mst-slider"></div>
+        <div id="sg-app" className="mst-gallery-root"></div>
         {/* <script src={`https://shopify.shopthelook.app/shopthelook.js?shop=15f63f.myshopify.com&widget=1&mainProductId=${lookbook_id}`}></script> */}
         {/* <div className="ShopTheLook-section" data-product-id={p_id}></div> */}
-        </>
+      </div>
     );
   }

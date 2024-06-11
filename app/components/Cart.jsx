@@ -4,7 +4,6 @@ import {useVariantUrl} from '~/utils';
 
 export function CartMain({layout, cart}) {
   const linesCount = Boolean(cart?.lines?.nodes?.length || 0);
-  //console.log("layout ::",linesCount)
   const withDiscount =
     cart &&
     Boolean(cart.discountCodes.filter((code) => code.applicable).length);
@@ -20,7 +19,6 @@ export function CartMain({layout, cart}) {
 
 function CartDetails({layout, cart}) {
   const cartHasItems = !!cart && cart.totalQuantity > 0;
-
   return (
     <div className="cart-details">
       <CartLines lines={cart?.lines} layout={layout} />
@@ -52,8 +50,7 @@ function CartLineItem({layout, line}) {
   const {id, merchandise} = line;
   const {product, title, image, selectedOptions} = merchandise;
   const lineItemUrl = useVariantUrl(product.handle, selectedOptions);
-  console.log('CartLineItem ::', {line});
-
+  
   return (
     <li key={id} className="cart-line">
       {image && (

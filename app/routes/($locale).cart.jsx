@@ -90,6 +90,7 @@ export default function Cart() {
   const {recommendedProducts} = useLoaderData();
   const [root] = useMatches();
   const cart = root.data?.cart;
+  console.log("hydrogen cart ::", cart.lines)
 
   return (
     <div className="cart px-4">

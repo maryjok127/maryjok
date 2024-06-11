@@ -106,14 +106,12 @@ export default function App() {
           type="text/css"
           href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.6.0/slick-theme.min.css"
         />
-        <link  rel="stylesheet" type="text/css" href="https://s3.amazonaws.com/cdn.myshopapps.com/sg-gallery-hydrogen/main.61a3d6bf.css"></link>   
-   
+        <link  rel="stylesheet" type="text/css" href="https://s3.amazonaws.com/cdn.myshopapps.com/sg-gallery-hydrogen/main.0fee0bbf.css"></link>       
         <Meta />
         <Links />
         {/* <script src="../lookbook.js"></script> */}
       </head>
       <body>
-    
         <OkendoProvider
           okendoProviderData={data.okendoProviderData}
         />
@@ -121,8 +119,8 @@ export default function App() {
         <Outlet />
         </Layout>
         <ScrollRestoration />
-        <script defer src="https://s3.amazonaws.com/cdn.myshopapps.com/sg-gallery-hydrogen/main.js"></script>
-        <script defer src="https://s3.amazonaws.com/cdn.myshopapps.com/sg-gallery-hydrogen/787.chunk.js"></script>
+          <script async src="https://s3.amazonaws.com/cdn.myshopapps.com/sg-gallery-hydrogen/main.js"></script>
+          <script async src="https://s3.amazonaws.com/cdn.myshopapps.com/sg-gallery-hydrogen/787.chunk.js"></script>
         <Scripts />
       </body>
     </html>

@@ -1,12 +1,10 @@
 import {useRef,Suspense,useEffect} from 'react';
 import {defer, redirect} from '@shopify/remix-oxygen';
 import {Await, Link, useLoaderData} from '@remix-run/react';
-import React, {useState} from 'react';
+import {useState} from 'react';
 import ProductsCorousel from '~/components/ProductsCorousel';
-import ProductCarousel from '~/components/ProductCarousel';
 import {
   Image,
-  Money,
   VariantSelector,
   getSelectedProductOptions,
   CartForm,
@@ -569,9 +567,6 @@ function ProductOptions({option,activeImg,closeRef,setActiveImage,selectedVarian
 
   const setImg = (index)=>{
     setVar({[index]:true})
-    //if (!closeRef?.current) return;
-    //setActiveImage(img);
-    //closeRef.current.click();
   }
 
   return (
