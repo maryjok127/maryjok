@@ -1,4 +1,5 @@
 import { Link} from '@remix-run/react';
+import { Suspense } from 'react';
 
 const LooksComp = ({looks})=>{
     const getProductId = (gid)=>{
@@ -9,6 +10,7 @@ const LooksComp = ({looks})=>{
     var products = looks.length ?looks[0].products.edges : [];
     return(
         <div className="md:px-4 pb-4 lg:px-24">
+            <Suspense fallback={<p> Loading </p>}>
              <h1 className="uppercase text-center font-semibold my-[15px]"> L.I.T : Looks In Trend </h1>
              <div  className="mst-slider"></div>
              <div id="sg-app" className="mst-gallery-root"></div>
@@ -25,6 +27,9 @@ const LooksComp = ({looks})=>{
                     })
                 }
             </div> */}
+            <script async src="https://s3.amazonaws.com/cdn.myshopapps.com/sg-gallery-hydrogen/787.chunk.js"></script>
+            <script async src="https://s3.amazonaws.com/cdn.myshopapps.com/sg-gallery-hydrogen/main.js"></script>
+            </Suspense>
         </div>
     )
 }
