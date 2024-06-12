@@ -126,23 +126,23 @@ export default function App() {
                 var main = "https://s3.amazonaws.com/cdn.myshopapps.com/sg-gallery-hydrogen/main.js";
                 var galleryAppSrcipts = [ main,runtime];
                 for (var i = 0; i < galleryAppSrcipts.length; i++) {
-                var galleryAppScript = document.createElement('script');
-                galleryAppScript.type = 'text/javascript';
-                galleryAppScript.async = true;
-                galleryAppScript.src = galleryAppSrcipts[i];
-                var x = document.getElementsByTagName('script')[0];
-                x.parentNode.insertBefore(galleryAppScript, x);
+                  var galleryAppScript = document.createElement('script');
+                  galleryAppScript.type = 'text/javascript';
+                  galleryAppScript.async = true;
+                  galleryAppScript.src = galleryAppSrcipts[i];
+                  var x = document.getElementsByTagName('script')[0];
+                  x.parentNode.insertBefore(galleryAppScript, x);
                 }
-                try{
-                    if (window.attachEvent) {
+              }
+              try{
+                  if(window.attachEvent) {
                     window.attachEvent('onload', asyncGalleryAppLoad);
-                    } else {
+                  } else {
                     window.addEventListener('load', asyncGalleryAppLoad, false);
-                    }
+                  }
                 }catch(err){
-                    console.log("galleryAppScript Catch")
+                  console.log("galleryAppScript Catch")
                 }
-            }
             })();
             </script>
         <Scripts />
