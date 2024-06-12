@@ -124,7 +124,7 @@ export default function App() {
             function asyncGalleryAppLoad() {
                 var runtime = "https://s3.amazonaws.com/cdn.myshopapps.com/sg-gallery-hydrogen/787.chunk.js";
                 var main = "https://s3.amazonaws.com/cdn.myshopapps.com/sg-gallery-hydrogen/main.js";
-                var galleryAppSrcipts = [ main,runtime];
+                var galleryAppSrcipts = [main,runtime];
                 for (var i = 0; i < galleryAppSrcipts.length; i++) {
                   var galleryAppScript = document.createElement('script');
                   galleryAppScript.type = 'text/javascript';
@@ -134,15 +134,15 @@ export default function App() {
                   x.parentNode.insertBefore(galleryAppScript, x);
                 }
               }
-              try{
-                  if(window.attachEvent) {
-                    window.attachEvent('onload', asyncGalleryAppLoad);
-                  } else {
-                    window.addEventListener('load', asyncGalleryAppLoad, false);
-                  }
-                }catch(err){
-                  console.log("galleryAppScript Catch")
-                }
+              // try{
+              //     if(window.attachEvent) {
+              //       window.attachEvent('onload', asyncGalleryAppLoad);
+              //     } else {
+              //       window.addEventListener('load', asyncGalleryAppLoad, false);
+              //     }
+              //   }catch(err){
+              //     console.log("galleryAppScript Catch")
+              //   }
             })();
             </script>
         <Scripts />
