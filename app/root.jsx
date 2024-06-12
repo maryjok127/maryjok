@@ -106,7 +106,7 @@ export default function App() {
           type="text/css"
           href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.6.0/slick-theme.min.css"
         />
-        <link  rel="stylesheet" type="text/css" href="https://s3.amazonaws.com/cdn.myshopapps.com/sg-gallery-hydrogen/main.0fee0bbf.css"></link>       
+        <link  rel="stylesheet" type="text/css" href="https://s3.amazonaws.com/cdn.myshopapps.com/sg-gallery-hydrogen/main.490783e1.css"></link>       
         <Meta />
         <Links />
         {/* <script src="../lookbook.js"></script> */}
@@ -119,7 +119,32 @@ export default function App() {
         <Outlet />
         </Layout>
         <ScrollRestoration />
-        
+        <script type="text/javascript">
+        (function() {
+            function asyncGalleryAppLoad() {
+                var runtime = "https://s3.amazonaws.com/cdn.myshopapps.com/sg-gallery-hydrogen/787.chunk.js";
+                var main = "https://s3.amazonaws.com/cdn.myshopapps.com/sg-gallery-hydrogen/main.js";
+                var galleryAppSrcipts = [ main,runtime];
+                for (var i = 0; i < galleryAppSrcipts.length; i++) {
+                var galleryAppScript = document.createElement('script');
+                galleryAppScript.type = 'text/javascript';
+                galleryAppScript.async = true;
+                galleryAppScript.src = galleryAppSrcipts[i];
+                var x = document.getElementsByTagName('script')[0];
+                x.parentNode.insertBefore(galleryAppScript, x);
+                }
+                try{
+                    if (window.attachEvent) {
+                    window.attachEvent('onload', asyncGalleryAppLoad);
+                    } else {
+                    window.addEventListener('load', asyncGalleryAppLoad, false);
+                    }
+                }catch(err){
+                    console.log("galleryAppScript Catch")
+                }
+            }
+            })();
+            </script>
         <Scripts />
       </body>
     

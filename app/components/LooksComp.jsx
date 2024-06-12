@@ -27,9 +27,9 @@ const LooksComp = ({looks})=>{
                     })
                 }
             </div> */}
-            <script async src="https://s3.amazonaws.com/cdn.myshopapps.com/sg-gallery-hydrogen/787.chunk.js"></script>
-            <script async src="https://s3.amazonaws.com/cdn.myshopapps.com/sg-gallery-hydrogen/main.js"></script>
-            </Suspense>
+     
+    
+        </Suspense>
         </div>
     )
 }
