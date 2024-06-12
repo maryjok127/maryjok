@@ -106,7 +106,7 @@ export default function App() {
           type="text/css"
           href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.6.0/slick-theme.min.css"
         />
-        <link  rel="stylesheet" type="text/css" href="https://s3.amazonaws.com/cdn.myshopapps.com/sg-gallery-hydrogen/main.490783e1.css"></link>       
+        <link  rel="stylesheet" type="text/css" href="https://s3.amazonaws.com/cdn.myshopapps.com/sg-gallery-hydrogen/main.628eb170.css"></link>       
         <Meta />
         <Links />
         {/* <script src="../lookbook.js"></script> */}
