@@ -1,20 +1,35 @@
 import { Link} from '@remix-run/react';
-import { Suspense } from 'react';
+import { Suspense,useState,useEffect } from 'react';
 
 const LooksComp = ({looks})=>{
-    const getProductId = (gid)=>{
-        let split = gid.split("/");
-        let id = split[split.length - 1]; 
-        return id;
-    }
-    var products = looks.length ?looks[0].products.edges : [];
+    const [domLoaded, setDomLoaded] = useState(false);
+
+    useEffect(()=>{
+        setDomLoaded(true)
+    },) 
+    // const getProductId = (gid)=>{
+    //     let split = gid.split("/");
+    //     let id = split[split.length - 1]; 
+    //     return id;
+    // }
+    // var products = looks.length ?looks[0].products.edges : [];
     return(
-        <div className="md:px-4 pb-4 lg:px-24">
-            <Suspense fallback={<p> Loading </p>}>
+        <div className="md:px-4 pb-4 lg:px-24"> 
+            { domLoaded &&
+            <>
              <h1 className="uppercase text-center font-semibold my-[15px]"> L.I.T : Looks In Trend </h1>
              <div  className="mst-slider"></div>
              <div id="sg-app" className="mst-gallery-root"></div>
-            {/* 
+             </>
+            }
+        </div>
+    )
+}
+
+export default LooksComp;
+
+
+ {/* 
             <div className="grid grid-cols-2 sm:grid-cols-4 gap-4 sm:grid-cols-4 md:px-4 pb-4 lg:px-24">
                 {
                     products.map((product,index)=>{
@@ -27,11 +42,3 @@ const LooksComp = ({looks})=>{
                     })
                 }
             </div> */}
-     
-    
-        </Suspense>
-        </div>
-    )
-}
-
-export default LooksComp;

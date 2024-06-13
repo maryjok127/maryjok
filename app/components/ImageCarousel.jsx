@@ -119,13 +119,11 @@ const ImageCarousel = () => {
       <Slider {...settings}>
         {
           imageSrc.map((item,index)=>(
-            <>
-              <img key={`img_crsl_${index}`}
+              <img key={`img_crsll_${index}`}
               onClick={()=> goToCollection(item.url) }
               className={`lg:w-full md:w-full cursor-pointer sm:w-full object-cover ${isSmall ? 'rounded-2xl' : '' } w-[100%]`}
               src={item.img}
             />
-            </>
           ))
         }
       </Slider>
