@@ -68,8 +68,9 @@ export async function loader({request, params, context}) {
   //console.log("handle::",handle)
   const {storefront} = context;
   const paginationVariables = getPaginationVariables(request, {
-    pageBy: 8,
+    pageBy: 100,
   });
+  console.log("paginationVariables::",paginationVariables)
   // await the header query (above the fold)
   const headerPromise = storefront.query(HEADER_QUERY, {
     cache: storefront.CacheNone(),
@@ -84,7 +85,8 @@ export async function loader({request, params, context}) {
   
   if (!handle) {
     return redirect('/collections');
-  }
+  } 
+
 
   const { collections } = all_collections;
   const {collection} = await storefront.query(COLLECTION_QUERY, {
