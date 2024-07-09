@@ -40,7 +40,7 @@ export function links() {
 
 export async function loader({context}) {
   const {storefront, session, cart} = context;
-  const customerAccessToken = await session.get('customerAccessToken');
+  const customerAccessToken = await session.get('customerAccessToken')};
   const publicStoreDomain = context.env.PUBLIC_STORE_DOMAIN;
 
   // validate the customer access token is valid
@@ -96,10 +96,9 @@ export default function App() {
         <meta name="oke:subscriber_id" content="866361a1-6116-4d14-abc8-0565f32d51cb" />
 	<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
 	new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
-	j=d.createElement(s);j.async=true;j.src=
-	'https://www.googletagmanager.com/gtm.js?id='+i;f.parentNode.insertBefore(j,f);
-	})(window,document,'script','dataLayer');
-	</script>
+	j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+	'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+	})(window,document,'script','dataLayer','GTM-MGTN72Q3');</script>
         <title>Mary Jo K</title>
         <link rel="icon" type="image/x-icon" href="/favicon.png" />
         <link
@@ -119,9 +118,10 @@ export default function App() {
         {/* <script src="../lookbook.js"></script> */}
       </head>
       <body>
-       <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-TPDWX7TM"height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+	<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-MGTN72Q3"
+	height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 	<OkendoProvider
-          okendoProviderData={data.okendoProviderData}
+        okendoProviderData={data.okendoProviderData}
         />
         <Layout {...data}>
         <Outlet />
