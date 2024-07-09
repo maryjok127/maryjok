@@ -81,7 +81,6 @@ export async function loader({context}) {
     },
     {headers},
   );
-}
 
 export default function App() {
   const data = useLoaderData();
