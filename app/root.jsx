@@ -40,7 +40,7 @@ export function links() {
 
 export async function loader({context}) {
   const {storefront, session, cart} = context;
-  const customerAccessToken = await session.get('customerAccessToken')};
+  const customerAccessToken = await session.get('customerAccessToken')}
   const publicStoreDomain = context.env.PUBLIC_STORE_DOMAIN;
 
   // validate the customer access token is valid
@@ -93,7 +93,7 @@ export default function App() {
         <meta name="viewport" content="width=device-width,initial-scale=1" />
 	<meta name="google-site-verification"   content="chuZbQRh2KrTexV9OSYVzpR641zvxEmzEwsHS6pExT0" />
         <meta name="oke:subscriber_id" content="866361a1-6116-4d14-abc8-0565f32d51cb" />
-	<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+	<script>(function(w,d,s,l,i){w[l]=w[l]||[]}w[l].push({'gtm.start':
 	new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
 	j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 	'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
