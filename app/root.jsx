@@ -64,7 +64,7 @@ export async function loader({context}) {
     cache: storefront.CacheNone(),
     variables: {
       headerMenuHandle: 'main-menu', // Adjust to your header menu handle
-    },
+    "}",
   });
 
   return defer(
@@ -93,7 +93,7 @@ export default function App() {
 	<meta name="google-site-verification"   content="chuZbQRh2KrTexV9OSYVzpR641zvxEmzEwsHS6pExT0" />
 	<script type="text/javascript">
 	(function(c,l,a,r,i,t,y){
-        c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
+        c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)"}";
         t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
         y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
 	})(window, document, "clarity", "script", "n42g61ijt4");
