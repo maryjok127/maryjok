@@ -94,6 +94,7 @@ export default function App() {
         <meta name="viewport" content="width=device-width,initial-scale=1" />
 	<meta name="google-site-verification"   content="chuZbQRh2KrTexV9OSYVzpR641zvxEmzEwsHS6pExT0" />
         <meta name="oke:subscriber_id" content="866361a1-6116-4d14-abc8-0565f32d51cb" />
+	<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src='https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);})(window,document,'script','dataLayer','GTM-TPDWX7TM');</script>
         <title>Mary Jo K</title>
         <link rel="icon" type="image/x-icon" href="/favicon.png" />
         <link
@@ -113,11 +114,8 @@ export default function App() {
         {/* <script src="../lookbook.js"></script> */}
       </head>
       <body>
-       {/* <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-TPDWX7TM"
-        height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>*/}
-      
-
-        <OkendoProvider
+       <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-TPDWX7TM"height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+	<OkendoProvider
           okendoProviderData={data.okendoProviderData}
         />
         <Layout {...data}>
