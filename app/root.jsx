@@ -64,7 +64,7 @@ export async function loader({context}) {
     cache: storefront.CacheNone(),
     variables: {
       headerMenuHandle: 'main-menu', // Adjust to your header menu handle
-    "}",
+    },
   });
 
   return defer(
@@ -90,23 +90,19 @@ export default function App() {
   return (
     <html lang="en">
       <head>
-	<meta name="google-site-verification"   content="chuZbQRh2KrTexV9OSYVzpR641zvxEmzEwsHS6pExT0" />
 	<script type="text/javascript">
-	(function(c,l,a,r,i,t,y){
-        c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)"}";
-        t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
-        y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
-	})(window, document, "clarity", "script", "n42g61ijt4");
-	</script>
+	    (function(c,l,a,r,i,t,y){
+                c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
+                t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
+                y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
+	    })(window, document, "clarity", "script", "n42g61ijt4");
 	<!-- Google Tag Manager -->
-	<script>
-	(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0], j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
-	'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);})(window,document,'script','dataLayer','GTM-TPDWX7TM');
+	    (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0], j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src='https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);})(window,document,'script','dataLayer','GTM-TPDWX7TM');
 	</script>
 	<!-- End Google Tag Manager -->
 	<meta charSet="utf-8" />
         <meta name="viewport" content="width=device-width,initial-scale=1" />
-        
+	<meta name="google-site-verification"   content="chuZbQRh2KrTexV9OSYVzpR641zvxEmzEwsHS6pExT0" />
         <meta name="oke:subscriber_id" content="866361a1-6116-4d14-abc8-0565f32d51cb" />
         <title>Mary Jo K</title>
         <link rel="icon" type="image/x-icon" href="/favicon.png" />
