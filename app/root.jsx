@@ -64,7 +64,7 @@ export async function loader({context}) {
     cache: storefront.CacheNone(),
     variables: {headerMenuHandle: { 'main-menu' // Adjust to your header menu handle
     },
-  }});
+  });
 
   return defer(
     {
