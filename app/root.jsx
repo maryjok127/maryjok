@@ -44,7 +44,7 @@ export async function loader({context}) {
   const publicStoreDomain = context.env.PUBLIC_STORE_DOMAIN;
 
   // validate the customer access token is valid
-  const {isLoggedIn, headers} = await validateCustomerAccessToken(
+  const {isLoggedIn: headers} = await validateCustomerAccessToken(
     customerAccessToken,
     session,
   );
@@ -62,7 +62,7 @@ export async function loader({context}) {
   // await the header query (above the fold)
   const headerPromise = storefront.query(HEADER_QUERY, {
     cache: storefront.CacheNone(),
-    variables: {headerMenuHandle: { 'main-menu', // Adjust to your header menu handle
+    variables: {headerMenuHandle: { 'main-menu' // Adjust to your header menu handle
     },
   }});
 
