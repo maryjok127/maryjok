@@ -6,13 +6,7 @@ const LooksComp = ({looks})=>{
 
     useEffect(()=>{
         setDomLoaded(true)
-    },) 
-    // const getProductId = (gid)=>{
-    //     let split = gid.split("/");
-    //     let id = split[split.length - 1]; 
-    //     return id;
-    // }
-    // var products = looks.length ?looks[0].products.edges : [];
+    },[]) 
     return(
         <div className="md:px-4 pb-4 lg:px-24"> 
             { domLoaded &&
