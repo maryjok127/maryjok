@@ -40,11 +40,11 @@ export function links() {
 
 export async function loader({context}) {
   const {storefront, session, cart} = context;
-  const customerAccessToken = await session.get('customerAccessToken');
+  const customerAccessToken = await session.get('customerAccessToken')}
   const publicStoreDomain = context.env.PUBLIC_STORE_DOMAIN;
 
   // validate the customer access token is valid
-  const {isLoggedIn, headers} = await validateCustomerAccessToken(
+  const {isLoggedIn: headers} = await validateCustomerAccessToken(
     customerAccessToken,
     session,
   );
@@ -62,8 +62,7 @@ export async function loader({context}) {
   // await the header query (above the fold)
   const headerPromise = storefront.query(HEADER_QUERY, {
     cache: storefront.CacheNone(),
-    variables: {
-      headerMenuHandle: 'main-menu', // Adjust to your header menu handle
+    variables: {headerMenuHandle: { 'main-menu' // Adjust to your header menu handle
     },
   });
 
@@ -81,7 +80,6 @@ export async function loader({context}) {
     },
     {headers},
   );
-}
 
 export default function App() {
   const data = useLoaderData();
@@ -90,10 +88,24 @@ export default function App() {
   return (
     <html lang="en">
       <head>
+<<<<<<< HEAD
         
         <meta name="google-site-verification" content="chuZbQRh2KrTexV9OSYVzpR641zvxEmzEwsHS6pExT0" />
         <meta charSet="utf-8" />
         <meta name="viewport" content="width=device-width,initial-scale=1" />   
+=======
+	<!-- Google tag (gtag.js) -->
+	<script async src="https://www.googletagmanager.com/gtag/js?id=G-T9FEPNFF7Y"></script>
+	<script>
+		window.dataLayer = window.dataLayer || [];
+		function gtag(){dataLayer.push(arguments);}
+		gtag('js', new Date());
+		gtag('config', 'G-T9FEPNFF7Y');
+	</script>
+	<meta charSet="utf-8" />
+        <meta name="viewport" content="width=device-width,initial-scale=1" />
+	<meta name="google-site-verification"   content="chuZbQRh2KrTexV9OSYVzpR641zvxEmzEwsHS6pExT0" />
+>>>>>>> 3e53f20ab7eca955961bd0318bc7d912db93b97d
         <meta name="oke:subscriber_id" content="866361a1-6116-4d14-abc8-0565f32d51cb" />
         <title>Mary Jo K</title>
         <link rel="icon" type="image/x-icon" href="/favicon.png" />
@@ -114,9 +126,16 @@ export default function App() {
         {/* <script src="../lookbook.js"></script> */}
       </head>
       <body>
+<<<<<<< HEAD
    
         <OkendoProvider
           okendoProviderData={data.okendoProviderData}
+=======
+	<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-MGTN72Q3"
+	height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+	<OkendoProvider
+        okendoProviderData={data.okendoProviderData}
+>>>>>>> 3e53f20ab7eca955961bd0318bc7d912db93b97d
         />
         <Layout {...data}>
         <Outlet />
