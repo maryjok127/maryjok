@@ -1,0 +1,7 @@
+{
+  "version": 3,
+  "sources": ["../../../../app/routes/($locale).account_.logout.jsx"],
+  "sourcesContent": ["import {json, redirect} from '@shopify/remix-oxygen';\n\nexport const meta = () => {\n  return [{title: 'Logout'}];\n};\n\nexport async function loader() {\n  return redirect('/account/login');\n}\n\nexport async function action({request, context}) {\n  const {session} = context;\n  session.unset('customerAccessToken');\n\n  if (request.method !== 'POST') {\n    return json({error: 'Method not allowed'}, {status: 405});\n  }\n\n  return redirect('/', {\n    headers: {\n      'Set-Cookie': await session.commit(),\n    },\n  });\n}\n\nexport default function Logout() {\n  return null;\n}\n"],
+  "mappings": ";;;AAEO,IAAM,OAAO,MAAM;AACxB,SAAO,CAAC,EAAC,OAAO,SAAQ,CAAC;AAC3B;AAqBe,SAAR,SAA0B;AAC/B,SAAO;AACT;",
+  "names": []
+}
