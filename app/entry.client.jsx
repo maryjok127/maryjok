@@ -8,6 +8,8 @@ const TagManagerArgs = {
 }
 TagManager.initialize(TagManagerArgs);
 
+console.log("TagManager::",TagManager);
+
 startTransition(() => {
   hydrateRoot(
     document,
