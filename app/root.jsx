@@ -21,7 +21,7 @@ import {
 	getOkendoProviderData,
 } from "@okendo/shopify-hydrogen";
 
-import TagManager from 'react-gtm-module';
+
 
 export function links() {
   return [
@@ -83,10 +83,7 @@ export async function loader({context}) {
   );
 
 export default function App() {
-  const TagManagerArgs = {
-    gtmId : "GTM-TPDWX7TM"	
-  }
-  TagManager.initialize(TagManagerArgs);
+
   
   const data = useLoaderData();
   const image= ['https://cdn.shopify.com/s/files/1/0599/7894/0607/products/Artboard2_7746b5e7-35c9-4fc8-bcd9-9d98e80a5abb.jpg','https://cdn.shopify.com/s/files/1/0599/7894/0607/products/Artboard4_7e4b511f-1796-49a7-89de-7ba7d18d3544.jpg','https://cdn.shopify.com/s/files/1/0599/7894/0607/products/Artboard2_7746b5e7-35c9-4fc8-bcd9-9d98e80a5abb.jpg?v=1681735611']
