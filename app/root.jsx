@@ -21,6 +21,8 @@ import {
 	getOkendoProviderData,
 } from "@okendo/shopify-hydrogen";
 
+import TagManager from 'react-gtm-module';
+
 export function links() {
   return [
     {rel: 'stylesheet', href: tailwindCss},
@@ -81,18 +83,22 @@ export async function loader({context}) {
   );
 
 export default function App() {
+  const TagManagerArgs = {
+    gtmId : "GTM-TPDWX7TM"	
+  }
+  TagManager.initialize(TagManagerArgs);
+  
   const data = useLoaderData();
   const image= ['https://cdn.shopify.com/s/files/1/0599/7894/0607/products/Artboard2_7746b5e7-35c9-4fc8-bcd9-9d98e80a5abb.jpg','https://cdn.shopify.com/s/files/1/0599/7894/0607/products/Artboard4_7e4b511f-1796-49a7-89de-7ba7d18d3544.jpg','https://cdn.shopify.com/s/files/1/0599/7894/0607/products/Artboard2_7746b5e7-35c9-4fc8-bcd9-9d98e80a5abb.jpg?v=1681735611']
   //console.log(data.footer)
   return (
     <html lang="en">
       <head>
-        <meta name="google-site-verification" content="chuZbQRh2KrTexV9OSYVzpR641zvxEmzEwsHS6pExT0" />
+        {/* <meta name="google-site-verification" content="chuZbQRh2KrTexV9OSYVzpR641zvxEmzEwsHS6pExT0" /> */}
         <meta charSet="utf-8" />
         <meta name="viewport" content="width=device-width,initial-scale=1" />   
       	<meta charSet="utf-8" />
         <meta name="viewport" content="width=device-width,initial-scale=1" />
-      	<meta name="google-site-verification"   content="chuZbQRh2KrTexV9OSYVzpR641zvxEmzEwsHS6pExT0" />
 
         <meta name="oke:subscriber_id" content="866361a1-6116-4d14-abc8-0565f32d51cb" />
         <title>Mary Jo K</title>
@@ -119,10 +125,10 @@ export default function App() {
         <Outlet />
         </Layout>
         <ScrollRestoration />
-        <script async src="../google_tag_head.js"> </script>
+        {/* <script async src="../google_tag_head.js"> </script>
         <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-TPDWX7TM"
         height="0" width="0" style={{display:"none",visibility:"hidden"}}></iframe></noscript>
-        <script src='../google_tag.js'> </script>
+        <script src='../google_tag.js'> </script> */}
 
         <script src='../fb_pixel.js'> </script>
         <noscript><img height="1" width="1" style={{display:"none"}}
