@@ -42,7 +42,7 @@ export function links() {
 
 export async function loader({context}) {
   const {storefront, session, cart} = context;
-  const customerAccessToken = await session.get('customerAccessToken')}
+  const customerAccessToken = await session.get('customerAccessToken')
   const publicStoreDomain = context.env.PUBLIC_STORE_DOMAIN;
 
   // validate the customer access token is valid
@@ -81,6 +81,7 @@ export async function loader({context}) {
     },
     {headers},
   );
+}
 
 export default function App() {
 
