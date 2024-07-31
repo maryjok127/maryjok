@@ -1,6 +1,6 @@
 import {defer} from '@shopify/remix-oxygen';
 import {Await, useLoaderData, Link, NavLink} from '@remix-run/react';
-import {Suspense} from 'react';
+import {Suspense, useEffect} from 'react';
 import {Image, Money} from '@shopify/hydrogen';
 import ImageCarousel from '~/components/ImageCarousel';
 import ProductCarousel from '~/components/ProductCarousel';
@@ -13,6 +13,12 @@ import BlogCorousel from '~/components/BlogCorousel'
 import Testimonials from '~/components/Testimonials';
 import LooksComp from '~/components/LooksComp';
 import Slider from "react-slick";
+
+import ReactGA from "react-ga";
+
+const TRACKING_ID = "G-H0TRRYZCCF"; 
+
+ReactGA.initialize(TRACKING_ID);
 
 export const meta = () => {
   return [{title: 'Hydrogen | Home'}];
@@ -53,6 +59,10 @@ export async function loader({context}) {
 }
 
 export default function Homepage() {
+
+  useEffect(()=>{
+    ReactGA.pageview(window.location.pathname + window.location.search);
+  },[])
   const noImg = "https://cdn.shopify.com/shopifycloud/shopify/assets/no-image-2048-5e88c1b20e087fb7bbe9a3771824e743c244f437e4f8ba93bbf7b11b53f7824c_600x600.gif"
   const data = useLoaderData();
   const { header ,page:testimonialPage } = data;
