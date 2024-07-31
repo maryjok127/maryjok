@@ -21,7 +21,13 @@ import {
 	getOkendoProviderData,
 } from "@okendo/shopify-hydrogen";
 
+import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 
+import ReactGA from "react-ga";
+
+const TRACKING_ID = "G-H0TRRYZCCF"; 
+
+ReactGA.initialize(TRACKING_ID);
 
 export function links() {
   return [
@@ -87,7 +93,9 @@ export async function loader({context}) {
 
 export default function App() {
 
-  
+  useEffect(()=>{
+     ReactGA.pageview(window.location.pathname + window.location.search);
+  })
   const data = useLoaderData();
   const image= ['https://cdn.shopify.com/s/files/1/0599/7894/0607/products/Artboard2_7746b5e7-35c9-4fc8-bcd9-9d98e80a5abb.jpg','https://cdn.shopify.com/s/files/1/0599/7894/0607/products/Artboard4_7e4b511f-1796-49a7-89de-7ba7d18d3544.jpg','https://cdn.shopify.com/s/files/1/0599/7894/0607/products/Artboard2_7746b5e7-35c9-4fc8-bcd9-9d98e80a5abb.jpg?v=1681735611']
   //console.log(data.footer)
