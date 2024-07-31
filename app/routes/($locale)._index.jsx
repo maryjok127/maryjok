@@ -16,7 +16,7 @@ import Slider from "react-slick";
 
 import ReactGA from "react-ga";
 
-const TRACKING_ID = "G-H0TRRYZCCF"; 
+const TRACKING_ID = "G-T3JX7QEBFV"; 
 
 ReactGA.initialize(TRACKING_ID);
 

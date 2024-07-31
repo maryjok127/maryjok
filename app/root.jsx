@@ -26,7 +26,7 @@ import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 
 import ReactGA from "react-ga";
 
-const TRACKING_ID = "G-H0TRRYZCCF"; 
+const TRACKING_ID = "G-T3JX7QEBFV"; 
 
 ReactGA.initialize(TRACKING_ID);
 
