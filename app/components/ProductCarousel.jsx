@@ -22,7 +22,7 @@ const ProductCarousel = ({products}) => {
   const calculatePer = (original_price, disc_price)=>{
     let price = Math.trunc(original_price);
     let compareAtPrice = Math.trunc(disc_price);
-    let per = (compareAtPrice - price) / (price) * 100;
+    let per = (compareAtPrice - price) / (compareAtPrice) * 100;
     return Math.trunc(per);
   }
 
@@ -61,14 +61,14 @@ const ProductCarousel = ({products}) => {
     const { onClick } = props;
     return (
       <button 
-          className="absolute lg:right-[-90px] right-0 top-1/2 transform -translate-y-1/2  bg-white bg-opacity-75 rounded-full p-2 mr-4 hover:bg-opacity-100 text-white"
-          onClick={onClick}
+        className="absolute lg:right-[-90px] right-0 top-1/2 transform -translate-y-1/2  bg-white bg-opacity-75 rounded-full p-2 mr-4 hover:bg-opacity-100 text-white"
+        onClick={onClick}
         >
-          <MdChevronRight
-            className="opacity-50 cursor-pointer hover:opacity-100 mst-arrow"
-            size={40}
-          />
-        </button>
+        <MdChevronRight
+          className="opacity-50 cursor-pointer hover:opacity-100 mst-arrow"
+          size={40}
+        />
+      </button>
     );
   }
 
