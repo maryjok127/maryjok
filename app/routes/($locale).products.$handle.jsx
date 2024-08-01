@@ -419,7 +419,7 @@ function ProductPrice({selectedVariant}) {
   let price = Math.trunc(selectedVariant?.price?.amount);
   let compareAtPrice = Math.trunc(selectedVariant?.compareAtPrice?.amount);
   const calculatePer = ()=>{
-    let per = (compareAtPrice - price) / (price) * 100;
+    let per = (compareAtPrice - price) / (compareAtPrice) * 100;
     return Math.trunc(per);
   }
   return (
