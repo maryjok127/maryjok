@@ -193,6 +193,12 @@ export default function Collection() {
     }
   }
   
+  const calculatePer = (original_price, disc_price)=>{
+    let price = Math.trunc(original_price);
+    let compareAtPrice = Math.trunc(disc_price);
+    let per = (compareAtPrice - price) / (compareAtPrice) * 100;
+    return Math.trunc(per);
+  }
   function getPath(url_path) {
     let url = new URL(url_path);
     let path = url.pathname;
@@ -556,6 +562,7 @@ export default function Collection() {
                                   &#x20b9;{Math.trunc(product.priceRange?.maxVariantPrice.amount)} 
                                   </s>
                                 }
+                                <b className='ml-2 text-red-500 text-sm xs:text-sm sm:text-xl'> ({ calculatePer(product.priceRange.minVariantPrice.amount,product.variants.edges[0].node.compareAtPrice?.amount) } % Off) </b>
                                  </div>
                               </div>
                             </div>
