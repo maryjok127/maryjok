@@ -562,7 +562,7 @@ export default function Collection() {
                                   &#x20b9;{Math.trunc(product.priceRange?.maxVariantPrice.amount)} 
                                   </s>
                                 }
-                                <b className='ml-2 text-red-500 text-sm xs:text-sm sm:text-xl'> ({ calculatePer(product.node.priceRange.minVariantPrice.amount,product.node.variants.edges[0].node.compareAtPrice?.amount) } % Off) </b>
+                                <b className='ml-2 text-red-500 text-sm xs:text-sm sm:text-xl'> ({ calculatePer(product.node.priceRange?.minVariantPrice.amount,product.node.variants.edges[0].node.compareAtPrice?.amount) } % Off) </b>
                                  </div>
                               </div>
                             </div>
