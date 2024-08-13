@@ -12,12 +12,12 @@ const ImageCarousel = () => {
   var imageSrc = []
   if(!isSmall){
     imageSrc = [{
-      url:"/collections/cult-accessories",
-      img:'https://cdn.shopify.com/s/files/1/0809/4253/0882/files/desktop_banner_1.jpg?v=1715767477'
+      url:"https://www.maryjok.com/",
+      img:'https://cdn.shopify.com/s/files/1/0809/4253/0882/files/Independence_Day_website_banner-01.jpg?v=1723477361',
     },
     {
-      img:"https://cdn.shopify.com/s/files/1/0809/4253/0882/files/Friendship_Day_Sale_-04.jpg?v=1722448629",
-      url:"/collections/all-products",
+      img:'https://cdn.shopify.com/s/files/1/0809/4253/0882/files/desktop_banner_1.jpg?v=1715767477',
+      url:"/collections/cult-accessories",
     },
     {
       img:"https://cdn.shopify.com/s/files/1/0809/4253/0882/files/desktop_banner_3.jpg?v=1713342905",
@@ -33,13 +33,13 @@ const ImageCarousel = () => {
     }];
   }else{
     imageSrc = [{
-      url:"/collections/cult-accessories",
-      img:'https://cdn.shopify.com/s/files/1/0809/4253/0882/files/mobile_Hero_Banners_1.jpg?v=1715767503'
-    },
-    {
-      img:"https://cdn.shopify.com/s/files/1/0809/4253/0882/files/Friendship_Day_Sale_-05.jpg?v=1722448629",
-      url:"/collections/all-products",
+      url:"https://www.maryjok.com/",
+      img:'https://cdn.shopify.com/s/files/1/0809/4253/0882/files/Independence_Day_website_banner-02.jpg?v=1723477360'
     },          
+    {
+      img:'https://cdn.shopify.com/s/files/1/0809/4253/0882/files/mobile_Hero_Banners_1.jpg?v=1715767503',
+      url:"/collections/cult-accessories",
+    },
     {
       img:'https://cdn.shopify.com/s/files/1/0809/4253/0882/files/mobile_Hero_Banners_2.jpg?v=1713353171',
       url:"/collections/way-2-slay-mjk",
