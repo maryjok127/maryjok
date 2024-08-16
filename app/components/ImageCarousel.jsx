@@ -12,8 +12,8 @@ const ImageCarousel = () => {
   var imageSrc = []
   if(!isSmall){
     imageSrc = [{
-      url:"https://www.maryjok.com/",
-      img:'https://cdn.shopify.com/s/files/1/0809/4253/0882/files/Independence_Day_website_banner-01.jpg?v=1723477361',
+      url:"",
+      img:'',
     },
     {
       img:'https://cdn.shopify.com/s/files/1/0809/4253/0882/files/desktop_banner_1.jpg?v=1715767477',
@@ -33,8 +33,8 @@ const ImageCarousel = () => {
     }];
   }else{
     imageSrc = [{
-      url:"https://www.maryjok.com/",
-      img:'https://cdn.shopify.com/s/files/1/0809/4253/0882/files/Independence_Day_website_banner-02.jpg?v=1723477360'
+      url:"",
+      img:''
     },          
     {
       img:'https://cdn.shopify.com/s/files/1/0809/4253/0882/files/mobile_Hero_Banners_1.jpg?v=1715767503',
