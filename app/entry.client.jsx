@@ -7,9 +7,6 @@ const TagManagerArgs = {
   gtmId : "GTM-TPDWX7TM"	
 }
 TagManager.initialize(TagManagerArgs);
-
-console.log("TagManager::",TagManager);
-
 startTransition(() => {
   hydrateRoot(
     document,

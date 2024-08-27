@@ -7,6 +7,11 @@ import {
   getSelectedProductOptions,
   CartForm,
 } from '@shopify/hydrogen';
+
+import ReactGA from 'react-ga4';
+const TRACKING_ID = "G-T3JX7QEBFV"; 
+ReactGA.initialize(TRACKING_ID);
+
 //import products from './products';
 
 const ProductCarousel = ({products}) => {
@@ -55,6 +60,15 @@ const ProductCarousel = ({products}) => {
         />
       </button>
     );
+  }
+
+  const cartAct = ()=>{
+    ReactGA.event({
+        category: 'Cart Action',
+        action: 'Click',
+        label: "platform",
+    });
+    window.location.href = window.location.href + '#cart-aside';
   }
 
   function SampleNextArrow(props) {
@@ -178,10 +192,7 @@ const ProductCarousel = ({products}) => {
                           disabled={!product.node.variants || !product.node.variants.edges[0].node.availableForSale}
                             className="w-[100%] h-11 bg-black hover:bg-blue-700 text-white font-bold py-1 rounded-lg inline-block home-product"
                             type="submit"
-                            onClick={() => {
-                              window.location.href =
-                                window.location.href + '#cart-aside';
-                            }}
+                            onClick={() => cartAct() }
                           >
                            { product.node.variants && product.node.variants.edges[0].node.availableForSale ? 'ADD TO CART' : 'Sold out'}
                           </button>
