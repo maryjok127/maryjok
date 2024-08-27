@@ -104,7 +104,7 @@ export default function App() {
   return (
     <html lang="en">
       <head>
-        {/* <meta name="google-site-verification" content="chuZbQRh2KrTexV9OSYVzpR641zvxEmzEwsHS6pExT0" /> */}
+        <meta name="google-site-verification" content="chuZbQRh2KrTexV9OSYVzpR641zvxEmzEwsHS6pExT0" /> 
         <meta charSet="utf-8" />
         <meta name="viewport" content="width=device-width,initial-scale=1" />   
       	<meta charSet="utf-8" />
