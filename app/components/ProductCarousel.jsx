@@ -64,6 +64,7 @@ const ProductCarousel = ({products}) => {
 
   const cartAct = ()=>{
     ReactGA.event({
+        hitType: "BuyNow",
         category: 'Cart Action',
         action: 'Click',
         label: "platform",
