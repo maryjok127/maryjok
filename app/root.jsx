@@ -22,12 +22,9 @@ import {
 	getOkendoProviderData,
 } from "@okendo/shopify-hydrogen";
 
-import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 
 import ReactGA from 'react-ga4';
-
-const TRACKING_ID = "G-T3JX7QEBFV"; 
-
+const TRACKING_ID = "G-YK0EY9W2EG " // "G-T3JX7QEBFV"; 
 ReactGA.initialize(TRACKING_ID);
 
 export function links() {

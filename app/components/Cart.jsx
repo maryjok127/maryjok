@@ -1,6 +1,9 @@
 import {CartForm, Image, Money} from '@shopify/hydrogen';
 import {Link} from '@remix-run/react';
 import {useVariantUrl} from '~/utils';
+import ReactGA from 'react-ga4';
+const TRACKING_ID = "G-YK0EY9W2EG " // "G-T3JX7QEBFV"; 
+ReactGA.initialize(TRACKING_ID);
 
 export function CartMain({layout, cart}) {
   const linesCount = Boolean(cart?.lines?.nodes?.length || 0);
@@ -114,10 +117,18 @@ function CartLineItem({layout, line}) {
 function CartCheckoutActions({checkoutUrl}) {
   if (!checkoutUrl) return null;
 
+  const checkout = ()=>{
+    ReactGA.event({
+      category: 'purchase',
+      action: 'purchase'
+    });
+    window.open(checkoutUrl,"_self");
+  }
+  
   return (
     <div className="mt-2">
-      <a href={checkoutUrl} target="_self">
-        <p className="checkout bg-black text-white text-center p-[10px] rounded">
+      <a href="#" onClick={()=> checkout() }>
+        <p className="checkout bg-black text-white text-center p-[10px] rounded" >
           Continue to Checkout &rarr;
         </p>
       </a>
