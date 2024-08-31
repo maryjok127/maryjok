@@ -2,7 +2,7 @@ import {CartForm, Image, Money} from '@shopify/hydrogen';
 import {Link} from '@remix-run/react';
 import {useVariantUrl} from '~/utils';
 import ReactGA from 'react-ga4';
-const TRACKING_ID = "G-YK0EY9W2EG " // "G-T3JX7QEBFV"; 
+const TRACKING_ID = "G-T3JX7QEBFV"; 
 ReactGA.initialize(TRACKING_ID);
 
 export function CartMain({layout, cart}) {

@@ -24,7 +24,7 @@ import {
 
 
 import ReactGA from 'react-ga4';
-const TRACKING_ID = "G-YK0EY9W2EG " // "G-T3JX7QEBFV"; 
+const TRACKING_ID =  "G-T3JX7QEBFV"; 
 ReactGA.initialize(TRACKING_ID);
 
 export function links() {
@@ -136,7 +136,7 @@ export default function App() {
         <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-TPDWX7TM"
         height="0" width="0" style={{display:"none",visibility:"hidden"}}></iframe></noscript>
         */}
-        
+
         <script src='../google_tag.js'> </script> 
 
         <script src='../fb_pixel.js'> </script>
