@@ -12,6 +12,10 @@ const ImageCarousel = () => {
   var imageSrc = []
   if(!isSmall){
     imageSrc = [{
+      img:'https://cdn.shopify.com/s/files/1/0809/4253/0882/files/MJK_Ganesh_Chaturthi_Sale_Meta_Ads_Website_Banner-10_Des.jpg?v=1725465252',
+      url:"/collections/all-products",
+    },
+    {
       img:'https://cdn.shopify.com/s/files/1/0809/4253/0882/files/desktop_banner_1.jpg?v=1715767477',
       url:"/collections/cult-accessories",
     },
@@ -29,6 +33,10 @@ const ImageCarousel = () => {
     }];
   }else{
     imageSrc = [{
+      img:'https://cdn.shopify.com/s/files/1/0809/4253/0882/files/MJK_Ganesh_Chaturthi_Sale_Meta_Ads_Website_Banner-11_Mob.jpg?v=1725465252',
+      url:"/collections/all-products",
+    },
+    {
       img:'https://cdn.shopify.com/s/files/1/0809/4253/0882/files/mobile_Hero_Banners_1.jpg?v=1715767503',
       url:"/collections/cult-accessories",
     },
