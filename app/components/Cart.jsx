@@ -119,6 +119,7 @@ function CartCheckoutActions({checkoutUrl,cartHasItems}) {
       category: 'purchase',
       action: 'purchase'
     });
+    console.log("cartHasItems::",cartHasItems)
     if(!cartHasItems){
       window.open("/collections/all-products","_self");
     }else{
