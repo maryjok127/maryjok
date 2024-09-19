@@ -118,13 +118,13 @@ function CartCheckoutActions({checkoutUrl,cartHasItems}) {
       category: 'purchase',
       action: 'purchase'
     });
-    console.log("cartHasItems::",cartHasItems)
+    console.log("cartHasItems::",cartHasItems, typeof cartHasItems)
     if(!cartHasItems){
       window.open("/collections/all-products","_self");
     }else{
       window.open(checkoutUrl,"_self");
     }
-    if (!checkoutUrl) return null;
+    //if (!checkoutUrl) return null;
   }
   
   return (
