@@ -113,7 +113,6 @@ function CartLineItem({layout, line}) {
 }
 
 function CartCheckoutActions({checkoutUrl,cartHasItems}) {
-  if (!checkoutUrl) return null;
     const checkout = ()=>{
     ReactGA.event({
       category: 'purchase',
@@ -125,6 +124,7 @@ function CartCheckoutActions({checkoutUrl,cartHasItems}) {
     }else{
       window.open(checkoutUrl,"_self");
     }
+    if (!checkoutUrl) return null;
   }
   
   return (
