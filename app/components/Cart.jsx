@@ -28,7 +28,7 @@ function CartDetails({layout, cart}) {
       {cartHasItems && (
         <CartSummary cost={cart.cost} layout={layout}>
           <CartDiscounts discountCodes={cart.discountCodes} />
-          <CartCheckoutActions checkoutUrl={cart.checkoutUrl} />
+          <CartCheckoutActions cartHasItems={cartHasItems} checkoutUrl={cart.checkoutUrl} />
         </CartSummary>
       )}
     </div>
@@ -94,9 +94,7 @@ function CartLineItem({layout, line}) {
             <li key={option.name} className="py-2">
               <div className="flex font-semibold text-md">
                 { option.value !=="Default Title" &&
-                <>
-                {/* <span className=" text-gray-900">{option.name}:</span> */}
-                
+                <>     
                   <span
                     className="inline-flex items-center px-2.5 py-0.5 rounded-full leading-4 text-blue-800"
                     dangerouslySetInnerHTML={{__html: option.value}}
@@ -114,7 +112,7 @@ function CartLineItem({layout, line}) {
   );
 }
 
-function CartCheckoutActions({checkoutUrl}) {
+function CartCheckoutActions({checkoutUrl,cartHasItems}) {
   if (!checkoutUrl) return null;
 
   const checkout = ()=>{
@@ -122,7 +120,11 @@ function CartCheckoutActions({checkoutUrl}) {
       category: 'purchase',
       action: 'purchase'
     });
-    window.open(checkoutUrl,"_self");
+    if(!cartHasItems){
+      window.open("/collections/all-products","_self");
+    }else{
+      window.open(checkoutUrl,"_self");
+    }
   }
   
   return (
