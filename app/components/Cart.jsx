@@ -259,7 +259,7 @@ export function CartEmpty({hidden = false, layout = 'aside'}) {
           className="w-[100%] h-11 bg-black text-white"
           onClick={() => {
             if (layout === 'aside') {
-              window.location.href = '/collections';
+              window.location.href = '/collections/all-products';
             }
           }}
         >
