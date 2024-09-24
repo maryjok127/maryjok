@@ -85,7 +85,6 @@ export async function loader({params, request, context}) {
     let searchParams = new URLSearchParams(url.search);
     const opt = getLastQueryParam(searchParams);
     const filterVar = variants.product.variants.nodes.filter(node => node.selectedOptions.find((option) =>option.name === opt.key && option.value === opt.value)) 
-    //console.log("Selected  ::",opt.value,"==== Filterd",filterVar)
     product.selectedVariant = filterVar[0];
     // if no selected variant was returned from the selected options,
     // we redirect to the first variant's url with it's selected options applied
