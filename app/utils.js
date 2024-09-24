@@ -14,10 +14,6 @@ export function useVariantUrl(handle, selectedOptions) {
   }, [handle, selectedOptions, pathname]);
 }
 
-function getLastQueryParam(params) {
-  const lastParam = Array.from(params.entries()).pop(); // Get the last entry
-  return lastParam ? { key: lastParam[0], value: lastParam[1] } : null;
-}
 export function getVariantUrl({
   handle,
   pathname,
@@ -26,20 +22,14 @@ export function getVariantUrl({
 }) {
   const match = /(\/[a-zA-Z]{2}-[a-zA-Z]{2}\/)/g.exec(pathname);
   const isLocalePathname = match && match.length > 0;
-  const getMatch = getLastQueryParam(searchParams);
-  
-  const path =  `/products/${handle}`;
-   // isLocalePathname
-    // ? `${match[0]}products/${handle}`
-    // : `/products/${handle}`;
 
-  
+  const path = isLocalePathname
+    ? `${match[0]}products/${handle}`
+    : `/products/${handle}`;
+
   selectedOptions.forEach((option) => {
     searchParams.set(option.name, option.value);
   });
-
   const searchString = searchParams.toString();
-
-  console.log("match::",path,'?',searchParams.toString())
   return path + (searchString ? '?' + searchParams.toString() : '');
 }

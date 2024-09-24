@@ -30,6 +30,10 @@ export const meta = ({data}) => {
   return [{title: `Hydrogen | ${data.product.title}`}];
 };
 
+function getLastQueryParam(params) {
+  const lastParam = Array.from(params.entries()).pop(); // Get the last entry
+  return lastParam ? { key: lastParam[0], value: lastParam[1] } : null;
+}
 export async function loader({params, request, context}) {
   const {handle} = params;
   const {storefront} = context;
@@ -77,12 +81,18 @@ export async function loader({params, request, context}) {
   if (firstVariantIsDefault) {
     product.selectedVariant = firstVariant;
   } else {
-    product.selectedVariant = firstVariant;
+    // const url = new URL(request.url);
+    // let searchParams = new URLSearchParams(url.search);
+    // const getMatch = getLastQueryParam(searchParams);
+  
+    // firstVariant.selectedOptions.find(
+    //   (option) => option.name === 'Title' && option.value === 'Default Title',
+    // ),
     // if no selected variant was returned from the selected options,
     // we redirect to the first variant's url with it's selected options applied
-    // if (!product.selectedVariant) {
-    //   return redirectToFirstVariant({product, request});
-    // }
+    if (!product.selectedVariant) {
+      return redirectToFirstVariant({product, request});
+    }
   }
   const {collections} = await storefront.query(FEATURED_COLLECTION_QUERY);
   const recommendedProducts = collections;
