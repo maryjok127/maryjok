@@ -79,9 +79,9 @@ export async function loader({params, request, context}) {
   } else {
     // if no selected variant was returned from the selected options,
     // we redirect to the first variant's url with it's selected options applied
-    if (!product.selectedVariant) {
-      return redirectToFirstVariant({product, request});
-    }
+    // if (!product.selectedVariant) {
+    //   return redirectToFirstVariant({product, request});
+    // }
   }
   const {collections} = await storefront.query(FEATURED_COLLECTION_QUERY);
   const recommendedProducts = collections;
