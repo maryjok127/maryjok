@@ -77,6 +77,7 @@ export async function loader({params, request, context}) {
   if (firstVariantIsDefault) {
     product.selectedVariant = firstVariant;
   } else {
+    product.selectedVariant = firstVariant;
     // if no selected variant was returned from the selected options,
     // we redirect to the first variant's url with it's selected options applied
     // if (!product.selectedVariant) {
@@ -92,16 +93,13 @@ function redirectToFirstVariant({product, request}) {
   const url = new URL(request.url);
   const firstVariant = product.variants.nodes[0];
 
-  throw redirect(
+  return redirect(
     getVariantUrl({
       pathname: url.pathname,
       handle: product.handle,
       selectedOptions: firstVariant.selectedOptions,
       searchParams: new URLSearchParams(url.search),
-    }),
-    {
-      status: 302,
-    },
+    })
   );
 }
 
