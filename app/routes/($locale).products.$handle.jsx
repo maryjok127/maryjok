@@ -64,7 +64,7 @@ export async function loader({params, request, context}) {
   // into it's own separate query that is deferred. So there's a brief moment
   // where variant options might show as available when they're not, but after
   // this deffered query resolves, the UI will update.
-  const variants = storefront.query(VARIANTS_QUERY, {
+  const variants = await storefront.query(VARIANTS_QUERY, {
     variables: {handle},
   });
 
@@ -81,18 +81,17 @@ export async function loader({params, request, context}) {
   if (firstVariantIsDefault) {
     product.selectedVariant = firstVariant;
   } else {
-    // const url = new URL(request.url);
-    // let searchParams = new URLSearchParams(url.search);
-    // const getMatch = getLastQueryParam(searchParams);
-  
-    // firstVariant.selectedOptions.find(
-    //   (option) => option.name === 'Title' && option.value === 'Default Title',
-    // ),
+    const url = new URL(request.url);
+    let searchParams = new URLSearchParams(url.search);
+    const opt = getLastQueryParam(searchParams);
+    const filterVar = variants.product.variants.nodes.filter(node => node.selectedOptions.find((option) =>option.name === opt.key && option.value === opt.value)) 
+    //console.log("Selected  ::",opt.value,"==== Filterd",filterVar)
+    product.selectedVariant = filterVar[0];
     // if no selected variant was returned from the selected options,
     // we redirect to the first variant's url with it's selected options applied
-    if (!product.selectedVariant) {
-      return redirectToFirstVariant({product, request});
-    }
+    // if (!product.selectedVariant) {
+    //   return redirectToFirstVariant({product, request});
+    // }
   }
   const {collections} = await storefront.query(FEATURED_COLLECTION_QUERY);
   const recommendedProducts = collections;
