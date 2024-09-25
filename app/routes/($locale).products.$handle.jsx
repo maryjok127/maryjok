@@ -612,7 +612,7 @@ function ProductOptions({option,activeImg,closeRef,setActiveImage,selectedVarian
 
 function AddToCartButton({analytics, children, disabled, lines, onClick}) {
   const [qty, setQty] = useState(1);
-  lines[0]?.quantity = qty;
+  lines[0].quantity = qty;
   //console.log("AddToCartButton variant_id::",lines);
   return (
     <>
