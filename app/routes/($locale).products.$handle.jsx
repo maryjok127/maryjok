@@ -83,8 +83,12 @@ export async function loader({params, request, context}) {
   if (firstVariantIsDefault) {
     product.selectedVariant = firstVariant;
   } else {
-    const filterVar = variants.product.variants.nodes.filter(node => node.selectedOptions.find((option) =>option.name === opt.key && option.value === opt.value)) 
-    product.selectedVariant = filterVar.length > 0 ? filterVar[0] : variants.product.variants.nodes[0];
+    if(opt){
+      const filterVar = variants.product.variants.nodes.filter(node => node.selectedOptions.find((option) =>option.name === opt.key && option.value === opt.value)) 
+      product.selectedVariant = filterVar.length > 0 ? filterVar[0] : variants.product.variants.nodes[0];
+    }else{
+      product.selectedVariant = firstVariant;
+    }
     //console.log("Filter:::",filterVar.length,filterVar, variants.product.variants.nodes[0])
     // if no selected variant was returned from the selected options,
     // we redirect to the first variant's url with it's selected options applied
