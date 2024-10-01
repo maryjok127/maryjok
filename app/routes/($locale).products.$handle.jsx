@@ -203,9 +203,9 @@ function ProductMain({selectedVariant, product, shareUrl, variants,recommendedPr
     <>
       {/*<ProductImage image={selectedVariant?.image} />*/}
       <div className="flex m-[2%] gap-2 items-center">
-        <Link className='mst-color' to="/">Home TEST</Link>
+        <Link className='mst-color' to="/">Home</Link>
         <img src="/next.png" alt="next" width={20} height={20} />
-        <span className="font-semibold mst-color">Product page TEST</span>
+        <span className="font-semibold mst-color">Product page</span>
       </div>
       <div className="final-product mst-card-shadow shadow-lg p-4 flex flex-col justify-between lg:flex-row lg:gap-8 lg:ml-8 lg:mr-8 items-start relative">
         <div className="flex flex-col gap-6 lg:w-2/4 flex-wrap items-center lg:sticky top-[240px]">
@@ -518,7 +518,7 @@ function ProductForm({
         handle={product.handle}
         options={product.options}
         variants={variants}
-        productPath="/products-test"
+        //productPath="/products-test"
       >
         {({option}) => (
           <ProductOptions
