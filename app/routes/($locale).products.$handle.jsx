@@ -199,14 +199,13 @@ function ProductMain({selectedVariant, product, shareUrl, variants,recommendedPr
   const [activeImg, setActiveImage] = useState(images[0]);
   const [moreText, setMoreText] = useState(true);
 
-
   return (
     <>
       {/*<ProductImage image={selectedVariant?.image} />*/}
       <div className="flex m-[2%] gap-2 items-center">
-        <Link className='mst-color' to="/">Home</Link>
+        <Link className='mst-color' to="/">Home TEST</Link>
         <img src="/next.png" alt="next" width={20} height={20} />
-        <span className="font-semibold mst-color">Product page</span>
+        <span className="font-semibold mst-color">Product page TEST</span>
       </div>
       <div className="final-product mst-card-shadow shadow-lg p-4 flex flex-col justify-between lg:flex-row lg:gap-8 lg:ml-8 lg:mr-8 items-start relative">
         <div className="flex flex-col gap-6 lg:w-2/4 flex-wrap items-center lg:sticky top-[240px]">
@@ -467,7 +466,7 @@ function ProductForm({
   const handlePinChange =(e)=> {
     setPinCode(e.target.value)
   }
-
+  console.log("product opt ::", product.options)
   const getEstimatedDate = (edd)=>{
     const date = new Date();
     date.setDate(date.getDate()  + edd);
@@ -519,6 +518,7 @@ function ProductForm({
         handle={product.handle}
         options={product.options}
         variants={variants}
+        productPath="/products-test"
       >
         {({option}) => (
           <ProductOptions
@@ -546,7 +546,7 @@ function ProductForm({
         { serviceble.status!= null &&
         <p className={`font-bold ${serviceble.status ? 'text-green-500' : 'text-orange-500'}` }> Estimated Delivery : { serviceble.msg } </p>
         }
-        </div>
+      </div>
       <AddToCartButton
         disabled={!selectedVariant || !selectedVariant.availableForSale}
         onClick={() => {
@@ -554,13 +554,13 @@ function ProductForm({
         }}
         lines={
           selectedVariant
-            ? [
-                {
-                  merchandiseId: selectedVariant.id,
-                  quantity: 1,
-                },
-              ]
-            : []
+          ? [
+              {
+                merchandiseId: selectedVariant.id,
+                quantity: 1,
+              },
+            ]
+          : []
         }
       >
         {selectedVariant?.availableForSale ? 'ADD TO CART' : 'Sold out'}
@@ -578,7 +578,8 @@ function ProductOptions({option,activeImg,closeRef,setActiveImage,selectedVarian
   const setImg = (index)=>{
     setVar({[index]:true})
   }
-
+  
+  console.log("----option ::",option)
   return (
     <>
       <div className="product-options" key={option.name}>
@@ -592,7 +593,6 @@ function ProductOptions({option,activeImg,closeRef,setActiveImage,selectedVarian
                 key={option.name + value}
                 prefetch="intent" 
                 replace
-                
                 preventScrollReset
                 to={to}
                 style={{
@@ -600,10 +600,11 @@ function ProductOptions({option,activeImg,closeRef,setActiveImage,selectedVarian
                     ? '1px solid #d0715f'
                     : '1px solid transparent',
                   borderRadius: '5px',
+
                 }}
                 onClick={() =>  setImg(index) }
               >
-              <div dangerouslySetInnerHTML={{__html: value}} />
+              <img className='color-swatch' src={`https://cdn.shopify.com/s/files/1/0809/4253/0882/files/${value}.png`} alt={value} />
               </Link>
             );
           })}
@@ -753,6 +754,7 @@ const PRODUCT_FRAGMENT = `#graphql
       name
       values
     }
+    
     selectedVariant: variantBySelectedOptions(selectedOptions: $selectedOptions) {
       ...ProductVariant
     }
