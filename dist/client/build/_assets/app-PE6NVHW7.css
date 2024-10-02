@@ -352,6 +352,8 @@ footer {
 }
 .color-swatch {
   width: 40px;
+  display: block;
+  height: 40px;
 }
 .expect > div > div > div > div {
   display: block !important;
@@ -884,4 +886,4 @@ footer {
     width: 30px !important;
   }
 }
-/*# sourceMappingURL=/build/_assets/app-74PH2IR4.css.map */
+/*# sourceMappingURL=/build/_assets/app-PUELAHXQ.css.map */

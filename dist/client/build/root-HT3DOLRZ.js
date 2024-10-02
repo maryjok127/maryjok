@@ -55,7 +55,7 @@ var favicon_default = "/build/_assets/favicon-IN6DMKSS.svg";
 var reset_default = "/build/_assets/reset-FEGHSTUV.css";
 
 // app/styles/app.css
-var app_default = "/build/_assets/app-XF7JFE25.css";
+var app_default = "/build/_assets/app-PE6NVHW7.css";
 
 // app/components/Layout.jsx
 var import_react6 = __toESM(require_react());
@@ -2008,4 +2008,4 @@ tw-elements-react/dist/js/tw-elements-react.es.min.js:
   * 
   *)
 */
-//# sourceMappingURL=/build/root-2P6J6TYT.js.map
+//# sourceMappingURL=/build/root-HT3DOLRZ.js.map

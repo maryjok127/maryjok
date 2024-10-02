@@ -466,7 +466,7 @@ function ProductForm({
   const handlePinChange =(e)=> {
     setPinCode(e.target.value)
   }
-  console.log("product opt ::", product.options)
+  //console.log("product opt ::", product.options)
   const getEstimatedDate = (edd)=>{
     const date = new Date();
     date.setDate(date.getDate()  + edd);
@@ -522,6 +522,7 @@ function ProductForm({
       >
         {({option}) => (
           <ProductOptions
+            optionValues={product.options}
             key={option.name}
             option={option}
             activeImg={activeImg}
@@ -569,7 +570,7 @@ function ProductForm({
   );
 }
 
-function ProductOptions({option,activeImg,closeRef,setActiveImage,selectedVariant}) {
+function ProductOptions({option, optionValues, activeImg,closeRef,setActiveImage,selectedVariant}) {
   const [selectedVar, setVar] = useState({0:true});
   useEffect(()=>{
     setActiveImage(selectedVariant?.image?.url);
@@ -578,8 +579,8 @@ function ProductOptions({option,activeImg,closeRef,setActiveImage,selectedVarian
   const setImg = (index)=>{
     setVar({[index]:true})
   }
-  
-  console.log("----option ::",option)
+  let swatches = optionValues[0].optionValues;
+  console.log("----option--- ::",swatches.length,option.values.length)
   return (
     <>
       <div className="product-options" key={option.name}>
@@ -587,25 +588,30 @@ function ProductOptions({option,activeImg,closeRef,setActiveImage,selectedVarian
         <div className="product-options-grid items-center">
           {option.values.map(({value, isAvailable, isActive, to},index) => {
             return (
+              <div style={{ 
+                padding:'4px',
+                border: selectedVar[index]
+                ? '1px solid #d0715f'
+                : '1px solid transparent',
+              borderRadius: '5px',}} >
               <Link
                 ref={closeRef}
-                className="product-options-item"
+                className="product-options-item color-swatch"
                 key={option.name + value}
                 prefetch="intent" 
                 replace
                 preventScrollReset
                 to={to}
                 style={{
-                  border: selectedVar[index]
-                    ? '1px solid #d0715f'
-                    : '1px solid transparent',
-                  borderRadius: '5px',
-
+                  backgroundColor:swatches[index]?.swatch?.color,
+                  width:'40px'
                 }}
-                onClick={() =>  setImg(index) }
+                onClick={() => setImg(index) }
               >
-              <img className='color-swatch' src={`https://cdn.shopify.com/s/files/1/0809/4253/0882/files/${value}.png`} alt={value} />
+          
+              {/* <img className='color-swatch' src={`https://cdn.shopify.com/s/files/1/0809/4253/0882/files/${value}.png`} alt={value} /> */}
               </Link>
+              </div>
             );
           })}
         </div>
@@ -753,6 +759,11 @@ const PRODUCT_FRAGMENT = `#graphql
     options {
       name
       values
+      optionValues{
+        swatch{
+          color
+        }
+      }
     }
     
     selectedVariant: variantBySelectedOptions(selectedOptions: $selectedOptions) {

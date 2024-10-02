@@ -39,6 +39,7 @@ export default {
         cache,
         waitUntil,
         i18n: getLocaleFromRequest(request),
+        storefrontApiVersion:env.PUBLIC_STOREFRONT_API_VERSION,
         publicStorefrontToken: "8a86833a9662d5cb1d69b9b88200dc3f",//env.PUBLIC_STOREFRONT_API_TOKEN,
         privateStorefrontToken: "",//env.PRIVATE_STOREFRONT_API_TOKEN,
         storeDomain: "15f63f.myshopify.com",//env.PUBLIC_STORE_DOMAIN,

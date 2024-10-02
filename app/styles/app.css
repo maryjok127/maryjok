@@ -323,7 +323,10 @@ footer{
 .expect > div > div {
   max-width: 100% !important;
 }
-.color-swatch{ width: 40px; }
+.color-swatch{ width: 40px;
+  display: block;
+  height: 40px;
+}
 /* .expect > div > div > div {
   display: flex;
   --tw-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1),
