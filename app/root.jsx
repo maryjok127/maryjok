@@ -21,11 +21,23 @@ import {
 	OkendoProvider,
 	getOkendoProviderData,
 } from "@okendo/shopify-hydrogen";
-
+import {getSeoMeta} from '@shopify/hydrogen';
 
 import ReactGA from 'react-ga4';
 const TRACKING_ID =  "G-T3JX7QEBFV"; 
 ReactGA.initialize(TRACKING_ID);
+
+// export const meta = ({data, location}) => {
+//   return getSeoMeta(data.seo).map((meta) => {
+//     if (meta.rel === 'canonical') {
+//       return {
+//         ...meta,
+//         href: meta.href + location.search,
+//       };
+//     }
+//     return meta;
+//   });
+// };
 
 export function links() {
   return [
@@ -48,15 +60,10 @@ export async function loader({context}) {
   const {storefront, session, cart} = context;
   const customerAccessToken = await session.get('customerAccessToken')
   const publicStoreDomain = context.env.PUBLIC_STORE_DOMAIN;
-
-  // validate the customer access token is valid
   const {isLoggedIn, headers} = await validateCustomerAccessToken(
     customerAccessToken,
     session,
   );
-
-  console.log("headers::",headers)
-
   // defer the cart query by not awaiting it
   const cartPromise = cart.get();
   // defer the footer query (below the fold)
@@ -66,7 +73,6 @@ export async function loader({context}) {
       footerMenuHandle: 'footer', // Adjust to your footer menu handle
     },
   });
-
   // await the header query (above the fold)
   const headerPromise = storefront.query(HEADER_QUERY, {
     cache: storefront.CacheNone(),
@@ -90,7 +96,6 @@ export async function loader({context}) {
 }
 
 export default function App() {
-
   useEffect(()=>{
      ReactGA.send({ hitType: "pageview", page: window.location.pathname });
   },[])
@@ -101,12 +106,9 @@ export default function App() {
   return (
     <html lang="en">
       <head>
-        <meta name="google-site-verification" content="chuZbQRh2KrTexV9OSYVzpR641zvxEmzEwsHS6pExT0" /> 
+        <meta name="google-site-verification" content="C5WkKr6Bq1BKgHfp7-jocFCRVsXNHOTWYCKx0EW-y-w" />
         <meta charSet="utf-8" />
         <meta name="viewport" content="width=device-width,initial-scale=1" />   
-      	<meta charSet="utf-8" />
-        <meta name="viewport" content="width=device-width,initial-scale=1" />
-
         <meta name="oke:subscriber_id" content="866361a1-6116-4d14-abc8-0565f32d51cb" />
         <title>Mary Jo K</title>
         <link rel="icon" type="image/x-icon" href="/favicon.png" />

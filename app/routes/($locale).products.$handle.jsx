@@ -14,9 +14,7 @@ import {
 	OKENDO_PRODUCT_REVIEWS_FRAGMENT,
 	OKENDO_PRODUCT_STAR_RATING_FRAGMENT,
 	OkendoReviews,
-	OkendoStarRating,
-  // WithOkendoReviewsSnippet,
-	// WithOkendoStarRatingSnippet
+	OkendoStarRating
 } from "@okendo/shopify-hydrogen";
 import {
   FacebookShareButton,
@@ -24,11 +22,13 @@ import {
   WhatsappIcon,
   FacebookIcon,
 } from 'react-share';
+import {getSeoMeta} from '@shopify/hydrogen';
 //import {getWishlistSocialCount} from '../swym/store-apis';
 
 export const meta = ({data}) => {
-  return [{title: `Hydrogen | ${data.product.title}`}];
+  return getSeoMeta(data.seo);
 };
+
 
 function getLastQueryParam(params) {
   const lastParam = Array.from(params.entries()).pop(); // Get the last entry
@@ -98,8 +98,14 @@ export async function loader({params, request, context}) {
   }
   const {collections} = await storefront.query(FEATURED_COLLECTION_QUERY);
   const recommendedProducts = collections;
-  return defer({product, variants, productsreturn ,recommendedProducts});
+  let desc = product.description.split(" ", 100).join(" ");
+  let seo = {
+    title: product.title,
+    description: desc,
+  }
+  return defer({product, variants, productsreturn ,recommendedProducts,seo });
 }
+
 
 function redirectToFirstVariant({product, request}) {
   const url = new URL(request.url);
@@ -162,6 +168,7 @@ function ProductImage({image, activeImg, setActiveImage, product}) {
           {product.images.edges &&
             product.images.edges.map((item, index) => (
               <img
+                key={`prod_${index}`}
                 src={images[index]}
                 alt=""
                 className="w-24 h-24 rounded-md cursor-pointer product-image-caro "
@@ -466,7 +473,7 @@ function ProductForm({
   const handlePinChange =(e)=> {
     setPinCode(e.target.value)
   }
-  //console.log("product opt ::", product.options)
+ 
   const getEstimatedDate = (edd)=>{
     const date = new Date();
     date.setDate(date.getDate()  + edd);
@@ -580,7 +587,6 @@ function ProductOptions({option, optionValues, activeImg,closeRef,setActiveImage
     setVar({[index]:true})
   }
   let swatches = optionValues[0].optionValues;
-  console.log("----option--- ::",swatches.length,option.values.length)
   return (
     <>
       <div className="product-options" key={option.name}>
@@ -588,12 +594,13 @@ function ProductOptions({option, optionValues, activeImg,closeRef,setActiveImage
         <div className="product-options-grid items-center">
           {option.values.map(({value, isAvailable, isActive, to},index) => {
             return (
-              <div style={{ 
+              <div key={`p-opts_${index}`} style={{ 
                 padding:'4px',
                 border: selectedVar[index]
                 ? '1px solid #d0715f'
                 : '1px solid transparent',
-              borderRadius: '5px',}} >
+                borderRadius: '5px'
+              }} >
               <Link
                 ref={closeRef}
                 className="product-options-item color-swatch"
