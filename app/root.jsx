@@ -24,9 +24,8 @@ import {
 import {getSeoMeta} from '@shopify/hydrogen';
 
 import ReactGA from 'react-ga4';
-const TRACKING_ID =  "G-T3JX7QEBFV"; 
-ReactGA.initialize(TRACKING_ID);
-
+// const TRACKING_ID =  "G-T3JX7QEBFV"; 
+// ReactGA.initialize(TRACKING_ID);
 
 export function links() {
   return [
@@ -92,7 +91,7 @@ export async function loader({request,context}) {
 
 export default function App() {
   useEffect(()=>{
-     ReactGA.send({ hitType: "pageview", page: window.location.pathname });
+     //ReactGA.send({ hitType: "pageview", page: window.location.pathname });
   },[])
 
   const data = useLoaderData();
