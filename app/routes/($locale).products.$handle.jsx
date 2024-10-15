@@ -23,10 +23,19 @@ import {
   FacebookIcon,
 } from 'react-share';
 import {getSeoMeta} from '@shopify/hydrogen';
-//import {getWishlistSocialCount} from '../swym/store-apis';
 
-export const meta = ({data}) => {
-  return getSeoMeta(data.seo);
+export const meta = ({data,location}) => {
+  let desc = data.seo.description.length ? data.seo.description.substring(0, 150) : "Desciption not available"
+  let metaD = {title:data.seo.title, description: desc + '...'}
+  return getSeoMeta(metaD).map((meta) => {
+   
+      return {
+        ...meta,
+        rel:"canonical",
+        href: meta.href,
+      };
+   
+  });
 };
 
 
@@ -98,10 +107,9 @@ export async function loader({params, request, context}) {
   }
   const {collections} = await storefront.query(FEATURED_COLLECTION_QUERY);
   const recommendedProducts = collections;
-  let desc = product.description.split(" ", 100).join(" ");
   let seo = {
     title: product.title,
-    description: desc,
+    description: product.description
   }
   return defer({product, variants, productsreturn ,recommendedProducts,seo });
 }
@@ -589,6 +597,7 @@ function ProductOptions({option, optionValues, activeImg,closeRef,setActiveImage
   let swatches = optionValues[0].optionValues;
   return (
     <>
+    { option.name !== 'Title' && 
       <div className="product-options" key={option.name}>
         <h5 className="font-semibold">{option.name}</h5>
         <div className="product-options-grid items-center">
@@ -624,6 +633,7 @@ function ProductOptions({option, optionValues, activeImg,closeRef,setActiveImage
         </div>
         <br />
       </div>
+    }
     </>
   );
 }

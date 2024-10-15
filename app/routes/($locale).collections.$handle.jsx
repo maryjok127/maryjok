@@ -27,6 +27,15 @@ import {
 
 import CollectionCarousel from "../components/CollectionCarousel"
 
+import {getSeoMeta} from '@shopify/hydrogen';
+
+export const meta = ({matches,data}) => {
+  let desc = data.seo.description.length ? data.seo.description.substring(0, 150) : "Desciption not available"
+  let metaD = {title:data.seo.title, description: desc + '...'}
+  return getSeoMeta(...matches.map((match) => metaD));
+};
+
+
 const sortOptions = [
   {name: 'Most Popular', href: '#', value:'', current: true},
   // {name: 'Best Rating', href: '#', value:'', current: false},
@@ -58,10 +67,6 @@ const filters = [
 function classNames(...classes) {
   return classes.filter(Boolean).join(' ');
 }
-
-export const meta = ({data}) => {
-  return [{title: `Hydrogen | ${data.collection.title} Collection`}];
-};
 
 export async function loader({request, params, context}) {
   const {handle} = params;
@@ -97,7 +102,12 @@ export async function loader({request, params, context}) {
       status: 404,
     });
   }
-  return json({collection, collections,  header: await headerPromise,handle});
+  let desc = collection.description.split(" ", 100).join(" ");
+  let seo = {
+    title: `MARY JO K - ${collection.title}`,
+    description: desc,
+  }
+  return json({collection, collections,  header: await headerPromise,handle,seo});
 }
 
 export default function Collection() {
@@ -781,6 +791,7 @@ const COLLECTION_QUERY = `#graphql
       id
       handle
       title
+      description
       descriptionHtml
       image{
         url
