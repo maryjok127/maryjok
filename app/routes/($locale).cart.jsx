@@ -19,15 +19,11 @@ export async function loader({params, request, context}) {
 }
 export async function action({request, context}) {
   const {session, cart} = context;
-
   const [formData, customerAccessToken] = await Promise.all([
     request.formData(),
     session.get('customerAccessToken'),
   ]);
-
   const {action, inputs} = CartForm.getFormInput(formData);
-  
-  console.log("inputs.lines::",inputs.lines)
   if (!action) {
     throw new Error('No action provided');
   }

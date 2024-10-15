@@ -642,7 +642,7 @@ export default function Collection() {
                   <table class="table-auto  w-full">
                     {productsToShow.map((product, index) => (
                      <tbody>
-                      <tr className='cursor mst-card-md bg-white rounded-lg shadow-lg p-2 px-2 sm:px-2'>
+                      <tr className='cursor mst-card-md bg-white rounded-lg shadow-lg p-2 px-2 sm:px-2 mt-1'>
                           <td onClick={()=>goToProduct(`/products/${product.handle}`)}> 
                             <img
                               src={product.images.edges[0]?.node?.url}
@@ -741,7 +741,7 @@ export default function Collection() {
             </section>
             <div className='collection_desc'>
             { !readMore ?
-              <p dangerouslySetInnerHTML={{ __html: collection?.descriptionHtml.slice(0, 200) }} className="my-4"></p>
+              <p dangerouslySetInnerHTML={{ __html: `${collection?.descriptionHtml.slice(0, 450)}...`}} className="my-4"></p>
               :
               <p dangerouslySetInnerHTML={{ __html: collection?.descriptionHtml}} className="my-4"></p>
             }
