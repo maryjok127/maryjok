@@ -123,6 +123,7 @@ export default function Collection() {
   var productsToShow1 = [];
   const lines = [];
   const [startIndex, setStartIndex] = useState(0);
+  const [layout, setLayout] = useState(true)
   const [productsToShow, setProductToShow] = useState([])
   const [productsToShowDump, setProductToShowDump] = useState([])
   const [imgUrl , setImgUrl  ] = useState("");
@@ -131,7 +132,7 @@ export default function Collection() {
   const [ readMore, setMore ] = useState(false)
   const endIndex = isLargeScreen ? 4 : 2;
  
-
+  console.log("layout::",layout)
   useEffect(()=>{
     if (collection.products != null || collection.products != undefined) {
       productsToShow1 = collection.products.nodes;
@@ -430,11 +431,11 @@ export default function Collection() {
                   </Transition>
                 </Menu>
 
-                <button
+                <button onClick={()=> setLayout(!layout)}
                   type="button"
                   className="second-filter -m-2 ml-5 p-2 text-gray-400 hover:text-gray-500 sm:ml-7"
                 >
-                  <span className="sr-only">View grid</span>
+                  <span className="sr-only" >View grid</span>
                   <Squares2X2Icon className="h-5 w-5 mst-color" aria-hidden="true" />
                 </button>
                 <button
@@ -452,7 +453,6 @@ export default function Collection() {
               <h2 id="products-heading" className="sr-only">
                 Products
               </h2>
-
               <div className="grid grid-cols-1 gap-x-8 gap-y-10 lg:grid-cols-4">
                 <div className="shadow-md px-4 py-2 sm:mst-card">
                   <form className="hidden lg:block lg:sticky lg:top-[120px]">
@@ -536,6 +536,7 @@ export default function Collection() {
                 </div>
                 
                 {/* Product grid */}
+                { layout  ?
                 <div className="lg:col-span-3">
                   <div className="w-full max-w-screen-xl">
                     <div className="cursor grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-3 gap-4">
@@ -608,7 +609,7 @@ export default function Collection() {
                               <div className='w-[75%]'>
                               <CartForm
                                 route="/cart"
-                                inputs={{lines: lines[index]}}
+                                inputs={{lines: [lines[index]]}}
                                 action={CartForm.ACTIONS.LinesAdd}
                                 className="flex-grow"
                               >
@@ -635,7 +636,108 @@ export default function Collection() {
                     </div>
                   </div>
                 </div>
+                :
+                <div className="lg:col-span-3">
+                <div className="w-full max-w-screen-xl">
+                  <table class="table-auto  w-full">
+                    {productsToShow.map((product, index) => (
+                     <tbody>
+                      <tr className='cursor mst-card-md bg-white rounded-lg shadow-lg p-2 px-2 sm:px-2'>
+                          <td onClick={()=>goToProduct(`/products/${product.handle}`)}> 
+                            <img
+                              src={product.images.edges[0]?.node?.url}
+                              alt={product.title}
+                              className="w-[200px] h-auto rounded"
+                            />
+                          </td>
+                          <td>
+                            <div className="sm:text-lg text-[17px] xs:text-[14px] font-semibold mt-2 text-center w-[220px] min-h-[50px] xs:min-h-[65px] sm:min-h-[55px]">
+                              {product.title}
+                            </div>
+                          </td>
+                          <td>
+                            <div className="text-center sm:text-[26px] text-[21px] xs:text-[19px] font-bold m-auto w-full">
+                              &#x20b9;{Math.trunc(product.priceRange.maxVariantPrice.amount)} &nbsp; 
+                            
+                              &nbsp;&nbsp;
+                              { product.variants.nodes[0].compareAtPrice?.amount ?
+                                <s className="opacity-50 text-xl">
+                                &#x20b9;{Math.trunc(product.variants.nodes[0].compareAtPrice?.amount)} 
+                                </s>
+                                :
+                                <s className="opacity-50 text-xl">
+                                &#x20b9;{Math.trunc(product.priceRange?.maxVariantPrice.amount)} 
+                                </s>
+                              }
+                              <b className='ml-2 text-red-500 text-sm xs:text-sm sm:text-xl'> ({ calculatePer(product.priceRange.minVariantPrice.amount,product.variants.nodes[0].compareAtPrice?.amount) } % Off) </b>
+                            </div>
+                          </td>
+                          <td>
+                            <div className='flex justify-center pt-1'>
+                            <OkendoStarRating
+                              productId={product.id}
+                              okendoStarRatingSnippet={product.OkendoStarRatingSnippet}
+                            />
+                            </div>
+                          </td>
+                          <td>
+                          <div className="px-1 py-1 flex items-center sm:flex-row gap-3 justify-center w-[100%]">
+                      
+                            <div className='w-[25%] flex justify-center'>
+                              <svg
+                                xmlns="http://www.w3.org/2000/svg"
+                                viewBox="0 0 32 33"
+                                xmlSpace="preserve"
+                                // width="2.8em"
+                                // height="2.8em"
+                                className="home-like h-[30px] w-[30px] sm:w-[43px] sm:h-[43px]"
+                              >
+                                <path
+                                  d="M9 .5h14c4.7 0 8.5 3.8 8.5 8.5v14c0 4.7-3.8 8.5-8.5 8.5H9C4.3 31.5.5 27.7.5 23V9C.5 4.3 4.3.5 9 .5z"
+                                  fill="rgb(255, 255, 255)"
+                                  stroke="rgb(0, 0, 0)"
+                                />
+                                <path
+                                  d="M22.3 11.8c.4.4.7.9.9 1.4.2.5.3 1.1.3 1.6 0 .6-.1 1.1-.3 1.6-.2.5-.5 1-.9 1.4l-5.6 5.6s-.1 0-.1.1h-.2s-.1 0-.1-.1l-5.6-5.6C10 17 9.5 16 9.5 14.9c0-1.1.3-2.1 1-2.9.7-.8 1.7-1.3 2.7-1.5 1.1-.1 2.1.2 3 .8l.3.2.3-.2c.8-.6 1.8-.9 2.8-.8 1.1.1 2 .5 2.7 1.3z"
+                                  fill="none"
+                                  stroke="rgb(0, 0, 0)"
+                                ></path>
+                              </svg>
+                            </div>
+                         
+                            <div className='w-[75%]'>
+                            <CartForm
+                              route="/cart"
+                              inputs={{lines: [lines[index]] }}
+                              action={CartForm.ACTIONS.LinesAdd}
+                              className="flex-grow"
+                            >
+                              {(fetcher) => (
+                                <>
+                                  <button
+                                    className="w-[100%] h-11 bg-black hover:bg-blue-700 text-white font-bold py-1 rounded-lg inline-block home-product"
+                                    type="submit"
+                                    onClick={() => {
+                                      window.location.href =
+                                        window.location.href + '#cart-aside';
+                                    }}
+                                  >
+                                    Add To Cart
+                                  </button>
+                                </>
+                              )}
+                            </CartForm>
+                            </div>
+                          </div>
+                          </td>
+                      </tr>
+                      </tbody>
+                    ))}
+                  </table>
+                </div>
               </div>
+              }
+            </div>
             </section>
             <div className='collection_desc'>
             { !readMore ?
