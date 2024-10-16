@@ -100,7 +100,7 @@ export default function App() {
   return (
     <html lang="en">
       <head>
-        <meta name="google-site-verification" content="C5WkKr6Bq1BKgHfp7-jocFCRVsXNHOTWyCKxoEW-y-w" />
+      <meta name="google-site-verification" content="r4361WPUd7tcHpw17PHhoQs2I0o0pgR8iU_DeFh5ovo" />
         <meta charSet="utf-8" />
         <link rel="canonical" href={data.seo.href} />
 

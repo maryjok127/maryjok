@@ -31,7 +31,7 @@ import {getSeoMeta} from '@shopify/hydrogen';
 
 export const meta = ({matches,data}) => {
   let desc = data.seo.description.length ? data.seo.description.substring(0, 150) : "Desciption not available"
-  let metaD = {title:data.seo.title, description: desc + '...'}
+  let metaD = {title:data.seo.title + '- Mary Jo K', description: desc + '...'}
   return getSeoMeta(...matches.map((match) => metaD));
 };
 
@@ -104,7 +104,7 @@ export async function loader({request, params, context}) {
   }
   let desc = collection.description.split(" ", 100).join(" ");
   let seo = {
-    title: `MARY JO K - ${collection.title}`,
+    title: `${collection.title}`,
     description: desc,
   }
   return json({collection, collections,  header: await headerPromise,handle,seo});
