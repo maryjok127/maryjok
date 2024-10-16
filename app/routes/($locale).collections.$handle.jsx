@@ -637,52 +637,43 @@ export default function Collection() {
                   </div>
                 </div>
                 :
+                //List View
                 <div className="lg:col-span-3">
                 <div className="w-full max-w-screen-xl">
-                  <table class="table-auto  w-full">
+                  <div className="w-full">
                     {productsToShow.map((product, index) => (
-                     <tbody>
-                      <tr className='cursor mst-card-md bg-white rounded-lg shadow-lg p-2 px-2 sm:px-2 mt-1'>
-                          <td onClick={()=>goToProduct(`/products/${product.handle}`)}> 
+                      <div key={`coll_p_${index}`} className='cursor flex items-center mst-card-md bg-white rounded-lg shadow-lg p-2 px-2 sm:px-2 mt-1'>
+                          <div className='w-1/3 sm:w-1/5' onClick={()=>goToProduct(`/products/${product.handle}`)}> 
                             <img
                               src={product.images.edges[0]?.node?.url}
                               alt={product.title}
-                              className="w-[200px] h-auto rounded"
+                              className="w-full h-auto rounded"
                             />
-                          </td>
-                          <td>
-                            <div className="sm:text-lg text-[17px] xs:text-[14px] font-semibold mt-2 text-center w-[220px] min-h-[50px] xs:min-h-[65px] sm:min-h-[55px]">
-                              {product.title}
-                            </div>
-                          </td>
-                          <td>
-                            <div className="text-center sm:text-[26px] text-[21px] xs:text-[19px] font-bold m-auto w-full">
-                              &#x20b9;{Math.trunc(product.priceRange.maxVariantPrice.amount)} &nbsp; 
-                            
-                              &nbsp;&nbsp;
-                              { product.variants.nodes[0].compareAtPrice?.amount ?
-                                <s className="opacity-50 text-xl">
-                                &#x20b9;{Math.trunc(product.variants.nodes[0].compareAtPrice?.amount)} 
-                                </s>
-                                :
-                                <s className="opacity-50 text-xl">
-                                &#x20b9;{Math.trunc(product.priceRange?.maxVariantPrice.amount)} 
-                                </s>
-                              }
-                              <b className='ml-2 text-red-500 text-sm xs:text-sm sm:text-xl'> ({ calculatePer(product.priceRange.minVariantPrice.amount,product.variants.nodes[0].compareAtPrice?.amount) } % Off) </b>
-                            </div>
-                          </td>
-                          <td>
-                            <div className='flex justify-center pt-1'>
+                          </div>  
+                          <div className='w-2/3 sm:w-full sm:flex'> 
+                          <div className="flex-initial w-full text-left sm:text-center sm:w-1/3 sm:text-lg text-[17px] xs:text-[14px] font-semibold mt-2 w-full sm:w-[220px] min-h-[50px] xs:min-h-[unset] sm:min-h-[55px]">
+                            {product.title}
+                          </div>
+                          <div className="flex-initial w-full sm:w-1/2 text-left sm:text-center sm:text-[26px] text-[21px] xs:text-[19px] font-bold m-0 sm:m-auto">
+                            {Math.trunc(product.priceRange.maxVariantPrice.amount)} &nbsp;&nbsp;
+                            { product.variants.nodes[0].compareAtPrice?.amount ?
+                              <s className="opacity-50 text-xl">
+                              &#x20b9;{Math.trunc(product.variants.nodes[0].compareAtPrice?.amount)} 
+                              </s>
+                              :
+                              <s className="opacity-50 text-xl">
+                              &#x20b9;{Math.trunc(product.priceRange?.maxVariantPrice.amount)} 
+                              </s>
+                            }
+                            <b className='ml-2 text-red-500 text-left text-sm xs:text-sm sm:text-xl'> ({ calculatePer(product.priceRange.minVariantPrice.amount,product.variants.nodes[0].compareAtPrice?.amount) } % Off) </b>
+                          </div>
+                          <div className='flex-initial w-full sm:w-1/5 justify-center pt-1'>
                             <OkendoStarRating
                               productId={product.id}
                               okendoStarRatingSnippet={product.OkendoStarRatingSnippet}
                             />
-                            </div>
-                          </td>
-                          <td>
-                          <div className="px-1 py-1 flex items-center sm:flex-row gap-3 justify-center w-[100%]">
-                      
+                          </div>
+                          <div className="w-full sm:w-1/2 px-1 py-1 flex items-center sm:flex-row gap-3 justify-center w-[100%]">
                             <div className='w-[25%] flex justify-center'>
                               <svg
                                 xmlns="http://www.w3.org/2000/svg"
@@ -704,7 +695,7 @@ export default function Collection() {
                                 ></path>
                               </svg>
                             </div>
-                         
+                          
                             <div className='w-[75%]'>
                             <CartForm
                               route="/cart"
@@ -728,12 +719,11 @@ export default function Collection() {
                               )}
                             </CartForm>
                             </div>
-                          </div>
-                          </td>
-                      </tr>
-                      </tbody>
+                        </div>
+                      </div>
+                      </div>
                     ))}
-                  </table>
+                  </div>
                 </div>
               </div>
               }
@@ -978,3 +968,102 @@ const HEADER_QUERY = `#graphql
   ${MENU_FRAGMENT}
 `;
 
+
+
+{/* <div className="w-full max-w-screen-xl">
+<table className="table-auto  w-full">
+<tbody>
+  {productsToShow.map((product, index) => (
+    <tr key={`coll_p_${index}`} className='cursor mst-card-md bg-white rounded-lg shadow-lg p-2 px-2 sm:px-2 mt-1'>
+        <td onClick={()=>goToProduct(`/products/${product.handle}`)}> 
+          <img
+            src={product.images.edges[0]?.node?.url}
+            alt={product.title}
+            className="w-[200px] h-auto rounded"
+          />
+        </td>
+        <td>
+          <div className="sm:text-lg text-[17px] xs:text-[14px] font-semibold mt-2 text-center w-[220px] min-h-[50px] xs:min-h-[65px] sm:min-h-[55px]">
+            {product.title}
+          </div>
+        </td>
+        <td>
+          <div className="text-center sm:text-[26px] text-[21px] xs:text-[19px] font-bold m-auto w-full">
+            &#x20b9;{Math.trunc(product.priceRange.maxVariantPrice.amount)} &nbsp; 
+          
+            &nbsp;&nbsp;
+            { product.variants.nodes[0].compareAtPrice?.amount ?
+              <s className="opacity-50 text-xl">
+              &#x20b9;{Math.trunc(product.variants.nodes[0].compareAtPrice?.amount)} 
+              </s>
+              :
+              <s className="opacity-50 text-xl">
+              &#x20b9;{Math.trunc(product.priceRange?.maxVariantPrice.amount)} 
+              </s>
+            }
+            <b className='ml-2 text-red-500 text-sm xs:text-sm sm:text-xl'> ({ calculatePer(product.priceRange.minVariantPrice.amount,product.variants.nodes[0].compareAtPrice?.amount) } % Off) </b>
+          </div>
+        </td>
+        <td>
+          <div className='flex justify-center pt-1'>
+          <OkendoStarRating
+            productId={product.id}
+            okendoStarRatingSnippet={product.OkendoStarRatingSnippet}
+          />
+          </div>
+        </td>
+        <td>
+        <div className="px-1 py-1 flex items-center sm:flex-row gap-3 justify-center w-[100%]">
+    
+          <div className='w-[25%] flex justify-center'>
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              viewBox="0 0 32 33"
+              xmlSpace="preserve"
+              // width="2.8em"
+              // height="2.8em"
+              className="home-like h-[30px] w-[30px] sm:w-[43px] sm:h-[43px]"
+            >
+              <path
+                d="M9 .5h14c4.7 0 8.5 3.8 8.5 8.5v14c0 4.7-3.8 8.5-8.5 8.5H9C4.3 31.5.5 27.7.5 23V9C.5 4.3 4.3.5 9 .5z"
+                fill="rgb(255, 255, 255)"
+                stroke="rgb(0, 0, 0)"
+              />
+              <path
+                d="M22.3 11.8c.4.4.7.9.9 1.4.2.5.3 1.1.3 1.6 0 .6-.1 1.1-.3 1.6-.2.5-.5 1-.9 1.4l-5.6 5.6s-.1 0-.1.1h-.2s-.1 0-.1-.1l-5.6-5.6C10 17 9.5 16 9.5 14.9c0-1.1.3-2.1 1-2.9.7-.8 1.7-1.3 2.7-1.5 1.1-.1 2.1.2 3 .8l.3.2.3-.2c.8-.6 1.8-.9 2.8-.8 1.1.1 2 .5 2.7 1.3z"
+                fill="none"
+                stroke="rgb(0, 0, 0)"
+              ></path>
+            </svg>
+          </div>
+       
+          <div className='w-[75%]'>
+          <CartForm
+            route="/cart"
+            inputs={{lines: [lines[index]] }}
+            action={CartForm.ACTIONS.LinesAdd}
+            className="flex-grow"
+          >
+            {(fetcher) => (
+              <>
+                <button
+                  className="w-[100%] h-11 bg-black hover:bg-blue-700 text-white font-bold py-1 rounded-lg inline-block home-product"
+                  type="submit"
+                  onClick={() => {
+                    window.location.href =
+                      window.location.href + '#cart-aside';
+                  }}
+                >
+                  Add To Cart
+                </button>
+              </>
+            )}
+          </CartForm>
+          </div>
+        </div>
+      </td>
+    </tr>
+  ))}
+  </tbody>
+</table>
+</div> */}
