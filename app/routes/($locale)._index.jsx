@@ -21,7 +21,7 @@ const TRACKING_ID = "G-T3JX7QEBFV";
 ReactGA.initialize(TRACKING_ID);
 
 export const meta = () => {
-  return [{title: 'MARY JO K | Home'}];
+  return [{title: 'Home - MARY JO K'}];
 };
 
 export async function loader({context}) {

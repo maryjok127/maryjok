@@ -25,8 +25,8 @@ import {
 import {getSeoMeta} from '@shopify/hydrogen';
 
 export const meta = ({data,location}) => {
-  let desc = data.seo.description.length ? data.seo.description.substring(0, 150) : "Desciption not available"
-  let metaD = {title:data.seo.title, description: desc + '...'}
+  let desc = data.seo.description.length ? data.seo.description.substring(0, 150) + '...' : "Desciption not available"
+  let metaD = {title:data.seo.title + ' - Mary Jo K', description: desc}
   return getSeoMeta(metaD).map((meta) => {
    
       return {

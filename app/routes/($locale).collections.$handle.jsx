@@ -30,8 +30,8 @@ import CollectionCarousel from "../components/CollectionCarousel"
 import {getSeoMeta} from '@shopify/hydrogen';
 
 export const meta = ({matches,data}) => {
-  let desc = data.seo.description.length ? data.seo.description.substring(0, 150) : "Desciption not available"
-  let metaD = {title:data.seo.title + '- Mary Jo K', description: desc + '...'}
+  let desc = data.seo.description.length ? data.seo.description.substring(0, 150) + '...' : "Desciption not available"
+  let metaD = {title:data.seo.title + ' - Mary Jo K', description: desc }
   return getSeoMeta(...matches.map((match) => metaD));
 };
 
