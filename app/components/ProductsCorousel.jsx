@@ -25,16 +25,18 @@ const ProductsCorousel = ({products}) => {
 
   products.edges.map((product) => {
     product.node.variants.edges.map((line) => {
-      if(line.node.availableForSale){
+     // if(line.node.availableForSale){
       lines.push([
         {
           merchandiseId: line.node.id,
           quantity: 1,
         },
       ]);
-      }
+      //}
     });
   });
+
+
 
   return (
     <div className="w-full max-w-screen-xl mx-auto lg:px-24 sm:px-4 md:px-6 py-6">

@@ -369,6 +369,11 @@ footer{
   display: flex;
   margin-top: 0.25rem;
 }
+.cart-details{
+  max-height: 320px;
+  overflow-y: scroll;
+  margin-bottom: 20px;
+}
 
 .cart-subtotal {
   align-items: center;

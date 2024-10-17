@@ -33,16 +33,21 @@ const ProductCarousel = ({products}) => {
 
   products.edges.map((product) => {
     product.node.variants.edges.map((line) => {
-      if(line.node.availableForSale){
+      //if(line.node.availableForSale){
       lines.push([
         {
           merchandiseId: line.node.id,
           quantity: 1,
         },
       ]);
-    }
+    //}
     });
   });
+
+  const getCurrentLine = (v_id)=>{
+    const line = [{merchandiseId : v_id,quantity:1}]
+    return line
+  }
 
   const goToProduct=(url_path)=>{
     window.location.href = url_path
@@ -183,7 +188,7 @@ const ProductCarousel = ({products}) => {
                   <div d-line={index} className="w-[75%]">
                     <CartForm
                       route="/cart"
-                      inputs={{lines: lines[index]}}
+                      inputs={{lines: getCurrentLine(product.node.variants.edges[0].node.id)}}
                       action={CartForm.ACTIONS.LinesAdd}
                       className="w-[83%] "
                     >
