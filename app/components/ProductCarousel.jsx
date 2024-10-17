@@ -10,7 +10,7 @@ import {
 
 import ReactGA from 'react-ga4';
 const TRACKING_ID = "G-T3JX7QEBFV"; 
-ReactGA.initialize(TRACKING_ID);
+//ReactGA.initialize(TRACKING_ID);
 
 //import products from './products';
 
@@ -68,12 +68,12 @@ const ProductCarousel = ({products}) => {
   }
 
   const cartAct = ()=>{
-    ReactGA.event({
-        hitType: "BuyNow",
-        category: 'Cart Action',
-        action: 'Click',
-        label: "platform",
-    });
+    // ReactGA.event({
+    //     hitType: "BuyNow",
+    //     category: 'Cart Action',
+    //     action: 'Click',
+    //     label: "platform",
+    // });
     window.location.href = window.location.href + '#cart-aside';
   }
 
