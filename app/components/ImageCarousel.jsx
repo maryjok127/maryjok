@@ -12,6 +12,14 @@ const ImageCarousel = () => {
   var imageSrc = []
   if(!isSmall){
     imageSrc = [{
+      img:'https://cdn.shopify.com/s/files/1/0809/4253/0882/files/Diwali_Sale_24_Desk2.jpg?v=1729530539',
+      url:"/collections/all-products",
+    },
+    {
+      img:'https://cdn.shopify.com/s/files/1/0809/4253/0882/files/Diwali_Sale_24_Desk.jpg?v=1729530538',
+      url:"/collections/all-products",
+    },
+    {
       img:'https://cdn.shopify.com/s/files/1/0809/4253/0882/files/desktop_banner_1.jpg?v=1715767477',
       url:"/collections/cult-accessories",
     },
@@ -29,6 +37,14 @@ const ImageCarousel = () => {
     }];
   }else{
     imageSrc = [{
+      img:'https://cdn.shopify.com/s/files/1/0809/4253/0882/files/Diwali_Sale_24_Mobile2.jpg?v=1729530536',
+      url:"/collections/all-products",
+    },
+    {
+      img:'https://cdn.shopify.com/s/files/1/0809/4253/0882/files/Diwali_Sale_24_Mobile1.jpg?v=1729530535',
+      url:"/collections/all-products",
+    },
+    {
       img:'https://cdn.shopify.com/s/files/1/0809/4253/0882/files/mobile_Hero_Banners_1.jpg?v=1715767503',
       url:"/collections/cult-accessories",
     },
